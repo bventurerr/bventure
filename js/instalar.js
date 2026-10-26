@@ -13,6 +13,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const telaIndisponivel =
         document.getElementById("instalacao-indisponivel");
 
+    const telaConcluida =
+        document.getElementById("instalacao-concluida");
+
     const botaoInstalar =
         document.getElementById("botao-instalar");
 
@@ -29,20 +32,68 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function esconderTelas() {
 
-        telaAndroid.hidden = true;
-        telaIOS.hidden = true;
-        telaIndisponivel.hidden = true;
+        if (telaAndroid) {
+            telaAndroid.hidden = true;
+        }
+
+        if (telaIOS) {
+            telaIOS.hidden = true;
+        }
+
+        if (telaIndisponivel) {
+            telaIndisponivel.hidden = true;
+        }
+
+        if (telaConcluida) {
+            telaConcluida.hidden = true;
+        }
 
     }
 
 
     // ==================================================
     // IR PARA O LOGIN
+    //
+    // Só pode acontecer quando o BVenture estiver
+    // realmente aberto como aplicativo instalado.
     // ==================================================
 
     function continuarBVenture() {
 
-        window.location.replace("./login.html");
+        if (window.bventureEstaInstalado()) {
+
+            window.location.replace(
+                "./login.html"
+            );
+
+        }
+
+    }
+
+
+    // ==================================================
+    // MOSTRAR INSTALAÇÃO CONCLUÍDA
+    // ==================================================
+
+    function mostrarInstalacaoConcluida() {
+
+        esconderTelas();
+
+        if (telaConcluida) {
+
+            telaConcluida.hidden = false;
+
+            return;
+
+        }
+
+        // Caso a seção ainda não exista no HTML,
+        // mantém a tela do Android em vez de abrir
+        // o jogo pelo navegador.
+
+        if (telaAndroid) {
+            telaAndroid.hidden = false;
+        }
 
     }
 
@@ -55,38 +106,61 @@ document.addEventListener("DOMContentLoaded", () => {
 
         esconderTelas();
 
+        // ------------------------------------------------
+        // Se foi aberto pelo ícone do PWA,
+        // entra normalmente no BVenture.
+        // ------------------------------------------------
+
+        if (window.bventureEstaInstalado()) {
+
+            continuarBVenture();
+
+            return;
+
+        }
+
+
         const tipo =
             window.obterTipoInstalacaoBVenture();
 
-        // Já está instalado
-        if (tipo === "instalado") {
 
-            continuarBVenture();
-            return;
-
-        }
-
-
+        // ------------------------------------------------
         // iPhone / iPad
+        // ------------------------------------------------
+
         if (tipo === "ios") {
 
-            telaIOS.hidden = false;
+            if (telaIOS) {
+                telaIOS.hidden = false;
+            }
+
             return;
 
         }
 
 
-        // Android com instalação disponível
+        // ------------------------------------------------
+        // Android
+        // ------------------------------------------------
+
         if (tipo === "android") {
 
-            telaAndroid.hidden = false;
+            if (telaAndroid) {
+                telaAndroid.hidden = false;
+            }
+
             return;
 
         }
 
 
-        // Outro navegador / computador
-        telaIndisponivel.hidden = false;
+        // ------------------------------------------------
+        // Computador / navegador sem instalação disponível
+        // ------------------------------------------------
+
+        if (telaIndisponivel) {
+            telaIndisponivel.hidden = false;
+        }
 
     }
 
@@ -95,35 +169,70 @@ document.addEventListener("DOMContentLoaded", () => {
     // BOTÃO — INSTALAR NO ANDROID
     // ==================================================
 
-    botaoInstalar.addEventListener("click", async () => {
+    if (botaoInstalar) {
 
-        const instalado =
-            await window.instalarBVenture();
+        botaoInstalar.addEventListener(
+            "click",
+            async () => {
 
-        if (instalado) {
+                const instalado =
+                    await window.instalarBVenture();
 
-            esconderTelas();
+                // IMPORTANTE:
+                // Mesmo depois da instalação,
+                // NÃO abre o login nesta aba do navegador.
 
-            telaConcluida.hidden = false;
+                if (instalado) {
 
-        }
+                    mostrarInstalacaoConcluida();
 
-    });
+                }
+
+            }
+        );
+
+    }
 
 
     // ==================================================
-    // BOTÕES — CONTINUAR
+    // BOTÃO — ENTENDI (iPHONE / iPAD)
     // ==================================================
 
-    botaoContinuarIOS.addEventListener(
-        "click",
-        continuarBVenture
-    );
+    if (botaoContinuarIOS) {
 
-    botaoContinuar.addEventListener(
-        "click",
-        continuarBVenture
-    );
+        botaoContinuarIOS.addEventListener(
+            "click",
+            () => {
+
+                // Não entra no jogo pelo Safari.
+                // O usuário deve abrir o BVenture
+                // pela Tela de Início.
+
+                verificarInstalacao();
+
+            }
+        );
+
+    }
+
+
+    // ==================================================
+    // BOTÃO — NAVEGADOR NÃO COMPATÍVEL
+    // ==================================================
+
+    if (botaoContinuar) {
+
+        botaoContinuar.addEventListener(
+            "click",
+            () => {
+
+                // Não libera o jogo pelo navegador.
+                verificarInstalacao();
+
+            }
+        );
+
+    }
 
 
     // ==================================================
@@ -136,7 +245,10 @@ document.addEventListener("DOMContentLoaded", () => {
     );
 
 
-    // Primeira verificação
+    // ==================================================
+    // PRIMEIRA VERIFICAÇÃO
+    // ==================================================
+
     verificarInstalacao();
 
 });
