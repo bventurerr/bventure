@@ -1,0 +1,968 @@
+/* =========================================================
+   BVENTURE
+   MISSÕES
+========================================================= */
+
+
+/* =========================================================
+   FUNDO DA TELA DE MISSÕES
+========================================================= */
+
+body:has(#telaMissoes.tela-ativa) {
+
+    background-color: var(--azul-quase-preto);
+
+    background-image:
+        linear-gradient(
+            rgba(3, 25, 35, 0.85),
+            rgba(3, 25, 35, 0.85)
+        ),
+        url("../imagens-webp/fundoprincipal.webp");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+
+.app:has(#telaMissoes.tela-ativa),
+.app-conteudo:has(#telaMissoes.tela-ativa) {
+    background: transparent;
+}
+
+
+#telaMissoes {
+    width: 100%;
+    min-height: 100vh;
+
+    background: transparent;
+
+    overflow: visible;
+}
+
+/* =========================================================
+   CONTEÚDO PRINCIPAL
+========================================================= */
+
+.missoes {
+    width: 100%;
+    max-width: 1180px;
+
+    margin: 0 auto;
+}
+
+
+/* =========================================================
+   CABEÇALHO
+========================================================= */
+
+.missoes-topo {
+    margin-bottom: 30px;
+}
+
+
+.missoes-etiqueta {
+    display: block;
+
+    margin-bottom: 4px;
+
+    font-family: "Nunito", sans-serif;
+
+    font-size: 0.78rem;
+    font-weight: 900;
+
+    letter-spacing: 0.08em;
+
+    color: var(--verde-limao);
+}
+
+
+.missoes-topo h1 {
+    margin: 0;
+
+    font-family: "Baloo 2", sans-serif;
+
+    font-size: clamp(2.8rem, 10vw, 4.5rem);
+    font-weight: 800;
+
+    line-height: 0.95;
+
+    color: #ffffff;
+
+    text-shadow:
+        0 4px 0 rgba(3, 25, 35, 0.35);
+}
+
+
+.missoes-topo p {
+    max-width: 720px;
+
+    margin: 15px 0 0;
+
+    font-family: "Nunito", sans-serif;
+
+    font-size: 1rem;
+    font-weight: 700;
+
+    line-height: 1.5;
+
+    color: var(--branco-azulado);
+}
+
+
+/* =========================================================
+   CARD PRINCIPAL — BOA VISTA
+========================================================= */
+
+.missao-destaque {
+    position: relative;
+
+    width: 100%;
+    min-height: 390px;
+
+    display: flex;
+    align-items: flex-end;
+
+    padding: 0;
+
+    overflow: hidden;
+
+    border: 2px solid var(--verde-limao);
+
+    border-radius: 28px;
+
+    background: var(--azul-quase-preto);
+
+    box-shadow:
+        0 7px 0 rgba(111, 220, 67, 0.35),
+        0 13px 0 rgba(3, 25, 35, 0.62),
+        0 22px 38px rgba(0, 0, 0, 0.30);
+
+    isolation: isolate;
+}
+
+
+/* =========================================================
+   FOTO DE BOA VISTA
+
+   A imagem ocupa TODO o card.
+========================================================= */
+
+.missao-destaque-fundo {
+    position: absolute;
+
+    inset: 0;
+
+    z-index: -3;
+
+    background-image:
+        url("../imagens-webp/boavista.webp");
+
+    background-position: center;
+
+    background-repeat: no-repeat;
+
+    background-size: cover;
+
+    transform: scale(1.01);
+
+    transition:
+        transform
+        0.7s
+        cubic-bezier(.22, 1, .36, 1);
+}
+
+
+/* =========================================================
+   ESCURECIMENTO SOBRE A FOTO
+
+   Parte superior mais visível.
+   Parte inferior mais escura para facilitar a leitura.
+========================================================= */
+
+.missao-destaque-overlay {
+    position: absolute;
+
+    inset: 0;
+
+    z-index: -2;
+
+    pointer-events: none;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(3, 25, 35, 0.04) 0%,
+            rgba(3, 25, 35, 0.10) 28%,
+            rgba(3, 25, 35, 0.35) 52%,
+            rgba(3, 25, 35, 0.82) 72%,
+            rgba(3, 25, 35, 0.96) 100%
+        );
+}
+
+
+/* =========================================================
+   CONTEÚDO SOBRE A FOTO
+========================================================= */
+
+.missao-destaque-conteudo-simples {
+    position: relative;
+
+    z-index: 2;
+
+    width: 100%;
+
+    margin-top: 150px;
+
+    padding: 25px;
+}
+
+
+/* =========================================================
+   NOME DA CIDADE
+========================================================= */
+
+.missao-nome {
+    margin-bottom: 23px;
+}
+
+
+.missao-nome span {
+    display: block;
+
+    margin-bottom: 1px;
+
+    font-family: "Nunito", sans-serif;
+
+    font-size: 0.7rem;
+    font-weight: 900;
+
+    letter-spacing: 0.08em;
+
+    color: var(--verde-limao);
+
+    text-shadow:
+        0 2px 5px rgba(0, 0, 0, 0.45);
+}
+
+
+.missao-nome h2 {
+    margin: 0;
+
+    font-family: "Baloo 2", sans-serif;
+
+    font-size: clamp(2.3rem, 9vw, 3.5rem);
+    font-weight: 800;
+
+    line-height: 1;
+
+    color: #ffffff;
+
+    text-shadow:
+        0 3px 8px rgba(0, 0, 0, 0.55);
+}
+
+
+/* =========================================================
+   PROGRESSO DA EXPLORAÇÃO
+========================================================= */
+
+.missao-progresso {
+    width: 100%;
+
+    margin-bottom: 22px;
+}
+
+
+.missao-progresso-topo {
+    width: 100%;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 15px;
+
+    margin-bottom: 9px;
+
+    font-family: "Nunito", sans-serif;
+}
+
+
+.missao-progresso-topo span {
+    font-size: 0.88rem;
+    font-weight: 800;
+
+    color: #ffffff;
+
+    text-shadow:
+        0 2px 4px rgba(0, 0, 0, 0.40);
+}
+
+
+.missao-progresso-topo strong {
+    flex-shrink: 0;
+
+    font-family: "Oxanium", sans-serif;
+
+    font-size: 1rem;
+    font-weight: 800;
+
+    color: var(--verde-limao);
+
+    text-shadow:
+        0 2px 5px rgba(0, 0, 0, 0.45);
+}
+
+
+/* =========================================================
+   BARRA DE PROGRESSO
+========================================================= */
+
+.missao-barra {
+    width: 100%;
+    height: 11px;
+
+    overflow: hidden;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.16);
+
+    border-radius: 999px;
+
+    background:
+        rgba(3, 25, 35, 0.88);
+
+    box-shadow:
+        inset 0 2px 5px rgba(0, 0, 0, 0.35);
+}
+
+
+.missao-barra-preenchimento {
+    width: 0%;
+    height: 100%;
+
+    border-radius: inherit;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--verde-limao),
+            var(--verde)
+        );
+
+    box-shadow:
+        0 0 12px rgba(186, 255, 69, 0.40);
+
+    transition:
+        width
+        0.7s
+        cubic-bezier(.22, 1, .36, 1);
+}
+
+
+/* =========================================================
+   BOTÃO EXPLORAR BOA VISTA
+========================================================= */
+
+.botao-explorar {
+    width: 100%;
+    min-height: 62px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 13px;
+
+    padding: 14px 20px;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.50);
+
+    border-radius: 19px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--verde-limao),
+            #7bec3e
+        );
+
+    color: var(--azul-quase-preto);
+
+    font-family: "Nunito", sans-serif;
+
+    font-size: 1.02rem;
+    font-weight: 900;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 7px 0 rgba(111, 220, 67, 0.42),
+        0 12px 20px rgba(0, 0, 0, 0.20);
+
+    -webkit-tap-highlight-color: transparent;
+
+    transition:
+        transform 0.22s ease,
+        box-shadow 0.22s ease,
+        filter 0.22s ease;
+}
+
+
+.botao-explorar span {
+    pointer-events: none;
+}
+
+
+.botao-explorar svg {
+    width: 22px;
+    height: 22px;
+
+    flex-shrink: 0;
+
+    pointer-events: none;
+
+    transition:
+        transform
+        0.22s
+        cubic-bezier(.22, 1, .36, 1);
+}
+
+
+.botao-explorar:active {
+    transform: translateY(4px);
+
+    box-shadow:
+        0 3px 0 rgba(111, 220, 67, 0.42),
+        0 6px 12px rgba(0, 0, 0, 0.18);
+}
+
+
+.botao-explorar:focus-visible {
+    outline:
+        3px solid #ffffff;
+
+    outline-offset: 3px;
+}
+
+
+@media (hover: hover) {
+
+    .missao-destaque:hover
+    .missao-destaque-fundo {
+        transform: scale(1.035);
+    }
+
+
+    .botao-explorar:hover {
+        filter: brightness(1.06);
+
+        transform: translateY(-2px);
+    }
+
+
+    .botao-explorar:hover svg {
+        transform: translateX(4px);
+    }
+
+}
+
+
+/* =========================================================
+   PRÓXIMOS DESTINOS
+========================================================= */
+
+.missoes-secao-titulo {
+    width: 100%;
+
+    display: flex;
+
+    align-items: flex-end;
+    justify-content: space-between;
+
+    gap: 18px;
+
+    margin:
+        50px
+        0
+        18px;
+}
+
+
+.missoes-secao-titulo > div {
+    min-width: 0;
+}
+
+
+.missoes-secao-titulo > div > span {
+    display: block;
+
+    margin-bottom: 3px;
+
+    font-family: "Nunito", sans-serif;
+
+    font-size: 0.72rem;
+    font-weight: 900;
+
+    letter-spacing: 0.06em;
+
+    color: var(--verde-limao);
+}
+
+
+.missoes-secao-titulo h2 {
+    margin: 0;
+
+    font-family: "Baloo 2", sans-serif;
+
+    font-size: clamp(1.7rem, 7vw, 2.4rem);
+    font-weight: 800;
+
+    line-height: 1;
+
+    color: #ffffff;
+
+    text-shadow:
+        0 3px 5px rgba(3, 25, 35, 0.35);
+}
+
+
+/* =========================================================
+   CONTADOR — 14 MUNICÍPIOS
+========================================================= */
+
+.missoes-secao-titulo > strong {
+    min-width: 42px;
+    height: 42px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 0 10px;
+
+    border:
+        1px solid
+        rgba(186, 255, 69, 0.42);
+
+    border-radius: 14px;
+
+    background:
+        rgba(3, 45, 56, 0.88);
+
+    font-family: "Oxanium", sans-serif;
+
+    font-size: 0.95rem;
+    font-weight: 800;
+
+    color: var(--verde-limao);
+
+    box-shadow:
+        0 4px 0 rgba(3, 25, 35, 0.40);
+}
+
+
+/* =========================================================
+   GRID DOS MUNICÍPIOS
+========================================================= */
+
+.municipios-grid {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 12px;
+}
+
+
+/* =========================================================
+   CARD DE MUNICÍPIO
+========================================================= */
+
+.municipio-card {
+    position: relative;
+
+    min-width: 0;
+    min-height: 88px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 14px;
+
+    overflow: hidden;
+
+    border:
+        1px solid
+        rgba(199, 221, 221, 0.14);
+
+    border-radius: 18px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(6, 44, 61, 0.96),
+            rgba(3, 35, 47, 0.98)
+        );
+
+    box-shadow:
+        0 5px 0 rgba(3, 25, 35, 0.40),
+        0 9px 18px rgba(0, 0, 0, 0.15);
+
+    transition:
+        transform 0.22s ease,
+        border-color 0.22s ease;
+}
+
+
+/* =========================================================
+   MUNICÍPIO BLOQUEADO
+========================================================= */
+
+.municipio-card.bloqueado {
+    opacity: 0.82;
+}
+
+
+/* =========================================================
+   CADEADO
+========================================================= */
+
+.municipio-cadeado {
+    width: 40px;
+    height: 40px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border:
+        1px solid
+        rgba(199, 221, 221, 0.18);
+
+    border-radius: 13px;
+
+    background:
+        rgba(3, 25, 35, 0.52);
+
+    font-size: 1rem;
+
+    filter: grayscale(1);
+
+    opacity: 0.72;
+}
+
+
+/* =========================================================
+   TEXTO DOS MUNICÍPIOS
+========================================================= */
+
+.municipio-card > div:last-child {
+    min-width: 0;
+}
+
+
+.municipio-card h3 {
+    margin: 0;
+
+    overflow: hidden;
+
+    font-family: "Baloo 2", sans-serif;
+
+    font-size: 1rem;
+    font-weight: 800;
+
+    line-height: 1.08;
+
+    color: var(--branco-azulado);
+
+    text-overflow: ellipsis;
+}
+
+
+.municipio-card > div:last-child > span {
+    display: block;
+
+    margin-top: 4px;
+
+    font-family: "Nunito", sans-serif;
+
+    font-size: 0.65rem;
+    font-weight: 800;
+
+    color:
+        rgba(199, 221, 221, 0.48);
+}
+
+
+/* =========================================================
+   CELULARES PEQUENOS
+========================================================= */
+
+@media (max-width: 360px) {
+
+    .missoes-topo {
+        margin-bottom: 24px;
+    }
+
+
+    .missoes-topo h1 {
+        font-size: 2.6rem;
+    }
+
+
+    .missoes-topo p {
+        margin-top: 12px;
+
+        font-size: 0.88rem;
+    }
+
+
+    /* Boa Vista */
+
+    .missao-destaque {
+        min-height: 350px;
+
+        border-radius: 23px;
+    }
+
+
+    .missao-destaque-conteudo-simples {
+        margin-top: 130px;
+
+        padding: 18px;
+    }
+
+
+    .missao-nome {
+        margin-bottom: 19px;
+    }
+
+
+    .missao-nome h2 {
+        font-size: 2.15rem;
+    }
+
+
+    .missao-progresso {
+        margin-bottom: 18px;
+    }
+
+
+    .missao-progresso-topo span {
+        font-size: 0.78rem;
+    }
+
+
+    .missao-progresso-topo strong {
+        font-size: 0.88rem;
+    }
+
+
+    .botao-explorar {
+        min-height: 56px;
+
+        border-radius: 17px;
+
+        font-size: 0.9rem;
+    }
+
+
+    /* título */
+
+    .missoes-secao-titulo {
+        margin-top: 43px;
+    }
+
+
+    /* municípios */
+
+    .municipios-grid {
+        gap: 9px;
+    }
+
+
+    .municipio-card {
+        min-height: 80px;
+
+        gap: 8px;
+
+        padding: 10px;
+    }
+
+
+    .municipio-cadeado {
+        width: 34px;
+        height: 34px;
+
+        border-radius: 11px;
+
+        font-size: 0.85rem;
+    }
+
+
+    .municipio-card h3 {
+        font-size: 0.87rem;
+    }
+
+
+    .municipio-card > div:last-child > span {
+        font-size: 0.58rem;
+    }
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (min-width: 768px) {
+
+    .missoes-topo {
+        margin-bottom: 38px;
+    }
+
+
+    .missoes-topo p {
+        font-size: 1.08rem;
+    }
+
+
+    /* Boa Vista */
+
+    .missao-destaque {
+        min-height: 480px;
+    }
+
+
+    .missao-destaque-conteudo-simples {
+        margin-top: 220px;
+
+        padding: 34px;
+    }
+
+
+    .missao-nome {
+        margin-bottom: 28px;
+    }
+
+
+    .missao-nome h2 {
+        font-size: 3.4rem;
+    }
+
+
+    .missao-progresso {
+        margin-bottom: 26px;
+    }
+
+
+    .missao-progresso-topo span {
+        font-size: 0.98rem;
+    }
+
+
+    .missao-progresso-topo strong {
+        font-size: 1.05rem;
+    }
+
+
+    .botao-explorar {
+        min-height: 66px;
+
+        font-size: 1.08rem;
+    }
+
+
+    /* municípios */
+
+    .municipios-grid {
+        grid-template-columns:
+            repeat(3, minmax(0, 1fr));
+
+        gap: 16px;
+    }
+
+
+    .municipio-card {
+        min-height: 100px;
+
+        padding: 17px;
+    }
+
+
+    .municipio-cadeado {
+        width: 45px;
+        height: 45px;
+    }
+
+
+    .municipio-card h3 {
+        font-size: 1.08rem;
+    }
+
+}
+
+
+/* =========================================================
+   DESKTOP
+========================================================= */
+
+@media (min-width: 1100px) {
+
+    .missao-destaque {
+        min-height: 520px;
+    }
+
+
+    .missao-destaque-conteudo-simples {
+        margin-top: 260px;
+
+        padding: 38px;
+    }
+
+
+    .municipios-grid {
+        grid-template-columns:
+            repeat(4, minmax(0, 1fr));
+    }
+
+}
+
+
+/* =========================================================
+   ACESSIBILIDADE
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .missao-destaque-fundo,
+    .missao-barra-preenchimento,
+    .botao-explorar,
+    .botao-explorar svg,
+    .municipio-card {
+        transition-duration: 0.01ms !important;
+    }
+
+}
+

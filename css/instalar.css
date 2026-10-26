@@ -1,0 +1,195 @@
+/* ======================================================
+   BVenture — Tela de instalação
+====================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Nunito:wght@400;500;600;700;800&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    min-height: 100vh;
+    min-height: 100dvh;
+
+    font-family: "Nunito", sans-serif;
+
+    background:
+        radial-gradient(
+            circle at 50% 20%,
+            #074B5B 0%,
+            #062C3D 35%,
+            #031923 75%
+        );
+
+    color: #FFFFFF;
+}
+
+
+/* ======================================================
+   CONTAINER
+====================================================== */
+
+#tela-instalacao {
+    width: 100%;
+    min-height: 100vh;
+    min-height: 100dvh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 32px 24px;
+}
+
+
+/* ======================================================
+   TELAS
+====================================================== */
+
+#instalacao-android,
+#instalacao-ios,
+#instalacao-indisponivel {
+    width: 100%;
+    max-width: 430px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    text-align: center;
+}
+
+
+/* Mantém elementos com hidden realmente escondidos */
+
+[hidden] {
+    display: none !important;
+}
+
+
+/* ======================================================
+   LOGO
+====================================================== */
+
+#tela-instalacao section > img {
+    width: 190px;
+    height: 190px;
+
+    object-fit: contain;
+
+    margin-bottom: 30px;
+
+    border-radius: 32px;
+
+    filter: drop-shadow(
+        0 12px 30px rgba(0, 0, 0, 0.22)
+    );
+}
+
+
+/* ======================================================
+   TÍTULOS
+====================================================== */
+
+#tela-instalacao h1 {
+    max-width: 390px;
+
+    margin-bottom: 14px;
+
+    font-family: "Baloo 2", sans-serif;
+    font-size: clamp(2rem, 7vw, 2.6rem);
+    line-height: 1.05;
+    font-weight: 800;
+
+    color: #FFFFFF;
+}
+
+
+/* BVenture da tela de computador */
+
+#instalacao-indisponivel h1 {
+    color: #BAFF45;
+}
+
+
+/* ======================================================
+   TEXTOS
+====================================================== */
+
+#tela-instalacao p {
+    max-width: 370px;
+
+    margin-bottom: 30px;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 1rem;
+    line-height: 1.55;
+    font-weight: 600;
+
+    color: #C7DDDD;
+}
+
+
+/* ======================================================
+   BOTÕES
+====================================================== */
+
+#tela-instalacao button {
+    width: 100%;
+    max-width: 340px;
+
+    min-height: 56px;
+
+    border: none;
+    border-radius: 18px;
+
+    padding: 14px 24px;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 1rem;
+    font-weight: 800;
+
+    color: #031923;
+    background: #BAFF45;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 24px rgba(0, 0, 0, 0.20);
+
+    transition:
+        transform 0.18s ease,
+        opacity 0.18s ease;
+}
+
+#tela-instalacao button:hover {
+    transform: translateY(-2px);
+}
+
+#tela-instalacao button:active {
+    transform: scale(0.98);
+}
+
+
+/* ======================================================
+   TELAS MAIORES
+====================================================== */
+
+@media (min-width: 768px) {
+
+    #tela-instalacao section > img {
+        width: 220px;
+        height: 220px;
+    }
+
+}

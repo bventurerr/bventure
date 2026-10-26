@@ -1,0 +1,767 @@
+/* =========================================================
+   BVENTURE
+   APP.CSS
+
+   Estrutura geral do aplicativo
+   Fundo completamente parado
+   Rolagem somente do conteúdo
+   Navegação inferior
+   Transição suave somente no conteúdo
+========================================================= */
+
+
+/* =========================================================
+   HTML + BODY
+
+   A página NÃO rola.
+
+   Isso é importante:
+   quem vai rolar será apenas .app-conteudo.
+========================================================= */
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+
+    margin: 0;
+
+    overflow: hidden;
+
+    background:
+        var(--azul-quase-preto);
+}
+
+
+/* =========================================================
+   APLICATIVO
+
+   A imagem fica aqui.
+
+   Como .app não rola, a imagem também não rola.
+
+   NÃO usamos:
+   - background-attachment: fixed;
+   - body::before com position: fixed;
+========================================================= */
+
+.app {
+    position: relative;
+
+    width: 100%;
+    height: 100vh;
+    height: 100dvh;
+
+    overflow: hidden;
+
+    background:
+        var(--azul-quase-preto);
+}
+
+
+/* =========================================================
+   CONTEÚDO PRINCIPAL
+
+   ESTA É A ÚNICA ÁREA DO APP QUE PODE ROLAR.
+
+   A imagem continua parada atrás.
+========================================================= */
+
+.app-conteudo {
+    position: relative;
+
+    width: 100%;
+    height: 100%;
+
+    box-sizing: border-box;
+
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    /*
+       Rolagem natural em celulares.
+    */
+    -webkit-overflow-scrolling: touch;
+
+    /*
+       Evita que o scroll "puxe" a página inteira.
+    */
+    overscroll-behavior-y: contain;
+
+    /*
+       Espaço para a navegação inferior.
+    */
+    padding-bottom: 115px;
+
+    background: transparent;
+
+    /*
+       Mantém a área de scroll isolada.
+    */
+    
+}
+
+
+/* =========================================================
+   TELAS
+
+   As telas são transparentes.
+
+   Nenhuma imagem de fundo pertence às telas.
+========================================================= */
+
+.tela {
+    display: none;
+
+    position: relative;
+
+    width: 100%;
+
+    min-height:
+        calc(100dvh - 115px);
+
+    padding:
+        25px
+        20px
+        30px;
+
+    box-sizing: border-box;
+
+    background: transparent !important;
+}
+
+
+/* =========================================================
+   TELA ATIVA
+========================================================= */
+
+.tela.tela-ativa {
+    display: block;
+}
+
+
+
+
+/* =========================================================
+   CONTEÚDO PADRÃO DAS TELAS
+========================================================= */
+
+.tela-conteudo {
+    width: 100%;
+    max-width: 1180px;
+
+    margin: 0 auto;
+}
+
+
+/* =========================================================
+   TÍTULO PADRÃO
+========================================================= */
+
+.titulo {
+    margin: 0;
+
+    font-family:
+        "Baloo 2",
+        sans-serif;
+
+    font-size:
+        clamp(
+            2rem,
+            7vw,
+            3rem
+        );
+
+    font-weight: 800;
+
+    line-height: 1;
+
+    color: #ffffff;
+}
+
+
+/* =========================================================
+   NAVEGAÇÃO INFERIOR
+
+   Continua fixa porque está fora da área que rola.
+========================================================= */
+
+.navegacao {
+    position: fixed;
+
+    left: 50%;
+    bottom: 24px;
+
+    transform:
+        translateX(-50%);
+
+    z-index: 1000;
+
+    width:
+        calc(100% - 28px);
+
+    max-width: 500px;
+
+    height: 70px;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            5,
+            minmax(0, 1fr)
+        );
+
+    align-items: center;
+
+    padding:
+        7px
+        8px;
+
+    border:
+    1px solid
+    rgba(0, 191, 216, 0.70);
+
+    border-radius: 24px;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(6, 44, 61, 0.96),
+            rgba(3, 25, 35, 0.98)
+        );
+
+    box-shadow:
+        0 10px 30px
+        rgba(0, 0, 0, 0.32),
+
+        0 4px 0
+        rgba(0, 0, 0, 0.20),
+
+        inset 0 1px 0
+        rgba(255, 255, 255, 0.05);
+
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+}
+
+
+/* =========================================================
+   BOTÕES DA NAVEGAÇÃO
+========================================================= */
+
+.nav-item {
+    position: relative;
+
+    min-width: 0;
+    height: 100%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 3px;
+
+    padding:
+        4px
+        2px;
+
+    border: 0;
+
+    border-radius: 16px;
+
+    background: transparent;
+
+    color:
+        rgba(199, 221, 221, 0.58);
+
+    cursor: pointer;
+
+    font-family:
+        "Nunito",
+        sans-serif;
+
+    -webkit-tap-highlight-color:
+        transparent;
+
+    transition:
+        color
+        0.25s
+        ease,
+
+        transform
+        0.25s
+        cubic-bezier(.22, 1, .36, 1),
+
+        opacity
+        0.25s
+        ease;
+}
+
+
+/* =========================================================
+   ÍCONES
+========================================================= */
+
+.nav-item svg {
+    width: 23px;
+    height: 23px;
+
+    flex-shrink: 0;
+
+    transition:
+        transform
+        0.28s
+        cubic-bezier(.22, 1, .36, 1),
+
+        filter
+        0.28s
+        ease;
+}
+
+
+/* =========================================================
+   TEXTO DA NAVEGAÇÃO
+========================================================= */
+
+.nav-item > span {
+    width: 100%;
+
+    overflow: hidden;
+
+    text-overflow:
+        ellipsis;
+
+    white-space:
+        nowrap;
+
+    text-align: center;
+
+    font-size:
+        0.66rem;
+
+    font-weight: 700;
+
+    line-height: 1.1;
+
+    transition:
+        color
+        0.25s
+        ease,
+
+        transform
+        0.25s
+        ease;
+}
+
+
+/* =========================================================
+   ITEM ATIVO
+========================================================= */
+
+.nav-item.ativo {
+    color:
+        var(--verde-limao);
+}
+
+
+/* =========================================================
+   ÍCONE ATIVO
+========================================================= */
+
+.nav-item.ativo svg {
+    transform:
+        translateY(-1px)
+        scale(1.08);
+
+    filter:
+        drop-shadow(
+            0 0 7px
+            rgba(186, 255, 69, 0.30)
+        );
+}
+
+
+/* =========================================================
+   TEXTO ATIVO
+========================================================= */
+
+.nav-item.ativo > span {
+    color:
+        var(--verde-limao);
+
+    transform:
+        translateY(1px);
+}
+
+
+/* =========================================================
+   HOVER
+========================================================= */
+
+@media (hover: hover) {
+
+    .nav-item:hover {
+        color:
+            rgba(255, 255, 255, 0.86);
+
+        transform:
+            translateY(-1px);
+    }
+
+
+    .nav-item.ativo:hover {
+        color:
+            var(--verde-limao);
+    }
+
+}
+
+
+/* =========================================================
+   CLIQUE
+========================================================= */
+
+.nav-item:active {
+    transform:
+        scale(.94);
+}
+
+
+/* =========================================================
+   FOCO
+========================================================= */
+
+.nav-item:focus-visible {
+    outline:
+        2px solid
+        var(--verde-limao);
+
+    outline-offset:
+        2px;
+}
+
+
+/* =========================================================
+   INDICADOR ANTIGO
+========================================================= */
+
+.nav-indicador {
+    display: none;
+}
+
+
+/* =========================================================
+   CELULARES PEQUENOS
+========================================================= */
+
+@media (max-width: 360px) {
+
+    .app-conteudo {
+        padding-bottom:
+            105px;
+    }
+
+
+    .tela {
+        min-height:
+            calc(100dvh - 105px);
+
+        padding:
+            20px
+            14px
+            25px;
+    }
+
+
+    .navegacao {
+        width:
+            calc(
+                100% - 18px
+            );
+
+        height: 65px;
+
+        bottom: 14px;
+
+        padding:
+            6px
+            4px;
+
+        border-radius:
+            21px;
+    }
+
+
+    .nav-item {
+        gap: 2px;
+    }
+
+
+    .nav-item svg {
+        width: 21px;
+        height: 21px;
+    }
+
+
+    .nav-item > span {
+        font-size:
+            0.58rem;
+    }
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (min-width: 768px) {
+
+    .app-conteudo {
+        padding-bottom:
+            125px;
+    }
+
+
+    .tela {
+        min-height:
+            calc(100dvh - 125px);
+
+        padding:
+            35px
+            32px
+            45px;
+    }
+
+
+    .navegacao {
+        max-width:
+            560px;
+
+        height: 76px;
+
+        bottom: 26px;
+
+        padding:
+            8px
+            12px;
+
+        border-radius:
+            26px;
+    }
+
+
+    .nav-item {
+        gap: 4px;
+    }
+
+
+    .nav-item svg {
+        width: 25px;
+        height: 25px;
+    }
+
+
+    .nav-item > span {
+        font-size:
+            0.72rem;
+    }
+
+}
+
+
+/* =========================================================
+   DESKTOP MAIOR
+========================================================= */
+
+@media (min-width: 1100px) {
+
+    .tela {
+        padding-left:
+            40px;
+
+        padding-right:
+            40px;
+    }
+
+}
+
+
+/* =========================================================
+   SAFE AREA — CELULARES
+
+   Ajuste para aparelhos com área inferior reservada.
+========================================================= */
+
+@supports (
+    padding-bottom:
+    env(safe-area-inset-bottom)
+) {
+
+    .app-conteudo {
+        padding-bottom:
+            calc(
+                115px +
+                env(safe-area-inset-bottom)
+            );
+    }
+
+
+    .navegacao {
+        bottom:
+            calc(
+                18px +
+                env(safe-area-inset-bottom)
+            );
+    }
+
+
+    @media (max-width: 360px) {
+
+        .app-conteudo {
+            padding-bottom:
+                calc(
+                    105px +
+                    env(safe-area-inset-bottom)
+                );
+        }
+
+    }
+
+
+    @media (min-width: 768px) {
+
+        .app-conteudo {
+            padding-bottom:
+                calc(
+                    125px +
+                    env(safe-area-inset-bottom)
+                );
+        }
+
+    }
+
+}
+
+
+
+
+
+/* =========================================================
+   TRANSIÇÃO ENTRE ABAS — BVenture
+   OTIMIZADA
+========================================================= */
+
+.tela.tela-ativa {
+    display: block;
+}
+
+
+/* Estado inicial */
+
+.tela.teste-entrada {
+    opacity: 0;
+
+    transform:
+        translate3d(
+            0,
+            18px,
+            0
+        );
+
+    transition: none;
+
+    will-change:
+        transform,
+        opacity;
+
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+
+/* Entrada */
+
+.tela.teste-entrada.entrar-agora {
+    opacity: 1;
+
+    transform:
+        translate3d(
+            0,
+            0,
+            0
+        );
+
+    transition:
+        transform 300ms cubic-bezier(.22, 1, .36, 1),
+        opacity 220ms ease;
+}
+
+
+/* Tablet e desktop */
+
+@media (min-width: 768px) {
+
+    .tela.teste-entrada {
+        transform:
+            translate3d(
+                0,
+                28px,
+                0
+            );
+    }
+
+    .tela.teste-entrada.entrar-agora {
+        transform:
+            translate3d(
+                0,
+                0,
+                0
+            );
+
+        transition:
+            transform 380ms cubic-bezier(.22, 1, .36, 1),
+            opacity 280ms ease;
+    }
+
+}
+/* =========================================================
+   TRANSIÇÕES MAIS LEVES — CELULAR
+========================================================= */
+
+@media (max-width: 767px) {
+
+    .tela.teste-entrada {
+        opacity: 0 !important;
+
+        transform:
+            translate3d(
+                0,
+                22px,
+                0
+            ) !important;
+
+        transition: none !important;
+    }
+
+
+    .tela.teste-entrada.entrar-agora {
+        opacity: 1 !important;
+
+        transform:
+            translate3d(
+                0,
+                0,
+                0
+            ) !important;
+
+        transition:
+            transform 380ms cubic-bezier(.22, 1, .36, 1),
+            opacity 280ms ease !important;
+    }
+
+}

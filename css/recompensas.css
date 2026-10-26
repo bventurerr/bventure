@@ -1,0 +1,736 @@
+/* =========================================================
+   BVENTURE
+   RECOMPENSAS
+========================================================= */
+
+
+/* =========================================================
+   FUNDO DA TELA DE RECOMPENSAS
+========================================================= */
+
+body:has(.tela-recompensas.tela-ativa) {
+
+    background-color: var(--azul-quase-preto);
+
+    background-image:
+        linear-gradient(
+            rgba(3, 25, 35, 0.85),
+            rgba(3, 25, 35, 0.85)
+        ),
+        url("../imagens-webp/fundoprincipal.webp");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+
+.app:has(.tela-recompensas.tela-ativa),
+.app-conteudo:has(.tela-recompensas.tela-ativa) {
+    background: transparent;
+}
+
+
+.tela-recompensas {
+    position: relative;
+
+    width: 100%;
+    min-height: 100vh;
+
+    background: transparent;
+
+    color: #FFFFFF;
+}
+
+.recompensas-container {
+    width: 100%;
+    max-width: 760px;
+
+    margin: 0 auto;
+}
+
+
+/* =========================================================
+   CABEÇALHO
+========================================================= */
+
+.recompensas-cabecalho {
+    margin-bottom: 28px;
+}
+
+
+.recompensas-etiqueta {
+    display: inline-block;
+
+    margin-bottom: 3px;
+
+    font-family: "Oxanium", sans-serif;
+
+    font-size: 11px;
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+
+    color: #BAFF45;
+}
+
+
+.recompensas-cabecalho h1 {
+    margin: 0;
+
+    font-family: "Baloo 2", sans-serif;
+
+    font-size: clamp(
+        38px,
+        8vw,
+        52px
+    );
+
+    font-weight: 800;
+
+    line-height: 1;
+
+    color: #FFFFFF;
+}
+
+
+.recompensas-cabecalho p {
+    margin:
+        7px
+        0
+        0;
+
+    font-family: "Nunito", sans-serif;
+
+    font-size: 16px;
+    font-weight: 500;
+
+    color: #C7DDDD;
+}
+
+
+/* =========================================================
+   EM BREVE
+========================================================= */
+
+.recompensas-em-breve {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+
+    padding-top: 45px;
+}
+
+
+/* =========================================================
+   ILUSTRAÇÃO
+========================================================= */
+
+.recompensas-em-breve-ilustracao {
+    position: relative;
+
+    width: 210px;
+    height: 210px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 38px;
+}
+
+
+.recompensas-em-breve-icone {
+    position: relative;
+
+    z-index: 2;
+
+    width: 150px;
+    height: 150px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border:
+        1px solid
+        rgba(0, 191, 216, 0.25);
+
+    border-radius: 42px;
+
+    color: #00BFD8;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(7, 75, 91, 0.92),
+            rgba(6, 44, 61, 0.98)
+        );
+
+    box-shadow:
+        0 16px 35px
+        rgba(0, 0, 0, 0.18);
+}
+
+
+/* BORDA INTERNA */
+
+.recompensas-em-breve-icone::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 17px;
+
+    border:
+        1px dashed
+        rgba(0, 191, 216, 0.16);
+
+    border-radius: 30px;
+}
+
+
+.recompensas-em-breve-icone svg {
+    position: relative;
+
+    z-index: 2;
+
+    width: 62px;
+    height: 62px;
+}
+
+
+/* DETALHE SUPERIOR */
+
+.recompensas-em-breve-icone::after {
+    content: "";
+
+    position: absolute;
+
+    width: 47px;
+    height: 5px;
+
+    top: 14px;
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    border-radius: 999px;
+
+    background: #BAFF45;
+
+    box-shadow:
+        0 0 12px
+        rgba(186, 255, 69, 0.28);
+}
+
+
+/* =========================================================
+   PONTOS DECORATIVOS
+========================================================= */
+
+.recompensas-ponto {
+    position: absolute;
+
+    z-index: 3;
+
+    display: block;
+
+    border-radius: 50%;
+
+    background: #BAFF45;
+
+    box-shadow:
+        0 0 12px
+        rgba(186, 255, 69, 0.45);
+}
+
+
+.recompensas-ponto.ponto-1 {
+    width: 8px;
+    height: 8px;
+
+    top: 25px;
+    right: 7px;
+}
+
+
+.recompensas-ponto.ponto-2 {
+    width: 5px;
+    height: 5px;
+
+    top: 66px;
+    left: 4px;
+}
+
+
+.recompensas-ponto.ponto-3 {
+    width: 6px;
+    height: 6px;
+
+    bottom: 23px;
+    left: 10px;
+
+    background: #00BFD8;
+
+    box-shadow:
+        0 0 12px
+        rgba(0, 191, 216, 0.45);
+}
+
+
+/* =========================================================
+   CARD
+========================================================= */
+
+.recompensas-em-breve-card {
+    position: relative;
+
+    width: 100%;
+    max-width: 570px;
+
+    overflow: hidden;
+
+    padding:
+        31px
+        28px
+        27px;
+
+    border:
+        1px solid
+        rgba(0, 191, 216, 0.28);
+
+    border-radius: 25px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(7, 75, 91, 0.76),
+            rgba(6, 44, 61, 0.96)
+        );
+
+    box-shadow:
+        0 14px 30px
+        rgba(0, 0, 0, 0.15);
+
+    text-align: center;
+}
+
+
+/* DETALHE VERDE SUPERIOR */
+
+.recompensas-em-breve-card::before {
+    content: "";
+
+    position: absolute;
+
+    width: 58px;
+    height: 4px;
+
+    top: 0;
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    border-radius:
+        0
+        0
+        999px
+        999px;
+
+    background: #BAFF45;
+}
+
+
+/* =========================================================
+   CONTEÚDO DO CARD
+========================================================= */
+
+.recompensas-em-breve-etiqueta {
+    display: block;
+
+    margin-bottom: 6px;
+
+    font-family: "Oxanium", sans-serif;
+
+    font-size: 11px;
+    font-weight: 700;
+
+    letter-spacing: 1.4px;
+
+    color: #BAFF45;
+}
+
+
+.recompensas-em-breve-card h2 {
+    margin: 0;
+
+    font-family: "Baloo 2", sans-serif;
+
+    font-size: clamp(
+        25px,
+        5vw,
+        31px
+    );
+
+    font-weight: 800;
+
+    line-height: 1.08;
+
+    color: #FFFFFF;
+}
+
+
+.recompensas-em-breve-card > p {
+    max-width: 470px;
+
+    margin:
+        13px
+        auto
+        18px;
+
+    font-family: "Nunito", sans-serif;
+
+    font-size: 15px;
+    font-weight: 600;
+
+    line-height: 1.55;
+
+    color: #C7DDDD;
+}
+
+
+/* =========================================================
+   AVISO
+========================================================= */
+
+.recompensas-em-breve-aviso {
+    width: fit-content;
+    max-width: 100%;
+
+    margin:
+        0
+        auto;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 9px;
+
+    padding:
+        9px
+        13px;
+
+    border-radius: 11px;
+
+    background:
+        rgba(3, 25, 35, 0.55);
+
+    font-family: "Nunito", sans-serif;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    line-height: 1.35;
+
+    color: #C7DDDD;
+}
+
+
+.recompensas-em-breve-aviso > span {
+    width: 7px;
+    height: 7px;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    background: #BAFF45;
+
+    box-shadow:
+        0 0 10px
+        rgba(186, 255, 69, 0.65);
+}
+
+
+/* =========================================================
+   HOVER
+========================================================= */
+
+@media (hover: hover) {
+
+    .recompensas-em-breve-icone {
+        transition:
+            transform 0.25s ease,
+            box-shadow 0.25s ease;
+    }
+
+
+    .recompensas-em-breve-icone:hover {
+        transform:
+            translateY(-3px);
+
+        box-shadow:
+            0 20px 40px
+            rgba(0, 0, 0, 0.22);
+    }
+
+}
+
+
+/* =========================================================
+   CELULAR
+========================================================= */
+
+@media (max-width: 430px) {
+
+    .tela-recompensas {
+        padding:
+            25px
+            16px
+            125px;
+    }
+
+
+    .recompensas-cabecalho {
+        margin-bottom: 20px;
+    }
+
+
+    .recompensas-cabecalho h1 {
+        font-size: 40px;
+    }
+
+
+    .recompensas-em-breve {
+        padding-top: 32px;
+    }
+
+
+    .recompensas-em-breve-ilustracao {
+        width: 180px;
+        height: 180px;
+
+        margin-bottom: 28px;
+    }
+
+
+    .recompensas-em-breve-icone {
+        width: 132px;
+        height: 132px;
+
+        border-radius: 36px;
+    }
+
+
+    .recompensas-em-breve-icone::before {
+        inset: 15px;
+
+        border-radius: 26px;
+    }
+
+
+    .recompensas-em-breve-icone svg {
+        width: 55px;
+        height: 55px;
+    }
+
+
+    .recompensas-em-breve-icone::after {
+        width: 42px;
+
+        top: 13px;
+    }
+
+
+    .recompensas-em-breve-card {
+        padding:
+            27px
+            19px
+            23px;
+
+        border-radius: 22px;
+    }
+
+
+    .recompensas-em-breve-card > p {
+        font-size: 14px;
+    }
+
+
+    .recompensas-em-breve-aviso {
+        font-size: 11px;
+
+        padding:
+            9px
+            11px;
+    }
+
+}
+
+
+/* =========================================================
+   CELULARES MUITO PEQUENOS
+========================================================= */
+
+@media (max-width: 350px) {
+
+    .recompensas-em-breve-card {
+        padding:
+            24px
+            15px
+            20px;
+    }
+
+
+    .recompensas-em-breve-aviso {
+        align-items: flex-start;
+
+        text-align: left;
+    }
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (min-width: 700px) {
+
+    .tela-recompensas {
+        padding:
+            38px
+            32px
+            140px;
+    }
+
+
+    .recompensas-container {
+        max-width: 900px;
+    }
+
+
+    .recompensas-em-breve {
+        padding-top: 55px;
+    }
+
+
+    .recompensas-em-breve-ilustracao {
+        width: 230px;
+        height: 230px;
+    }
+
+
+    .recompensas-em-breve-icone {
+        width: 165px;
+        height: 165px;
+    }
+
+}
+
+
+/* =========================================================
+   REDUZIR MOVIMENTO
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .recompensas-em-breve-icone {
+        transition: none;
+    }
+
+}
+
+
+/* =========================================================
+   ANIMAÇÃO — PARTÍCULAS FLUTUANTES
+========================================================= */
+
+.recompensas-ponto.ponto-1 {
+    animation:
+        flutuarPonto1
+        3.2s
+        ease-in-out
+        infinite;
+}
+
+
+.recompensas-ponto.ponto-2 {
+    animation:
+        flutuarPonto2
+        4s
+        ease-in-out
+        infinite;
+}
+
+
+.recompensas-ponto.ponto-3 {
+    animation:
+        flutuarPonto3
+        3.6s
+        ease-in-out
+        infinite;
+}
+
+
+/* VERDE — DIREITA */
+
+@keyframes flutuarPonto1 {
+
+    0%,
+    100% {
+        transform:
+            translate(0, 0);
+    }
+
+    50% {
+        transform:
+            translate(4px, -10px);
+    }
+
+}
+
+
+/* VERDE — ESQUERDA */
+
+@keyframes flutuarPonto2 {
+
+    0%,
+    100% {
+        transform:
+            translate(0, 0);
+    }
+
+    50% {
+        transform:
+            translate(-4px, 8px);
+    }
+
+}
+
+
+/* AZUL — INFERIOR */
+
+@keyframes flutuarPonto3 {
+
+    0%,
+    100% {
+        transform:
+            translate(0, 0);
+    }
+
+    50% {
+        transform:
+            translate(5px, -8px);
+    }
+
+}

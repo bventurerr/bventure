@@ -1,0 +1,1218 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    >
+
+    <meta
+        name="theme-color"
+        content="#031923"
+    >
+
+    <title>Explorar Boa Vista | BVenture</title>
+
+
+    <!-- =============================================
+         MAPBOX
+    ============================================== -->
+
+    <link
+        href="https://api.mapbox.com/mapbox-gl-js/v3.15.0/mapbox-gl.css"
+        rel="stylesheet"
+    >
+
+    <!-- PWA -->
+
+    <link rel="manifest" href="./manifest.json">
+
+    <meta name="theme-color" content="#031923">
+
+    <link rel="apple-touch-icon" href="./assets/icons/apple-touch-icon.png">
+
+
+    <!-- =============================================
+         CSS DO BVENTURE
+    ============================================== -->
+
+   <link
+    rel="stylesheet"
+    href="css/global.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/mapa.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/loading.css"
+    
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/conexao.css"
+    >
+</head>
+
+
+<body>
+
+
+    <!-- =================================================
+         MAPA
+    ================================================== -->
+
+    <main class="mapa-pagina">
+
+
+        <!-- =============================================
+             MAPBOX
+        ============================================== -->
+
+        <div
+            id="mapa"
+            class="mapa"
+            aria-label="Mapa de exploração de Boa Vista"
+        ></div>
+
+
+        <!-- =============================================
+             BOTÃO 2D / 3D
+        ============================================== -->
+
+        <button
+            type="button"
+            class="botao-modo-mapa modo-3d"
+            id="botaoModoMapa"
+            aria-label="Mudar mapa para 2D"
+            title="Mudar visualização do mapa"
+        >
+            <span id="textoModoMapa">
+                2D
+            </span>
+        </button>
+
+
+        <!-- =============================================
+             TOPO
+        ============================================== -->
+
+        <header class="mapa-topo">
+
+
+            <!-- VOLTAR -->
+
+            <button
+                type="button"
+                class="mapa-voltar"
+                id="voltarMissoes"
+                aria-label="Voltar para as missões"
+            >
+
+                <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2.2"
+                    aria-hidden="true"
+                >
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="m15 18-6-6 6-6"
+                    />
+                </svg>
+
+            </button>
+
+
+            <!-- MUNICÍPIO -->
+
+            <div class="mapa-titulo">
+
+                <span>
+                    EXPLORANDO
+                </span>
+
+                <strong>
+                    Boa Vista
+                </strong>
+
+            </div>
+
+
+            <!-- PROGRESSO -->
+
+            <div class="mapa-progresso">
+
+                <strong id="mapaPorcentagem">
+                    0%
+                </strong>
+
+                <span>
+                    explorado
+                </span>
+
+            </div>
+
+
+        </header>
+
+
+        <!-- =============================================
+             INFORMAÇÃO INFERIOR
+        ============================================== -->
+
+        <section class="mapa-status">
+
+            <div class="mapa-status-icone">
+
+                <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    aria-hidden="true"
+                >
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M12 21s6-5.686 6-12A6 6 0 1 0 6 9c0 6.314 6 12 6 12Z"
+                    />
+
+                    <circle
+                        cx="12"
+                        cy="9"
+                        r="2"
+                    />
+                </svg>
+
+            </div>
+
+
+            <div class="mapa-status-texto">
+
+                <span>
+                    EXPLORAÇÃO
+                </span>
+
+                <strong>
+                    Encontre os pontos no mapa
+                </strong>
+
+            </div>
+
+        </section>
+
+
+        <!-- =============================================
+             POPUP DO PONTO TURÍSTICO
+        ============================================== -->
+
+        <div
+            class="local-modal"
+            id="localModal"
+            aria-hidden="true"
+        >
+
+            <!-- FUNDO -->
+
+            <div
+                class="local-modal-fundo"
+                id="fecharModalFundo"
+            ></div>
+
+
+            <!-- CARD -->
+
+            <section
+                class="local-card"
+                role="dialog"
+                aria-modal="true"
+                aria-labelledby="localNome"
+            >
+
+
+                <!-- =====================================
+                     FECHAR
+                ====================================== -->
+
+                <button
+                    type="button"
+                    class="local-fechar"
+                    id="fecharLocal"
+                    aria-label="Fechar"
+                >
+
+                    <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        aria-hidden="true"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M6 18 18 6M6 6l12 12"
+                        />
+                    </svg>
+
+                </button>
+
+
+                <!-- =====================================
+                     FOTO PRINCIPAL
+
+                     Esta é a imagem sem numeração.
+                     Depois também será usada no puzzle.
+                ====================================== -->
+
+                <div class="local-imagem">
+
+                    <img
+                        id="localImagem"
+                        src=""
+                        alt=""
+                    >
+
+                </div>
+
+
+                <!-- =====================================
+                     CONTEÚDO
+                ====================================== -->
+
+                <div class="local-conteudo">
+
+
+                    <span class="local-etiqueta">
+                        PONTO DE EXPLORAÇÃO
+                    </span>
+
+
+                    <h2 id="localNome">
+                        Local
+                    </h2>
+
+
+                    <!-- =================================
+                         DESCRIÇÃO
+                    ================================== -->
+
+                    <p class="local-descricao">
+
+                        Você encontrou este ponto de exploração!
+                        Desbloqueie o local para iniciar o desafio.
+
+                    </p>
+
+
+                    <!-- =================================
+                         BOTÃO DESBLOQUEAR
+
+                         Futuramente:
+                         este botão abrirá o puzzle 3×3.
+                    ================================== -->
+
+                    <button
+                        type="button"
+                        class="local-desbloquear"
+                        id="desbloquearLocal"
+                    >
+
+                        <!-- ÍCONE -->
+
+                        <svg
+                            class="local-desbloquear-icone"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2.2"
+                            aria-hidden="true"
+                        >
+                            <rect
+                                x="5"
+                                y="10"
+                                width="14"
+                                height="10"
+                                rx="2"
+                            />
+
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="M8 10V7a4 4 0 0 1 8 0v3"
+                            />
+                        </svg>
+
+
+                        <!-- TEXTO -->
+
+                        <span>
+                            Desbloquear
+                        </span>
+
+
+                        <!-- SETA -->
+
+                        <svg
+                            class="local-desbloquear-seta"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2.4"
+                            aria-hidden="true"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="m9 18 6-6-6-6"
+                            />
+                        </svg>
+
+                    </button>
+
+
+                </div>
+
+
+            </section>
+
+        </div>
+
+        <!-- =================================================
+     QUEBRA-CABEÇA DO LOCAL
+================================================== -->
+
+<div
+    class="puzzle-modal"
+    id="puzzleModal"
+    aria-hidden="true"
+>
+
+    <div class="puzzle-modal-fundo"></div>
+
+
+    <section
+        class="puzzle-card"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="puzzleTitulo"
+    >
+
+
+        <!-- =========================================
+             TOPO
+        ========================================== -->
+
+        <header class="puzzle-topo">
+
+            <div>
+
+                <span class="puzzle-etiqueta">
+                    DESAFIO DE EXPLORAÇÃO
+                </span>
+
+                <h2 id="puzzleTitulo">
+                    Quebra-cabeça
+                </h2>
+
+            </div>
+
+
+            <button
+                type="button"
+                class="puzzle-fechar"
+                id="fecharPuzzle"
+                aria-label="Fechar quebra-cabeça"
+            >
+
+                <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    aria-hidden="true"
+                >
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M6 18 18 6M6 6l12 12"
+                    />
+                </svg>
+
+            </button>
+
+        </header>
+
+
+        <!-- =========================================
+             INSTRUÇÃO
+        ========================================== -->
+
+        <p class="puzzle-instrucao">
+            Organize as 9 peças para completar a imagem.
+            Toque em duas peças para trocar suas posições.
+        </p>
+
+
+        <!-- =========================================
+             TABULEIRO
+        ========================================== -->
+
+        <div
+            class="puzzle-tabuleiro"
+            id="puzzleTabuleiro"
+            aria-label="Quebra-cabeça 3 por 3"
+        ></div>
+
+
+        <!-- =========================================
+             STATUS
+        ========================================== -->
+
+        <div
+            class="puzzle-status"
+            id="puzzleStatus"
+            aria-live="polite"
+        >
+            Selecione uma peça para começar.
+        </div>
+
+
+        <!-- =========================================
+             EMBARALHAR NOVAMENTE
+        ========================================== -->
+
+        <button
+            type="button"
+            class="puzzle-embaralhar"
+            id="puzzleEmbaralhar"
+        >
+
+            <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                aria-hidden="true"
+            >
+                <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M16 3h5v5M4 20 21 3M21 16v5h-5M15 15l6 6M4 4l5 5"
+                />
+            </svg>
+
+            <span>
+                Embaralhar novamente
+            </span>
+
+        </button>
+
+
+    </section>
+
+</div>
+
+<!-- =================================================
+     INFORMAÇÕES DO LOCAL
+================================================== -->
+
+<div
+    class="info-local-modal"
+    id="infoLocalModal"
+    aria-hidden="true"
+>
+
+    <div
+        class="info-local-fundo"
+        id="fecharInfoLocalFundo"
+    ></div>
+
+
+    <section
+        class="info-local-card"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="infoLocalNome"
+    >
+
+        <!-- FECHAR -->
+
+        <button
+            type="button"
+            class="info-local-fechar"
+            id="fecharInfoLocal"
+            aria-label="Fechar informações"
+        >
+            <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.2"
+                aria-hidden="true"
+            >
+                <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M6 18 18 6M6 6l12 12"
+                />
+            </svg>
+        </button>
+
+
+        <!-- =========================================
+             GALERIA
+        ========================================== -->
+
+        <div class="info-galeria">
+
+            <div
+                class="info-galeria-trilho"
+                id="infoGaleria"
+            ></div>
+
+        </div>
+
+
+        <!-- INDICADORES DAS IMAGENS -->
+
+        <div
+            class="info-galeria-indicadores"
+            id="infoGaleriaIndicadores"
+            aria-hidden="true"
+        >
+            <span class="ativo"></span>
+            <span></span>
+        </div>
+
+
+        <!-- =========================================
+             CONTEÚDO
+        ========================================== -->
+
+        <div class="info-local-conteudo">
+
+            <span class="info-local-etiqueta">
+                LOCAL DESBLOQUEADO
+            </span>
+
+
+            <h2 id="infoLocalNome">
+                Nome do local
+            </h2>
+
+
+            <!-- CATEGORIA -->
+
+            <section class="info-bloco">
+
+                <div class="info-bloco-icone">
+
+                    <!-- Heroicons: Tag -->
+
+                    <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        aria-hidden="true"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M9.568 3H5.25A2.25 2.25 0 0 0 3 5.25v4.318c0 .597.237 1.169.659 1.591l9.581 9.581a2.25 2.25 0 0 0 3.182 0l4.318-4.318a2.25 2.25 0 0 0 0-3.182L11.16 3.659A2.25 2.25 0 0 0 9.568 3Z"
+                        />
+
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M6.75 6.75h.008v.008H6.75V6.75Z"
+                        />
+                    </svg>
+
+                </div>
+
+                <div class="info-bloco-texto">
+
+                    <h3>
+                        Categoria
+                    </h3>
+
+                    <p id="infoLocalCategoria"></p>
+
+                </div>
+
+            </section>
+
+
+            <!-- HISTÓRIA -->
+
+            <section class="info-bloco">
+
+                <div class="info-bloco-icone">
+
+                    <!-- Heroicons: Book Open -->
+
+                    <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        aria-hidden="true"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5s3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18s-3.332.477-4.5 1.253"
+                        />
+                    </svg>
+
+                </div>
+
+                <div class="info-bloco-texto">
+
+                    <h3>
+                        História
+                    </h3>
+
+                    <p id="infoLocalHistoria"></p>
+
+                </div>
+
+            </section>
+
+
+            <!-- VOCÊ SABIA -->
+
+            <section class="info-bloco">
+
+                <div class="info-bloco-icone">
+
+                    <!-- Heroicons: Light Bulb -->
+
+                    <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        aria-hidden="true"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M12 18v-5.25m0 0a6 6 0 1 0-3.75-1.32A3.75 3.75 0 0 1 9.75 14.4V15h4.5v-.6a3.75 3.75 0 0 1 1.5-2.97A6 6 0 0 0 12 2.25a6 6 0 0 0 0 10.5ZM9.75 18h4.5M10.5 21h3"
+                        />
+                    </svg>
+
+                </div>
+
+                <div class="info-bloco-texto">
+
+                    <h3>
+                        Você sabia?
+                    </h3>
+
+                    <p id="infoLocalCuriosidade"></p>
+
+                </div>
+
+            </section>
+
+
+            <!-- INFORMAÇÕES PARA VISITA -->
+
+            <section class="info-bloco">
+
+                <div class="info-bloco-icone">
+
+                    <!-- Heroicons: Information Circle -->
+
+                    <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        aria-hidden="true"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M11.25 11.25 12 10.5m0 0 .75.75M12 10.5v4.75m9-3.25a9 9 0 1 1-18 0 9 9 0 0 1 18 0ZM12 7.5h.008v.008H12V7.5Z"
+                        />
+                    </svg>
+
+                </div>
+
+                <div class="info-bloco-texto">
+
+                    <h3>
+                        Informações para visita
+                    </h3>
+
+                    <p id="infoLocalVisita"></p>
+
+                </div>
+
+            </section>
+
+
+            <!-- ACESSIBILIDADE -->
+
+            <section class="info-bloco">
+
+                <div class="info-bloco-icone">
+
+                    <!-- Heroicons: User -->
+
+                    <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        aria-hidden="true"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.5 20.118a7.5 7.5 0 0 1 15 0A17.933 17.933 0 0 1 12 21.75a17.933 17.933 0 0 1-7.5-1.632Z"
+                        />
+                    </svg>
+
+                </div>
+
+                <div class="info-bloco-texto">
+
+                    <h3>
+                        Acessibilidade
+                    </h3>
+
+                    <p id="infoLocalAcessibilidade"></p>
+
+                </div>
+
+            </section>
+
+
+            <!-- =========================================
+                 DICA BVENTURE
+            ========================================== -->
+
+            <section class="info-dica">
+
+                <div class="info-dica-topo">
+
+                    <div class="info-dica-icone">
+
+                        <!-- Heroicons: Sparkles -->
+
+                        <svg
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            aria-hidden="true"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.847-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.847a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.847.814a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.456-2.456L14.25 6l1.035-.259a3.375 3.375 0 0 0 2.456-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 0 0-2.456 2.456Z"
+                            />
+                        </svg>
+
+                    </div>
+
+                    <h3>
+                        Dica BVenture
+                    </h3>
+
+                </div>
+
+
+                <p id="infoLocalDica"></p>
+
+            </section>
+
+            <!-- =====================================================
+     ACESSAR MISSÃO EXTRA
+====================================================== -->
+
+<div class="info-missao-extra">
+
+    <button
+        class="info-missao-extra-botao"
+        id="acessarMissaoExtra"
+        type="button"
+    >
+
+        <span class="info-missao-extra-icone">
+
+            <!-- Heroicon: Trophy -->
+
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.8"
+                stroke="currentColor"
+                aria-hidden="true"
+            >
+                <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M16.5 18.75h-9m9 0a3 3 0 0 1 3 3h-15a3 3 0 0 1 3-3m9 0v-3.375c0-.621-.504-1.125-1.125-1.125h-.871M7.5 18.75v-3.375c0-.621.504-1.125 1.125-1.125h.872m5.007 0H9.497m5.007 0c.243-.096.48-.21.705-.342a6.75 6.75 0 0 0 3.39-5.758V5.25H5.4v2.9a6.75 6.75 0 0 0 3.39 5.758c.225.132.462.246.707.342M5.4 5.25H3.75A1.5 1.5 0 0 0 2.25 6.75v.75a4.5 4.5 0 0 0 4.5 4.5h.327m11.523-6.75h1.65a1.5 1.5 0 0 1 1.5 1.5v.75a4.5 4.5 0 0 1-4.5 4.5h-.327"
+                />
+            </svg>
+
+        </span>
+
+
+        <span class="info-missao-extra-texto">
+
+            <strong>
+                Acessar missão extra
+            </strong>
+
+            <small>
+                Complete um novo desafio neste local
+            </small>
+
+        </span>
+
+
+        <span class="info-missao-extra-seta">
+
+            <!-- Heroicon: Chevron Right -->
+
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="2"
+                stroke="currentColor"
+                aria-hidden="true"
+            >
+                <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="m9 18 6-6-6-6"
+                />
+            </svg>
+
+        </span>
+
+    </button>
+
+</div>
+
+        </div>
+
+    </section>
+
+</div>
+
+
+<!-- =================================================
+     AVISO DE PROXIMIDADE
+================================================== -->
+
+<div
+    class="proximidade-modal"
+    id="proximidadeModal"
+    aria-hidden="true"
+>
+
+    <!-- FUNDO -->
+
+    <div
+        class="proximidade-modal-fundo"
+        id="proximidadeModalFundo"
+    ></div>
+
+
+    <!-- CARD -->
+
+    <section
+        class="proximidade-modal-card"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="proximidadeTitulo"
+    >
+
+        <!-- ÍCONE -->
+
+        <div class="proximidade-modal-icone">
+
+            <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                aria-hidden="true"
+            >
+                <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M12 21s6-5.686 6-12A6 6 0 1 0 6 9c0 6.314 6 12 6 12Z"
+                />
+
+                <circle
+                    cx="12"
+                    cy="9"
+                    r="2"
+                />
+            </svg>
+
+        </div>
+
+
+        <!-- ETIQUETA -->
+
+        <span class="proximidade-modal-etiqueta">
+            EXPLORAÇÃO
+        </span>
+
+
+        <!-- TÍTULO -->
+
+        <h2 id="proximidadeTitulo">
+            Você está longe deste local
+        </h2>
+
+
+        <!-- DESCRIÇÃO -->
+
+        <p
+            class="proximidade-modal-texto"
+            id="proximidadeTexto"
+        >
+            Aproxime-se deste ponto de exploração para desbloqueá-lo.
+        </p>
+
+
+        <!-- DISTÂNCIA -->
+
+        <div
+            class="proximidade-distancia"
+            id="proximidadeDistanciaBox"
+        >
+
+            <span>
+                DISTÂNCIA APROXIMADA
+            </span>
+
+            <strong id="proximidadeDistancia">
+                4,0 km
+            </strong>
+
+        </div>
+
+
+        <!-- BOTÃO -->
+
+        <button
+            type="button"
+            class="proximidade-modal-botao"
+            id="fecharProximidade"
+        >
+
+            <span>
+                Entendi
+            </span>
+
+            <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.3"
+                aria-hidden="true"
+            >
+                <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="m9 18 6-6-6-6"
+                />
+            </svg>
+
+        </button>
+
+    </section>
+
+</div>
+
+        </main>
+
+
+    <!-- =================================================
+         PERMISSÃO DE LOCALIZAÇÃO
+    ================================================== -->
+
+    <div
+        class="localizacao-modal"
+        id="localizacaoModal"
+        aria-hidden="true"
+    >
+
+        <!-- FUNDO -->
+
+        <div
+            class="localizacao-modal-fundo"
+            id="localizacaoModalFundo"
+        ></div>
+
+
+        <!-- CARD -->
+
+        <section
+            class="localizacao-modal-card"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="localizacaoTitulo"
+        >
+
+
+            <!-- =========================================
+                 ÍCONE
+            ========================================== -->
+
+            <div class="localizacao-modal-icone">
+
+                <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    aria-hidden="true"
+                >
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M12 21s6-5.686 6-12A6 6 0 1 0 6 9c0 6.314 6 12 6 12Z"
+                    />
+
+                    <circle
+                        cx="12"
+                        cy="9"
+                        r="2"
+                    />
+                </svg>
+
+            </div>
+
+
+            <!-- =========================================
+                 TEXTO
+            ========================================== -->
+
+            <span class="localizacao-modal-etiqueta">
+                EXPLORAÇÃO
+            </span>
+
+
+            <h2 id="localizacaoTitulo">
+                Ative sua localização
+            </h2>
+
+
+            <p class="localizacao-modal-texto">
+                Para explorar Boa Vista e desbloquear
+                locais próximos, o BVenture precisa
+                acessar sua localização durante a exploração.
+            </p>
+
+
+            <!-- =========================================
+                 AÇÕES
+            ========================================== -->
+
+            <div class="localizacao-modal-acoes">
+
+
+                <!-- AGORA NÃO -->
+
+                <button
+                    type="button"
+                    class="localizacao-botao-secundario"
+                    id="negarLocalizacao"
+                >
+                    Agora não
+                </button>
+
+
+                <!-- PERMITIR -->
+
+                <button
+                    type="button"
+                    class="localizacao-botao-principal"
+                    id="permitirLocalizacao"
+                >
+
+                    <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        aria-hidden="true"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M12 21s6-5.686 6-12A6 6 0 1 0 6 9c0 6.314 6 12 6 12Z"
+                        />
+
+                        <circle
+                            cx="12"
+                            cy="9"
+                            r="2"
+                        />
+                    </svg>
+
+                    <span>
+                        Permitir localização
+                    </span>
+
+                </button>
+
+
+            </div>
+
+
+            <!-- =========================================
+                 AVISO
+            ========================================== -->
+
+            <small class="localizacao-modal-aviso">
+                Sua localização será usada apenas para
+                verificar sua proximidade dos pontos de exploração.
+            </small>
+
+
+        </section>
+
+    </div>
+
+
+    <!-- MAPBOX -->
+    <script src="https://api.mapbox.com/mapbox-gl-js/v3.15.0/mapbox-gl.js"></script>
+
+    <script src="js/locais.js"></script>
+    <script src="js/idiomas.js"></script>
+    <script src="js/loading.js"></script>
+    <script src="js/conexao.js"></script>
+    <script type="module" src="js/mapa.js"></script>
+    <script src="./js/pwa.js"></script>
+
+</body>
+
+</html>

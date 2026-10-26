@@ -1,0 +1,2743 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>BVenture</title>
+
+
+    <!-- =============================================
+         CSS
+    ============================================== -->
+
+    <link rel="stylesheet" href="css/global.css">
+
+    <link rel="stylesheet" href="css/app.css">
+
+    <link rel="stylesheet" href="css/inicio.css">
+
+    <link rel="stylesheet" href="css/missoes.css">
+
+    <link rel="stylesheet" href="css/recompensas.css">
+
+    <link rel="stylesheet" href="css/empresas.css">
+
+    <link rel="stylesheet" href="css/perfil.css">
+
+    <link rel="stylesheet" href="css/loading.css">
+
+    <link rel="stylesheet" href="css/conexao.css">
+
+    <link rel="stylesheet" href="css/responsivo.css">
+
+    <!-- PWA -->
+
+    <link rel="manifest" href="./manifest.json">
+
+    <meta name="theme-color" content="#031923">
+
+    <link rel="apple-touch-icon" href="./assets/icons/apple-touch-icon.png">
+
+</head>
+
+
+<body>
+
+
+<div class="app">
+
+
+    <!-- =====================================================
+         CONTEÚDO PRINCIPAL
+    ====================================================== -->
+
+    <main class="app-conteudo">
+
+
+        <!-- =================================================
+             INÍCIO
+        ================================================== -->
+
+        <section
+            class="tela tela-ativa"
+            id="telaInicio"
+            data-tela="inicio"
+        >
+
+            <div class="inicio">
+
+
+                <!-- =========================================
+                     CABEÇALHO
+                ========================================== -->
+
+                <header class="inicio-topo">
+
+
+                    <div class="inicio-boas-vindas">
+
+                        <span class="inicio-saudacao">
+                            BEM-VINDO(A)
+                        </span>
+
+                        <h1 id="nomeJogador">
+                            Explorador
+                        </h1>
+
+                        <p>
+                            Explore Roraima, descubra novos lugares
+                            e ganhe recompensas.
+                        </p>
+
+                    </div>
+
+
+        
+
+                </header>
+
+
+                <!-- =========================================
+                     TÍTULO MAPA
+                ========================================== -->
+
+                <div class="inicio-secao-titulo">
+
+                    <div>
+
+                        <span class="inicio-secao-etiqueta">
+                            SUA AVENTURA
+                        </span>
+
+                        <h2>
+                            Explore Roraima
+                        </h2>
+
+                    </div>
+
+
+                    <span
+                        class="inicio-progresso-geral"
+                        id="porcentagemExploracao"
+                    >
+                        0%
+                    </span>
+
+                </div>
+
+
+                <!-- =========================================
+                     MAPA PRINCIPAL
+                ========================================== -->
+
+                <div class="mapa-principal-card">
+
+
+                    <div class="mapa-detalhe-superior">
+
+                        <span></span>
+
+                        <div class="mapa-detalhe-centro">
+                            MAPA DE EXPLORAÇÃO
+                        </div>
+
+                        <span></span>
+
+                    </div>
+
+
+                    <div class="mapa-principal">
+
+
+                        <img
+                            src="imagens-webp/mapaprincipal.webp"
+                            alt="Mapa dos municípios de Roraima"
+                            class="mapa-principal-imagem"
+                        >
+
+
+                        <!-- UIRAMUTÃ -->
+
+                        <button
+                            type="button"
+                            class="municipio-progresso bloqueado municipio-uiramuta"
+                            data-municipio="uiramuta"
+                            aria-label="Uiramutã - 0% explorado"
+                        >
+                            <span>0%</span>
+                        </button>
+
+
+                        <!-- PACARAIMA -->
+
+                        <button
+                            type="button"
+                            class="municipio-progresso bloqueado municipio-pacaraima"
+                            data-municipio="pacaraima"
+                            aria-label="Pacaraima - 0% explorado"
+                        >
+                            <span>0%</span>
+                        </button>
+
+
+                        <!-- NORMANDIA -->
+
+                        <button
+                            type="button"
+                            class="municipio-progresso bloqueado municipio-normandia"
+                            data-municipio="normandia"
+                            aria-label="Normandia - 0% explorado"
+                        >
+                            <span>0%</span>
+                        </button>
+
+
+                        <!-- AMAJARI -->
+
+                        <button
+                            type="button"
+                            class="municipio-progresso bloqueado municipio-amajari"
+                            data-municipio="amajari"
+                            aria-label="Amajari - 0% explorado"
+                        >
+                            <span>0%</span>
+                        </button>
+
+
+                        <!-- BOA VISTA -->
+
+                        <button
+                            type="button"
+                            class="municipio-progresso disponivel municipio-boa-vista"
+                            data-municipio="boa-vista"
+                            aria-label="Boa Vista - 0% explorado"
+                        >
+                            <span>0%</span>
+                        </button>
+
+
+                        <!-- BONFIM -->
+
+                        <button
+                            type="button"
+                            class="municipio-progresso bloqueado municipio-bonfim"
+                            data-municipio="bonfim"
+                            aria-label="Bonfim - 0% explorado"
+                        >
+                            <span>0%</span>
+                        </button>
+
+
+                        <!-- ALTO ALEGRE -->
+
+                        <button
+                            type="button"
+                            class="municipio-progresso bloqueado municipio-alto-alegre"
+                            data-municipio="alto-alegre"
+                            aria-label="Alto Alegre - 0% explorado"
+                        >
+                            <span>0%</span>
+                        </button>
+
+
+                        <!-- MUCAJAÍ -->
+
+                        <button
+                            type="button"
+                            class="municipio-progresso bloqueado municipio-mucajai"
+                            data-municipio="mucajai"
+                            aria-label="Mucajaí - 0% explorado"
+                        >
+                            <span>0%</span>
+                        </button>
+
+
+                        <!-- CANTÁ -->
+
+                        <button
+                            type="button"
+                            class="municipio-progresso bloqueado municipio-canta"
+                            data-municipio="canta"
+                            aria-label="Cantá - 0% explorado"
+                        >
+                            <span>0%</span>
+                        </button>
+
+
+                        <!-- IRACEMA -->
+
+                        <button
+                            type="button"
+                            class="municipio-progresso bloqueado municipio-iracema"
+                            data-municipio="iracema"
+                            aria-label="Iracema - 0% explorado"
+                        >
+                            <span>0%</span>
+                        </button>
+
+
+                        <!-- CARACARAÍ -->
+
+                        <button
+                            type="button"
+                            class="municipio-progresso bloqueado municipio-caracarai"
+                            data-municipio="caracarai"
+                            aria-label="Caracaraí - 0% explorado"
+                        >
+                            <span>0%</span>
+                        </button>
+
+
+                        <!-- SÃO LUIZ -->
+
+                        <button
+                            type="button"
+                            class="municipio-progresso bloqueado municipio-sao-luiz"
+                            data-municipio="sao-luiz"
+                            aria-label="São Luiz - 0% explorado"
+                        >
+                            <span>0%</span>
+                        </button>
+
+
+                        <!-- CAROEBE -->
+
+                        <button
+                            type="button"
+                            class="municipio-progresso bloqueado municipio-caroebe"
+                            data-municipio="caroebe"
+                            aria-label="Caroebe - 0% explorado"
+                        >
+                            <span>0%</span>
+                        </button>
+
+
+                        <!-- RORAINÓPOLIS -->
+
+                        <button
+                            type="button"
+                            class="municipio-progresso bloqueado municipio-rorainopolis"
+                            data-municipio="rorainopolis"
+                            aria-label="Rorainópolis - 0% explorado"
+                        >
+                            <span>0%</span>
+                        </button>
+
+
+                        <!-- SÃO JOÃO DA BALIZA -->
+
+                        <button
+                            type="button"
+                            class="municipio-progresso bloqueado municipio-sao-joao"
+                            data-municipio="sao-joao-da-baliza"
+                            aria-label="São João da Baliza - 0% explorado"
+                        >
+                            <span>0%</span>
+                        </button>
+
+
+                    </div>
+
+                </div>
+
+
+                <!-- =========================================
+                     SEU PROGRESSO
+                ========================================== -->
+
+                <div class="inicio-secao-titulo progresso-titulo">
+
+                    <div>
+
+                        <span class="inicio-secao-etiqueta">
+                            JORNADA
+                        </span>
+
+                        <h2>
+                            Seu progresso
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <div class="progresso-grid">
+
+
+                    <!-- EXPLORAÇÃO -->
+
+                    <article class="progresso-card">
+
+                        <div class="progresso-card-brilho"></div>
+
+                        <div class="progresso-icone">
+
+                            <svg
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="1.8"
+                                aria-hidden="true"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M9 6.75V15m6-6v8.25m.503 3.498 4.875-2.437c.381-.191.622-.58.622-1.006V4.82c0-.836-.88-1.38-1.628-1.006l-3.869 1.934a1.125 1.125 0 0 1-1.006 0L9.503 3.252a1.125 1.125 0 0 0-1.006 0L3.622 5.689A1.125 1.125 0 0 0 3 6.695V20.18c0 .836.88 1.38 1.628 1.006l3.869-1.934a1.125 1.125 0 0 1 1.006 0l4.994 2.497a1.125 1.125 0 0 0 1.006 0Z"
+                                />
+                            </svg>
+
+                        </div>
+
+
+                        <div class="progresso-info">
+
+                            <span class="progresso-mini">
+                                EXPLORAÇÃO
+                            </span>
+
+                            <strong id="estatisticaExploracao">
+                                0%
+                            </strong>
+
+                            <span class="progresso-descricao">
+                                de Roraima explorado
+                            </span>
+
+                        </div>
+
+
+                        <span class="progresso-canto">
+                            %
+                        </span>
+
+                    </article>
+
+
+                    <!-- LOCAIS -->
+
+                    <article class="progresso-card">
+
+                        <div class="progresso-card-brilho"></div>
+
+                        <div class="progresso-icone">
+
+                            <svg
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="1.8"
+                                aria-hidden="true"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M12 21s6-5.686 6-12A6 6 0 1 0 6 9c0 6.314 6 12 6 12Z"
+                                />
+
+                                <circle
+                                    cx="12"
+                                    cy="9"
+                                    r="2.2"
+                                />
+                            </svg>
+
+                        </div>
+
+
+                        <div class="progresso-info">
+
+                            <span class="progresso-mini">
+                                DESCOBERTAS
+                            </span>
+
+                            <strong id="estatisticaLocais">
+                                0
+                            </strong>
+
+                            <span class="progresso-descricao">
+                                locais desbloqueados
+                            </span>
+
+                        </div>
+
+
+                        <span class="progresso-canto">
+                            +
+                        </span>
+
+                    </article>
+
+
+                    <!-- MISSÕES -->
+
+                    <article class="progresso-card">
+
+                        <div class="progresso-card-brilho"></div>
+
+                        <div class="progresso-icone">
+
+                            <svg
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="1.8"
+                                aria-hidden="true"
+                            >
+                                <circle
+                                    cx="12"
+                                    cy="12"
+                                    r="8"
+                                />
+
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="m8.8 12 2.1 2.1 4.4-4.5"
+                                />
+                            </svg>
+
+                        </div>
+
+
+                        <div class="progresso-info">
+
+                            <span class="progresso-mini">
+                                MISSÕES
+                            </span>
+
+                            <strong id="estatisticaMissoes">
+                                0
+                            </strong>
+
+                            <span class="progresso-descricao">
+                                extras concluídas
+                            </span>
+
+                        </div>
+
+
+                        <span class="progresso-canto">
+                            ✓
+                        </span>
+
+                    </article>
+
+
+                    <!-- RECOMPENSAS -->
+
+                    <article class="progresso-card">
+
+                        <div class="progresso-card-brilho"></div>
+
+                        <div class="progresso-icone">
+
+                            <svg
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="1.8"
+                                aria-hidden="true"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M21 11.25v8.25A2.25 2.25 0 0 1 18.75 21H5.25A2.25 2.25 0 0 1 3 18.75v-8.25M12 4.875A2.625 2.625 0 1 0 6.75 4.875C6.75 8.25 12 9.75 12 9.75s5.25-1.5 5.25-4.875a2.625 2.625 0 1 0-5.25 0ZM2.25 9.75h19.5v4.5H2.25v-4.5ZM12 9.75V21"
+                                />
+                            </svg>
+
+                        </div>
+
+
+                        <div class="progresso-info">
+
+                            <span class="progresso-mini">
+                                PRÊMIOS
+                            </span>
+
+                            <strong id="estatisticaRecompensas">
+                                0
+                            </strong>
+
+                            <span class="progresso-descricao">
+                                recompensas obtidas
+                            </span>
+
+                        </div>
+
+
+                        <span class="progresso-canto">
+                            ★
+                        </span>
+
+                    </article>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             MISSÕES
+        ================================================== -->
+
+        <section
+            class="tela"
+            id="telaMissoes"
+            data-tela="missoes"
+        >
+
+            <div class="missoes">
+
+
+                <!-- =========================================
+                     CABEÇALHO
+                ========================================== -->
+
+                <header class="missoes-topo">
+
+                    <span class="missoes-etiqueta">
+                        EXPLORE RORAIMA
+                    </span>
+
+                    <h1>
+                        Missões
+                    </h1>
+
+                    <p>
+                        Explore os municípios, descubra novos lugares
+                        e avance na sua jornada.
+                    </p>
+
+                </header>
+
+
+                <!-- =========================================
+                     BOA VISTA
+                ========================================== -->
+
+                <section class="missao-destaque">
+
+                    <div class="missao-destaque-fundo"></div>
+
+                    <div class="missao-destaque-overlay"></div>
+
+                    <div class="missao-destaque-conteudo-simples">
+
+                        <div class="missao-nome">
+
+                            <span>
+                                EXPLORE
+                            </span>
+
+                            <h2>
+                                Boa Vista
+                            </h2>
+
+                        </div>
+
+
+                        <div class="missao-progresso">
+
+                            <div class="missao-progresso-topo">
+
+                                <span>
+                                    Progresso da exploração
+                                </span>
+
+                                <strong id="progressoBoaVista">
+                                    0%
+                                </strong>
+
+                            </div>
+
+
+                            <div class="missao-barra">
+
+                                <div
+                                    class="missao-barra-preenchimento"
+                                    id="barraBoaVista"
+                                ></div>
+
+                            </div>
+
+                        </div>
+
+
+                        <button
+                            type="button"
+                            class="botao-explorar"
+                            id="explorarBoaVista"
+                        >
+
+                            <span>
+                                Explorar Boa Vista
+                            </span>
+
+                            <svg
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2.2"
+                                aria-hidden="true"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="m9 18 6-6-6-6"
+                                />
+                            </svg>
+
+                        </button>
+
+                    </div>
+
+                </section>
+
+
+                <!-- =========================================
+                     OUTROS MUNICÍPIOS
+                ========================================== -->
+
+                <div class="missoes-secao-titulo">
+
+                    <div>
+
+                        <span>
+                            PRÓXIMOS DESTINOS
+                        </span>
+
+                        <h2>
+                            Outros municípios
+                        </h2>
+
+                    </div>
+
+                    <strong>
+                        14
+                    </strong>
+
+                </div>
+
+
+                <!-- =========================================
+                     GRID DOS MUNICÍPIOS
+                ========================================== -->
+
+                <div class="municipios-grid">
+
+
+                    <!-- ALTO ALEGRE -->
+
+                    <article class="municipio-card bloqueado">
+
+                        <div class="municipio-cadeado">
+                            🔒
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Alto Alegre
+                            </h3>
+
+                            <span>
+                                Bloqueado
+                            </span>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- AMAJARI -->
+
+                    <article class="municipio-card bloqueado">
+
+                        <div class="municipio-cadeado">
+                            🔒
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Amajari
+                            </h3>
+
+                            <span>
+                                Bloqueado
+                            </span>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- BONFIM -->
+
+                    <article class="municipio-card bloqueado">
+
+                        <div class="municipio-cadeado">
+                            🔒
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Bonfim
+                            </h3>
+
+                            <span>
+                                Bloqueado
+                            </span>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- CANTÁ -->
+
+                    <article class="municipio-card bloqueado">
+
+                        <div class="municipio-cadeado">
+                            🔒
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Cantá
+                            </h3>
+
+                            <span>
+                                Bloqueado
+                            </span>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- CARACARAÍ -->
+
+                    <article class="municipio-card bloqueado">
+
+                        <div class="municipio-cadeado">
+                            🔒
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Caracaraí
+                            </h3>
+
+                            <span>
+                                Bloqueado
+                            </span>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- CAROEBE -->
+
+                    <article class="municipio-card bloqueado">
+
+                        <div class="municipio-cadeado">
+                            🔒
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Caroebe
+                            </h3>
+
+                            <span>
+                                Bloqueado
+                            </span>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- IRACEMA -->
+
+                    <article class="municipio-card bloqueado">
+
+                        <div class="municipio-cadeado">
+                            🔒
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Iracema
+                            </h3>
+
+                            <span>
+                                Bloqueado
+                            </span>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- MUCAJAÍ -->
+
+                    <article class="municipio-card bloqueado">
+
+                        <div class="municipio-cadeado">
+                            🔒
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Mucajaí
+                            </h3>
+
+                            <span>
+                                Bloqueado
+                            </span>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- NORMANDIA -->
+
+                    <article class="municipio-card bloqueado">
+
+                        <div class="municipio-cadeado">
+                            🔒
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Normandia
+                            </h3>
+
+                            <span>
+                                Bloqueado
+                            </span>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- PACARAIMA -->
+
+                    <article class="municipio-card bloqueado">
+
+                        <div class="municipio-cadeado">
+                            🔒
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Pacaraima
+                            </h3>
+
+                            <span>
+                                Bloqueado
+                            </span>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- RORAINÓPOLIS -->
+
+                    <article class="municipio-card bloqueado">
+
+                        <div class="municipio-cadeado">
+                            🔒
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Rorainópolis
+                            </h3>
+
+                            <span>
+                                Bloqueado
+                            </span>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- SÃO JOÃO DA BALIZA -->
+
+                    <article class="municipio-card bloqueado">
+
+                        <div class="municipio-cadeado">
+                            🔒
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                São João da Baliza
+                            </h3>
+
+                            <span>
+                                Bloqueado
+                            </span>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- SÃO LUIZ -->
+
+                    <article class="municipio-card bloqueado">
+
+                        <div class="municipio-cadeado">
+                            🔒
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                São Luiz
+                            </h3>
+
+                            <span>
+                                Bloqueado
+                            </span>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- UIRAMUTÃ -->
+
+                    <article class="municipio-card bloqueado">
+
+                        <div class="municipio-cadeado">
+                            🔒
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Uiramutã
+                            </h3>
+
+                            <span>
+                                Bloqueado
+                            </span>
+
+                        </div>
+
+                    </article>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+                <!-- =====================================================
+            RECOMPENSAS
+        ====================================================== -->
+
+        <section
+            class="tela tela-recompensas"
+            data-tela="recompensas"
+        >
+
+            <div class="recompensas-container">
+
+
+                <!-- CABEÇALHO -->
+
+                <header class="recompensas-cabecalho">
+
+                    <span class="recompensas-etiqueta">
+                        BENEFÍCIOS
+                    </span>
+
+                    <h1>
+                        Recompensas
+                    </h1>
+
+                    <p>
+                        Explore novos lugares e desbloqueie recompensas.
+                    </p>
+
+                </header>
+
+
+                <!-- EM BREVE -->
+
+                <section class="recompensas-em-breve">
+
+
+                    <!-- ÍCONE -->
+
+                    <div class="recompensas-em-breve-ilustracao">
+
+                        <div class="recompensas-em-breve-icone">
+
+                            <svg
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="1.8"
+                                aria-hidden="true"
+                            >
+
+                                <rect
+                                    x="3"
+                                    y="8"
+                                    width="18"
+                                    height="13"
+                                    rx="2"
+                                />
+
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M12 8v13"
+                                />
+
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M3 12h18"
+                                />
+
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M12 8H8.5A2.5 2.5 0 1 1 11 5.5L12 8Z"
+                                />
+
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M12 8h3.5A2.5 2.5 0 1 0 13 5.5L12 8Z"
+                                />
+
+                            </svg>
+
+                        </div>
+
+
+                        <!-- DETALHES DECORATIVOS -->
+
+                        <span class="recompensas-ponto ponto-1"></span>
+                        <span class="recompensas-ponto ponto-2"></span>
+                        <span class="recompensas-ponto ponto-3"></span>
+
+                    </div>
+
+
+                    <!-- CARD -->
+
+                    <div class="recompensas-em-breve-card">
+
+                        <span class="recompensas-em-breve-etiqueta">
+                            EM BREVE
+                        </span>
+
+                        <h2>
+                            Recompensas a caminho
+                        </h2>
+
+                        <p>
+                            Estamos preparando novos benefícios
+                            para tornar suas explorações ainda
+                            mais especiais.
+                        </p>
+
+
+                        <div class="recompensas-em-breve-aviso">
+
+                            <span></span>
+
+                            Em breve, novas recompensas estarão
+                            disponíveis por aqui.
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             EMPRESAS
+        ====================================================== -->
+
+        <section
+            class="tela tela-empresas"
+            data-tela="empresas"
+        >
+
+            <div class="empresas-container">
+
+
+                <!-- CABEÇALHO -->
+
+                <header class="empresas-cabecalho">
+                <span
+                    class="empresas-etiqueta"
+                    data-i18n="empresas-etiqueta"
+                >
+                    PARCEIROS
+                </span>
+
+                <h1 data-i18n="empresas-nome">
+                    Empresas
+                </h1>
+
+                <p data-i18n="empresas-subtitulo">
+                    Conheça os parceiros do BVenture.
+                </p>
+
+                </header>
+
+
+                <!-- ESTADO VAZIO -->
+
+                <div class="empresas-vazio">
+
+
+                    <!-- ELEMENTO DA LUPA -->
+
+                    <div class="busca-parceiros">
+
+                        <div class="busca-brilho busca-brilho-1"></div>
+
+                        <div class="busca-brilho busca-brilho-2"></div>
+
+                        <div class="busca-brilho busca-brilho-3"></div>
+
+
+                        <div class="busca-circulo-externo">
+
+                            <div class="busca-circulo">
+
+                                <svg
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="1.8"
+                                    aria-hidden="true"
+                                >
+
+                                    <circle
+                                        cx="11"
+                                        cy="11"
+                                        r="6.5"
+                                    ></circle>
+
+                                    <path
+                                        d="m16 16 4.2 4.2"
+                                        stroke-linecap="round"
+                                    ></path>
+
+                                </svg>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- TEXTO -->
+
+                <div class="empresas-vazio-texto">
+
+                    <span
+                        class="empresas-status"
+                        data-i18n="empresas-em-breve"
+                    >
+                        EM BREVE
+                    </span>
+
+                    <h2 data-i18n="empresas-titulo">
+                        Novos parceiros a caminho
+                    </h2>
+
+                    <p data-i18n="empresas-descricao">
+                        Estamos buscando empresas parceiras para trazer novas recompensas para suas aventuras.
+                    </p>
+
+                    <div class="empresas-aviso">
+
+                        <span class="empresas-aviso-ponto"></span>
+
+                        <span data-i18n="empresas-aviso">
+                            Em breve, você encontrará nossos parceiros por aqui.
+                        </span>
+
+                    </div>
+
+                </div>
+
+                   
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             PERFIL
+        ====================================================== -->
+
+        <section
+            class="tela tela-perfil"
+            id="telaPerfil"
+            data-tela="perfil"
+        >
+
+            <div class="perfil-container">
+
+
+                <!-- =============================================
+                     CABEÇALHO
+                ============================================== -->
+
+                <header class="perfil-cabecalho">
+
+                    <span
+    class="perfil-etiqueta"
+    data-i18n="perfil.jogador"
+>
+    JOGADOR
+</span>
+
+<h1 data-i18n="perfil.titulo">
+    Perfil
+</h1>
+
+<p data-i18n="perfil.acompanhe">
+    Acompanhe sua jornada no BVenture.
+</p>
+                </header>
+
+
+                <!-- =============================================
+                     CARTÃO DO JOGADOR
+                ============================================== -->
+
+                <section class="perfil-jogador">
+
+
+                    <!-- DECORAÇÕES -->
+
+                    <div
+                        class="perfil-decoracao perfil-decoracao-1"
+                        aria-hidden="true"
+                    ></div>
+
+                    <div
+                        class="perfil-decoracao perfil-decoracao-2"
+                        aria-hidden="true"
+                    ></div>
+
+
+<!-- AVATAR -->
+
+<div
+    class="perfil-avatar-area perfil-avatar-clicavel"
+    id="botaoEditarAvatar"
+    role="button"
+    tabindex="0"
+    aria-label="Alterar avatar"
+>
+
+    <div class="perfil-avatar-borda">
+
+        <div class="perfil-avatar">
+
+            <img
+                id="perfilAvatar"
+                src=""
+                alt="Avatar do jogador"
+            >
+
+            <div
+                class="perfil-avatar-placeholder"
+                id="perfilAvatarPlaceholder"
+                aria-hidden="true"
+            >
+                J
+            </div>
+
+        </div>
+
+    </div>
+
+
+    
+
+</div>
+
+
+                    <!-- NOME E NICK -->
+
+                    <div class="perfil-identidade">
+
+                        <h2 id="perfilNome">
+                            Jogador
+                        </h2>
+
+                        <span id="perfilNick">
+                            @jogador
+                        </span>
+
+                    </div>
+
+
+                    
+                </section>
+
+
+                <!-- =============================================
+                     ESTATÍSTICAS
+                ============================================== -->
+
+                <section class="perfil-estatisticas">
+
+                    <div class="perfil-secao-titulo">
+
+                        <span>
+                            SUA JORNADA
+                        </span>
+
+                        <h2>
+                            Estatísticas
+                        </h2>
+
+                    </div>
+
+
+                    <div class="perfil-estatisticas-grid">
+
+
+                        <!-- LOCAIS -->
+
+                        <article class="perfil-estatistica">
+
+                            <div class="perfil-estatistica-icone verde">
+
+                                <svg
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                    aria-hidden="true"
+                                >
+
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M12 21s6-5.4 6-11a6 6 0 1 0-12 0c0 5.6 6 11 6 11Z"
+                                    />
+
+                                    <circle
+                                        cx="12"
+                                        cy="10"
+                                        r="2"
+                                    />
+
+                                </svg>
+
+                            </div>
+
+
+                            <strong id="perfilLocais">
+                                0
+                            </strong>
+
+                            <span>
+                                Locais desbloqueados
+                            </span>
+
+                        </article>
+
+
+                        <!-- RECOMPENSAS -->
+
+                        <article class="perfil-estatistica">
+
+                            <div class="perfil-estatistica-icone ciano">
+
+                                <svg
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                    aria-hidden="true"
+                                >
+
+                                    <rect
+                                        x="3"
+                                        y="8"
+                                        width="18"
+                                        height="13"
+                                        rx="2"
+                                    />
+
+                                    <path d="M12 8v13" />
+
+                                    <path d="M3 12h18" />
+
+                                    <path
+                                        d="M12 8H8.5A2.5 2.5 0 1 1 11 5.5L12 8Z"
+                                    />
+
+                                    <path
+                                        d="M12 8h3.5A2.5 2.5 0 1 0 13 5.5L12 8Z"
+                                    />
+
+                                </svg>
+
+                            </div>
+
+
+                            <strong id="perfilRecompensas">
+                                0
+                            </strong>
+
+                            <span>
+                                Recompensas obtidas
+                            </span>
+
+                        </article>
+
+
+                        <!-- MISSÕES EXTRAS -->
+
+                        <article class="perfil-estatistica">
+
+                            <div class="perfil-estatistica-icone amarelo">
+
+                                <svg
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                    aria-hidden="true"
+                                >
+
+                                    <circle
+                                        cx="12"
+                                        cy="12"
+                                        r="8"
+                                    />
+
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="m9 12 2 2 4-4"
+                                    />
+
+                                </svg>
+
+                            </div>
+
+
+                            <strong id="perfilMissoesExtras">
+                                0
+                            </strong>
+
+                            <span>
+                                Missões extras
+                            </span>
+
+                        </article>
+
+
+                        <!-- EXPLORAÇÃO -->
+
+                        <article class="perfil-estatistica">
+
+                            <div class="perfil-estatistica-icone ciano">
+
+                                <svg
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                    aria-hidden="true"
+                                >
+
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M9 18 3.5 20.5V6L9 3.5l6 2.5L20.5 3v14.5L15 20l-6-2Z"
+                                    />
+
+                                    <path d="M9 3.5V18" />
+
+                                    <path d="M15 6v14" />
+
+                                </svg>
+
+                            </div>
+
+
+                            <strong id="perfilExploracao">
+                                0%
+                            </strong>
+
+                            <span>
+                                Exploração de Boa vista
+                            </span>
+
+                        </article>
+
+
+                    </div>
+
+                </section>
+
+
+                <!-- =============================================
+                     MINHA CONTA
+                ============================================== -->
+
+                <section class="perfil-menu">
+
+                    <div class="perfil-secao-titulo">
+
+                        <span>
+                            CONTA
+                        </span>
+
+                        <h2>
+                            Minha conta
+                        </h2>
+
+                    </div>
+
+
+                    <!-- MEUS DADOS -->
+
+                    <button
+                        type="button"
+                        class="perfil-opcao"
+                        id="botaoMeusDados"
+                    >
+
+                        <div class="perfil-opcao-icone">
+
+                            <svg
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                aria-hidden="true"
+                            >
+
+                                <circle
+                                    cx="12"
+                                    cy="8"
+                                    r="4"
+                                />
+
+                                <path
+                                    stroke-linecap="round"
+                                    d="M4 21a8 8 0 0 1 16 0"
+                                />
+
+                            </svg>
+
+                        </div>
+
+
+                        <div class="perfil-opcao-texto">
+
+                            <strong>
+                                Meus dados
+                            </strong>
+
+                            <span>
+                                Veja suas informações pessoais
+                            </span>
+
+                        </div>
+
+
+                        <svg
+                            class="perfil-opcao-seta"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            aria-hidden="true"
+                        >
+
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="m9 18 6-6-6-6"
+                            />
+
+                        </svg>
+
+                    </button>
+
+
+                    <!-- IDIOMA -->
+
+<div class="perfil-idioma-bloco">
+
+    <div class="perfil-opcao perfil-opcao-idioma">
+
+        <div class="perfil-opcao-icone">
+
+            <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                aria-hidden="true"
+            >
+                <circle cx="12" cy="12" r="9"></circle>
+                <path d="M3 12h18"></path>
+                <path d="M12 3a15 15 0 0 1 0 18"></path>
+                <path d="M12 3a15 15 0 0 0 0 18"></path>
+            </svg>
+
+        </div>
+
+        <div class="perfil-opcao-texto">
+
+            <strong>
+                Idioma
+            </strong>
+
+            <span>
+                Escolha o idioma do BVenture
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <div class="perfil-idiomas">
+
+        <button
+            type="button"
+            class="perfil-idioma ativo"
+            data-idioma="pt"
+        >
+            Português
+        </button>
+
+        <button
+            type="button"
+            class="perfil-idioma"
+            data-idioma="en"
+        >
+            English
+        </button>
+
+        <button
+            type="button"
+            class="perfil-idioma"
+            data-idioma="es"
+        >
+            Español
+        </button>
+
+    </div>
+
+</div>
+
+
+                    <!-- SOBRE O BVENTURE -->
+
+                    <button
+                        type="button"
+                        class="perfil-opcao"
+                        id="botaoSobre"
+                    >
+
+                        <div class="perfil-opcao-icone">
+
+                            <svg
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                aria-hidden="true"
+                            >
+
+                                <circle
+                                    cx="12"
+                                    cy="12"
+                                    r="9"
+                                />
+
+                                <path
+                                    stroke-linecap="round"
+                                    d="M12 11v6"
+                                />
+
+                                <path
+                                    stroke-linecap="round"
+                                    d="M12 7h.01"
+                                />
+
+                            </svg>
+
+                        </div>
+
+
+                        <div class="perfil-opcao-texto">
+
+                            <strong>
+                                Sobre o BVenture
+                            </strong>
+
+                            <span>
+                                Conheça mais sobre o projeto
+                            </span>
+
+                        </div>
+
+
+                        <svg
+                            class="perfil-opcao-seta"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            aria-hidden="true"
+                        >
+
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="m9 18 6-6-6-6"
+                            />
+
+                        </svg>
+
+                    </button>
+
+
+                    <!-- SAIR -->
+
+                    <button
+                        type="button"
+                        class="perfil-opcao perfil-opcao-sair"
+                        id="botaoSair"
+                    >
+
+                        <div class="perfil-opcao-icone">
+
+                            <svg
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                aria-hidden="true"
+                            >
+
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M10 17l5-5-5-5"
+                                />
+
+                                <path
+                                    stroke-linecap="round"
+                                    d="M15 12H3"
+                                />
+
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M13 3h6a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-6"
+                                />
+
+                            </svg>
+
+                        </div>
+
+
+                        <div class="perfil-opcao-texto">
+
+                            <strong>
+                                Sair da conta
+                            </strong>
+
+                            <span>
+                                Encerrar sua sessão no BVenture
+                            </span>
+
+                        </div>
+
+                    </button>
+
+
+                </section>
+
+
+            </div>
+
+
+            <!-- ======================================================
+     POPUP — ALTERAR AVATAR
+======================================================= -->
+
+<div
+    class="perfil-modal"
+    id="avatarModal"
+    aria-hidden="true"
+>
+
+    <div
+        class="perfil-modal-fundo"
+        id="avatarModalFundo"
+    ></div>
+
+
+    <div
+        class="perfil-modal-card perfil-modal-card-avatar"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="avatarModalTitulo"
+    >
+
+        <button
+            type="button"
+            class="perfil-modal-fechar"
+            id="avatarModalFechar"
+            aria-label="Fechar"
+        >
+            <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.4"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+            >
+                <path d="M18 6 6 18"></path>
+                <path d="m6 6 12 12"></path>
+            </svg>
+        </button>
+
+
+        <span class="perfil-modal-etiqueta">
+            SEU PERSONAGEM
+        </span>
+
+        <h2 id="avatarModalTitulo">
+            Escolha seu avatar
+        </h2>
+
+        <p class="perfil-modal-descricao">
+            Escolha o ícone que vai representar você no BVenture.
+        </p>
+
+
+        <div
+            class="perfil-avatar-opcoes"
+            id="avatarOpcoes"
+        >
+
+            <button
+                type="button"
+                class="perfil-avatar-opcao"
+                data-avatar="icones-webp/icon1.webp"
+            >
+                <img
+                    src="icones-webp/icon1.webp"
+                    alt="Avatar 1"
+                >
+            </button>
+
+            <button
+                type="button"
+                class="perfil-avatar-opcao"
+                data-avatar="icones-webp/icon2.webp"
+            >
+                <img
+                    src="icones-webp/icon2.webp"
+                    alt="Avatar 2"
+                >
+            </button>
+
+            <button
+                type="button"
+                class="perfil-avatar-opcao"
+                data-avatar="icones-webp/icon3.webp"
+            >
+                <img
+                    src="icones-webp/icon3.webp"
+                    alt="Avatar 3"
+                >
+            </button>
+
+            <button
+                type="button"
+                class="perfil-avatar-opcao"
+                data-avatar="icones-webp/icon4.webp"
+            >
+                <img
+                    src="icones-webp/icon4.webp"
+                    alt="Avatar 4"
+                >
+            </button>
+
+            <button
+                type="button"
+                class="perfil-avatar-opcao"
+                data-avatar="icones-webp/icon5.webp"
+            >
+                <img
+                    src="icones-webp/icon5.webp"
+                    alt="Avatar 5"
+                >
+            </button>
+
+            <button
+                type="button"
+                class="perfil-avatar-opcao"
+                data-avatar="icones-webp/icon6.webp"
+            >
+                <img
+                    src="icones-webp/icon6.webp"
+                    alt="Avatar 6"
+                >
+            </button>
+
+        </div>
+
+
+        <div class="perfil-avatar-acoes">
+
+            <button
+                type="button"
+                class="perfil-modal-botao secundario"
+                id="avatarCancelar"
+            >
+                Cancelar
+            </button>
+
+            <button
+                type="button"
+                class="perfil-modal-botao principal"
+                id="avatarConfirmar"
+                disabled
+            >
+                Confirmar
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+            <!-- ======================================================
+     POPUP — MEUS DADOS
+======================================================= -->
+
+<div
+    class="perfil-modal"
+    id="dadosModal"
+    aria-hidden="true"
+>
+
+    <div
+        class="perfil-modal-fundo"
+        id="dadosModalFundo"
+    ></div>
+
+
+    <div
+        class="perfil-modal-card perfil-modal-card-dados"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="dadosModalTitulo"
+    >
+
+        <button
+            type="button"
+            class="perfil-modal-fechar"
+            id="dadosModalFechar"
+            aria-label="Fechar"
+        >
+            <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.4"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+            >
+                <path d="M18 6 6 18"></path>
+                <path d="m6 6 12 12"></path>
+            </svg>
+        </button>
+
+
+        <span class="perfil-modal-etiqueta">
+            SUA CONTA
+        </span>
+
+        <h2 id="dadosModalTitulo">
+            Meus dados
+        </h2>
+
+        <p class="perfil-modal-descricao">
+            Atualize suas informações pessoais.
+        </p>
+
+
+        <form id="formMeusDados">
+
+            <div class="perfil-campo">
+
+                <label for="editarNome">
+                    Nome
+                </label>
+
+                <input
+                    type="text"
+                    id="editarNome"
+                    autocomplete="name"
+                    required
+                >
+
+            </div>
+
+
+            <div class="perfil-campo">
+
+                <label for="editarNick">
+                    Nick
+                </label>
+
+                <input
+                    type="text"
+                    id="editarNick"
+                    autocomplete="username"
+                    required
+                >
+
+            </div>
+
+
+            <div class="perfil-campo" id="campoAlterarSenha">
+
+                <label for="editarSenha">
+                    Nova senha
+                </label>
+            
+                <input
+                    type="password"
+                    id="editarSenha"
+                    autocomplete="new-password"
+                    placeholder="Digite uma nova senha"
+                    minlength="8"
+                    disabled
+                >
+            
+                <small id="editarSenhaAjuda">
+                    Carregando informações da conta...
+                </small>
+            
+            </div>
+
+
+            <button
+                type="submit"
+                class="perfil-modal-salvar"
+            >
+                Salvar alterações
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<!-- ======================================================
+     POPUP — CONFIRMAR IDIOMA
+======================================================= -->
+
+<div
+    class="perfil-modal perfil-modal-confirmacao"
+    id="idiomaModal"
+    aria-hidden="true"
+>
+
+    <div
+        class="perfil-modal-fundo"
+        id="idiomaModalFundo"
+    ></div>
+
+
+    <div
+        class="perfil-modal-card perfil-modal-card-pequeno"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="idiomaModalTitulo"
+    >
+
+        <div class="perfil-modal-icone-confirmacao">
+
+            <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+            >
+                <circle cx="12" cy="12" r="9"></circle>
+                <path d="M3 12h18"></path>
+                <path d="M12 3a15 15 0 0 1 0 18"></path>
+                <path d="M12 3a15 15 0 0 0 0 18"></path>
+            </svg>
+
+        </div>
+
+
+        <h2 id="idiomaModalTitulo">
+            Deseja mudar de idioma?
+        </h2>
+
+        <p id="idiomaModalTexto">
+            O idioma selecionado será aplicado ao BVenture.
+        </p>
+
+
+        <div class="perfil-modal-acoes">
+
+            <button
+                type="button"
+                class="perfil-modal-botao secundario"
+                id="idiomaNao"
+            >
+                Não
+            </button>
+
+            <button
+                type="button"
+                class="perfil-modal-botao principal"
+                id="idiomaSim"
+            >
+                Sim
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- ======================================================
+     POPUP — CONFIRMAR SAÍDA
+======================================================= -->
+
+<div
+    class="perfil-modal perfil-modal-confirmacao"
+    id="sairModal"
+    aria-hidden="true"
+>
+
+    <div
+        class="perfil-modal-fundo"
+        id="sairModalFundo"
+    ></div>
+
+
+    <div
+        class="perfil-modal-card perfil-modal-card-pequeno"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="sairModalTitulo"
+    >
+
+        <div class="perfil-modal-icone-confirmacao sair">
+
+            <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+            >
+                <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M10 17l5-5-5-5"
+                ></path>
+
+                <path
+                    stroke-linecap="round"
+                    d="M15 12H3"
+                ></path>
+
+                <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M13 3h6a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-6"
+                ></path>
+            </svg>
+
+        </div>
+
+
+        <h2 id="sairModalTitulo">
+            Deseja mesmo sair?
+        </h2>
+
+        <p>
+            Você será direcionado para a tela de login.
+        </p>
+
+
+        <div class="perfil-modal-acoes">
+
+            <button
+                type="button"
+                class="perfil-modal-botao secundario"
+                id="sairNao"
+            >
+                Não
+            </button>
+
+            <button
+                type="button"
+                class="perfil-modal-botao perigo"
+                id="sairSim"
+            >
+                Sim
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+           <!-- ======================================================
+     POPUP — SOBRE O BVENTURE
+======================================================= -->
+
+<div class="sobre-modal" id="sobreModal" aria-hidden="true">
+
+    <div
+        class="sobre-modal-fundo"
+        id="sobreModalFundo"
+    ></div>
+
+
+    <!-- WRAPPER FIXO -->
+    <div class="sobre-modal-wrapper">
+
+
+        <!-- =============================================
+             CARD — ESTA É A PARTE QUE ROLA
+        ============================================== -->
+
+        <div
+            class="sobre-modal-card"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="sobreModalTitulo"
+        >
+
+            <!-- FECHAR -->
+
+            <button
+                class="sobre-modal-fechar"
+                id="sobreModalFechar"
+                type="button"
+                aria-label="Fechar"
+            >
+
+                <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2.4"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                >
+                    <path d="M18 6 6 18"></path>
+                    <path d="m6 6 12 12"></path>
+                </svg>
+
+            </button>
+
+
+            <!-- CABEÇALHO -->
+
+            <div class="sobre-modal-cabecalho">
+
+                <span class="sobre-modal-label">
+                    NOSSA HISTÓRIA
+                </span>
+
+                <h2 id="sobreModalTitulo">
+                    Sobre o BVenture
+                </h2>
+
+                <div class="sobre-modal-linha"></div>
+
+            </div>
+
+
+            <!-- TEXTO -->
+
+            <div class="sobre-modal-conteudo">
+
+                <p data-i18n-html="sobre-bventure-paragrafo-1">
+                    Somos a
+                    <strong class="sobre-verde">
+                        BVenture
+                    </strong>,
+                    uma equipe formada por cinco estudantes do
+                    Senac - Serviço Nacional de Aprendizagem Comercial.
+                    Este jogo nasceu do nosso Projeto Integrador (PI),
+                    o trabalho de conclusão do curso Técnico em
+                    Administração, a partir de um desafio: criar algo
+                    inovador, interessante e divertido.
+                </p>
+
+
+                <p>
+                    Foi assim que surgiu a ideia de transformar a
+                    exploração de Boa Vista em uma aventura. Por meio
+                    do jogo, queremos incentivar as pessoas a conhecerem
+                    novos lugares, descobrirem pontos turísticos e
+                    aprenderem mais sobre a história, a cultura e as
+                    belezas da nossa cidade.
+                </p>
+
+
+                <p>
+                    Nosso objetivo é levar Boa Vista para o mundo.
+                    Seja você de Roraima, de outro estado do Brasil
+                    ou de outro país, queremos que o BVenture desperte
+                    a curiosidade de explorar a cidade e a vontade de
+                    conhecê-la de perto.
+                </p>
+
+
+                <p data-i18n-html="sobre-bventure-paragrafo-4">
+                    Mais do que um jogo, o
+                    <strong class="sobre-verde">
+                        BVenture
+                    </strong>
+                    é uma nova forma de descobrir Boa Vista:
+                    explorando, aprendendo, completando desafios e
+                    vivendo novas experiências.
+                </p>
+
+
+                <p class="sobre-modal-frase">
+                    Explore. Descubra. Viva além do mapa.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- =============================================
+             SCROLL — FORA DO CARD QUE ROLA
+        ============================================== -->
+
+        <div
+            class="sobre-scroll"
+            aria-hidden="true"
+        >
+
+            <div
+                class="sobre-scroll-thumb"
+                id="sobreScrollThumb"
+            ></div>
+
+        </div>
+
+
+    </div>
+
+</div>
+        </section>
+
+
+    </main>
+
+
+    <!-- =====================================================
+         NAVEGAÇÃO INFERIOR
+    ====================================================== -->
+
+    <nav
+        class="navegacao"
+        aria-label="Navegação principal"
+    >
+
+
+        <!--
+            Indicador antigo.
+            Mantido para não gerar conflito com códigos existentes.
+        -->
+
+        <span
+            class="nav-indicador"
+            aria-hidden="true"
+        ></span>
+
+
+        <!-- =================================================
+             INÍCIO
+        ================================================== -->
+
+        <button
+            type="button"
+            class="nav-item ativo"
+            data-destino="inicio"
+            aria-label="Início"
+        >
+
+            <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                aria-hidden="true"
+            >
+
+                <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="m2.25 12 8.954-8.955a1.126 1.126 0 0 1 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75"
+                />
+
+            </svg>
+
+            <span>
+                Início
+            </span>
+
+        </button>
+
+
+        <!-- =================================================
+             MISSÕES
+        ================================================== -->
+
+        <button
+            type="button"
+            class="nav-item"
+            data-destino="missoes"
+            aria-label="Missões"
+        >
+
+            <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                aria-hidden="true"
+            >
+
+                <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M9 6.75V15m6-6v8.25m.503 3.498 4.875-2.437c.381-.191.622-.58.622-1.006V4.82c0-.836-.88-1.38-1.628-1.006l-3.869 1.934a1.125 1.125 0 0 1-1.006 0L9.503 3.252a1.125 1.125 0 0 0-1.006 0L3.622 5.689A1.125 1.125 0 0 0 3 6.695V20.18c0 .836.88 1.38 1.628 1.006l3.869-1.934a1.125 1.125 0 0 1 1.006 0l4.994 2.497a1.125 1.125 0 0 0 1.006 0Z"
+                />
+
+            </svg>
+
+            <span>
+                Missões
+            </span>
+
+        </button>
+
+
+        <!-- =================================================
+             RECOMPENSAS
+        ================================================== -->
+
+        <button
+            type="button"
+            class="nav-item"
+            data-destino="recompensas"
+            aria-label="Recompensas"
+        >
+
+            <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                aria-hidden="true"
+            >
+
+                <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M21 11.25v8.25A2.25 2.25 0 0 1 18.75 21H5.25A2.25 2.25 0 0 1 3 18.75v-8.25M12 4.875A2.625 2.625 0 1 0 6.75 4.875C6.75 8.25 12 9.75 12 9.75s5.25-1.5 5.25-4.875a2.625 2.625 0 1 0-5.25 0ZM2.25 9.75h19.5v4.5H2.25v-4.5ZM12 9.75V21"
+                />
+
+            </svg>
+
+            <span>
+                Recompensas
+            </span>
+
+        </button>
+
+
+        <!-- =================================================
+             EMPRESAS
+        ================================================== -->
+
+        <button
+            type="button"
+            class="nav-item"
+            data-destino="empresas"
+            aria-label="Empresas"
+        >
+
+            <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                aria-hidden="true"
+            >
+
+                <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M13.5 21v-7.5A1.5 1.5 0 0 0 12 12h-1.5A1.5 1.5 0 0 0 9 13.5V21m-6.75-9h19.5M3.75 21h16.5M4.5 3h15l1.5 6a3 3 0 0 1-5.25 2.25A3 3 0 0 1 10.5 11.25 3 3 0 0 1-5.25 0A3 3 0 0 1 3 9l1.5-6Z"
+                />
+
+            </svg>
+
+            <span>
+                Empresas
+            </span>
+
+        </button>
+
+
+        <!-- =================================================
+             PERFIL
+        ================================================== -->
+
+        <button
+            type="button"
+            class="nav-item"
+            data-destino="perfil"
+            aria-label="Perfil"
+        >
+
+            <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                aria-hidden="true"
+            >
+
+                <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z"
+                />
+
+            </svg>
+
+            <span>
+                Perfil
+            </span>
+
+        </button>
+
+
+    </nav>
+
+
+</div>
+
+
+    <!-- =========================================================
+        JAVASCRIPT
+    ========================================================= -->
+
+    <script src="js/app.js"></script>
+
+    <script src="js/navegacao.js"></script>
+
+    <script type="module" src="js/inicio.js"></script>
+
+    <script src="js/locais.js"></script>
+
+    <script type="module" src="js/missoes.js"></script>
+
+    <script src="js/recompensas.js"></script>
+
+    <script src="js/empresas.js"></script>
+
+    <script src="js/idiomas.js"></script>
+
+    <script src="js/loading.js"></script>
+
+
+    <script type="module" src="js/perfil.js"></script>
+
+    <script src="./js/pwa.js"></script>
+
+</body>
+
+</html>

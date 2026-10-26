@@ -1,0 +1,5669 @@
+/* =========================================================
+   BVENTURE — PERFIL
+   CSS RECONSTRUÍDO
+========================================================= */
+
+
+/* =========================================================
+   TELA
+========================================================= */
+
+/* =========================================================
+   FUNDO DA TELA DE PERFIL
+========================================================= */
+
+body:has(.tela-perfil.tela-ativa) {
+
+    background-color: var(--azul-quase-preto);
+
+    background-image:
+        linear-gradient(
+            rgba(3, 25, 35, 0.85),
+            rgba(3, 25, 35, 0.85)
+        ),
+        url("../imagens-webp/fundoprincipal.webp");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+
+.app:has(.tela-perfil.tela-ativa),
+.app-conteudo:has(.tela-perfil.tela-ativa) {
+    background: transparent;
+}
+
+
+.tela-perfil {
+    position: relative;
+
+    width: 100%;
+    min-height: 100%;
+
+    padding:
+        26px
+        22px
+        135px;
+
+    box-sizing: border-box;
+
+    background: transparent;
+}
+
+
+/* =========================================================
+   CONTEÚDO
+========================================================= */
+
+.perfil-conteudo {
+    width: 100%;
+    max-width: 900px;
+
+    margin: 0 auto;
+}
+
+
+/* =========================================================
+   CABEÇALHO
+========================================================= */
+
+.perfil-cabecalho {
+    margin-bottom: 22px;
+}
+
+
+.perfil-cabecalho span {
+    display: block;
+
+    margin-bottom: 2px;
+
+    color: #BAFF45;
+
+    font-family: "Nunito", sans-serif;
+
+    font-size: 0.72rem;
+    font-weight: 900;
+
+    letter-spacing: 0.12em;
+
+    text-transform: uppercase;
+}
+
+
+.perfil-cabecalho h1 {
+    margin: 0;
+
+    color: #FFFFFF;
+
+    font-family: "Baloo 2", sans-serif;
+
+    font-size: 2rem;
+    font-weight: 800;
+
+    line-height: 1.05;
+}
+
+
+/* =========================================================
+   CARD DO JOGADOR
+========================================================= */
+
+.perfil-jogador {
+    position: relative;
+
+    width: 100%;
+
+    margin-bottom: 24px;
+
+    padding: 20px 18px;
+
+    box-sizing: border-box;
+
+    border: 2px solid #6FDC43;
+
+    border-radius: 22px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(6, 44, 61, 0.97),
+            rgba(7, 75, 91, 0.82)
+        );
+
+    box-shadow:
+        0 6px 0 rgba(111, 220, 67, 0.34),
+        0 10px 0 rgba(3, 25, 35, 0.68),
+        0 16px 24px rgba(0, 0, 0, 0.28);
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   EFEITO DO CARD
+========================================================= */
+
+.perfil-jogador::before {
+    content: "";
+
+    position: absolute;
+
+    top: -70px;
+    right: -60px;
+
+    width: 190px;
+    height: 190px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(0, 191, 216, 0.12),
+            transparent 70%
+        );
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   TOPO DO CARD
+========================================================= */
+
+.perfil-jogador-topo {
+    position: relative;
+
+    z-index: 1;
+
+    display: flex;
+
+    flex-direction: row;
+
+    align-items: center;
+    justify-content: flex-start;
+
+    gap: 16px;
+
+    text-align: left;
+}
+
+
+/* =========================================================
+   ÁREA DO AVATAR
+========================================================= */
+
+.perfil-avatar-area {
+    position: relative;
+
+    flex: 0 0 auto;
+
+    width: 82px;
+    height: 82px;
+}
+
+
+/* =========================================================
+   AVATAR
+========================================================= */
+
+.perfil-avatar {
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 82px;
+    height: 82px;
+
+    box-sizing: border-box;
+
+    border: 3px solid #BAFF45;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(30, 139, 134, 0.35),
+            rgba(3, 25, 35, 0.75)
+        );
+
+    overflow: hidden;
+
+    box-shadow:
+        0 5px 0 rgba(3, 25, 35, 0.52),
+        0 8px 16px rgba(0, 0, 0, 0.24);
+}
+
+
+.perfil-avatar img {
+    position: absolute;
+
+    inset: 0;
+
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    opacity: 0;
+
+    transition: opacity 0.2s ease;
+}
+
+
+.perfil-avatar img.carregado {
+    opacity: 1;
+}
+
+
+/* =========================================================
+   PLACEHOLDER DO AVATAR
+========================================================= */
+
+.perfil-avatar-placeholder {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    height: 100%;
+
+    color: #BAFF45;
+
+    font-family: "Baloo 2", sans-serif;
+
+    font-size: 2rem;
+    font-weight: 800;
+}
+
+
+.perfil-avatar-placeholder.oculto {
+    display: none;
+}
+
+
+/* =========================================================
+   NÍVEL
+========================================================= */
+
+.perfil-nivel {
+    position: absolute;
+
+    right: -3px;
+    bottom: -3px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-width: 29px;
+    height: 29px;
+
+    padding: 0 7px;
+
+    box-sizing: border-box;
+
+    border: 2px solid #031923;
+
+    border-radius: 999px;
+
+    background: #BAFF45;
+
+    color: #031923;
+
+    font-family: "Oxanium", sans-serif;
+
+    font-size: 0.72rem;
+    font-weight: 800;
+
+    box-shadow:
+        0 3px 0 rgba(0, 0, 0, 0.25);
+}
+
+
+/* =========================================================
+   INFORMAÇÕES DO JOGADOR
+========================================================= */
+
+.perfil-jogador-info {
+    width: auto;
+    min-width: 0;
+
+    flex: 1;
+
+    text-align: left;
+}
+
+.perfil-jogador-info h2 {
+    margin: 0 0 2px;
+
+    color: #FFFFFF;
+
+    font-family: "Baloo 2", sans-serif;
+
+    font-size: 1.42rem;
+    font-weight: 800;
+
+    line-height: 1.08;
+
+    overflow-wrap: anywhere;
+}
+
+
+.perfil-jogador-info > span {
+    display: block;
+
+    color: #00BFD8;
+
+    font-family: "Nunito", sans-serif;
+
+    font-size: 0.78rem;
+    font-weight: 800;
+
+    overflow-wrap: anywhere;
+}
+
+
+/* =========================================================
+   ÁREA DE XP
+========================================================= */
+
+.perfil-xp {
+    position: relative;
+
+    z-index: 1;
+
+    width: 100%;
+
+    margin-top: 20px;
+}
+
+
+.perfil-xp-topo {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 12px;
+
+    margin-bottom: 7px;
+}
+
+
+.perfil-xp-topo span {
+    color: #C7DDDD;
+
+    font-family: "Nunito", sans-serif;
+
+    font-size: 0.72rem;
+    font-weight: 800;
+}
+
+
+.perfil-xp-topo strong {
+    color: #BAFF45;
+
+    font-family: "Oxanium", sans-serif;
+
+    font-size: 0.72rem;
+    font-weight: 800;
+}
+
+
+/* =========================================================
+   BARRA DE XP
+========================================================= */
+
+.perfil-xp-trilho {
+    width: 100%;
+    height: 9px;
+
+    border-radius: 999px;
+
+    background:
+        rgba(3, 25, 35, 0.72);
+
+    overflow: hidden;
+
+    box-shadow:
+        inset 0 2px 3px rgba(0, 0, 0, 0.30);
+}
+
+
+.perfil-xp-barra {
+    width: 0%;
+    height: 100%;
+
+    border-radius: inherit;
+
+    background:
+        linear-gradient(
+            90deg,
+            #BAFF45,
+            #6FDC43
+        );
+
+    box-shadow:
+        0 0 10px rgba(186, 255, 69, 0.28);
+
+    transition:
+        width 0.45s ease;
+}
+
+
+/* =========================================================
+   TÍTULOS DAS SEÇÕES
+========================================================= */
+
+.perfil-secao-titulo {
+    margin: 30px 0 14px;
+}
+
+
+.perfil-secao-titulo span {
+    display: block;
+
+    margin-bottom: 2px;
+
+    color: #BAFF45;
+
+    font-family: "Nunito", sans-serif;
+
+    font-size: 0.70rem;
+    font-weight: 900;
+
+    letter-spacing: 0.11em;
+
+    text-transform: uppercase;
+}
+
+
+.perfil-secao-titulo h2 {
+    margin: 0;
+
+    color: #FFFFFF;
+
+    font-family: "Baloo 2", sans-serif;
+
+    font-size: 1.58rem;
+    font-weight: 800;
+
+    line-height: 1.08;
+}
+
+/* =========================================================
+   ESTATÍSTICAS
+========================================================= */
+
+.perfil-estatisticas {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 12px;
+
+    width: 100%;
+}
+
+
+/* =========================================================
+   CARD DE ESTATÍSTICA
+========================================================= */
+
+.perfil-estatistica {
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    min-width: 0;
+    min-height: 98px;
+
+    padding: 14px;
+
+    box-sizing: border-box;
+
+    border: 2px solid #6FDC43;
+
+    border-radius: 17px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(6, 44, 61, 0.97),
+            rgba(7, 75, 91, 0.72)
+        );
+
+    box-shadow:
+        0 5px 0 rgba(111, 220, 67, 0.32),
+        0 9px 0 rgba(3, 25, 35, 0.68),
+        0 14px 20px rgba(0, 0, 0, 0.28);
+
+    overflow: hidden;
+}
+
+
+/* não usamos mais a pequena linha decorativa */
+
+.perfil-estatistica::before {
+    display: none;
+}
+
+
+/* =========================================================
+   CONTEÚDO DA ESTATÍSTICA
+========================================================= */
+
+.perfil-estatistica-conteudo {
+    position: relative;
+
+    z-index: 1;
+
+    display: flex;
+
+    align-items: center;
+
+    width: 100%;
+
+    gap: 11px;
+}
+
+
+/* =========================================================
+   ÍCONE DA ESTATÍSTICA
+========================================================= */
+
+.perfil-estatistica-icone,
+.perfil-estatistica-icone.verde,
+.perfil-estatistica-icone.ciano,
+.perfil-estatistica-icone.amarelo {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    flex: 0 0 auto;
+
+    width: 43px;
+    height: 43px;
+
+    border: none;
+
+    border-radius: 13px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(111, 220, 67, 0.16),
+            rgba(30, 139, 134, 0.11)
+        );
+
+    color: #FFD84D;
+
+    box-shadow:
+        0 4px 0 rgba(0, 0, 0, 0.22),
+        inset 0 0 13px rgba(186, 255, 69, 0.04);
+}
+
+
+
+
+.perfil-estatistica-icone svg,
+.perfil-estatistica-icone.verde svg,
+.perfil-estatistica-icone.ciano svg,
+.perfil-estatistica-icone.amarelo svg {
+    width: 23px;
+    height: 23px;
+
+    color: #FFD84D;
+
+    stroke: #00BFD8;
+}
+
+
+/* =========================================================
+   TEXTO DA ESTATÍSTICA
+========================================================= */
+
+.perfil-estatistica-texto {
+    min-width: 0;
+
+    flex: 1;
+}
+
+
+.perfil-estatistica-texto strong {
+    display: block;
+
+    margin-bottom: 2px;
+
+    color: #BAFF45;
+
+    font-family: "Oxanium", sans-serif;
+
+    font-size: 1.18rem;
+    font-weight: 800;
+
+    line-height: 1.05;
+}
+
+
+.perfil-estatistica-texto span {
+    display: block;
+
+    color: #C7DDDD;
+
+    font-family: "Nunito", sans-serif;
+
+    font-size: 0.70rem;
+    font-weight: 700;
+
+    line-height: 1.18;
+}
+
+
+/* =========================================================
+   MENU — MINHA CONTA
+========================================================= */
+
+.perfil-menu {
+    width: 100%;
+}
+
+
+/* =========================================================
+   OPÇÕES DE MINHA CONTA
+========================================================= */
+
+.perfil-opcao {
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    width: 100%;
+    min-height: 76px;
+
+    margin: 0 0 11px;
+
+    padding: 12px 15px;
+
+    box-sizing: border-box;
+
+    border: 2px solid #6FDC43;
+
+    border-radius: 17px;
+
+    outline: none;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(6, 44, 61, 0.97),
+            rgba(7, 75, 91, 0.72)
+        );
+
+    color: #FFFFFF;
+
+    text-align: left;
+
+    font: inherit;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 5px 0 rgba(111, 220, 67, 0.32),
+        0 9px 0 rgba(3, 25, 35, 0.68),
+        0 14px 20px rgba(0, 0, 0, 0.28);
+
+    transition:
+        transform 0.18s ease,
+        border-color 0.18s ease,
+        background 0.18s ease;
+
+    -webkit-tap-highlight-color: transparent;
+}
+
+
+.perfil-opcao:active {
+    transform: scale(0.985);
+}
+
+
+/* =========================================================
+   ÍCONE DAS OPÇÕES
+========================================================= */
+
+.perfil-opcao-icone {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    flex: 0 0 auto;
+
+    width: 43px;
+    height: 43px;
+
+    margin-right: 13px;
+
+    border: none;
+
+    border-radius: 13px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(111, 220, 67, 0.16),
+            rgba(30, 139, 134, 0.11)
+        );
+
+    color: #FFD84D;
+
+    box-shadow:
+        0 4px 0 rgba(0, 0, 0, 0.22),
+        inset 0 0 13px rgba(186, 255, 69, 0.04);
+}
+
+
+.perfil-opcao-icone svg {
+    display: block;
+
+    width: 23px;
+    height: 23px;
+
+    color: #00BFD8;
+
+    stroke: #00BFD8;
+}
+
+
+/* =========================================================
+   TEXTO DAS OPÇÕES
+========================================================= */
+
+.perfil-opcao-texto {
+    min-width: 0;
+
+    flex: 1;
+}
+
+
+.perfil-opcao-texto strong {
+    display: block;
+
+    margin-bottom: 2px;
+
+    color: #FFFFFF;
+
+    font-family: "Nunito", sans-serif;
+
+    font-size: 0.88rem;
+    font-weight: 900;
+
+    line-height: 1.15;
+}
+
+
+.perfil-opcao-texto span {
+    display: block;
+
+    color: #C7DDDD;
+
+    font-family: "Nunito", sans-serif;
+
+    font-size: 0.70rem;
+    font-weight: 600;
+
+    line-height: 1.2;
+}
+
+
+/* =========================================================
+   SETA
+========================================================= */
+
+.perfil-opcao-seta {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    flex: 0 0 auto;
+
+    width: 24px;
+    height: 24px;
+
+    margin-left: 8px;
+
+    color: rgba(199, 221, 221, 0.62);
+}
+
+
+.perfil-opcao-seta svg {
+    display: block;
+
+    width: 18px;
+    height: 18px;
+
+    stroke: currentColor;
+}
+
+
+/* =========================================================
+   HOVER DAS OPÇÕES — SOMENTE COMPUTADOR
+========================================================= */
+
+@media (hover: hover) and (pointer: fine) {
+
+    .perfil-menu > button.perfil-opcao:hover {
+        transform: translateY(-2px);
+
+        border-color: #BAFF45;
+
+        background:
+            linear-gradient(
+                145deg,
+                rgba(7, 75, 91, 0.98),
+                rgba(30, 139, 134, 0.72)
+            );
+    }
+
+}
+
+
+/* =========================================================
+   IDIOMA — CARD
+========================================================= */
+
+.perfil-idioma-bloco {
+    position: relative;
+
+    width: 100%;
+
+    margin: 0 0 11px;
+
+    box-sizing: border-box;
+
+    border: 2px solid #6FDC43;
+
+    border-radius: 17px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(6, 44, 61, 0.97),
+            rgba(7, 75, 91, 0.72)
+        );
+
+    box-shadow:
+        0 5px 0 rgba(111, 220, 67, 0.32),
+        0 9px 0 rgba(3, 25, 35, 0.68),
+        0 14px 20px rgba(0, 0, 0, 0.28);
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   CABEÇALHO DO IDIOMA
+
+   IMPORTANTE:
+   esta área não é um botão e não recebe hover.
+========================================================= */
+
+.perfil-idioma-bloco .perfil-opcao,
+.perfil-idioma-bloco .perfil-opcao:hover,
+.perfil-idioma-bloco .perfil-opcao:focus,
+.perfil-idioma-bloco .perfil-opcao:active {
+    min-height: 76px;
+
+    margin: 0;
+
+    padding: 12px 15px 8px;
+
+    border: 0;
+
+    border-radius: 0;
+
+    outline: none;
+
+    background: transparent;
+
+    box-shadow: none;
+
+    transform: none;
+
+    cursor: default;
+}
+
+
+/* garante que o ícone não mude no desktop */
+
+.perfil-idioma-bloco .perfil-opcao-icone,
+.perfil-idioma-bloco .perfil-opcao:hover .perfil-opcao-icone,
+.perfil-idioma-bloco .perfil-opcao:focus .perfil-opcao-icone,
+.perfil-idioma-bloco .perfil-opcao:active .perfil-opcao-icone {
+    border: none;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(111, 220, 67, 0.16),
+            rgba(30, 139, 134, 0.11)
+        );
+
+    color: #00BFD8;
+
+    box-shadow:
+        0 4px 0 rgba(0, 0, 0, 0.22),
+        inset 0 0 13px rgba(186, 255, 69, 0.04);
+
+    transform: none;
+}
+
+
+.perfil-idioma-bloco .perfil-opcao-icone svg,
+.perfil-idioma-bloco .perfil-opcao:hover .perfil-opcao-icone svg {
+    color: #00BFD8;
+
+    stroke: #00BFD8;
+}
+
+
+/* =========================================================
+   BOTÕES DOS IDIOMAS
+========================================================= */
+
+.perfil-idiomas {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 8px;
+
+    width: 100%;
+
+    padding:
+        0
+        14px
+        14px;
+
+    box-sizing: border-box;
+}
+
+
+.perfil-idioma {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-width: 0;
+    min-height: 43px;
+
+    padding: 8px 6px;
+
+    box-sizing: border-box;
+
+    border:
+    1px solid
+    transparent;
+
+    border-radius: 11px;
+
+    outline: none;
+
+    background:
+    linear-gradient(
+        145deg,
+        rgba(111, 220, 67, 0.16),
+        rgba(30, 139, 134, 0.11)
+    );
+
+    color:
+        rgba(199, 221, 221, 0.82);
+
+    font-family: "Nunito", sans-serif;
+
+    font-size: 0.72rem;
+    font-weight: 800;
+
+    text-align: center;
+
+    cursor: pointer;
+
+    box-shadow:
+    0 4px 0 rgba(0, 0, 0, 0.22);
+
+    transition:
+        transform 0.18s ease,
+        border-color 0.18s ease,
+        background 0.18s ease,
+        color 0.18s ease;
+
+    -webkit-tap-highlight-color: transparent;
+}
+
+
+.perfil-idioma:active {
+    transform: scale(0.97);
+}
+
+
+/* =========================================================
+   IDIOMA ATUAL
+========================================================= */
+
+.perfil-idioma.ativo {
+    border-color: #BAFF45;
+
+    background:
+        rgba(186, 255, 69, 0.11);
+
+    color: #BAFF45;
+}
+
+
+/* =========================================================
+   HOVER DOS IDIOMAS — SOMENTE COMPUTADOR
+========================================================= */
+
+@media (hover: hover) and (pointer: fine) {
+
+    .perfil-idioma:not(.ativo):hover {
+        border-color:
+            rgba(0, 191, 216, 0.55);
+
+        background:
+            rgba(0, 191, 216, 0.09);
+
+        color: #FFFFFF;
+
+        transform: translateY(-1px);
+    }
+
+
+    .perfil-idioma.ativo:hover {
+        border-color: #BAFF45;
+
+        background:
+            rgba(186, 255, 69, 0.14);
+
+        color: #BAFF45;
+
+        transform: none;
+    }
+
+}
+
+
+/* =========================================================
+   SAIR DA CONTA
+========================================================= */
+
+.perfil-opcao.sair {
+    border-color:
+        rgba(255, 105, 105, 0.68);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(6, 44, 61, 0.97),
+            rgba(85, 37, 48, 0.58)
+        );
+
+    box-shadow:
+        0 5px 0 rgba(255, 105, 105, 0.22),
+        0 9px 0 rgba(3, 25, 35, 0.68),
+        0 14px 20px rgba(0, 0, 0, 0.28);
+}
+
+
+.perfil-opcao.sair .perfil-opcao-icone {
+    background:
+        rgba(255, 105, 105, 0.10);
+
+    color: #FF7777;
+}
+
+
+.perfil-opcao.sair .perfil-opcao-icone svg {
+    color: #FF7777;
+
+    stroke: #FF7777;
+}
+
+
+.perfil-opcao.sair .perfil-opcao-texto strong {
+    color: #FF7777;
+}
+
+
+/* hover de sair somente no computador */
+
+@media (hover: hover) and (pointer: fine) {
+
+    .perfil-menu > button.perfil-opcao.sair:hover {
+        border-color:
+            rgba(255, 120, 120, 0.92);
+
+        background:
+            linear-gradient(
+                145deg,
+                rgba(6, 44, 61, 0.98),
+                rgba(105, 42, 54, 0.72)
+            );
+    }
+
+}
+
+/* =========================================================
+   MODAIS DO PERFIL — BASE
+========================================================= */
+
+.perfil-modal {
+    position: fixed;
+
+    inset: 0;
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh;
+
+    padding: 20px;
+
+    box-sizing: border-box;
+
+    z-index: 10000;
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   MODAL ABERTO
+========================================================= */
+
+.perfil-modal.aberto {
+    display: flex;
+}
+
+
+/* =========================================================
+   FUNDO DOS MODAIS
+========================================================= */
+
+.perfil-modal-fundo {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background:
+        rgba(3, 25, 35, 0.84);
+
+    backdrop-filter: blur(7px);
+    -webkit-backdrop-filter: blur(7px);
+}
+
+
+/* =========================================================
+   CARD BASE DOS MODAIS
+========================================================= */
+
+.perfil-modal-card {
+    position: relative;
+
+    z-index: 1;
+
+    width: min(100%, 500px);
+
+    max-height: calc(100dvh - 40px);
+
+    padding: 26px;
+
+    box-sizing: border-box;
+
+    border: 2px solid #6FDC43;
+
+    border-radius: 23px;
+
+    background:
+        linear-gradient(
+            160deg,
+            rgba(6, 44, 61, 0.99),
+            rgba(7, 75, 91, 0.98)
+        );
+
+    box-shadow:
+        0 7px 0 rgba(111, 220, 67, 0.42),
+        0 12px 0 rgba(3, 25, 35, 0.72),
+        0 22px 45px rgba(0, 0, 0, 0.45);
+
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    overscroll-behavior: contain;
+
+    -webkit-overflow-scrolling: touch;
+}
+
+
+/* =========================================================
+   BOTÃO X
+========================================================= */
+
+.perfil-modal-fechar {
+    position: absolute;
+
+    top: 15px;
+    right: 15px;
+
+    z-index: 3;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 37px;
+    height: 37px;
+
+    padding: 0;
+
+    border:
+        1px solid
+        rgba(199, 221, 221, 0.18);
+
+    border-radius: 11px;
+
+    outline: none;
+
+    background:
+        rgba(3, 25, 35, 0.55);
+
+    color: #C7DDDD;
+
+    cursor: pointer;
+
+    transition:
+        background 0.18s ease,
+        border-color 0.18s ease,
+        color 0.18s ease,
+        transform 0.18s ease;
+
+    -webkit-tap-highlight-color: transparent;
+}
+
+
+.perfil-modal-fechar svg {
+    display: block;
+
+    width: 20px;
+    height: 20px;
+
+    stroke: currentColor;
+}
+
+
+.perfil-modal-fechar:active {
+    transform: scale(0.94);
+}
+
+
+@media (hover: hover) and (pointer: fine) {
+
+    .perfil-modal-fechar:hover {
+        border-color:
+            rgba(186, 255, 69, 0.60);
+
+        background:
+            rgba(186, 255, 69, 0.10);
+
+        color: #BAFF45;
+    }
+
+}
+
+
+/* =========================================================
+   CABEÇALHO DOS MODAIS
+========================================================= */
+
+.perfil-modal-cabecalho {
+    padding-right: 42px;
+
+    margin-bottom: 22px;
+}
+
+
+.perfil-modal-cabecalho > span {
+    display: block;
+
+    margin-bottom: 3px;
+
+    color: #BAFF45;
+
+    font-family: "Nunito", sans-serif;
+
+    font-size: 0.70rem;
+    font-weight: 900;
+
+    letter-spacing: 0.11em;
+
+    text-transform: uppercase;
+}
+
+
+.perfil-modal-cabecalho h2 {
+    margin: 0 0 4px;
+
+    color: #FFFFFF;
+
+    font-family: "Baloo 2", sans-serif;
+
+    font-size: 1.65rem;
+    font-weight: 800;
+
+    line-height: 1.08;
+}
+
+
+.perfil-modal-cabecalho p {
+    margin: 0;
+
+    color: #C7DDDD;
+
+    font-family: "Nunito", sans-serif;
+
+    font-size: 0.78rem;
+    font-weight: 600;
+
+    line-height: 1.35;
+}
+
+
+/* =========================================================
+   MEUS DADOS
+========================================================= */
+
+.perfil-modal-card-dados {
+    width: min(100%, 500px);
+
+    padding:
+        27px
+        26px
+        26px;
+}
+
+
+/* =========================================================
+   FORMULÁRIO
+========================================================= */
+
+.perfil-form {
+    display: flex;
+
+    flex-direction: column;
+
+    width: 100%;
+}
+
+
+/* =========================================================
+   CAMPOS
+========================================================= */
+
+.perfil-campo {
+    display: block;
+
+    width: 100%;
+
+    margin-bottom: 17px;
+}
+
+
+.perfil-campo > span {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: #FFFFFF;
+
+    font-family: "Nunito", sans-serif;
+
+    font-size: 0.78rem;
+    font-weight: 900;
+}
+
+
+.perfil-campo input {
+    display: block;
+
+    width: 100%;
+    height: 55px;
+
+    padding:
+        0
+        16px;
+
+    box-sizing: border-box;
+
+    border:
+        1px solid
+        rgba(199, 221, 221, 0.22);
+
+    border-radius: 15px;
+
+    outline: none;
+
+    background:
+        rgba(3, 25, 35, 0.67);
+
+    color: #FFFFFF;
+
+    font-family: "Nunito", sans-serif;
+
+    font-size: 0.88rem;
+    font-weight: 800;
+
+    transition:
+        border-color 0.18s ease,
+        box-shadow 0.18s ease,
+        background 0.18s ease;
+}
+
+
+.perfil-campo input::placeholder {
+    color:
+        rgba(199, 221, 221, 0.42);
+}
+
+
+.perfil-campo input:focus {
+    border-color: #BAFF45;
+
+    background:
+        rgba(3, 25, 35, 0.82);
+
+    box-shadow:
+        0 0 0 3px
+        rgba(186, 255, 69, 0.08);
+}
+
+
+/* =========================================================
+   CAMPO DESABILITADO — SENHA
+========================================================= */
+
+.perfil-campo input:disabled {
+    cursor: not-allowed;
+
+    opacity: 0.55;
+
+    color:
+        rgba(199, 221, 221, 0.65);
+
+    background:
+        rgba(3, 25, 35, 0.52);
+}
+
+
+/* =========================================================
+   TEXTO DE AJUDA
+========================================================= */
+
+.perfil-campo-ajuda {
+    display: block;
+
+    margin:
+        -7px
+        0
+        20px;
+
+    color:
+        rgba(199, 221, 221, 0.68);
+
+    font-family: "Nunito", sans-serif;
+
+    font-size: 0.68rem;
+    font-weight: 600;
+
+    line-height: 1.35;
+}
+
+
+/* =========================================================
+   BOTÃO SALVAR
+========================================================= */
+
+.perfil-salvar {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    min-height: 54px;
+
+    margin-top: 2px;
+
+    padding:
+        12px
+        18px;
+
+    box-sizing: border-box;
+
+    border: none;
+
+    border-radius: 15px;
+
+    outline: none;
+
+    background:
+        linear-gradient(
+            100deg,
+            #BAFF45,
+            #6FDC43
+        );
+
+    color: #031923;
+
+    font-family: "Nunito", sans-serif;
+
+    font-size: 0.90rem;
+    font-weight: 900;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 5px 0 rgba(3, 25, 35, 0.78);
+
+    transition:
+        transform 0.16s ease,
+        filter 0.16s ease;
+
+    -webkit-tap-highlight-color: transparent;
+}
+
+
+.perfil-salvar:active {
+    transform: translateY(3px);
+
+    box-shadow:
+        0 2px 0 rgba(3, 25, 35, 0.78);
+}
+
+
+@media (hover: hover) and (pointer: fine) {
+
+    .perfil-salvar:hover {
+        filter: brightness(1.06);
+    }
+
+}
+
+
+/* =========================================================
+   MODAIS PEQUENOS
+   IDIOMA / SAIR
+========================================================= */
+
+.perfil-modal-card-pequeno {
+    width: min(100%, 390px);
+
+    padding:
+        26px
+        23px
+        23px;
+
+    text-align: center;
+}
+
+
+/* =========================================================
+   ÍCONE DOS MODAIS PEQUENOS
+========================================================= */
+
+.perfil-confirmacao-icone {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 58px;
+    height: 58px;
+
+    margin:
+        0
+        auto
+        16px;
+
+    border-radius: 17px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(111, 220, 67, 0.17),
+            rgba(30, 139, 134, 0.13)
+        );
+
+    color: #00BFD8;
+
+    box-shadow:
+        0 5px 0 rgba(3, 25, 35, 0.50),
+        inset 0 0 14px rgba(186, 255, 69, 0.04);
+}
+
+
+.perfil-confirmacao-icone svg {
+    display: block;
+
+    width: 29px;
+    height: 29px;
+
+    stroke: currentColor;
+}
+
+
+/* =========================================================
+   ÍCONE DE SAÍDA
+========================================================= */
+
+#sairModal .perfil-confirmacao-icone {
+    background:
+        rgba(255, 105, 105, 0.10);
+
+    color: #FF7777;
+}
+
+
+/* =========================================================
+   TÍTULO DA CONFIRMAÇÃO
+========================================================= */
+
+.perfil-modal-card-pequeno h2 {
+    margin:
+        0
+        0
+        6px;
+
+    color: #FFFFFF;
+
+    font-family: "Baloo 2", sans-serif;
+
+    font-size: 1.55rem;
+    font-weight: 800;
+
+    line-height: 1.08;
+}
+
+
+.perfil-modal-card-pequeno p {
+    margin:
+        0
+        auto;
+
+    max-width: 310px;
+
+    color: #C7DDDD;
+
+    font-family: "Nunito", sans-serif;
+
+    font-size: 0.78rem;
+    font-weight: 600;
+
+    line-height: 1.38;
+}
+
+
+/* =========================================================
+   BOTÕES NÃO / SIM
+========================================================= */
+
+.perfil-confirmacao-acoes {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 10px;
+
+    width: 100%;
+
+    margin-top: 22px;
+}
+
+
+.perfil-confirmacao-botao {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-width: 0;
+    min-height: 48px;
+
+    padding:
+        10px
+        12px;
+
+    box-sizing: border-box;
+
+    border-radius: 13px;
+
+    outline: none;
+
+    font-family: "Nunito", sans-serif;
+
+    font-size: 0.82rem;
+    font-weight: 900;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.16s ease,
+        background 0.16s ease,
+        border-color 0.16s ease,
+        filter 0.16s ease;
+
+    -webkit-tap-highlight-color: transparent;
+}
+
+
+.perfil-confirmacao-botao:active {
+    transform: scale(0.97);
+}
+
+
+/* =========================================================
+   NÃO
+========================================================= */
+
+.perfil-confirmacao-botao.nao {
+    border:
+        1px solid
+        rgba(199, 221, 221, 0.28);
+
+    background:
+        rgba(3, 25, 35, 0.55);
+
+    color: #C7DDDD;
+}
+
+
+/* =========================================================
+   SIM
+========================================================= */
+
+.perfil-confirmacao-botao.sim {
+    border:
+        1px solid
+        #BAFF45;
+
+    background:
+        linear-gradient(
+            100deg,
+            #BAFF45,
+            #6FDC43
+        );
+
+    color: #031923;
+
+    box-shadow:
+        0 4px 0 rgba(3, 25, 35, 0.65);
+}
+
+
+/* =========================================================
+   SIM — SAIR
+========================================================= */
+
+#sairModal
+.perfil-confirmacao-botao.sim {
+    border-color: #FF7777;
+
+    background:
+        linear-gradient(
+            100deg,
+            #FF7777,
+            #FF5F68
+        );
+
+    color: #031923;
+}
+
+
+/* =========================================================
+   HOVER DOS BOTÕES DE CONFIRMAÇÃO
+========================================================= */
+
+@media (hover: hover) and (pointer: fine) {
+
+    .perfil-confirmacao-botao.nao:hover {
+        border-color:
+            rgba(0, 191, 216, 0.55);
+
+        background:
+            rgba(0, 191, 216, 0.08);
+
+        color: #FFFFFF;
+    }
+
+
+    .perfil-confirmacao-botao.sim:hover {
+        filter: brightness(1.06);
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVO — MODAIS
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .perfil-modal {
+        padding: 16px;
+    }
+
+
+    .perfil-modal-card {
+        max-height:
+            calc(100dvh - 32px);
+
+        border-radius: 21px;
+    }
+
+
+    .perfil-modal-card-dados {
+        padding:
+            24px
+            20px
+            22px;
+    }
+
+
+    .perfil-modal-cabecalho {
+        padding-right: 38px;
+
+        margin-bottom: 20px;
+    }
+
+
+    .perfil-modal-cabecalho h2 {
+        font-size: 1.52rem;
+    }
+
+
+    .perfil-campo input {
+        height: 53px;
+    }
+
+
+    .perfil-modal-card-pequeno {
+        padding:
+            24px
+            20px
+            21px;
+    }
+
+}
+
+
+/* =========================================================
+   TELAS MUITO BAIXAS
+
+   Se não houver espaço vertical suficiente,
+   o card continua acessível por rolagem interna.
+========================================================= */
+
+@media (max-height: 620px) {
+
+    .perfil-modal {
+        align-items: flex-start;
+
+        overflow-y: auto;
+    }
+
+
+    .perfil-modal-card {
+        margin:
+            auto
+            0;
+
+        max-height: none;
+    }
+
+}
+
+/* =========================================================
+   SOBRE O BVENTURE — MODAL
+========================================================= */
+
+.sobre-modal {
+    position: fixed;
+    inset: 0;
+
+    display: none;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    height: 100vh;
+    height: 100dvh;
+
+    padding: 18px;
+
+    box-sizing: border-box;
+
+    z-index: 10000;
+
+    overflow: hidden;
+}
+
+
+.sobre-modal.aberto {
+    display: flex;
+}
+
+
+/* =========================================================
+   FUNDO
+========================================================= */
+
+.sobre-modal-fundo {
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background:
+        rgba(3, 25, 35, 0.84);
+
+    backdrop-filter: blur(7px);
+    -webkit-backdrop-filter: blur(7px);
+}
+
+
+/* =========================================================
+   CARD
+========================================================= */
+
+.sobre-modal-card {
+    position: relative;
+
+    z-index: 2;
+
+    width: min(100%, 570px);
+
+    max-height: calc(100dvh - 36px);
+
+    box-sizing: border-box;
+
+    padding:
+        28px
+        28px
+        26px;
+
+    border:
+        2px solid
+        #6FDC43;
+
+    border-radius: 24px;
+
+    background:
+        linear-gradient(
+            150deg,
+            rgba(7, 75, 91, 0.99),
+            rgba(6, 44, 61, 0.99)
+        );
+
+    box-shadow:
+        0 8px 0 rgba(73, 157, 46, 0.58),
+        0 20px 45px rgba(0, 0, 0, 0.40);
+
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    scrollbar-width: none;
+
+    -ms-overflow-style: none;
+
+    -webkit-overflow-scrolling: touch;
+
+    overscroll-behavior: contain;
+}
+
+
+.sobre-modal-card::-webkit-scrollbar {
+    display: none;
+}
+
+
+/* =========================================================
+   BOTÃO X — CANTO ESQUERDO
+========================================================= */
+
+.sobre-modal-fechar {
+    position: relative;
+
+    z-index: 5;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 46px;
+    height: 46px;
+
+    margin:
+        0
+        0
+        22px;
+
+    padding: 0;
+
+    border:
+        1px solid
+        rgba(186, 255, 69, 0.35);
+
+    border-radius: 14px;
+
+    outline: none;
+
+    background:
+        rgba(3, 25, 35, 0.50);
+
+    color: #BAFF45;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 4px 0 rgba(3, 25, 35, 0.42);
+
+    -webkit-tap-highlight-color: transparent;
+
+    transition:
+        background 0.18s ease,
+        transform 0.18s ease;
+}
+
+
+.sobre-modal-fechar svg {
+    display: block;
+
+    width: 25px;
+    height: 25px;
+
+    max-width: 25px;
+
+    stroke: currentColor;
+}
+
+
+.sobre-modal-fechar:active {
+    transform: translateY(2px);
+}
+
+
+@media (hover: hover) and (pointer: fine) {
+
+    .sobre-modal-fechar:hover {
+        background:
+            rgba(186, 255, 69, 0.10);
+    }
+
+}
+
+
+/* =========================================================
+   CABEÇALHO
+========================================================= */
+
+.sobre-modal-cabecalho {
+    position: relative;
+
+    padding: 0;
+
+    margin:
+        0
+        0
+        36px;
+}
+
+
+.sobre-modal-cabecalho > span {
+    display: block;
+
+    margin:
+        0
+        0
+        6px;
+
+    color: #BAFF45;
+
+    font-family:
+        "Nunito",
+        sans-serif;
+
+    font-size: 0.76rem;
+    font-weight: 900;
+
+    letter-spacing: 0.15em;
+
+    text-transform: uppercase;
+}
+
+
+.sobre-modal-cabecalho h2 {
+    margin: 0;
+
+    color: #FFFFFF;
+
+    font-family:
+        "Baloo 2",
+        sans-serif;
+
+    font-size: 2rem;
+    font-weight: 800;
+
+    line-height: 1.05;
+}
+
+
+/* linha verde abaixo do título */
+
+.sobre-modal-cabecalho::after {
+    content: "";
+
+    display: block;
+
+    width: 76px;
+    height: 6px;
+
+    margin-top: 22px;
+
+    border-radius: 999px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #BAFF45,
+            #6FDC43
+        );
+
+    box-shadow:
+        0 0 8px
+        rgba(186, 255, 69, 0.15);
+}
+
+
+/* caso exista descrição antiga no cabeçalho */
+
+.sobre-modal-cabecalho > p {
+    display: none;
+}
+
+
+/* =========================================================
+   CONTEÚDO
+========================================================= */
+
+.sobre-modal-conteudo {
+    width: 100%;
+}
+
+
+/* =========================================================
+   PARÁGRAFOS
+========================================================= */
+
+.sobre-modal-conteudo p {
+    margin:
+        0
+        0
+        24px;
+
+    color: #FFFFFF;
+
+    font-family:
+        "Nunito",
+        sans-serif;
+
+    font-size: 0.94rem;
+    font-weight: 500;
+
+    line-height: 1.62;
+}
+
+
+.sobre-modal-conteudo p:last-of-type {
+    margin-bottom: 0;
+}
+
+
+/* =========================================================
+   DESTAQUES VERDES
+========================================================= */
+
+.sobre-modal-conteudo strong {
+    color: #BAFF45;
+
+    font-weight: 900;
+}
+
+
+/* =========================================================
+   FRASE FINAL
+========================================================= */
+
+.sobre-frase-final {
+    position: relative;
+
+    margin:
+        30px
+        0
+        0 !important;
+
+    padding:
+        27px
+        8px
+        2px;
+
+    border-top:
+        1px solid
+        rgba(199, 221, 221, 0.14);
+
+    color:
+        #BAFF45 !important;
+
+    font-family:
+        "Baloo 2",
+        sans-serif !important;
+
+    font-size:
+        1.05rem !important;
+
+    font-weight:
+        800 !important;
+
+    line-height:
+        1.3 !important;
+
+    text-align: center;
+}
+
+
+/* =========================================================
+   SCROLL PERSONALIZADO
+========================================================= */
+
+.sobre-scroll {
+    position: absolute;
+
+    top: 24px;
+    right: 7px;
+    bottom: 24px;
+
+    z-index: 6;
+
+    display: none;
+
+    width: 5px;
+
+    border-radius: 999px;
+
+    background:
+        rgba(3, 25, 35, 0.40);
+
+    pointer-events: none;
+}
+
+
+.sobre-scroll-thumb {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    min-height: 55px;
+
+    border-radius: 999px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #00BFD8,
+            #1E8B86
+        );
+
+    box-shadow:
+        0 0 8px
+        rgba(0, 191, 216, 0.20);
+}
+
+
+/* =========================================================
+   CELULAR
+========================================================= */
+
+@media (max-width: 520px) {
+
+    .sobre-modal {
+        padding: 14px;
+    }
+
+
+    .sobre-modal-card {
+        width: 100%;
+
+        max-height:
+            calc(100dvh - 28px);
+
+        padding:
+            24px
+            25px
+            24px;
+
+        border-radius: 22px;
+    }
+
+
+    .sobre-modal-fechar {
+        width: 44px;
+        height: 44px;
+
+        margin-bottom: 20px;
+    }
+
+
+    .sobre-modal-fechar svg {
+        width: 24px;
+        height: 24px;
+    }
+
+
+    .sobre-modal-cabecalho {
+        margin-bottom: 34px;
+    }
+
+
+    .sobre-modal-cabecalho > span {
+        font-size: 0.72rem;
+    }
+
+
+    .sobre-modal-cabecalho h2 {
+        font-size: 1.85rem;
+    }
+
+
+    .sobre-modal-cabecalho::after {
+        width: 70px;
+        height: 5px;
+
+        margin-top: 20px;
+    }
+
+
+    .sobre-modal-conteudo p {
+        margin-bottom: 23px;
+
+        font-size: 0.90rem;
+
+        line-height: 1.62;
+    }
+
+
+    .sobre-frase-final {
+        margin-top:
+            28px !important;
+
+        padding-top:
+            25px;
+
+        font-size:
+            1rem !important;
+    }
+
+}
+
+
+/* =========================================================
+   CELULARES PEQUENOS
+========================================================= */
+
+@media (max-width: 370px) {
+
+    .sobre-modal-card {
+        padding:
+            21px
+            21px
+            22px;
+    }
+
+
+    .sobre-modal-cabecalho h2 {
+        font-size: 1.7rem;
+    }
+
+
+    .sobre-modal-conteudo p {
+        font-size: 0.84rem;
+    }
+
+}
+
+/* =========================================================
+   PARTE 5
+   RESPONSIVIDADE GERAL DO PERFIL
+========================================================= */
+
+
+/* =========================================================
+   CELULARES PEQUENOS
+========================================================= */
+
+@media (max-width: 380px) {
+
+    /* =====================================================
+       TELA
+    ===================================================== */
+
+    .tela-perfil {
+        padding:
+            22px
+            15px
+            125px;
+    }
+
+
+    /* =====================================================
+       CABEÇALHO
+    ===================================================== */
+
+    .perfil-cabecalho {
+        margin-bottom: 18px;
+    }
+
+
+    .perfil-cabecalho h1 {
+        font-size: 1.78rem;
+    }
+
+
+    /* =====================================================
+       CARD DO JOGADOR
+    ===================================================== */
+
+    .perfil-jogador {
+        padding:
+            17px
+            14px;
+
+        border-radius: 19px;
+    }
+
+
+    .perfil-jogador-topo {
+        gap: 12px;
+    }
+
+
+    /* =====================================================
+       AVATAR
+    ===================================================== */
+
+    .perfil-avatar-area,
+    .perfil-avatar {
+        width: 72px;
+        height: 72px;
+    }
+
+
+    .perfil-avatar-placeholder {
+        font-size: 1.75rem;
+    }
+
+
+    .perfil-nivel {
+        min-width: 26px;
+        height: 26px;
+
+        padding:
+            0
+            6px;
+
+        font-size: 0.65rem;
+    }
+
+
+    /* =====================================================
+       NOME / NICK
+    ===================================================== */
+
+    .perfil-jogador-info h2 {
+        font-size: 1.22rem;
+    }
+
+
+    .perfil-jogador-info > span {
+        font-size: 0.72rem;
+    }
+
+
+    /* =====================================================
+       XP
+    ===================================================== */
+
+    .perfil-xp {
+        margin-top: 17px;
+    }
+
+
+    .perfil-xp-topo {
+        gap: 8px;
+    }
+
+
+    .perfil-xp-topo span,
+    .perfil-xp-topo strong {
+        font-size: 0.66rem;
+    }
+
+
+    /* =====================================================
+       TÍTULOS
+    ===================================================== */
+
+    .perfil-secao-titulo {
+        margin:
+            27px
+            0
+            12px;
+    }
+
+
+    .perfil-secao-titulo h2 {
+        font-size: 1.42rem;
+    }
+
+
+    /* =====================================================
+       ESTATÍSTICAS
+    ===================================================== */
+
+    .perfil-estatisticas {
+        gap: 9px;
+    }
+
+
+    .perfil-estatistica {
+        min-height: 92px;
+
+        padding: 11px;
+
+        border-radius: 15px;
+    }
+
+
+    .perfil-estatistica-conteudo {
+        gap: 8px;
+    }
+
+
+    .perfil-estatistica-icone,
+    .perfil-estatistica-icone.verde,
+    .perfil-estatistica-icone.ciano,
+    .perfil-estatistica-icone.amarelo {
+        width: 38px;
+        height: 38px;
+
+        border-radius: 11px;
+    }
+
+
+    .perfil-estatistica-icone svg,
+    .perfil-estatistica-icone.verde svg,
+    .perfil-estatistica-icone.ciano svg,
+    .perfil-estatistica-icone.amarelo svg {
+        width: 20px;
+        height: 20px;
+    }
+
+
+    .perfil-estatistica-texto strong {
+        font-size: 1.02rem;
+    }
+
+
+    .perfil-estatistica-texto span {
+        font-size: 0.62rem;
+    }
+
+
+    /* =====================================================
+       MINHA CONTA
+    ===================================================== */
+
+    .perfil-opcao {
+        min-height: 70px;
+
+        padding:
+            10px
+            12px;
+
+        border-radius: 15px;
+    }
+
+
+    .perfil-opcao-icone {
+        width: 39px;
+        height: 39px;
+
+        margin-right: 10px;
+
+        border-radius: 11px;
+    }
+
+
+    .perfil-opcao-icone svg {
+        width: 21px;
+        height: 21px;
+    }
+
+
+    .perfil-opcao-texto strong {
+        font-size: 0.81rem;
+    }
+
+
+    .perfil-opcao-texto span {
+        font-size: 0.64rem;
+    }
+
+
+    /* =====================================================
+       IDIOMA
+    ===================================================== */
+
+    .perfil-idioma-bloco {
+        border-radius: 15px;
+    }
+
+
+    .perfil-idioma-bloco .perfil-opcao,
+    .perfil-idioma-bloco .perfil-opcao:hover,
+    .perfil-idioma-bloco .perfil-opcao:focus,
+    .perfil-idioma-bloco .perfil-opcao:active {
+        min-height: 70px;
+
+        padding:
+            10px
+            12px
+            7px;
+    }
+
+
+    .perfil-idiomas {
+        gap: 6px;
+
+        padding:
+            0
+            11px
+            12px;
+    }
+
+
+    .perfil-idioma {
+        min-height: 40px;
+
+        padding:
+            7px
+            3px;
+
+        font-size: 0.64rem;
+
+        border-radius: 10px;
+    }
+
+}
+
+
+/* =========================================================
+   CELULAR / TABLET
+========================================================= */
+
+@media (min-width: 381px) and (max-width: 699px) {
+
+    .tela-perfil {
+        padding:
+            26px
+            20px
+            135px;
+    }
+
+
+    .perfil-conteudo {
+        max-width: 620px;
+    }
+
+}
+
+
+/* =========================================================
+   TABLETS
+========================================================= */
+
+@media (min-width: 700px) {
+
+    .tela-perfil {
+        padding:
+            38px
+            34px
+            145px;
+    }
+
+
+    .perfil-conteudo {
+        max-width: 760px;
+    }
+
+
+    /* =====================================================
+       CABEÇALHO
+    ===================================================== */
+
+    .perfil-cabecalho span {
+        font-size: 0.78rem;
+    }
+
+
+    .perfil-cabecalho h1 {
+        font-size: 2.25rem;
+    }
+
+
+    /* =====================================================
+       JOGADOR
+    ===================================================== */
+
+    .perfil-jogador {
+        padding:
+            24px
+            23px;
+    }
+
+
+    .perfil-avatar-area,
+    .perfil-avatar {
+        width: 92px;
+        height: 92px;
+    }
+
+
+    .perfil-avatar-placeholder {
+        font-size: 2.2rem;
+    }
+
+
+    .perfil-jogador-info h2 {
+        font-size: 1.58rem;
+    }
+
+
+    .perfil-jogador-info > span {
+        font-size: 0.84rem;
+    }
+
+
+    /* =====================================================
+       ESTATÍSTICAS
+    ===================================================== */
+
+    .perfil-estatisticas {
+        gap: 15px;
+    }
+
+
+    .perfil-estatistica {
+        min-height: 105px;
+
+        padding: 16px;
+    }
+
+
+    .perfil-estatistica-icone,
+    .perfil-estatistica-icone.verde,
+    .perfil-estatistica-icone.ciano,
+    .perfil-estatistica-icone.amarelo {
+        width: 47px;
+        height: 47px;
+    }
+
+
+    .perfil-estatistica-icone svg,
+    .perfil-estatistica-icone.verde svg,
+    .perfil-estatistica-icone.ciano svg,
+    .perfil-estatistica-icone.amarelo svg {
+        width: 25px;
+        height: 25px;
+    }
+
+
+    .perfil-estatistica-texto strong {
+        font-size: 1.28rem;
+    }
+
+
+    .perfil-estatistica-texto span {
+        font-size: 0.75rem;
+    }
+
+
+    /* =====================================================
+       MINHA CONTA
+    ===================================================== */
+
+    .perfil-opcao {
+        min-height: 82px;
+
+        padding:
+            14px
+            17px;
+    }
+
+
+    .perfil-opcao-icone {
+        width: 47px;
+        height: 47px;
+
+        margin-right: 15px;
+    }
+
+
+    .perfil-opcao-icone svg {
+        width: 25px;
+        height: 25px;
+    }
+
+
+    .perfil-opcao-texto strong {
+        font-size: 0.94rem;
+    }
+
+
+    .perfil-opcao-texto span {
+        font-size: 0.75rem;
+    }
+
+
+    /* =====================================================
+       IDIOMA
+    ===================================================== */
+
+    .perfil-idioma-bloco .perfil-opcao,
+    .perfil-idioma-bloco .perfil-opcao:hover,
+    .perfil-idioma-bloco .perfil-opcao:focus,
+    .perfil-idioma-bloco .perfil-opcao:active {
+        min-height: 82px;
+
+        padding:
+            14px
+            17px
+            9px;
+    }
+
+
+    .perfil-idiomas {
+        gap: 10px;
+
+        padding:
+            0
+            16px
+            16px;
+    }
+
+
+    .perfil-idioma {
+        min-height: 46px;
+
+        font-size: 0.77rem;
+    }
+
+
+    /* =====================================================
+       MODAIS
+    ===================================================== */
+
+    .perfil-modal-card-dados {
+        width: min(100%, 520px);
+    }
+
+
+    .perfil-modal-card-pequeno {
+        width: min(100%, 410px);
+    }
+
+
+    .sobre-modal-card {
+        width: min(100%, 540px);
+    }
+
+}
+
+
+/* =========================================================
+   DESKTOP
+========================================================= */
+
+@media (min-width: 1000px) {
+
+    .tela-perfil {
+        padding:
+            42px
+            40px
+            150px;
+    }
+
+
+    .perfil-conteudo {
+        max-width: 940px;
+    }
+
+
+
+    .perfil-estatistica {
+        min-height: 110px;
+    }
+
+
+    /* =====================================================
+       MINHA CONTA
+    ===================================================== */
+
+    .perfil-opcao,
+    .perfil-idioma-bloco {
+        border-radius: 18px;
+    }
+
+
+    /* =====================================================
+       MODAIS
+    ===================================================== */
+
+    .perfil-modal-card {
+        max-height:
+            calc(100dvh - 70px);
+    }
+
+
+    .sobre-modal-card {
+        max-height:
+            calc(100dvh - 70px);
+    }
+
+}
+
+
+/* =========================================================
+   TELAS MUITO LARGAS
+========================================================= */
+
+@media (min-width: 1300px) {
+
+    .perfil-conteudo {
+        max-width: 980px;
+    }
+
+}
+
+
+/* =========================================================
+   ACESSIBILIDADE — REDUZIR ANIMAÇÕES
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .perfil-opcao,
+    .perfil-idioma,
+    .perfil-modal-fechar,
+    .perfil-salvar,
+    .perfil-confirmacao-botao,
+    .sobre-modal-fechar,
+    .perfil-xp-barra,
+    .sobre-scroll-thumb {
+        transition: none;
+    }
+
+}
+
+
+/* =========================================================
+   AJUSTES DE FOCO POR TECLADO
+========================================================= */
+
+.perfil-opcao:focus-visible,
+.perfil-idioma:focus-visible,
+.perfil-modal-fechar:focus-visible,
+.perfil-salvar:focus-visible,
+.perfil-confirmacao-botao:focus-visible,
+.sobre-modal-fechar:focus-visible {
+    outline:
+        2px solid
+        #00BFD8;
+
+    outline-offset:
+        3px;
+}
+
+
+/* =========================================================
+   GARANTIAS FINAIS
+========================================================= */
+
+/*
+   Evita que imagens ou SVGs ultrapassem
+   seus respectivos elementos.
+*/
+
+.tela-perfil img,
+.tela-perfil svg {
+    max-width: 100%;
+}
+
+
+/*
+   Os SVGs dos ícones não recebem eventos próprios.
+   O clique pertence ao botão/card.
+*/
+
+.perfil-opcao svg,
+.perfil-idioma svg,
+.perfil-modal-fechar svg,
+.perfil-confirmacao-botao svg,
+.sobre-modal-fechar svg {
+    pointer-events: none;
+}
+
+
+/*
+   Garante que os modais permaneçam invisíveis
+   enquanto o JavaScript não adicionar .aberto.
+*/
+
+.perfil-modal:not(.aberto),
+.sobre-modal:not(.aberto) {
+    display: none;
+}
+
+
+/*
+   Quando abertos, ficam acima do conteúdo do app
+   e da navegação inferior.
+*/
+
+.perfil-modal.aberto,
+.sobre-modal.aberto {
+    z-index: 10000;
+}
+
+
+
+/* =========================================================
+   CORREÇÕES FINAIS — PERFIL
+   Compatível com o HTML atual do BVenture
+========================================================= */
+
+
+/* =========================================================
+   1. CENTRALIZAR AVATAR + NOME + NICK
+========================================================= */
+
+.perfil-jogador {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+
+    text-align: center !important;
+}
+
+
+.perfil-avatar-area {
+    margin:
+        0
+        auto
+        12px !important;
+}
+
+
+.perfil-identidade {
+    width: 100% !important;
+
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+
+    text-align: center !important;
+
+    margin-bottom: 20px !important;
+}
+
+
+.perfil-identidade h2 {
+    margin:
+        0
+        0
+        3px !important;
+
+    text-align: center !important;
+}
+
+
+.perfil-identidade span {
+    display: block !important;
+
+    text-align: center !important;
+}
+
+
+.perfil-xp {
+    width: 100% !important;
+
+    text-align: left !important;
+}
+
+
+.perfil-xp-topo {
+    width: 100% !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+
+    text-align: left !important;
+}
+
+
+/* =========================================================
+   2. ESTATÍSTICAS — SEMPRE 2 × 2
+========================================================= */
+
+.perfil-estatisticas {
+    display: block !important;
+
+    width: 100% !important;
+}
+
+
+.perfil-estatisticas-grid {
+    display: grid !important;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr)) !important;
+
+    gap: 12px !important;
+
+    width: 100% !important;
+}
+
+
+.perfil-estatistica {
+    position: relative !important;
+
+    width: 100% !important;
+    min-width: 0 !important;
+    min-height: 100px !important;
+
+    box-sizing: border-box !important;
+
+    display: grid !important;
+
+    grid-template-columns:
+        48px
+        minmax(0, 1fr) !important;
+
+    grid-template-rows:
+        auto
+        auto !important;
+
+    column-gap: 12px !important;
+
+    align-items: center !important;
+
+    padding:
+        14px !important;
+
+    text-align: left !important;
+}
+
+
+/* ÍCONE */
+
+.perfil-estatistica-icone,
+.perfil-estatistica-icone.verde,
+.perfil-estatistica-icone.ciano,
+.perfil-estatistica-icone.amarelo {
+    grid-column: 1 !important;
+    grid-row:
+        1 /
+        3 !important;
+
+    width: 48px !important;
+    height: 48px !important;
+
+    flex:
+        0
+        0
+        48px !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    align-self: center !important;
+
+    margin: 0 !important;
+
+    border: none !important;
+
+    border-radius: 14px !important;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(111, 220, 67, 0.16),
+            rgba(30, 139, 134, 0.11)
+        ) !important;
+
+    box-shadow:
+        0 5px 0 rgba(3, 25, 35, 0.55),
+        0 8px 14px rgba(0, 0, 0, 0.18) !important;
+}
+
+
+.perfil-estatistica-icone svg,
+.perfil-estatistica-icone.verde svg,
+.perfil-estatistica-icone.ciano svg,
+.perfil-estatistica-icone.amarelo svg {
+    width: 25px !important;
+    height: 25px !important;
+
+    color: #FFD84D !important;
+    stroke: #00BFD8 !important;
+}
+
+
+/* NÚMERO */
+
+.perfil-estatistica > strong {
+    grid-column: 2 !important;
+    grid-row: 1 !important;
+
+    display: block !important;
+
+    align-self: end !important;
+
+    margin: 0 !important;
+
+    color: #BAFF45 !important;
+
+    font-family:
+        "Oxanium",
+        sans-serif !important;
+
+    font-size: 1.35rem !important;
+    font-weight: 700 !important;
+
+    line-height: 1 !important;
+}
+
+
+/* TEXTO */
+
+.perfil-estatistica > span {
+    grid-column: 2 !important;
+    grid-row: 2 !important;
+
+    display: block !important;
+
+    align-self: start !important;
+
+    margin:
+        3px
+        0
+        0 !important;
+
+    color: #FFFFFF !important;
+
+    font-family:
+        "Nunito",
+        sans-serif !important;
+
+    font-size: 0.72rem !important;
+    font-weight: 700 !important;
+
+    line-height: 1.2 !important;
+}
+
+
+/* =========================================================
+   3. BASE DOS POPUPS
+========================================================= */
+
+.perfil-modal {
+    position: fixed !important;
+
+    inset: 0 !important;
+
+    width: 100% !important;
+    height: 100dvh !important;
+
+    z-index: 10000 !important;
+
+    display: none !important;
+
+    align-items: center !important;
+    justify-content: center !important;
+
+    padding:
+        22px !important;
+
+    box-sizing: border-box !important;
+}
+
+
+.perfil-modal.aberto {
+    display: flex !important;
+}
+
+
+.perfil-modal-fundo {
+    position: absolute !important;
+
+    inset: 0 !important;
+
+    width: 100% !important;
+    height: 100% !important;
+
+    background:
+        rgba(
+            1,
+            17,
+            24,
+            0.82
+        ) !important;
+
+    backdrop-filter:
+        blur(8px) !important;
+
+    -webkit-backdrop-filter:
+        blur(8px) !important;
+}
+
+
+/* =========================================================
+   CARD DOS POPUPS
+========================================================= */
+
+.perfil-modal-card {
+    position: relative !important;
+
+    z-index: 2 !important;
+
+    width:
+        min(
+            100%,
+            520px
+        ) !important;
+
+    max-height:
+        calc(
+            100dvh -
+            44px
+        ) !important;
+
+    overflow-y: auto !important;
+
+    box-sizing: border-box !important;
+
+    padding:
+        27px
+        25px !important;
+
+    border:
+        2px
+        solid
+        #6FDC43 !important;
+
+    border-radius:
+        25px !important;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(7, 75, 91, 0.98),
+            rgba(3, 44, 61, 0.99)
+        ) !important;
+
+    box-shadow:
+        0 9px 0 rgba(71, 151, 45, 0.65),
+        0 22px 50px rgba(0, 0, 0, 0.42) !important;
+
+    color:
+        #FFFFFF !important;
+}
+
+
+.perfil-modal-card-dados {
+    width:
+        min(
+            100%,
+            520px
+        ) !important;
+}
+
+
+.perfil-modal-card-pequeno {
+    width:
+        min(
+            100%,
+            410px
+        ) !important;
+}
+
+
+/* =========================================================
+   4. POPUP — MEUS DADOS
+========================================================= */
+
+.perfil-modal-fechar {
+    position: absolute !important;
+
+    top: 17px !important;
+    right: 17px !important;
+
+    width: 43px !important;
+    height: 43px !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    padding: 0 !important;
+
+    border:
+        1px
+        solid
+        rgba(199, 221, 221, 0.22) !important;
+
+    border-radius:
+        13px !important;
+
+    background:
+        rgba(3, 25, 35, 0.55) !important;
+
+    color:
+        #C7DDDD !important;
+
+    cursor:
+        pointer !important;
+}
+
+
+.perfil-modal-fechar svg {
+    width: 22px !important;
+    height: 22px !important;
+}
+
+
+.perfil-modal-etiqueta {
+    display: block !important;
+
+    margin:
+        0
+        55px
+        5px
+        0 !important;
+
+    color:
+        #BAFF45 !important;
+
+    font-family:
+        "Nunito",
+        sans-serif !important;
+
+    font-size: 0.75rem !important;
+    font-weight: 900 !important;
+
+    letter-spacing:
+        0.08em !important;
+
+    text-transform:
+        uppercase !important;
+}
+
+
+.perfil-modal-card-dados > h2 {
+    margin:
+        0
+        55px
+        4px
+        0 !important;
+
+    color:
+        #FFFFFF !important;
+
+    font-family:
+        "Baloo 2",
+        sans-serif !important;
+
+    font-size:
+        2rem !important;
+
+    font-weight:
+        800 !important;
+
+    line-height:
+        1.05 !important;
+}
+
+
+.perfil-modal-descricao {
+    margin:
+        0
+        0
+        22px !important;
+
+    color:
+        #C7DDDD !important;
+
+    font-family:
+        "Nunito",
+        sans-serif !important;
+
+    font-size:
+        0.93rem !important;
+
+    line-height:
+        1.4 !important;
+}
+
+
+/* =========================================================
+   FORMULÁRIO
+========================================================= */
+
+#formMeusDados {
+    display: flex !important;
+
+    flex-direction: column !important;
+
+    gap: 17px !important;
+}
+
+
+.perfil-campo {
+    width: 100% !important;
+
+    display: flex !important;
+
+    flex-direction: column !important;
+
+    gap: 7px !important;
+}
+
+
+.perfil-campo label {
+    color:
+        #FFFFFF !important;
+
+    font-family:
+        "Nunito",
+        sans-serif !important;
+
+    font-size:
+        0.83rem !important;
+
+    font-weight:
+        800 !important;
+}
+
+
+.perfil-campo input {
+    width: 100% !important;
+    height: 57px !important;
+
+    box-sizing: border-box !important;
+
+    padding:
+        0
+        17px !important;
+
+    border:
+        1px
+        solid
+        rgba(199, 221, 221, 0.22) !important;
+
+    border-radius:
+        15px !important;
+
+    outline:
+        none !important;
+
+    background:
+        rgba(3, 25, 35, 0.72) !important;
+
+    color:
+        #FFFFFF !important;
+
+    font-family:
+        "Nunito",
+        sans-serif !important;
+
+    font-size:
+        0.95rem !important;
+
+    font-weight:
+        700 !important;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease !important;
+}
+
+
+.perfil-campo input:focus {
+    border-color:
+        #BAFF45 !important;
+
+    box-shadow:
+        0 0 0 3px rgba(186, 255, 69, 0.1) !important;
+}
+
+
+.perfil-campo input:disabled {
+    opacity:
+        0.48 !important;
+
+    cursor:
+        not-allowed !important;
+}
+
+
+.perfil-campo input::placeholder {
+    color:
+        rgba(199, 221, 221, 0.55) !important;
+}
+
+
+.perfil-campo small {
+    display:
+        block !important;
+
+    color:
+        rgba(199, 221, 221, 0.72) !important;
+
+    font-family:
+        "Nunito",
+        sans-serif !important;
+
+    font-size:
+        0.7rem !important;
+
+    font-weight:
+        600 !important;
+
+    line-height:
+        1.4 !important;
+}
+
+
+/* =========================================================
+   BOTÃO SALVAR
+========================================================= */
+
+.perfil-modal-salvar {
+    width:
+        100% !important;
+
+    min-height:
+        56px !important;
+
+    margin-top:
+        4px !important;
+
+    padding:
+        12px
+        18px !important;
+
+    border:
+        none !important;
+
+    border-radius:
+        15px !important;
+
+    background:
+        linear-gradient(
+            90deg,
+            #BAFF45,
+            #6FDC43
+        ) !important;
+
+    color:
+        #031923 !important;
+
+    font-family:
+        "Nunito",
+        sans-serif !important;
+
+    font-size:
+        0.95rem !important;
+
+    font-weight:
+        900 !important;
+
+    cursor:
+        pointer !important;
+
+    box-shadow:
+        0 6px 0 rgba(3, 25, 35, 0.6) !important;
+
+    appearance:
+        none !important;
+
+    -webkit-appearance:
+        none !important;
+}
+
+
+/* =========================================================
+   5. POPUPS DE CONFIRMAÇÃO
+   IDIOMA + SAIR
+========================================================= */
+
+.perfil-modal-confirmacao
+.perfil-modal-card {
+    text-align:
+        center !important;
+
+    padding:
+        28px
+        24px
+        25px !important;
+}
+
+
+/* =========================================================
+   ÍCONE DA CONFIRMAÇÃO
+========================================================= */
+
+.perfil-modal-icone-confirmacao {
+    width:
+        72px !important;
+
+    height:
+        72px !important;
+
+    margin:
+        0
+        auto
+        19px !important;
+
+    display:
+        flex !important;
+
+    align-items:
+        center !important;
+
+    justify-content:
+        center !important;
+
+    border-radius:
+        22px !important;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(111, 220, 67, 0.16),
+            rgba(30, 139, 134, 0.11)
+        ) !important;
+
+    color:
+        #00BFD8 !important;
+
+    box-shadow:
+        0 5px 0 rgba(3, 25, 35, 0.55),
+        0 9px 18px rgba(0, 0, 0, 0.18) !important;
+}
+
+
+.perfil-modal-icone-confirmacao svg {
+    display:
+        block !important;
+
+    width:
+        37px !important;
+
+    height:
+        37px !important;
+
+    max-width:
+        37px !important;
+
+    max-height:
+        37px !important;
+
+    color:
+        #00BFD8 !important;
+
+    stroke:
+        #00BFD8 !important;
+}
+
+
+/* SAIR */
+
+.perfil-modal-icone-confirmacao.sair {
+    background:
+        rgba(255, 95, 102, 0.1) !important;
+
+    color:
+        #FF5F66 !important;
+}
+
+
+.perfil-modal-icone-confirmacao.sair svg {
+    color:
+        #FF5F66 !important;
+
+    stroke:
+        #FF5F66 !important;
+}
+
+
+/* =========================================================
+   TÍTULO E TEXTO DA CONFIRMAÇÃO
+========================================================= */
+
+.perfil-modal-confirmacao
+.perfil-modal-card
+h2 {
+    margin:
+        0
+        0
+        7px !important;
+
+    color:
+        #FFFFFF !important;
+
+    font-family:
+        "Baloo 2",
+        sans-serif !important;
+
+    font-size:
+        1.55rem !important;
+
+    font-weight:
+        800 !important;
+
+    line-height:
+        1.15 !important;
+}
+
+
+.perfil-modal-confirmacao
+.perfil-modal-card
+p {
+    margin:
+        0
+        auto
+        23px !important;
+
+    max-width:
+        320px !important;
+
+    color:
+        #C7DDDD !important;
+
+    font-family:
+        "Nunito",
+        sans-serif !important;
+
+    font-size:
+        0.83rem !important;
+
+    font-weight:
+        600 !important;
+
+    line-height:
+        1.4 !important;
+}
+
+
+/* =========================================================
+   BOTÕES NÃO / SIM
+========================================================= */
+
+.perfil-modal-acoes {
+    width:
+        100% !important;
+
+    display:
+        grid !important;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr)) !important;
+
+    gap:
+        10px !important;
+}
+
+
+.perfil-modal-botao {
+    width:
+        100% !important;
+
+    min-width:
+        0 !important;
+
+    min-height:
+        50px !important;
+
+    display:
+        flex !important;
+
+    align-items:
+        center !important;
+
+    justify-content:
+        center !important;
+
+    padding:
+        10px
+        14px !important;
+
+    border-radius:
+        14px !important;
+
+    font-family:
+        "Nunito",
+        sans-serif !important;
+
+    font-size:
+        0.88rem !important;
+
+    font-weight:
+        900 !important;
+
+    cursor:
+        pointer !important;
+
+    appearance:
+        none !important;
+
+    -webkit-appearance:
+        none !important;
+}
+
+
+/* NÃO */
+
+.perfil-modal-botao.secundario {
+    border:
+        1px
+        solid
+        rgba(199, 221, 221, 0.35) !important;
+
+    background:
+        rgba(3, 25, 35, 0.6) !important;
+
+    color:
+        #FFFFFF !important;
+
+    box-shadow:
+        0 4px 0 rgba(3, 25, 35, 0.65) !important;
+}
+
+
+/* SIM — IDIOMA */
+
+.perfil-modal-botao.principal {
+    border:
+        none !important;
+
+    background:
+        linear-gradient(
+            90deg,
+            #BAFF45,
+            #6FDC43
+        ) !important;
+
+    color:
+        #031923 !important;
+
+    box-shadow:
+        0 4px 0 rgba(3, 25, 35, 0.65) !important;
+}
+
+
+/* SIM — SAIR */
+
+.perfil-modal-botao.perigo {
+    border:
+        none !important;
+
+    background:
+        linear-gradient(
+            90deg,
+            #FF6B70,
+            #E94C54
+        ) !important;
+
+    color:
+        #FFFFFF !important;
+
+    box-shadow:
+        0 4px 0 rgba(3, 25, 35, 0.65) !important;
+}
+
+
+/* =========================================================
+   HOVER SOMENTE EM DISPOSITIVOS COM MOUSE
+========================================================= */
+
+@media (hover: hover) and (pointer: fine) {
+
+    .perfil-modal-fechar:hover {
+        background:
+            rgba(0, 191, 216, 0.12) !important;
+
+        color:
+            #00BFD8 !important;
+    }
+
+
+    .perfil-modal-salvar:hover,
+    .perfil-modal-botao.principal:hover {
+        filter:
+            brightness(1.06) !important;
+    }
+
+
+    .perfil-modal-botao.secundario:hover {
+        border-color:
+            #00BFD8 !important;
+
+        background:
+            rgba(0, 191, 216, 0.08) !important;
+    }
+
+
+    .perfil-modal-botao.perigo:hover {
+        filter:
+            brightness(1.07) !important;
+    }
+
+}
+
+
+/* =========================================================
+   6. CELULARES
+========================================================= */
+
+@media (max-width: 520px) {
+
+    .perfil-modal {
+        padding:
+            16px !important;
+    }
+
+
+    .perfil-modal-card {
+        max-height:
+            calc(
+                100dvh -
+                32px
+            ) !important;
+
+        padding:
+            24px
+            20px !important;
+
+        border-radius:
+            22px !important;
+    }
+
+
+    .perfil-modal-card-dados {
+        padding-top:
+            26px !important;
+    }
+
+
+    .perfil-modal-card-dados > h2 {
+        font-size:
+            1.72rem !important;
+    }
+
+
+    .perfil-modal-fechar {
+        top:
+            14px !important;
+
+        right:
+            14px !important;
+
+        width:
+            40px !important;
+
+        height:
+            40px !important;
+    }
+
+
+    .perfil-campo input {
+        height:
+            54px !important;
+    }
+
+
+    .perfil-modal-icone-confirmacao {
+        width:
+            66px !important;
+
+        height:
+            66px !important;
+
+        border-radius:
+            20px !important;
+    }
+
+
+    .perfil-modal-icone-confirmacao svg {
+        width:
+            34px !important;
+
+        height:
+            34px !important;
+
+        max-width:
+            34px !important;
+
+        max-height:
+            34px !important;
+    }
+
+
+    .perfil-modal-confirmacao
+    .perfil-modal-card
+    h2 {
+        font-size:
+            1.4rem !important;
+    }
+
+
+    /* =============================================
+       ESTATÍSTICAS NO CELULAR CONTINUAM 2 × 2
+    ============================================== */
+
+    .perfil-estatisticas-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr)) !important;
+
+        gap:
+            9px !important;
+    }
+
+
+    .perfil-estatistica {
+        min-height:
+            96px !important;
+
+        grid-template-columns:
+            41px
+            minmax(0, 1fr) !important;
+
+        column-gap:
+            9px !important;
+
+        padding:
+            11px !important;
+    }
+
+
+    .perfil-estatistica-icone,
+    .perfil-estatistica-icone.verde,
+    .perfil-estatistica-icone.ciano,
+    .perfil-estatistica-icone.amarelo {
+        width:
+            41px !important;
+
+        height:
+            41px !important;
+    }
+
+
+    .perfil-estatistica-icone svg,
+    .perfil-estatistica-icone.verde svg,
+    .perfil-estatistica-icone.ciano svg,
+    .perfil-estatistica-icone.amarelo svg {
+        width:
+            22px !important;
+
+        height:
+            22px !important;
+    }
+
+
+    .perfil-estatistica > strong {
+        font-size:
+            1.15rem !important;
+    }
+
+
+    .perfil-estatistica > span {
+        font-size:
+            0.63rem !important;
+
+        overflow-wrap:
+            anywhere !important;
+    }
+
+}
+
+
+/* =========================================================
+   CELULARES MUITO ESTREITOS
+========================================================= */
+
+@media (max-width: 350px) {
+
+    .perfil-estatistica {
+        grid-template-columns:
+            37px
+            minmax(0, 1fr) !important;
+
+        column-gap:
+            7px !important;
+
+        padding:
+            9px !important;
+    }
+
+
+    .perfil-estatistica-icone,
+    .perfil-estatistica-icone.verde,
+    .perfil-estatistica-icone.ciano,
+    .perfil-estatistica-icone.amarelo {
+        width:
+            37px !important;
+
+        height:
+            37px !important;
+    }
+
+
+    .perfil-estatistica > strong {
+        font-size:
+            1.02rem !important;
+    }
+
+
+    .perfil-estatistica > span {
+        font-size:
+            0.58rem !important;
+    }
+
+}
+
+/* =========================================================
+   CARD DO JOGADOR — VISUAL FINAL
+========================================================= */
+
+.perfil-jogador {
+    position: relative !important;
+
+    width: 100% !important;
+
+    box-sizing: border-box !important;
+
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+
+    padding:
+        28px
+        24px
+        24px !important;
+
+    overflow: hidden !important;
+
+    text-align: center !important;
+}
+
+
+/* =========================================================
+   AVATAR
+========================================================= */
+
+.perfil-avatar-area {
+    position: relative !important;
+
+    width: 104px !important;
+    height: 104px !important;
+
+    margin:
+        0
+        auto
+        18px !important;
+
+    flex:
+        0
+        0
+        104px !important;
+}
+
+
+.perfil-avatar-borda {
+    width: 100% !important;
+    height: 100% !important;
+
+    box-sizing: border-box !important;
+
+    padding: 4px !important;
+
+    border-radius: 50% !important;
+
+    background:
+        linear-gradient(
+            145deg,
+            #BAFF45,
+            #6FDC43
+        ) !important;
+
+    box-shadow:
+        0 7px 0 rgba(3, 25, 35, 0.55),
+        0 13px 25px rgba(0, 0, 0, 0.22) !important;
+}
+
+
+.perfil-avatar {
+    width: 100% !important;
+    height: 100% !important;
+
+    overflow: hidden !important;
+
+    border-radius: 50% !important;
+
+    background:
+        #062C3D !important;
+}
+
+
+.perfil-avatar img {
+    width: 100% !important;
+    height: 100% !important;
+
+    display: block !important;
+
+    object-fit: cover !important;
+
+    border-radius: 50% !important;
+}
+
+
+/* =========================================================
+   NÍVEL
+========================================================= */
+
+.perfil-nivel {
+    position: absolute !important;
+
+    right: -9px !important;
+    bottom: -5px !important;
+
+    z-index: 4 !important;
+
+    min-width: 53px !important;
+    height: 34px !important;
+
+    box-sizing: border-box !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    padding:
+        0
+        10px !important;
+
+    border:
+        3px
+        solid
+        #031923 !important;
+
+    border-radius:
+        18px !important;
+
+    background:
+        #BAFF45 !important;
+
+    color:
+        #031923 !important;
+
+    font-family:
+        "Oxanium",
+        sans-serif !important;
+
+    font-size:
+        0.75rem !important;
+
+    font-weight:
+        800 !important;
+
+    box-shadow:
+        0 4px 0 rgba(3, 25, 35, 0.4) !important;
+}
+
+
+/* =========================================================
+   NOME E NICK
+========================================================= */
+
+.perfil-identidade {
+    position: relative !important;
+
+    z-index: 2 !important;
+
+    width: 100% !important;
+
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+
+    margin:
+        0
+        0
+        25px !important;
+
+    text-align: center !important;
+}
+
+
+.perfil-identidade h2 {
+    margin:
+        0
+        0
+        3px !important;
+
+    color:
+        #FFFFFF !important;
+
+    font-family:
+        "Baloo 2",
+        sans-serif !important;
+
+    font-size:
+        1.75rem !important;
+
+    font-weight:
+        800 !important;
+
+    line-height:
+        1.1 !important;
+}
+
+
+.perfil-identidade span {
+    color:
+        #00BFD8 !important;
+
+    font-family:
+        "Nunito",
+        sans-serif !important;
+
+    font-size:
+        1rem !important;
+
+    font-weight:
+        800 !important;
+}
+
+
+/* =========================================================
+   CAIXA DE PROGRESSO DO NÍVEL
+========================================================= */
+
+.perfil-xp {
+    position: relative !important;
+
+    z-index: 2 !important;
+
+    width: 100% !important;
+
+    box-sizing: border-box !important;
+
+    margin: 0 !important;
+
+    padding:
+        17px
+        18px
+        18px !important;
+
+    border:
+        1px
+        solid
+        rgba(199, 221, 221, 0.13) !important;
+
+    border-radius:
+        18px !important;
+
+    background:
+        rgba(3, 25, 35, 0.38) !important;
+
+    box-shadow:
+        inset 0 0 22px rgba(0, 0, 0, 0.08) !important;
+
+    text-align:
+        left !important;
+}
+
+
+.perfil-xp-topo {
+    width: 100% !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+
+    gap:
+        15px !important;
+
+    margin:
+        0
+        0
+        13px !important;
+}
+
+
+.perfil-xp-topo span {
+    color:
+        #C7DDDD !important;
+
+    font-family:
+        "Nunito",
+        sans-serif !important;
+
+    font-size:
+        0.72rem !important;
+
+    font-weight:
+        900 !important;
+
+    letter-spacing:
+        0.035em !important;
+}
+
+
+.perfil-xp-topo strong {
+    flex:
+        0
+        0
+        auto !important;
+
+    color:
+        #BAFF45 !important;
+
+    font-family:
+        "Oxanium",
+        sans-serif !important;
+
+    font-size:
+        0.75rem !important;
+
+    font-weight:
+        800 !important;
+
+    white-space:
+        nowrap !important;
+}
+
+
+/* =========================================================
+   BARRA DE XP
+========================================================= */
+
+.perfil-xp-barra {
+    position: relative !important;
+
+    width: 100% !important;
+    height: 10px !important;
+
+    display: block !important;
+
+    overflow: hidden !important;
+
+    border-radius:
+        999px !important;
+
+    background:
+        #031923 !important;
+
+    box-shadow:
+        inset 0 2px 4px rgba(0, 0, 0, 0.32) !important;
+}
+
+
+.perfil-xp-preenchimento {
+    position: absolute !important;
+
+    top: 0 !important;
+    left: 0 !important;
+
+    height: 100% !important;
+
+    display: block !important;
+
+    border-radius:
+        inherit !important;
+
+    background:
+        linear-gradient(
+            90deg,
+            #BAFF45,
+            #6FDC43
+        ) !important;
+
+    box-shadow:
+        0 0 10px rgba(186, 255, 69, 0.3) !important;
+
+    transition:
+        width 0.45s ease !important;
+}
+
+
+/* =========================================================
+   CELULAR
+========================================================= */
+
+@media (max-width: 520px) {
+
+    .perfil-jogador {
+        padding:
+            26px
+            22px
+            22px !important;
+    }
+
+
+    .perfil-avatar-area {
+        width:
+            96px !important;
+
+        height:
+            96px !important;
+
+        flex-basis:
+            96px !important;
+
+        margin-bottom:
+            17px !important;
+    }
+
+
+    .perfil-identidade {
+        margin-bottom:
+            23px !important;
+    }
+
+
+    .perfil-identidade h2 {
+        font-size:
+            1.65rem !important;
+    }
+
+
+    .perfil-identidade span {
+        font-size:
+            0.95rem !important;
+    }
+
+
+    .perfil-xp {
+        padding:
+            16px
+            15px
+            17px !important;
+
+        border-radius:
+            17px !important;
+    }
+
+
+    .perfil-xp-topo {
+        margin-bottom:
+            11px !important;
+    }
+
+
+    .perfil-xp-barra {
+        height:
+            9px !important;
+    }
+
+}
+
+/* =========================================================
+   DETALHES DECORATIVOS DO CARD DO JOGADOR
+========================================================= */
+
+/* círculo menor — canto superior esquerdo */
+.perfil-jogador::before {
+    content: "";
+
+    position: absolute;
+
+    top: -55px;
+    left: -55px;
+
+    width: 155px;
+    height: 155px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(30, 139, 134, 0.10);
+
+    pointer-events: none;
+
+    z-index: 0;
+}
+
+
+/* círculo maior — canto inferior direito */
+.perfil-jogador::after {
+    content: "";
+
+    position: absolute;
+
+    right: -45px;
+    bottom: -75px;
+
+    width: 190px;
+    height: 190px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(30, 139, 134, 0.08);
+
+    pointer-events: none;
+
+    z-index: 0;
+}
+
+
+/* =========================================================
+   AVATAR MAIOR
+========================================================= */
+
+.perfil-avatar-area {
+    width: 125px !important;
+    height: 125px !important;
+
+    flex:
+        0
+        0
+        125px !important;
+
+    margin:
+        0
+        auto
+        20px !important;
+}
+
+
+/* deixa a imagem preencher corretamente o círculo */
+
+.perfil-avatar-borda {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+
+.perfil-avatar {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+
+.perfil-avatar img {
+    width: 100% !important;
+    height: 100% !important;
+
+    object-fit: cover !important;
+}
+
+
+/* =========================================================
+   AJUSTE DA ETIQUETA DE NÍVEL NO AVATAR MAIOR
+========================================================= */
+
+.perfil-nivel {
+    right: -7px !important;
+    bottom: 1px !important;
+
+    min-width: 58px !important;
+    height: 35px !important;
+
+    padding:
+        0
+        10px !important;
+
+    font-size:
+        0.78rem !important;
+}
+
+
+/* =========================================================
+   GARANTE QUE O CONTEÚDO FIQUE ACIMA DOS CÍRCULOS
+========================================================= */
+
+.perfil-avatar-area,
+.perfil-identidade,
+.perfil-xp {
+    position: relative;
+
+    z-index: 2;
+}
+
+
+/* =========================================================
+   CELULAR
+========================================================= */
+
+@media (max-width: 520px) {
+
+    .perfil-avatar-area {
+        width: 115px !important;
+        height: 115px !important;
+
+        flex-basis: 115px !important;
+    }
+
+
+    .perfil-jogador::before {
+        top: -50px;
+        left: -50px;
+
+        width: 135px;
+        height: 135px;
+    }
+
+
+    .perfil-jogador::after {
+        right: -45px;
+        bottom: -65px;
+
+        width: 165px;
+        height: 165px;
+    }
+
+}
+
+/* =========================================================
+   CÍRCULO MÉDIO — LADO DIREITO
+========================================================= */
+
+.perfil-jogador {
+    background:
+        radial-gradient(
+            circle 82px at calc(100% - 48px) 72%,
+            rgba(30, 139, 134, 0.09) 0,
+            rgba(30, 139, 134, 0.09) 99%,
+            transparent 100%
+        ),
+        linear-gradient(
+            145deg,
+            rgba(7, 75, 91, 0.96),
+            rgba(6, 44, 61, 0.96)
+        ) !important;
+}
+
+
+/* =========================================================
+   CELULAR
+========================================================= */
+
+@media (max-width: 520px) {
+
+    .perfil-jogador {
+        background:
+            radial-gradient(
+                circle 72px at calc(100% - 35px) 72%,
+                rgba(30, 139, 134, 0.09) 0,
+                rgba(30, 139, 134, 0.09) 99%,
+                transparent 100%
+            ),
+            linear-gradient(
+                145deg,
+                rgba(7, 75, 91, 0.96),
+                rgba(6, 44, 61, 0.96)
+            ) !important;
+    }
+
+}
+
+/* =========================================================
+   CÍRCULOS DECORATIVOS — AJUSTE FINAL
+========================================================= */
+
+/* círculo da esquerda */
+.perfil-jogador::before {
+    content: "";
+
+    position: absolute;
+
+    top: -55px;
+    left: -55px;
+
+    width: 155px;
+    height: 155px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(30, 139, 134, 0.10);
+
+    pointer-events: none;
+
+    z-index: 0;
+}
+
+
+/* desativa o segundo círculo antigo da direita */
+.perfil-jogador::after {
+    display: none !important;
+}
+
+
+/* apenas UM círculo médio na direita */
+.perfil-jogador {
+    background:
+        radial-gradient(
+            circle 82px at calc(100% - 45px) 75%,
+            rgba(30, 139, 134, 0.09) 0,
+            rgba(30, 139, 134, 0.09) 99%,
+            transparent 100%
+        ),
+        linear-gradient(
+            145deg,
+            rgba(7, 75, 91, 0.96),
+            rgba(6, 44, 61, 0.96)
+        ) !important;
+}
+
+
+/* =========================================================
+   CELULAR
+========================================================= */
+
+@media (max-width: 520px) {
+
+    .perfil-jogador::before {
+        top: -50px;
+        left: -50px;
+
+        width: 135px;
+        height: 135px;
+    }
+
+
+    .perfil-jogador {
+        background:
+            radial-gradient(
+                circle 72px at calc(100% - 38px) 75%,
+                rgba(30, 139, 134, 0.09) 0,
+                rgba(30, 139, 134, 0.09) 99%,
+                transparent 100%
+            ),
+            linear-gradient(
+                145deg,
+                rgba(7, 75, 91, 0.96),
+                rgba(6, 44, 61, 0.96)
+            ) !important;
+    }
+
+}
+
+/* =========================================================
+   TRANSIÇÃO DOS POP-UPS — PERFIL
+========================================================= */
+
+
+/* ESTADO INICIAL */
+
+.perfil-modal.preparando-popup .perfil-modal-card,
+.sobre-modal.preparando-popup .sobre-modal-card {
+    opacity: 0 !important;
+
+    transform:
+        translate3d(
+            0,
+            45px,
+            0
+        ) !important;
+
+    transition: none !important;
+}
+
+
+.perfil-modal.preparando-popup .perfil-modal-fundo,
+.sobre-modal.preparando-popup .sobre-modal-fundo {
+    opacity: 0 !important;
+
+    transition: none !important;
+}
+
+
+/* ENTRADA DO CARD */
+
+.perfil-modal.preparando-popup.popup-entrando .perfil-modal-card,
+.sobre-modal.preparando-popup.popup-entrando .sobre-modal-card {
+    opacity: 1 !important;
+
+    transform:
+        translate3d(
+            0,
+            0,
+            0
+        ) !important;
+
+    transition:
+        transform 650ms cubic-bezier(.16, 1, .3, 1),
+        opacity 500ms ease !important;
+}
+
+
+/* ENTRADA DO FUNDO */
+
+.perfil-modal.preparando-popup.popup-entrando .perfil-modal-fundo,
+.sobre-modal.preparando-popup.popup-entrando .sobre-modal-fundo {
+    opacity: 1 !important;
+
+    transition:
+        opacity 500ms ease !important;
+}
+
+
+/* OTIMIZAÇÃO */
+
+.perfil-modal-card,
+.sobre-modal-card {
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+/* =========================================================
+   FRASE FINAL — SOBRE O BVENTURE
+========================================================= */
+
+.sobre-modal-frase {
+    width: 100%;
+
+    margin:
+        32px
+        auto
+        8px;
+
+    text-align: center !important;
+
+    font-family:
+        "Baloo 2",
+        sans-serif !important;
+
+    font-size:
+        22px !important;
+
+    font-weight:
+        800 !important;
+
+    line-height:
+        1.25 !important;
+
+    color:
+        #BAFF45 !important;
+}
+
+/* =========================================================
+   ALTERAR AVATAR — PERFIL
+========================================================= */
+
+
+/* avatar principal clicável */
+
+.perfil-avatar-botao {
+    cursor: pointer;
+
+    -webkit-tap-highlight-color: transparent;
+
+    transition:
+        transform 0.18s ease,
+        filter 0.18s ease;
+}
+
+
+.perfil-avatar-botao:active {
+    transform: scale(0.96);
+}
+
+
+@media (hover: hover) and (pointer: fine) {
+
+    .perfil-avatar-botao:hover {
+        filter: brightness(1.08);
+        transform: translateY(-2px);
+    }
+
+}
+
+
+/* =========================================================
+   CARD DO POPUP
+========================================================= */
+
+.perfil-modal-card-avatar {
+    width: min(100%, 470px);
+
+    padding:
+        27px
+        25px
+        25px;
+
+    text-align: center;
+}
+
+
+/* =========================================================
+   ETIQUETA
+========================================================= */
+
+.perfil-modal-etiqueta {
+    display: block;
+
+    margin:
+        0
+        42px
+        4px;
+
+    color: #BAFF45;
+
+    font-family: "Nunito", sans-serif;
+
+    font-size: 0.70rem;
+    font-weight: 900;
+
+    letter-spacing: 0.11em;
+
+    text-transform: uppercase;
+}
+
+
+/* =========================================================
+   TÍTULO
+========================================================= */
+
+.perfil-modal-card-avatar h2 {
+    margin:
+        0
+        42px
+        5px;
+
+    color: #FFFFFF;
+
+    font-family: "Baloo 2", sans-serif;
+
+    font-size: 1.65rem;
+    font-weight: 800;
+
+    line-height: 1.08;
+}
+
+
+/* =========================================================
+   DESCRIÇÃO
+========================================================= */
+
+.perfil-modal-descricao {
+    max-width: 340px;
+
+    margin:
+        0
+        auto
+        24px;
+
+    color: #C7DDDD;
+
+    font-family: "Nunito", sans-serif;
+
+    font-size: 0.78rem;
+    font-weight: 600;
+
+    line-height: 1.4;
+}
+
+
+/* =========================================================
+   GRADE DE AVATARES
+========================================================= */
+
+.perfil-avatar-opcoes {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 14px;
+
+    width: 100%;
+
+    max-width: 330px;
+
+    margin:
+        0
+        auto
+        25px;
+}
+
+
+/* =========================================================
+   CADA AVATAR
+========================================================= */
+
+.perfil-avatar-opcao {
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    aspect-ratio: 1 / 1;
+
+    width: 100%;
+
+    padding: 4px;
+
+    box-sizing: border-box;
+
+    border:
+        2px solid
+        rgba(199, 221, 221, 0.18);
+
+    border-radius: 50%;
+
+    outline: none;
+
+    background:
+        rgba(3, 25, 35, 0.58);
+
+    cursor: pointer;
+
+    box-shadow:
+        0 5px 0 rgba(3, 25, 35, 0.50),
+        0 9px 16px rgba(0, 0, 0, 0.18);
+
+    transition:
+        transform 0.18s ease,
+        border-color 0.18s ease,
+        background 0.18s ease,
+        box-shadow 0.18s ease;
+
+    -webkit-tap-highlight-color: transparent;
+}
+
+
+.perfil-avatar-opcao img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    border-radius: 50%;
+
+    object-fit: cover;
+
+    pointer-events: none;
+
+    user-select: none;
+
+    -webkit-user-drag: none;
+}
+
+
+/* =========================================================
+   AVATAR SELECIONADO
+========================================================= */
+
+.perfil-avatar-opcao.selecionado {
+    border-color: #BAFF45;
+
+    background:
+        rgba(186, 255, 69, 0.12);
+
+    box-shadow:
+        0 0 0 3px rgba(186, 255, 69, 0.10),
+        0 5px 0 rgba(3, 25, 35, 0.55),
+        0 9px 18px rgba(0, 0, 0, 0.22);
+}
+
+
+.perfil-avatar-opcao.selecionado::after {
+    content: "✓";
+
+    position: absolute;
+
+    right: -3px;
+    bottom: -2px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 27px;
+    height: 27px;
+
+    box-sizing: border-box;
+
+    border:
+        3px solid
+        #062C3D;
+
+    border-radius: 50%;
+
+    background: #BAFF45;
+
+    color: #031923;
+
+    font-family: "Nunito", sans-serif;
+
+    font-size: 0.78rem;
+    font-weight: 1000;
+
+    box-shadow:
+        0 3px 7px rgba(0, 0, 0, 0.28);
+}
+
+
+/* clique */
+
+.perfil-avatar-opcao:active {
+    transform: scale(0.94);
+}
+
+
+/* hover apenas em dispositivos com mouse */
+
+@media (hover: hover) and (pointer: fine) {
+
+    .perfil-avatar-opcao:not(.selecionado):hover {
+        border-color:
+            rgba(0, 191, 216, 0.70);
+
+        background:
+            rgba(0, 191, 216, 0.08);
+
+        transform:
+            translateY(-2px);
+    }
+
+}
+
+
+/* =========================================================
+   BOTÕES CANCELAR / CONFIRMAR
+========================================================= */
+
+.perfil-avatar-acoes {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 10px;
+
+    width: 100%;
+}
+
+
+.perfil-modal-botao {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-width: 0;
+    min-height: 50px;
+
+    padding:
+        10px
+        14px;
+
+    box-sizing: border-box;
+
+    border-radius: 14px;
+
+    outline: none;
+
+    font-family: "Nunito", sans-serif;
+
+    font-size: 0.84rem;
+    font-weight: 900;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.16s ease,
+        filter 0.16s ease,
+        border-color 0.16s ease,
+        background 0.16s ease;
+
+    -webkit-tap-highlight-color: transparent;
+}
+
+
+.perfil-modal-botao:active {
+    transform: scale(0.97);
+}
+
+
+/* cancelar */
+
+.perfil-modal-botao.secundario {
+    border:
+        1px solid
+        rgba(199, 221, 221, 0.28);
+
+    background:
+        rgba(3, 25, 35, 0.55);
+
+    color: #C7DDDD;
+}
+
+
+/* confirmar */
+
+.perfil-modal-botao.principal {
+    border:
+        1px solid
+        #BAFF45;
+
+    background:
+        linear-gradient(
+            100deg,
+            #BAFF45,
+            #6FDC43
+        );
+
+    color: #031923;
+
+    box-shadow:
+        0 4px 0 rgba(3, 25, 35, 0.65);
+}
+
+
+/* botão ainda sem seleção */
+
+.perfil-modal-botao.principal:disabled {
+    border-color:
+        rgba(199, 221, 221, 0.16);
+
+    background:
+        rgba(199, 221, 221, 0.12);
+
+    color:
+        rgba(199, 221, 221, 0.42);
+
+    box-shadow: none;
+
+    cursor: not-allowed;
+}
+
+
+/* =========================================================
+   CELULAR
+========================================================= */
+
+@media (max-width: 520px) {
+
+    .perfil-modal-card-avatar {
+        padding:
+            25px
+            20px
+            21px;
+    }
+
+
+    .perfil-modal-card-avatar h2 {
+        font-size: 1.52rem;
+    }
+
+
+    .perfil-avatar-opcoes {
+        max-width: 300px;
+
+        gap: 12px;
+
+        margin-bottom: 22px;
+    }
+
+
+    .perfil-modal-descricao {
+        margin-bottom: 21px;
+    }
+
+}
+
+
+/* =========================================================
+   CELULARES PEQUENOS
+========================================================= */
+
+@media (max-width: 370px) {
+
+    .perfil-avatar-opcoes {
+        gap: 9px;
+    }
+
+
+    .perfil-modal-card-avatar {
+        padding:
+            23px
+            17px
+            19px;
+    }
+
+
+    .perfil-modal-botao {
+        min-height: 47px;
+
+        font-size: 0.78rem;
+    }
+
+}
+
+.perfil-modal-card-avatar .perfil-modal-descricao {
+    text-align: center;
+}
+
+.perfil-modal-card-avatar > .perfil-modal-descricao {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    box-sizing: border-box;
+    text-align: center !important;
+}
+
+/* =========================================================
+   PERFIL — HEROICONS AMARELOS
+   SOMENTE ÍCONES QUE ERAM AZUIS
+========================================================= */
+
+/* 4 cards de estatísticas */
+.perfil-estatistica-icone svg,
+.perfil-estatistica-icone.verde svg,
+.perfil-estatistica-icone.ciano svg,
+.perfil-estatistica-icone.amarelo svg {
+    color: #FFD84D !important;
+    stroke: #FFD84D !important;
+}
+
+
+/* Opções da conta */
+.perfil-opcao:not(.sair) .perfil-opcao-icone svg {
+    color: #FFD84D !important;
+    stroke: #FFD84D !important;
+}
+
+
+/* Idioma — possui regras próprias */
+.perfil-idioma-bloco .perfil-opcao-icone svg,
+.perfil-idioma-bloco .perfil-opcao:hover .perfil-opcao-icone svg,
+.perfil-idioma-bloco .perfil-opcao:focus .perfil-opcao-icone svg,
+.perfil-idioma-bloco .perfil-opcao:active .perfil-opcao-icone svg {
+    color: #FFD84D !important;
+    stroke: #FFD84D !important;
+}
+

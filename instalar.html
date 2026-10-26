@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Instalar BVenture</title>
+
+    <!-- PWA -->
+    <link
+        rel="manifest"
+        href="./manifest.json"
+    >
+
+    <meta
+        name="theme-color"
+        content="#031923"
+    >
+
+    <link
+        rel="apple-touch-icon"
+        href="./assets/icons/apple-touch-icon.png"
+    >
+
+    <link
+        rel="stylesheet"
+        href="./css/instalar.css"
+    >
+
+</head>
+
+<body>
+
+    <main id="tela-instalacao">
+
+        <!-- ANDROID -->
+        <section
+            id="instalacao-android"
+            hidden
+        >
+
+            <img
+                src="./assets/icons/icon-512.png"
+                alt="BVenture"
+            >
+
+            <h1>Instale o BVenture</h1>
+
+            <p>
+                Tenha uma experiência mais completa instalando
+                o BVenture no seu dispositivo.
+            </p>
+
+            <button
+                id="botao-instalar"
+                type="button"
+            >
+                Instalar BVenture
+            </button>
+
+        </section>
+
+
+        <!-- IPHONE / IPAD -->
+        <section
+            id="instalacao-ios"
+            hidden
+        >
+
+            <img
+                src="./assets/icons/icon-512.png"
+                alt="BVenture"
+            >
+
+            <h1>Adicione o BVenture à Tela de Início</h1>
+
+            <p>
+                No Safari, toque em Compartilhar e depois em
+                “Adicionar à Tela de Início”.
+            </p>
+
+            <button
+                id="botao-continuar-ios"
+                type="button"
+            >
+                Entendi
+            </button>
+
+        </section>
+
+
+        <!-- INSTALAÇÃO INDISPONÍVEL -->
+        <section
+            id="instalacao-indisponivel"
+            hidden
+        >
+
+            <img
+                src="./assets/icons/icon-512.png"
+                alt="BVenture"
+            >
+
+            <h1>BVenture</h1>
+
+            <p>
+                A instalação não está disponível neste navegador.
+            </p>
+
+            <button
+                id="botao-continuar"
+                type="button"
+            >
+                Continuar
+            </button>
+
+        </section>
+
+    </main>
+
+
+    <script src="./js/pwa.js"></script>
+
+    <script src="./js/instalar.js"></script>
+
+</body>
+
+</html>

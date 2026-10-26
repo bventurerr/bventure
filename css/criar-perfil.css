@@ -1,0 +1,2544 @@
+/* =========================================================
+   BVENTURE
+   CRIAR PERFIL
+========================================================= */
+
+
+/* =========================================================
+   TELA
+========================================================= */
+
+body {
+    min-height: 100vh;
+
+    background:
+        linear-gradient(
+            rgba(3, 25, 35, 0.58),
+            rgba(3, 25, 35, 0.72)
+        ),
+        url("../imagens-webp/fundocadastro.webp");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+
+/* =========================================================
+   CONTEÚDO PRINCIPAL
+========================================================= */
+
+.criar-perfil {
+    position: relative;
+    z-index: 2;
+
+    width: 100%;
+    min-height: 100vh;
+
+    padding: 24px 20px 40px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+
+/* =========================================================
+   CARD
+========================================================= */
+
+.perfil-card {
+    width: 100%;
+    max-width: 460px;
+
+    padding: 26px 21px 24px;
+
+    background:
+        var(--azul-marinho);
+
+    border:
+        1.5px solid
+        var(--azul-ciano);
+
+    border-radius: 24px;
+
+    box-shadow:
+        0 0 18px rgba(0, 191, 216, 0.10),
+        0 16px 35px rgba(0, 0, 0, 0.20);
+}
+
+
+/* =========================================================
+   CABEÇALHO
+========================================================= */
+
+.perfil-cabecalho {
+    text-align: center;
+
+    margin-bottom: 22px;
+}
+
+
+.perfil-etapa {
+    display: inline-block;
+
+    margin-bottom: 6px;
+
+    color: var(--amarelo-dourado);
+
+    font-family: var(--fonte-numero);
+    font-size: 0.68rem;
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+}
+
+
+.perfil-cabecalho h2 {
+    color: var(--verde-limao);
+
+    font-family: var(--fonte-titulo);
+    font-size: 1.85rem;
+    font-weight: 800;
+
+    line-height: 1.1;
+}
+
+
+.perfil-cabecalho p {
+    max-width: 330px;
+
+    margin: 6px auto 0;
+
+    color: var(--branco-azulado);
+
+    font-size: 0.84rem;
+    font-weight: 500;
+
+    line-height: 1.4;
+}
+
+
+/* =========================================================
+   AVATAR
+========================================================= */
+
+.avatar-area {
+    margin-bottom: 25px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 8px;
+}
+
+
+.avatar {
+    position: relative;
+
+    width: 92px;
+    height: 92px;
+
+    padding: 0;
+
+    border:
+        2px solid
+        var(--azul-ciano);
+
+    border-radius: 50%;
+
+    background:
+        var(--azul-petroleo-escuro);
+
+    color: var(--branco-azulado);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    box-shadow:
+        0 0 18px
+        rgba(0, 191, 216, 0.15);
+
+    transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+.avatar > svg {
+    width: 45px;
+    height: 45px;
+}
+
+
+.avatar:hover {
+    border-color:
+        var(--verde-limao);
+
+    box-shadow:
+        0 0 20px
+        rgba(186, 255, 69, 0.18);
+}
+
+
+.avatar:active {
+    transform: scale(0.96);
+}
+
+
+/* =========================================================
+   BOTÃO EDITAR AVATAR
+========================================================= */
+
+.avatar-editar {
+    position: absolute;
+
+    right: -1px;
+    bottom: 2px;
+
+    width: 29px;
+    height: 29px;
+
+    border:
+        3px solid
+        var(--azul-marinho);
+
+    border-radius: 50%;
+
+    background:
+        var(--gradiente-verde);
+
+    color:
+        var(--azul-quase-preto);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.avatar-editar svg {
+    width: 13px;
+    height: 13px;
+}
+
+
+.avatar-texto {
+    color: var(--branco-azulado);
+
+    font-size: 0.75rem;
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   FORMULÁRIO
+========================================================= */
+
+.perfil-form {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 17px;
+}
+
+
+/* =========================================================
+   CAMPOS
+========================================================= */
+
+.campo {
+    width: 100%;
+}
+
+
+.campo > label {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: var(--branco);
+
+    font-size: 0.82rem;
+    font-weight: 700;
+}
+
+
+.campo-input {
+    width: 100%;
+    height: 50px;
+
+    padding: 0 14px;
+
+    background:
+        rgba(3, 25, 35, 0.72);
+
+    border:
+        1px solid
+        rgba(0, 191, 216, 0.55);
+
+    border-radius: 14px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 11px;
+
+    transition:
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+.campo-input:focus-within {
+    border-color:
+        var(--azul-ciano);
+
+    box-shadow:
+        0 0 10px
+        rgba(0, 191, 216, 0.15);
+}
+
+
+.campo-input > svg {
+    width: 20px;
+    height: 20px;
+
+    flex-shrink: 0;
+
+    color:
+        var(--verde-petroleo);
+}
+
+
+.campo-input:focus-within > svg {
+    color:
+        var(--azul-ciano);
+}
+
+
+/* =========================================================
+   INPUT
+========================================================= */
+
+.campo-input input {
+    width: 100%;
+    height: 100%;
+
+    padding: 0;
+
+    border: none !important;
+    outline: none !important;
+
+    background: transparent !important;
+
+    box-shadow: none !important;
+
+    color: var(--branco);
+
+    font-family: var(--fonte-texto);
+    font-size: 0.88rem;
+    font-weight: 600;
+
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+
+.campo-input input:focus,
+.campo-input input:focus-visible {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+
+.campo-input input::placeholder {
+    color:
+        rgba(199, 221, 221, 0.43);
+}
+
+
+/* =========================================================
+   NICK
+========================================================= */
+
+.arroba {
+    color: var(--verde-limao);
+
+    font-family: var(--fonte-numero);
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+
+.campo-ajuda {
+    display: block;
+
+    margin-top: 5px;
+    margin-left: 3px;
+
+    color:
+        rgba(199, 221, 221, 0.55);
+
+    font-size: 0.68rem;
+    font-weight: 500;
+}
+
+
+/* =========================================================
+   REMOVE SETAS DO INPUT DE IDADE
+========================================================= */
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    margin: 0;
+
+    -webkit-appearance: none;
+}
+
+
+/* =========================================================
+   SEXO
+========================================================= */
+
+.sexo-area {
+    margin: 0;
+    padding: 0;
+
+    border: none;
+}
+
+
+.sexo-area legend {
+    margin-bottom: 8px;
+
+    color: var(--branco);
+
+    font-size: 0.82rem;
+    font-weight: 700;
+}
+
+
+.sexo-opcoes {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 10px;
+}
+
+
+/* =========================================================
+   RADIO
+========================================================= */
+
+.sexo-card input {
+    position: absolute;
+
+    opacity: 0;
+
+    pointer-events: none;
+}
+
+
+.sexo-card {
+    cursor: pointer;
+
+    -webkit-tap-highlight-color:
+        transparent;
+}
+
+
+.sexo-conteudo {
+    min-height: 52px;
+
+    padding: 8px 10px;
+
+    border:
+        1px solid
+        rgba(0, 191, 216, 0.40);
+
+    border-radius: 14px;
+
+    background:
+        rgba(3, 25, 35, 0.62);
+
+    color:
+        var(--branco-azulado);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 7px;
+
+    font-size: 0.8rem;
+    font-weight: 700;
+
+    transition:
+        background 0.25s ease,
+        border-color 0.25s ease,
+        color 0.25s ease,
+        transform 0.2s ease,
+        box-shadow 0.25s ease;
+}
+
+
+.sexo-conteudo svg {
+    width: 20px;
+    height: 20px;
+}
+
+
+/* =========================================================
+   SEXO SELECIONADO
+========================================================= */
+
+.sexo-card input:checked
++ .sexo-conteudo {
+
+    background:
+        rgba(186, 255, 69, 0.10);
+
+    border-color:
+        var(--verde-limao);
+
+    color:
+        var(--verde-limao);
+
+    box-shadow:
+        0 0 12px
+        rgba(186, 255, 69, 0.10);
+}
+
+
+.sexo-card:active
+.sexo-conteudo {
+    transform: scale(0.97);
+}
+
+/* =========================================================
+   IDIOMA — SELETOR BVenture
+========================================================= */
+
+.idioma-area {
+    position: relative;
+    width: 100%;
+}
+
+.idioma-label {
+    display: block;
+    margin-bottom: 7px;
+
+    color: var(--branco);
+
+    font-family: var(--fonte-texto);
+    font-size: 0.82rem;
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   CONTAINER
+========================================================= */
+
+.idioma-personalizado {
+    position: relative;
+    width: 100%;
+}
+
+
+/* =========================================================
+   BOTÃO PRINCIPAL
+========================================================= */
+
+.idioma-botao {
+    width: 100%;
+    height: 50px;
+
+    padding: 0 15px;
+
+    border:
+        1px solid
+        rgba(0, 191, 216, 0.65);
+
+    border-radius: 14px;
+
+    background:
+        rgba(3, 25, 35, 0.78);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    color: var(--branco);
+
+    font-family: var(--fonte-texto);
+    font-size: 0.88rem;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        border-color 0.22s ease,
+        box-shadow 0.22s ease,
+        background 0.22s ease;
+}
+
+.idioma-botao:hover {
+    border-color: var(--verde-limao);
+
+    background:
+        rgba(3, 35, 44, 0.92);
+
+    box-shadow:
+        0 0 12px
+        rgba(186, 255, 69, 0.10);
+}
+
+
+/* LADO ESQUERDO */
+
+.idioma-botao-esquerda {
+    display: flex;
+    align-items: center;
+
+    min-width: 0;
+
+    gap: 12px;
+}
+
+
+/* GLOBO */
+
+.idioma-icone {
+    width: 20px;
+    height: 20px;
+
+    flex-shrink: 0;
+
+    color: var(--azul-ciano);
+}
+
+
+/* TEXTO */
+
+.idioma-selecionado {
+    overflow: hidden;
+
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+    text-align: left;
+}
+
+
+/* SETA */
+
+.idioma-seta {
+    width: 18px;
+    height: 18px;
+
+    flex-shrink: 0;
+
+    margin-left: 12px;
+
+    color: var(--verde-limao);
+
+    transition:
+        transform 0.25s ease;
+}
+
+
+/* SETA ABERTA */
+
+.idioma-personalizado.aberto
+.idioma-seta {
+    transform: rotate(180deg);
+}
+
+
+/* =========================================================
+   MENU
+========================================================= */
+
+.idioma-menu {
+    position: absolute;
+
+    top: calc(100% + 8px);
+    left: 0;
+
+    z-index: 50;
+
+    width: 100%;
+
+    padding: 7px;
+
+    background:
+        rgba(3, 25, 35, 0.98);
+
+    border:
+        1.5px solid
+        var(--verde-limao);
+
+    border-radius: 14px;
+
+    box-shadow:
+        0 14px 30px
+        rgba(0, 0, 0, 0.38),
+        0 0 14px
+        rgba(186, 255, 69, 0.08);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transform:
+        translateY(-7px)
+        scale(0.98);
+
+    transform-origin: top;
+
+    pointer-events: none;
+
+    transition:
+        opacity 0.18s ease,
+        transform 0.18s ease,
+        visibility 0.18s ease;
+}
+
+
+/* MENU ABERTO */
+
+.idioma-personalizado.aberto
+.idioma-menu {
+    opacity: 1;
+    visibility: visible;
+
+    transform:
+        translateY(0)
+        scale(1);
+
+    pointer-events: auto;
+}
+
+
+/* =========================================================
+   OPÇÕES
+========================================================= */
+
+.idioma-opcao {
+    width: 100%;
+    min-height: 45px;
+
+    padding: 8px 11px;
+
+    border: none;
+    border-radius: 10px;
+
+    background: transparent;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    color: var(--branco-azulado);
+
+    font-family: var(--fonte-texto);
+    font-size: 0.86rem;
+    font-weight: 600;
+
+    text-align: left;
+
+    cursor: pointer;
+
+    transition:
+        background 0.18s ease,
+        color 0.18s ease,
+        transform 0.18s ease;
+}
+
+
+/* ESPAÇO ENTRE OPÇÕES */
+
+.idioma-opcao + .idioma-opcao {
+    margin-top: 3px;
+}
+
+
+/* CONTEÚDO */
+
+.idioma-opcao-conteudo {
+    display: flex;
+    align-items: center;
+
+    gap: 11px;
+}
+
+
+/* BANDEIRA */
+
+.idioma-bandeira {
+    width: 25px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 1.05rem;
+}
+
+
+/* HOVER */
+
+.idioma-opcao:hover {
+    background:
+        rgba(0, 191, 216, 0.10);
+
+    color: var(--branco);
+
+    transform:
+        translateX(2px);
+}
+
+
+/* =========================================================
+   OPÇÃO SELECIONADA
+========================================================= */
+
+.idioma-opcao.ativo {
+    background:
+        rgba(186, 255, 69, 0.12);
+
+    color: var(--verde-limao);
+}
+
+
+/* CHECK */
+
+.idioma-check {
+    width: 23px;
+    height: 23px;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: var(--verde-limao);
+
+    color: var(--azul-marinho);
+
+    font-size: 0.72rem;
+    font-weight: 900;
+
+    opacity: 0;
+
+    transform: scale(0.7);
+
+    transition:
+        opacity 0.18s ease,
+        transform 0.18s ease;
+}
+
+
+.idioma-opcao.ativo
+.idioma-check {
+    opacity: 1;
+
+    transform: scale(1);
+}
+
+
+/* =========================================================
+   QUANDO ESTIVER ABERTO
+========================================================= */
+
+.idioma-personalizado.aberto
+.idioma-botao {
+    border-color: var(--verde-limao);
+
+    box-shadow:
+        0 0 0 2px
+        rgba(186, 255, 69, 0.07),
+        0 0 14px
+        rgba(186, 255, 69, 0.10);
+}
+
+
+/* =========================================================
+   CELULAR
+========================================================= */
+
+@media (max-width: 480px) {
+
+    .idioma-botao {
+        height: 50px;
+
+        padding:
+            0
+            13px;
+    }
+
+    .idioma-menu {
+        padding: 6px;
+    }
+
+    .idioma-opcao {
+        min-height: 44px;
+
+        padding:
+            8px
+            10px;
+    }
+
+}
+
+/* =========================================================
+   BOTÃO COMEÇAR
+========================================================= */
+
+.botao-comecar {
+    width: 100%;
+
+    min-height: 51px;
+
+    margin-top: 4px;
+
+    gap: 9px;
+
+    border-radius: 15px;
+
+    font-size: 0.9rem;
+}
+
+
+.botao-comecar svg {
+    width: 18px;
+    height: 18px;
+
+    transition:
+        transform 0.25s ease;
+}
+
+
+.botao-comecar:hover svg {
+    transform:
+        translateX(3px);
+}
+
+
+/* =========================================================
+   PARTÍCULAS
+========================================================= */
+
+.particulas {
+    position: fixed;
+    inset: 0;
+
+    width: 100vw;
+    height: 100vh;
+
+    overflow: hidden;
+
+    pointer-events: none;
+
+    z-index: 0;
+}
+
+
+.particula {
+    position: absolute;
+
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background:
+        var(--verde-limao);
+
+    opacity: 0.65;
+
+    box-shadow:
+        0 0 6px var(--verde-limao),
+        0 0 12px var(--verde-limao),
+        0 0 22px rgba(186, 255, 69, 0.55);
+
+    animation:
+        flutuar
+        6s
+        ease-in-out
+        infinite
+        alternate;
+}
+
+
+/* =========================================================
+   POSIÇÕES DAS PARTÍCULAS
+========================================================= */
+
+.p1 {
+    top: 12%;
+    left: 8%;
+
+    width: 5px;
+    height: 5px;
+
+    animation-duration: 5s;
+}
+
+
+.p2 {
+    top: 28%;
+    left: 18%;
+
+    animation-duration: 7s;
+    animation-delay: -2s;
+}
+
+
+.p3 {
+    top: 68%;
+    left: 9%;
+
+    width: 4px;
+    height: 4px;
+
+    animation-duration: 6s;
+}
+
+
+.p4 {
+    top: 82%;
+    left: 25%;
+
+    width: 8px;
+    height: 8px;
+
+    animation-duration: 8s;
+    animation-delay: -3s;
+}
+
+
+.p5 {
+    top: 17%;
+    left: 39%;
+
+    width: 4px;
+    height: 4px;
+
+    animation-duration: 7s;
+}
+
+
+.p6 {
+    top: 74%;
+    left: 43%;
+
+    width: 6px;
+    height: 6px;
+
+    animation-duration: 5s;
+    animation-delay: -4s;
+}
+
+
+.p7 {
+    top: 9%;
+    left: 58%;
+
+    width: 7px;
+    height: 7px;
+
+    animation-duration: 8s;
+}
+
+
+.p8 {
+    top: 88%;
+    left: 61%;
+
+    width: 4px;
+    height: 4px;
+
+    animation-duration: 6s;
+    animation-delay: -2s;
+}
+
+
+.p9 {
+    top: 24%;
+    left: 76%;
+
+    width: 5px;
+    height: 5px;
+
+    animation-duration: 7s;
+}
+
+
+.p10 {
+    top: 58%;
+    left: 87%;
+
+    width: 8px;
+    height: 8px;
+
+    animation-duration: 9s;
+    animation-delay: -5s;
+}
+
+
+.p11 {
+    top: 78%;
+    left: 93%;
+
+    width: 4px;
+    height: 4px;
+
+    animation-duration: 6s;
+}
+
+
+.p12 {
+    top: 43%;
+    left: 68%;
+
+    width: 6px;
+    height: 6px;
+
+    animation-duration: 8s;
+    animation-delay: -3s;
+}
+
+
+/* =========================================================
+   MOVIMENTO DAS PARTÍCULAS
+========================================================= */
+
+@keyframes flutuar {
+
+    0% {
+        transform:
+            translate(0, 0)
+            scale(0.8);
+
+        opacity: 0.35;
+    }
+
+
+    25% {
+        transform:
+            translate(15px, -20px)
+            scale(1);
+
+        opacity: 0.7;
+    }
+
+
+    50% {
+        transform:
+            translate(-10px, -35px)
+            scale(1.15);
+
+        opacity: 0.9;
+    }
+
+
+    75% {
+        transform:
+            translate(20px, -15px)
+            scale(0.9);
+
+        opacity: 0.65;
+    }
+
+
+    100% {
+        transform:
+            translate(-12px, -45px)
+            scale(1);
+
+        opacity: 0.4;
+    }
+
+}
+
+
+/* =========================================================
+   CELULARES PEQUENOS
+========================================================= */
+
+@media (max-width: 360px) {
+
+    .criar-perfil {
+        padding:
+            18px
+            14px
+            30px;
+    }
+
+
+    .perfil-card {
+        padding:
+            23px
+            16px
+            21px;
+
+        border-radius: 21px;
+    }
+
+
+    .perfil-cabecalho h2 {
+        font-size: 1.65rem;
+    }
+
+
+    .avatar {
+        width: 84px;
+        height: 84px;
+    }
+
+
+    .avatar > svg {
+        width: 40px;
+        height: 40px;
+    }
+
+
+    .sexo-conteudo {
+        font-size: 0.75rem;
+    }
+
+}
+
+
+/* =========================================================
+   TABLETS
+========================================================= */
+
+@media (min-width: 768px) {
+
+    .criar-perfil {
+        padding:
+            32px
+            30px
+            50px;
+    }
+
+
+    .perfil-card {
+        max-width: 510px;
+
+        padding:
+            30px
+            29px
+            28px;
+    }
+
+
+    .perfil-cabecalho h2 {
+        font-size: 2rem;
+    }
+
+
+    .avatar {
+        width: 100px;
+        height: 100px;
+    }
+
+}
+
+/* =========================================================
+   BVENTURE
+   AJUSTES DA TELA CRIAR PERFIL
+   + CENTRALIZAÇÃO
+   + POPUP DE AVATARES
+========================================================= */
+
+
+/* =========================================================
+   CENTRALIZAR O CARD PRINCIPAL NA TELA
+========================================================= */
+
+.criar-perfil {
+
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    padding:
+        32px
+        20px;
+
+}
+
+
+/* =========================================================
+   AVATAR SELECIONADO NO PERFIL
+========================================================= */
+
+.avatar-imagem-selecionada {
+
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    border-radius: 50%;
+
+    object-fit: cover;
+
+}
+
+
+/* =========================================================
+   POPUP — ESCOLHER AVATAR
+========================================================= */
+
+.avatar-modal {
+
+    position: fixed;
+    inset: 0;
+
+    z-index: 1000;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    visibility: hidden;
+    opacity: 0;
+
+    pointer-events: none;
+
+    transition:
+        opacity 0.25s ease,
+        visibility 0.25s ease;
+
+}
+
+
+.avatar-modal.ativo {
+
+    visibility: visible;
+    opacity: 1;
+
+    pointer-events: auto;
+
+}
+
+
+/* =========================================================
+   FUNDO DO POPUP
+========================================================= */
+
+.avatar-modal-fundo {
+
+    position: absolute;
+    inset: 0;
+
+    background:
+        rgba(3, 25, 35, 0.82);
+
+    backdrop-filter:
+        blur(6px);
+
+    -webkit-backdrop-filter:
+        blur(6px);
+
+}
+
+
+/* =========================================================
+   CARD DO POPUP
+========================================================= */
+
+.avatar-modal-card {
+
+    position: relative;
+
+    z-index: 2;
+
+    width: 100%;
+    max-width: 410px;
+
+    padding:
+        27px
+        22px
+        22px;
+
+    overflow: hidden;
+
+    border:
+        2px solid
+        var(--verde-limao);
+
+    border-radius: 25px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(7, 75, 91, 0.99),
+            rgba(3, 40, 53, 0.99)
+        );
+
+    box-shadow:
+        0 6px 0 rgba(111, 220, 67, 0.38),
+        0 11px 0 rgba(3, 25, 35, 0.72),
+        0 20px 35px rgba(0, 0, 0, 0.40);
+
+    transform:
+        translateY(18px)
+        scale(0.96);
+
+    transition:
+        transform 0.25s ease;
+
+}
+
+
+.avatar-modal.ativo
+.avatar-modal-card {
+
+    transform:
+        translateY(0)
+        scale(1);
+
+}
+
+
+/* =========================================================
+   BOTÃO FECHAR
+========================================================= */
+
+.avatar-modal-fechar {
+
+    position: absolute;
+
+    top: 13px;
+    right: 13px;
+
+    width: 35px;
+    height: 35px;
+
+    padding: 0;
+
+    border: none;
+    border-radius: 50%;
+
+    background:
+        rgba(3, 25, 35, 0.65);
+
+    color:
+        var(--branco-azulado);
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+
+}
+
+
+.avatar-modal-fechar svg {
+
+    width: 18px;
+    height: 18px;
+
+}
+
+
+/* =========================================================
+   CABEÇALHO DO POPUP
+========================================================= */
+
+.avatar-modal-cabecalho {
+
+    padding:
+        4px
+        28px
+        0;
+
+    text-align: center;
+
+}
+
+
+.avatar-modal-cabecalho > span {
+
+    display: block;
+
+    margin-bottom: 5px;
+
+    color:
+        var(--amarelo-dourado);
+
+    font-family:
+        var(--fonte-numero);
+
+    font-size: 0.64rem;
+    font-weight: 700;
+
+    letter-spacing: 1.4px;
+
+}
+
+
+.avatar-modal-cabecalho h2 {
+
+    margin: 0;
+
+    color:
+        var(--verde-limao);
+
+    font-family:
+        var(--fonte-titulo);
+
+    font-size: 1.65rem;
+    font-weight: 800;
+
+    line-height: 1.1;
+
+}
+
+
+.avatar-modal-cabecalho p {
+
+    max-width: 290px;
+
+    margin:
+        7px
+        auto
+        0;
+
+    color:
+        var(--branco-azulado);
+
+    font-size: 0.78rem;
+    font-weight: 600;
+
+    line-height: 1.4;
+
+}
+
+
+/* =========================================================
+   ÁREA DOS AVATARES
+   ROLAGEM VERTICAL
+========================================================= */
+
+.avatar-opcoes {
+
+    width: 100%;
+
+    /*
+        Mantém o popup compacto.
+        Quando houver mais avatares,
+        somente esta área rola.
+    */
+
+    max-height: 285px;
+
+    margin:
+        24px
+        auto
+        23px;
+
+    padding:
+        4px
+        8px
+        12px;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 16px;
+
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    overscroll-behavior: contain;
+
+    -webkit-overflow-scrolling: touch;
+
+    scrollbar-width: thin;
+
+    scrollbar-color:
+        rgba(186, 255, 69, 0.65)
+        rgba(3, 25, 35, 0.35);
+
+}
+
+
+/* =========================================================
+   BARRA DE ROLAGEM
+========================================================= */
+
+.avatar-opcoes::-webkit-scrollbar {
+
+    width: 5px;
+
+}
+
+
+.avatar-opcoes::-webkit-scrollbar-track {
+
+    background:
+        rgba(3, 25, 35, 0.35);
+
+    border-radius: 20px;
+
+}
+
+
+.avatar-opcoes::-webkit-scrollbar-thumb {
+
+    background:
+        rgba(186, 255, 69, 0.65);
+
+    border-radius: 20px;
+
+}
+
+
+.avatar-opcoes::-webkit-scrollbar-thumb:hover {
+
+    background:
+        var(--verde-limao);
+
+}
+
+/* =========================================================
+   CÍRCULO DE CADA AVATAR
+========================================================= */
+
+.avatar-opcao {
+
+    position: relative;
+
+    width: 100%;
+
+    aspect-ratio: 1 / 1;
+
+    max-width: 125px;
+
+    margin: auto;
+
+    padding: 5px;
+
+    border:
+        3px solid
+        transparent;
+
+    border-radius: 50%;
+
+    background:
+        rgba(3, 25, 35, 0.70);
+
+    cursor: pointer;
+
+    box-shadow:
+        0 5px 0 rgba(3, 25, 35, 0.65),
+        0 10px 18px rgba(0, 0, 0, 0.20);
+
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+
+}
+
+
+.avatar-opcao img {
+
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    border-radius: 50%;
+
+    object-fit: cover;
+
+    pointer-events: none;
+
+}
+
+
+/* =========================================================
+   AVATAR SELECIONADO
+========================================================= */
+
+.avatar-opcao.selecionado {
+
+    border-color:
+        var(--verde-limao);
+
+    transform:
+        translateY(-3px);
+
+    box-shadow:
+        0 5px 0 rgba(111, 220, 67, 0.48),
+        0 10px 18px rgba(0, 0, 0, 0.24),
+        0 0 18px rgba(186, 255, 69, 0.15);
+
+}
+
+
+/* =========================================================
+   CHECK DO AVATAR
+========================================================= */
+
+.avatar-opcao-check {
+
+    position: absolute;
+
+    right: -2px;
+    bottom: 4px;
+
+    width: 27px;
+    height: 27px;
+
+    border:
+        3px solid
+        var(--azul-petroleo-escuro);
+
+    border-radius: 50%;
+
+    background:
+        var(--verde-limao);
+
+    color:
+        var(--azul-quase-preto);
+
+    font-family:
+        var(--fonte-texto);
+
+    font-size: 0.8rem;
+    font-weight: 900;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    opacity: 0;
+
+    transform:
+        scale(0.65);
+
+    transition:
+        opacity 0.2s ease,
+        transform 0.2s ease;
+
+}
+
+
+.avatar-opcao.selecionado
+.avatar-opcao-check {
+
+    opacity: 1;
+
+    transform:
+        scale(1);
+
+}
+
+
+/* =========================================================
+   BOTÃO CONFIRMAR
+========================================================= */
+
+.avatar-confirmar {
+
+    width: 100%;
+
+    min-height: 49px;
+
+    padding:
+        10px
+        18px;
+
+    border: none;
+
+    border-radius: 15px;
+
+    background:
+        var(--gradiente-verde);
+
+    color:
+        var(--azul-quase-preto);
+
+    font-family:
+        var(--fonte-texto);
+
+    font-size: 0.86rem;
+    font-weight: 900;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 9px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 5px 0 rgba(111, 220, 67, 0.38),
+        0 9px 16px rgba(0, 0, 0, 0.20);
+
+}
+
+
+.avatar-confirmar svg {
+
+    width: 18px;
+    height: 18px;
+
+}
+
+
+.avatar-confirmar:disabled {
+
+    opacity: 0.42;
+
+    cursor: default;
+
+    box-shadow: none;
+
+}
+
+
+/* =========================================================
+   TELAS BAIXAS
+
+   Se o formulário for maior que a altura disponível,
+   volta para o topo para evitar conteúdo cortado.
+========================================================= */
+
+@media (max-height: 760px) {
+
+    .criar-perfil {
+
+        justify-content: flex-start;
+
+    }
+
+}
+
+
+/* =========================================================
+   CELULARES PEQUENOS
+========================================================= */
+
+@media (max-width: 360px) {
+
+    .criar-perfil {
+
+        padding:
+            24px
+            14px
+            30px;
+
+    }
+
+
+    .avatar-modal {
+
+        padding: 14px;
+
+    }
+
+
+    .avatar-modal-card {
+
+        padding:
+            24px
+            17px
+            18px;
+
+        border-radius: 21px;
+
+    }
+
+
+    .avatar-opcoes {
+
+    max-height: 245px;
+
+    gap: 12px;
+
+    margin:
+        20px
+        auto
+        20px;
+
+}
+
+    .avatar-opcao {
+
+        max-width: 105px;
+
+    }
+
+
+    .avatar-modal-cabecalho h2 {
+
+        font-size: 1.45rem;
+
+    }
+
+}
+
+
+/* =========================================================
+   TABLETS
+========================================================= */
+
+@media (min-width: 768px) {
+
+    .criar-perfil {
+
+        padding:
+            38px
+            30px;
+
+    }
+
+}
+
+/* =========================================================
+   CORREÇÃO FINAL — SELETOR DE IDIOMA BVenture
+   Colocar no FINAL do criar-perfil.css
+========================================================= */
+
+.idioma-area {
+    position: relative !important;
+    width: 100% !important;
+}
+
+.idioma-area .idioma-label {
+    display: block !important;
+    margin: 0 0 7px !important;
+
+    color: var(--branco) !important;
+
+    font-family: var(--fonte-texto) !important;
+    font-size: 0.82rem !important;
+    font-weight: 700 !important;
+}
+
+
+/* CONTAINER */
+
+.idioma-area .idioma-personalizado {
+    position: relative !important;
+
+    display: block !important;
+
+    width: 100% !important;
+}
+
+
+/* =========================================================
+   BOTÃO PRINCIPAL
+========================================================= */
+
+.idioma-area .idioma-botao {
+    position: relative !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+
+    width: 100% !important;
+    height: 50px !important;
+
+    margin: 0 !important;
+    padding: 0 15px !important;
+
+    appearance: none !important;
+    -webkit-appearance: none !important;
+
+    border: 1px solid rgba(0, 191, 216, 0.65) !important;
+    border-radius: 14px !important;
+
+    outline: none !important;
+
+    background: rgba(3, 25, 35, 0.78) !important;
+
+    color: var(--branco) !important;
+
+    font-family: var(--fonte-texto) !important;
+    font-size: 0.88rem !important;
+    font-weight: 700 !important;
+
+    text-align: left !important;
+
+    cursor: pointer !important;
+
+    box-shadow: none !important;
+}
+
+
+/* LADO ESQUERDO */
+
+.idioma-area .idioma-botao-esquerda {
+    display: flex !important;
+    align-items: center !important;
+
+    min-width: 0 !important;
+
+    gap: 12px !important;
+}
+
+
+/* GLOBO */
+
+.idioma-area .idioma-icone {
+    position: static !important;
+
+    display: block !important;
+
+    width: 20px !important;
+    height: 20px !important;
+
+    margin: 0 !important;
+
+    flex: 0 0 20px !important;
+
+    color: var(--azul-ciano) !important;
+
+    pointer-events: none !important;
+}
+
+
+/* TEXTO DO IDIOMA */
+
+.idioma-area .idioma-selecionado {
+    position: static !important;
+
+    display: block !important;
+
+    width: auto !important;
+    height: auto !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    border: 0 !important;
+    border-radius: 0 !important;
+
+    outline: none !important;
+
+    background: transparent !important;
+
+    color: var(--branco) !important;
+
+    font-family: var(--fonte-texto) !important;
+    font-size: 0.88rem !important;
+    font-weight: 700 !important;
+
+    line-height: 1 !important;
+
+    appearance: none !important;
+    -webkit-appearance: none !important;
+
+    white-space: nowrap !important;
+
+    pointer-events: none !important;
+}
+
+
+/* SETA */
+
+.idioma-area .idioma-seta {
+    position: static !important;
+
+    display: block !important;
+
+    width: 18px !important;
+    height: 18px !important;
+
+    margin: 0 0 0 12px !important;
+
+    flex: 0 0 18px !important;
+
+    color: var(--verde-limao) !important;
+
+    pointer-events: none !important;
+
+    transition: transform 0.2s ease !important;
+}
+
+
+.idioma-area
+.idioma-personalizado.aberto
+.idioma-seta {
+    transform: rotate(180deg) !important;
+}
+
+
+/* =========================================================
+   MENU
+========================================================= */
+
+.idioma-area .idioma-menu {
+    position: absolute !important;
+
+    top: calc(100% + 7px) !important;
+    left: 0 !important;
+
+    z-index: 999 !important;
+
+    display: block !important;
+
+    width: 100% !important;
+
+    margin: 0 !important;
+    padding: 7px !important;
+
+    border: 2px solid var(--verde-limao) !important;
+    border-radius: 14px !important;
+
+    background: rgba(3, 25, 35, 0.98) !important;
+
+    box-shadow:
+        0 12px 28px rgba(0, 0, 0, 0.4),
+        0 0 14px rgba(186, 255, 69, 0.10) !important;
+
+    opacity: 0 !important;
+    visibility: hidden !important;
+
+    transform: translateY(-5px) !important;
+
+    pointer-events: none !important;
+
+    transition:
+        opacity 0.18s ease,
+        transform 0.18s ease,
+        visibility 0.18s ease !important;
+}
+
+
+/* MENU ABERTO */
+
+.idioma-area
+.idioma-personalizado.aberto
+.idioma-menu {
+    opacity: 1 !important;
+    visibility: visible !important;
+
+    transform: translateY(0) !important;
+
+    pointer-events: auto !important;
+}
+
+
+/* =========================================================
+   OPÇÕES
+========================================================= */
+
+.idioma-area .idioma-opcao {
+    position: relative !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+
+    width: 100% !important;
+    min-height: 44px !important;
+
+    margin: 0 !important;
+    padding: 8px 11px !important;
+
+    appearance: none !important;
+    -webkit-appearance: none !important;
+
+    border: 0 !important;
+    border-radius: 10px !important;
+
+    outline: none !important;
+
+    background: transparent !important;
+
+    color: var(--branco-azulado) !important;
+
+    font-family: var(--fonte-texto) !important;
+    font-size: 0.86rem !important;
+    font-weight: 600 !important;
+
+    text-align: left !important;
+
+    cursor: pointer !important;
+
+    box-shadow: none !important;
+}
+
+
+.idioma-area .idioma-opcao + .idioma-opcao {
+    margin-top: 3px !important;
+}
+
+
+.idioma-area .idioma-opcao-conteudo {
+    display: flex !important;
+    align-items: center !important;
+
+    gap: 11px !important;
+}
+
+
+.idioma-area .idioma-bandeira {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    width: 26px !important;
+
+    font-size: 1.05rem !important;
+}
+
+
+/* OPÇÃO SELECIONADA */
+
+.idioma-area .idioma-opcao.ativo {
+    background: rgba(186, 255, 69, 0.12) !important;
+
+    color: var(--verde-limao) !important;
+}
+
+
+/* HOVER */
+
+.idioma-area .idioma-opcao:hover {
+    background: rgba(0, 191, 216, 0.10) !important;
+
+    color: var(--branco) !important;
+}
+
+
+/* CHECK */
+
+.idioma-area .idioma-check {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    width: 22px !important;
+    height: 22px !important;
+
+    flex: 0 0 22px !important;
+
+    border-radius: 50% !important;
+
+    background: var(--verde-limao) !important;
+
+    color: var(--azul-marinho) !important;
+
+    font-size: 0.72rem !important;
+    font-weight: 900 !important;
+
+    opacity: 0 !important;
+
+    transform: scale(0.7) !important;
+}
+
+
+.idioma-area
+.idioma-opcao.ativo
+.idioma-check {
+    opacity: 1 !important;
+
+    transform: scale(1) !important;
+}
+
+
+/* ABERTO */
+
+.idioma-area
+.idioma-personalizado.aberto
+.idioma-botao {
+    border-color: var(--verde-limao) !important;
+
+    box-shadow:
+        0 0 0 2px rgba(186, 255, 69, 0.07),
+        0 0 14px rgba(186, 255, 69, 0.12) !important;
+}
+
+
+/* =========================================================
+   CELULAR
+========================================================= */
+
+@media (max-width: 480px) {
+
+    .idioma-area .idioma-botao {
+        height: 50px !important;
+
+        padding: 0 13px !important;
+    }
+
+    .idioma-area .idioma-menu {
+        padding: 6px !important;
+    }
+
+}
+
+/* =========================================================
+   IDIOMA — AJUSTE MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+
+    .idioma-area .idioma-menu {
+        max-height: none !important;
+        overflow: visible !important;
+
+        padding: 5px !important;
+    }
+
+    .idioma-area .idioma-opcao {
+        min-height: 37px !important;
+
+        padding:
+            5px
+            9px !important;
+
+        font-size: 0.80rem !important;
+    }
+
+    .idioma-area .idioma-bandeira {
+        width: 22px !important;
+
+        font-size: 0.82rem !important;
+    }
+
+    .idioma-area .idioma-check {
+        width: 19px !important;
+        height: 19px !important;
+
+        flex-basis: 19px !important;
+
+        font-size: 0.65rem !important;
+    }
+}
+
+/* =========================================================
+   GARANTIR BOTÃO COMEÇAR
+========================================================= */
+
+.botao-comecar {
+    position: relative !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    color: #031923 !important;
+
+    font-family: var(--fonte-texto) !important;
+    font-weight: 800 !important;
+
+    opacity: 1 !important;
+    visibility: visible !important;
+
+    z-index: 1 !important;
+}
+
+.botao-comecar span {
+    display: inline !important;
+
+    color: #031923 !important;
+
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+.botao-comecar svg {
+    display: block !important;
+
+    color: #031923 !important;
+
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* =========================================
+   POPUP DE AVISO
+========================================= */
+
+.popup-aviso {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 24px;
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transition:
+        opacity 0.25s ease,
+        visibility 0.25s ease;
+}
+
+.popup-aviso.ativo {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.popup-aviso-fundo {
+    position: absolute;
+    inset: 0;
+
+    background: rgba(3, 25, 35, 0.78);
+    backdrop-filter: blur(5px);
+}
+
+.popup-aviso-card {
+    position: relative;
+    z-index: 1;
+
+    width: min(100%, 350px);
+    padding: 34px 28px 30px;
+
+    text-align: center;
+
+    background: #062c3d;
+
+    border: 1px solid #00bfd8;
+    border-radius: 22px;
+
+    box-shadow:
+        0 18px 50px rgba(0, 0, 0, 0.35);
+
+    transform: scale(0.92) translateY(10px);
+
+    transition:
+        transform 0.25s ease;
+}
+
+.popup-aviso.ativo .popup-aviso-card {
+    transform: scale(1) translateY(0);
+}
+
+
+/* ÍCONE */
+
+.popup-aviso-icone {
+    width: 56px;
+    height: 56px;
+
+    margin: 0 auto 16px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 17px;
+
+    color: #ffd84d;
+
+    background: rgba(255, 216, 77, 0.10);
+}
+
+.popup-aviso-icone svg {
+    width: 29px;
+    height: 29px;
+}
+
+
+/* TÍTULO */
+
+.popup-aviso-card h2 {
+    margin: 0 0 8px;
+
+    font-family: "Baloo 2", sans-serif;
+    font-size: 25px;
+    font-weight: 800;
+
+    color: #baff45;
+}
+
+
+/* MENSAGEM */
+
+.popup-aviso-card p {
+    margin: 0;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.45;
+
+    color: #c7dddd;
+}
+
+
+/* FECHAR */
+
+.popup-aviso-fechar {
+    position: absolute;
+
+    top: 13px;
+    right: 13px;
+
+    width: 36px;
+    height: 36px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 0;
+    border-radius: 11px;
+
+    background: rgba(111, 220, 67, 0.15);
+
+    color: #baff45;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 26px;
+    line-height: 1;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease;
+}
+
+.popup-aviso-fechar:hover {
+    transform: scale(1.06);
+
+    background: rgba(111, 220, 67, 0.24);
+}

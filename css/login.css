@@ -1,0 +1,1916 @@
+/* =========================================================
+   BVENTURE
+   LOGIN + CADASTRO
+========================================================= */
+
+
+/* =========================================================
+   TELA
+========================================================= */
+
+body {
+    min-height: 100vh;
+
+    background:
+        linear-gradient(
+            rgba(3, 25, 35, 0.66),
+            rgba(3, 25, 35, 0.78)
+        ),
+        url("../imagens-webp/fundo.webp");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+
+/* =========================================================
+   CONTEÚDO PRINCIPAL
+========================================================= */
+
+.login {
+    position: relative;
+    z-index: 2;
+
+    width: 100%;
+    min-height: 100vh;
+
+    padding: 30px 20px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    gap: 24px;
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.login-topo {
+    display: none;
+}
+
+
+.logo-area {
+    position: absolute;
+
+    top: -95px;
+    left: 50%;
+
+    width: 210px;
+    height: 210px;
+
+    transform: translateX(-50%);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    z-index: 5;
+
+    pointer-events: none;
+}
+
+
+.logo-imagem {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+
+    filter:
+        drop-shadow(
+            0 8px 12px
+            rgba(0, 0, 0, 0.24)
+        );
+}
+
+
+/* =========================================================
+   ÁREA DOS FORMULÁRIOS
+
+   IMPORTANTE:
+   O formulário não cresce no desktop.
+========================================================= */
+
+.formularios-container {
+    position: relative;
+
+    width: 100%;
+
+    /*
+       Mantém aparência de aplicativo mobile
+       mesmo em monitor grande.
+    */
+
+    max-width: 430px;
+
+    flex-shrink: 0;
+
+    transition:
+        height 0.45s
+        cubic-bezier(.22, 1, .36, 1);
+}
+
+
+/* =========================================================
+   CARD
+========================================================= */
+
+.login-card {
+    position: relative;
+
+    width: 100%;
+
+
+    padding:
+        115px
+        25px
+        24px;
+
+    background:
+        rgba(6, 44, 61, 0.95);
+
+    border:
+        1.5px solid
+        var(--azul-ciano);
+
+    border-radius: 24px;
+
+    box-shadow:
+        0 0 18px
+        rgba(0, 191, 216, 0.10),
+
+        0 16px 38px
+        rgba(0, 0, 0, 0.28);
+
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+}
+
+
+/* =========================================================
+   POSIÇÃO DOS DOIS CARDS
+========================================================= */
+
+.formulario-card {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    opacity: 0;
+
+    transform:
+        translate3d(
+            0,
+            45px,
+            0
+        );
+
+    pointer-events: none;
+
+    visibility: hidden;
+
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+
+/* =========================================================
+   LOGIN ATIVO
+========================================================= */
+
+.formulario-login {
+    opacity: 1;
+
+    transform:
+        translate3d(
+            0,
+            0,
+            0
+        );
+
+    visibility: visible;
+
+    pointer-events: auto;
+}
+
+
+/* =========================================================
+   CADASTRO ATIVO
+========================================================= */
+
+.formularios-container.mostrar-cadastro
+.formulario-login {
+    opacity: 0;
+
+    transform:
+        translate3d(
+            0,
+            -25px,
+            0
+        );
+
+    visibility: hidden;
+
+    pointer-events: none;
+}
+
+
+.formularios-container.mostrar-cadastro
+.formulario-cadastro {
+    opacity: 1;
+
+    transform:
+        translate3d(
+            0,
+            0,
+            0
+        );
+
+    visibility: visible;
+
+    pointer-events: auto;
+}
+
+
+/* =========================================================
+   PREPARAR TROCA
+========================================================= */
+
+.formulario-card.preparando-formulario {
+    opacity: 0 !important;
+
+    transform:
+        translate3d(
+            0,
+            45px,
+            0
+        ) !important;
+
+    visibility: visible !important;
+
+    pointer-events: none !important;
+
+    transition: none !important;
+}
+
+
+/* =========================================================
+   FORMULÁRIO ENTRANDO
+========================================================= */
+
+.formulario-card.preparando-formulario.formulario-entrando {
+    opacity: 1 !important;
+
+    transform:
+        translate3d(
+            0,
+            0,
+            0
+        ) !important;
+
+    transition:
+        transform 650ms cubic-bezier(.16, 1, .3, 1),
+        opacity 500ms ease !important;
+}
+
+
+/* =========================================================
+   CABEÇALHO DOS CARDS
+========================================================= */
+
+.login-card-cabecalho {
+    margin-bottom: 24px;
+
+    text-align: center;
+}
+
+
+.login-card-cabecalho h2 {
+    color: var(--verde-limao);
+
+    font-family: var(--fonte-titulo);
+
+    font-size: 1.85rem;
+    font-weight: 800;
+
+    line-height: 1.1;
+}
+
+
+.login-card-cabecalho p {
+    margin-top: 7px;
+
+    color: var(--branco-azulado);
+
+    font-family: var(--fonte-texto);
+
+    font-size: 0.84rem;
+    font-weight: 500;
+
+    line-height: 1.4;
+}
+
+
+/* =========================================================
+   FORMULÁRIO
+========================================================= */
+
+.login-form {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 17px;
+}
+
+
+/* =========================================================
+   CAMPOS
+========================================================= */
+
+.campo {
+    width: 100%;
+}
+
+
+.campo > label,
+.campo-label label {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: var(--branco);
+
+    font-family: var(--fonte-texto);
+
+    font-size: 0.82rem;
+    font-weight: 800;
+}
+
+
+/* =========================================================
+   SENHA / ESQUECI SENHA
+========================================================= */
+
+.campo-label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 12px;
+}
+
+
+.esqueci-senha {
+    margin-bottom: 7px;
+
+    padding: 0;
+
+    border: none;
+    outline: none;
+
+    background: transparent;
+
+    color: var(--verde-limao);
+
+    font-family: var(--fonte-texto);
+
+    font-size: 0.72rem;
+    font-weight: 800;
+
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   CAIXA DO INPUT
+========================================================= */
+
+.campo-input {
+    width: 100%;
+    height: 50px;
+
+    padding: 0 14px;
+
+    background:
+        rgba(3, 25, 35, 0.82);
+
+    border:
+        1px solid
+        rgba(0, 191, 216, 0.68);
+
+    border-radius: 14px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 11px;
+
+    transition:
+        border-color 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease;
+}
+
+
+.campo-input:focus-within {
+    border-color: var(--azul-ciano);
+
+    background:
+        rgba(3, 25, 35, 0.94);
+
+    box-shadow:
+        0 0 11px
+        rgba(0, 191, 216, 0.15);
+}
+
+
+/* =========================================================
+   ÍCONES DOS INPUTS
+========================================================= */
+
+.campo-input > svg {
+    width: 20px;
+    height: 20px;
+
+    flex-shrink: 0;
+
+    color: var(--verde-petroleo);
+
+    transition:
+        color 0.25s ease;
+}
+
+
+.campo-input:focus-within > svg {
+    color: var(--azul-ciano);
+}
+
+
+/* =========================================================
+   INPUT
+========================================================= */
+
+.campo-input input {
+    width: 100%;
+    height: 100%;
+
+    min-width: 0;
+
+    padding: 0;
+
+    border: none !important;
+    outline: none !important;
+
+    background: transparent !important;
+
+    box-shadow: none !important;
+
+    color: var(--branco);
+
+    font-family: var(--fonte-texto);
+
+    font-size: 0.88rem;
+    font-weight: 600;
+
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+
+.campo-input input:focus,
+.campo-input input:focus-visible,
+.campo-input input:active {
+    border: none !important;
+    outline: none !important;
+
+    box-shadow: none !important;
+}
+
+
+.campo-input input::placeholder {
+    color:
+        rgba(199, 221, 221, 0.40);
+
+    font-weight: 500;
+}
+
+
+/* =========================================================
+   AUTOFILL
+========================================================= */
+
+.campo-input input:-webkit-autofill,
+.campo-input input:-webkit-autofill:hover,
+.campo-input input:-webkit-autofill:focus {
+    -webkit-text-fill-color:
+        var(--branco);
+
+    -webkit-box-shadow:
+        0 0 0 1000px
+        var(--azul-quase-preto)
+        inset !important;
+
+    transition:
+        background-color
+        9999s
+        ease-in-out
+        0s;
+}
+
+
+/* =========================================================
+   MOSTRAR SENHA
+========================================================= */
+
+.mostrar-senha {
+    width: 32px;
+    height: 32px;
+
+    flex-shrink: 0;
+
+    padding: 0;
+
+    border: none;
+    outline: none;
+
+    border-radius: 8px;
+
+    background: transparent;
+
+    color: var(--branco-azulado);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition:
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+.mostrar-senha:hover {
+    color: var(--verde-limao);
+}
+
+
+.mostrar-senha:active {
+    transform: scale(0.9);
+}
+
+
+.mostrar-senha svg {
+    width: 20px;
+    height: 20px;
+
+    pointer-events: none;
+}
+
+
+.mostrar-senha:focus,
+.mostrar-senha:focus-visible {
+    outline: none;
+
+    box-shadow: none;
+}
+
+
+/* =========================================================
+   BOTÃO PRINCIPAL
+========================================================= */
+
+.botao-entrar {
+    width: 100%;
+
+    min-height: 50px;
+
+    margin-top: 3px;
+
+    border-radius: 15px;
+
+    background: var(--gradiente-verde);
+
+    color: var(--azul-quase-preto);
+
+    font-family: var(--fonte-texto);
+
+    font-size: 0.92rem;
+    font-weight: 800;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.25s ease;
+}
+
+
+.botao-entrar:hover {
+    box-shadow:
+        0 0 18px
+        rgba(186, 255, 69, 0.18);
+}
+
+
+.botao-entrar:active {
+    transform: scale(0.98);
+}
+
+
+/* =========================================================
+   DIVISOR
+========================================================= */
+
+.divisor {
+    width: 100%;
+
+    margin: 22px 0;
+
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+}
+
+
+.divisor span {
+    height: 1px;
+
+    flex: 1;
+
+    background:
+        rgba(199, 221, 221, 0.16);
+}
+
+
+.divisor p {
+    color:
+        rgba(199, 221, 221, 0.58);
+
+    font-family: var(--fonte-texto);
+
+    font-size: 0.72rem;
+    font-weight: 700;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   GOOGLE
+========================================================= */
+
+.botao-google {
+    width: 100%;
+    height: 48px;
+
+    padding: 0 16px;
+
+    background:
+        rgba(3, 25, 35, 0.72);
+
+    border:
+        1px solid
+        rgba(0, 191, 216, 0.45);
+
+    border-radius: 14px;
+
+    color: var(--branco);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    font-family: var(--fonte-texto);
+
+    font-size: 0.85rem;
+    font-weight: 800;
+
+    transition:
+        border-color 0.25s ease,
+        background 0.25s ease,
+        transform 0.2s ease;
+}
+
+
+.botao-google:hover {
+    border-color: var(--azul-ciano);
+
+    background:
+        rgba(7, 75, 91, 0.70);
+}
+
+
+.botao-google:active {
+    transform: scale(0.97);
+}
+
+
+.google-icon {
+    width: 19px;
+    height: 19px;
+
+    flex-shrink: 0;
+}
+
+
+/* =========================================================
+   CRIAR CONTA / ENTRAR
+========================================================= */
+
+.criar-conta {
+    margin-top: 22px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 5px;
+
+    text-align: center;
+
+    font-family: var(--fonte-texto);
+
+    font-size: 0.8rem;
+}
+
+
+.criar-conta span {
+    color: var(--branco-azulado);
+}
+
+
+/* =========================================================
+   TEXTO VERDE
+   "CRIAR CONTA" E "ENTRAR"
+========================================================= */
+
+.trocar-formulario {
+    padding: 0;
+
+    border: none;
+    outline: none;
+
+    background: transparent;
+
+    color: var(--verde-limao) !important;
+
+    font-family: var(--fonte-texto);
+
+    font-size: 0.8rem;
+    font-weight: 800;
+
+    cursor: pointer;
+
+    transition:
+        color 0.2s ease,
+        opacity 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+.trocar-formulario:hover {
+    color: var(--verde-limao) !important;
+
+    opacity: 0.82;
+}
+
+
+.trocar-formulario:active {
+    transform: scale(0.96);
+}
+
+
+.trocar-formulario:focus-visible {
+    outline:
+        2px solid
+        var(--verde-limao);
+
+    outline-offset: 4px;
+}
+
+
+/* =========================================================
+   PARTÍCULAS
+========================================================= */
+
+.particulas {
+    position: fixed;
+
+    inset: 0;
+
+    width: 100vw;
+    height: 100vh;
+
+    overflow: hidden;
+
+    pointer-events: none;
+
+    z-index: 1;
+}
+
+
+/* =========================================================
+   PARTÍCULA INDIVIDUAL
+========================================================= */
+
+.particula {
+    position: absolute;
+
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: #BAFF45;
+
+    opacity: 0.65;
+
+    box-shadow:
+        0 0 6px #BAFF45,
+        0 0 12px #BAFF45,
+        0 0 22px rgba(186, 255, 69, 0.55);
+
+    animation-name: flutuar;
+    animation-duration: 7s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-play-state: running;
+
+    will-change: transform, opacity;
+
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+
+/* =========================================================
+   POSIÇÕES
+========================================================= */
+
+.p1 {
+    top: 12%;
+    left: 8%;
+
+    width: 5px;
+    height: 5px;
+
+    animation-duration: 5s;
+}
+
+
+.p2 {
+    top: 28%;
+    left: 18%;
+
+    animation-duration: 7s;
+    animation-delay: -2s;
+}
+
+
+.p3 {
+    top: 68%;
+    left: 9%;
+
+    width: 4px;
+    height: 4px;
+
+    animation-duration: 6s;
+}
+
+
+.p4 {
+    top: 82%;
+    left: 25%;
+
+    width: 8px;
+    height: 8px;
+
+    animation-duration: 8s;
+    animation-delay: -3s;
+}
+
+
+.p5 {
+    top: 17%;
+    left: 39%;
+
+    width: 4px;
+    height: 4px;
+
+    animation-duration: 7s;
+}
+
+
+.p6 {
+    top: 74%;
+    left: 43%;
+
+    width: 6px;
+    height: 6px;
+
+    animation-duration: 5s;
+    animation-delay: -4s;
+}
+
+
+.p7 {
+    top: 9%;
+    left: 58%;
+
+    width: 7px;
+    height: 7px;
+
+    animation-duration: 8s;
+}
+
+
+.p8 {
+    top: 88%;
+    left: 61%;
+
+    width: 4px;
+    height: 4px;
+
+    animation-duration: 6s;
+    animation-delay: -2s;
+}
+
+
+.p9 {
+    top: 24%;
+    left: 76%;
+
+    width: 5px;
+    height: 5px;
+
+    animation-duration: 7s;
+}
+
+
+.p10 {
+    top: 58%;
+    left: 87%;
+
+    width: 8px;
+    height: 8px;
+
+    animation-duration: 9s;
+    animation-delay: -5s;
+}
+
+
+.p11 {
+    top: 78%;
+    left: 93%;
+
+    width: 4px;
+    height: 4px;
+
+    animation-duration: 6s;
+}
+
+
+.p12 {
+    top: 43%;
+    left: 68%;
+
+    width: 6px;
+    height: 6px;
+
+    animation-duration: 8s;
+    animation-delay: -3s;
+}
+
+
+/* =========================================================
+   ANIMAÇÃO DAS PARTÍCULAS
+========================================================= */
+
+@keyframes flutuar {
+
+    0% {
+        transform:
+            translate3d(0, 0, 0)
+            scale(0.85);
+
+        opacity: 0.35;
+    }
+
+
+    15% {
+        transform:
+            translate3d(18px, -12px, 0)
+            scale(1);
+
+        opacity: 0.55;
+    }
+
+
+    30% {
+        transform:
+            translate3d(8px, -35px, 0)
+            scale(1.12);
+
+        opacity: 0.8;
+    }
+
+
+    45% {
+        transform:
+            translate3d(-20px, -22px, 0)
+            scale(0.95);
+
+        opacity: 0.65;
+    }
+
+
+    60% {
+        transform:
+            translate3d(-30px, 5px, 0)
+            scale(1.08);
+
+        opacity: 0.9;
+    }
+
+
+    75% {
+        transform:
+            translate3d(-8px, 25px, 0)
+            scale(0.9);
+
+        opacity: 0.6;
+    }
+
+
+    90% {
+        transform:
+            translate3d(25px, 15px, 0)
+            scale(1.05);
+
+        opacity: 0.75;
+    }
+
+
+    100% {
+        transform:
+            translate3d(0, 0, 0)
+            scale(0.85);
+
+        opacity: 0.35;
+    }
+}
+
+
+/* =========================================================
+   TELAS MUITO PEQUENAS
+========================================================= */
+
+@media (max-width: 480px) {
+
+    .login {
+        padding:
+            24px
+            14px;
+
+        gap: 20px;
+    }
+
+
+    .formularios-container {
+        width: 100%;
+        max-width: 410px;
+    }
+
+
+    .login-card {
+        margin-top: 95px;
+
+        padding:
+            105px
+            20px
+            22px;
+
+        border-radius: 22px;
+    }
+
+
+    .logo-area {
+        top: -95px;
+
+        width: 190px;
+        height: 190px;
+    }
+
+
+    .login-card-cabecalho h2 {
+        font-size: 1.75rem;
+    }
+
+}
+
+
+/* =========================================================
+   CELULARES PEQUENOS
+========================================================= */
+
+@media (max-width: 360px) {
+
+    .login {
+        padding:
+            20px
+            11px;
+
+        gap: 18px;
+    }
+
+
+    .login-card {
+        margin-top: 85px;
+
+        padding:
+            95px
+            16px
+            20px;
+    }
+
+
+    .logo-area {
+        top: -85px;
+
+        width: 170px;
+        height: 170px;
+    }
+
+
+    .login-card-cabecalho {
+        margin-bottom: 21px;
+    }
+
+
+    .login-card-cabecalho h2 {
+        font-size: 1.6rem;
+    }
+
+
+    .campo-input {
+        height: 48px;
+    }
+
+
+    .criar-conta {
+        font-size: 0.75rem;
+    }
+
+
+    .trocar-formulario {
+        font-size: 0.75rem;
+    }
+
+}
+
+
+/* =========================================================
+   DESKTOP / MONITORES GRANDES
+
+   NÃO AUMENTA O FORMULÁRIO.
+========================================================= */
+
+@media (min-width: 768px) {
+
+    .login {
+        padding:
+            35px
+            20px;
+
+        gap: 25px;
+    }
+
+
+    .formularios-container {
+        /*
+           Mesmo tamanho visual do celular.
+           Não vira um formulário gigante.
+        */
+
+        width: 430px;
+        max-width: calc(100vw - 40px);
+    }
+
+
+    .login-card {
+        margin-top: 105px;
+
+        padding:
+            115px
+            25px
+            24px;
+    }
+
+}
+
+
+/* =========================================================
+   TELAS BAIXAS
+
+   Permite rolar caso o cadastro não caiba.
+========================================================= */
+
+@media (max-height: 720px) {
+
+    .login {
+        justify-content: flex-start;
+
+        padding-top: 22px;
+        padding-bottom: 22px;
+
+        overflow-y: auto;
+    }
+
+}
+
+
+/* =========================================================
+   POPUP - FUNDO
+========================================================= */
+
+.popup-overlay {
+    position: fixed;
+    inset: 0;
+
+    z-index: 1000;
+
+    padding: 20px;
+
+    background:
+        rgba(3, 25, 35, 0.72);
+
+    backdrop-filter:
+        blur(5px);
+
+    -webkit-backdrop-filter:
+        blur(5px);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    opacity: 0;
+    visibility: hidden;
+
+    pointer-events: none;
+
+    transition:
+        opacity 0.25s ease,
+        visibility 0.25s ease;
+}
+
+
+/* =========================================================
+   POPUP ABERTO
+========================================================= */
+
+.popup-overlay.ativo {
+    opacity: 1;
+    visibility: visible;
+
+    pointer-events: auto;
+}
+
+
+/* =========================================================
+   CAIXA DO POPUP
+========================================================= */
+
+.popup-aviso {
+    position: relative;
+
+    width: 100%;
+    max-width: 350px;
+
+    padding:
+        34px
+        27px
+        29px;
+
+    background:
+        var(--azul-marinho);
+
+    border:
+        1.5px solid
+        var(--azul-ciano);
+
+    border-radius:
+        22px;
+
+    text-align:
+        center;
+
+    box-shadow:
+        0 18px 45px
+        rgba(0, 0, 0, 0.40),
+
+        0 0 20px
+        rgba(0, 191, 216, 0.12);
+
+    transform:
+        translateY(18px)
+        scale(0.96);
+
+    transition:
+        transform
+        0.32s
+        cubic-bezier(.22, 1, .36, 1);
+}
+
+
+.popup-overlay.ativo
+.popup-aviso {
+    transform:
+        translateY(0)
+        scale(1);
+}
+
+
+/* =========================================================
+   X VERDE
+========================================================= */
+
+.popup-fechar {
+    position: absolute;
+
+    top: 13px;
+    right: 13px;
+
+    width: 34px;
+    height: 34px;
+
+    padding: 0;
+
+    border: none;
+    outline: none;
+
+    border-radius: 10px;
+
+    background:
+        rgba(186, 255, 69, 0.10);
+
+    color:
+        var(--verde-limao);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+.popup-fechar:hover {
+    background:
+        rgba(186, 255, 69, 0.18);
+}
+
+
+.popup-fechar:active {
+    transform:
+        scale(0.90);
+}
+
+
+.popup-fechar svg {
+    width: 19px;
+    height: 19px;
+}
+
+
+/* =========================================================
+   ÍCONE DE AVISO
+========================================================= */
+
+.popup-icone {
+    width: 54px;
+    height: 54px;
+
+    margin:
+        0
+        auto
+        16px;
+
+    border-radius: 17px;
+
+    background:
+        rgba(255, 216, 77, 0.10);
+
+    color:
+        var(--amarelo-dourado);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    box-shadow:
+        0 0 18px
+        rgba(255, 216, 77, 0.08);
+}
+
+
+.popup-icone svg {
+    width: 28px;
+    height: 28px;
+}
+
+
+/* =========================================================
+   TEXTO DO POPUP
+========================================================= */
+
+.popup-aviso h3 {
+    color:
+        var(--verde-limao);
+
+    font-family:
+        var(--fonte-titulo);
+
+    font-size:
+        1.45rem;
+
+    font-weight:
+        800;
+
+    line-height:
+        1.1;
+}
+
+
+.popup-aviso p {
+    margin-top:
+        8px;
+
+    color:
+        var(--branco-azulado);
+
+    font-family:
+        var(--fonte-texto);
+
+    font-size:
+        0.88rem;
+
+    font-weight:
+        600;
+
+    line-height:
+        1.5;
+}
+
+
+/* =========================================================
+   POPUP - CELULAR PEQUENO
+========================================================= */
+
+@media (max-width: 360px) {
+
+    .popup-overlay {
+        padding: 14px;
+    }
+
+
+    .popup-aviso {
+        max-width: 320px;
+
+        padding:
+            31px
+            20px
+            25px;
+    }
+
+}
+
+
+/* =========================================================
+   ENTRADA INICIAL DA TELA DE LOGIN
+========================================================= */
+
+.login.preparando-entrada {
+    opacity: 0 !important;
+
+    transform:
+        translate3d(
+            0,
+            45px,
+            0
+        ) !important;
+
+    transition: none !important;
+}
+
+
+.login.preparando-entrada.entrada-ativa {
+    opacity: 1 !important;
+
+    transform:
+        translate3d(
+            0,
+            0,
+            0
+        ) !important;
+
+    transition:
+        transform 650ms cubic-bezier(.16, 1, .3, 1),
+        opacity 500ms ease !important;
+}
+
+
+.login {
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+
+/* =========================================================
+   ENTRADA INICIAL DA TELA DE LOGIN
+========================================================= */
+
+.login.preparando-entrada {
+    opacity: 0 !important;
+
+    transform:
+        translate3d(
+            0,
+            45px,
+            0
+        ) !important;
+
+    transition: none !important;
+}
+
+
+.login.preparando-entrada.entrada-ativa {
+    opacity: 1 !important;
+
+    transform:
+        translate3d(
+            0,
+            0,
+            0
+        ) !important;
+
+    transition:
+        transform 650ms cubic-bezier(.16, 1, .3, 1),
+        opacity 500ms ease !important;
+}
+
+
+.login {
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+/* =========================================================
+   CADASTRO MAIS COMPACTO
+========================================================= */
+
+.formulario-cadastro {
+    padding-top: 95px;
+    padding-bottom: 20px;
+}
+
+
+/* Logo um pouco menor no cadastro */
+
+.formulario-cadastro .logo-area {
+    top: -92px;
+
+    width: 200px;
+    height: 200px;
+}
+
+
+/* Aproxima título da logo */
+
+.formulario-cadastro .login-card-cabecalho {
+    margin-bottom: 19px;
+}
+
+
+/* Aproxima os campos */
+
+.formulario-cadastro .login-form {
+    gap: 13px;
+}
+
+
+/* Inputs um pouco menores */
+
+.formulario-cadastro .campo-input {
+    height: 47px;
+}
+
+
+/* Menos espaço no divisor */
+
+.formulario-cadastro .divisor {
+    margin: 17px 0;
+}
+
+
+/* Botão Google um pouco menor */
+
+.formulario-cadastro .botao-google {
+    height: 46px;
+}
+
+
+/* Aproxima "Já possui uma conta?" */
+
+.formulario-cadastro .criar-conta {
+    margin-top: 17px;
+}
+
+
+/* BORDA EXTERNA LOGIN E CADASTRO */
+
+.login-card {
+    border: 3px solid var(--verde-limao) !important;
+
+    box-shadow:
+        0 0 16px rgba(186, 255, 69, 0.14),
+        0 16px 38px rgba(0, 0, 0, 0.28);
+}
+
+
+/* =========================================================
+   ROLAGEM VERTICAL LOGIN / CADASTRO
+========================================================= */
+
+html,
+body {
+    min-height: 100%;
+}
+
+body {
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+
+/* Em telas com pouca altura */
+
+@media (max-height: 950px) {
+
+    .login {
+        min-height: 100vh;
+
+        justify-content: flex-start;
+
+        padding-top: 30px;
+        padding-bottom: 90px;
+
+        overflow: visible;
+    }
+
+}
+
+/* =========================================================
+   RESPONSIVIDADE FINAL — LOGIN / CADASTRO
+========================================================= */
+
+
+/* BASE */
+
+html,
+body {
+    min-height: 100%;
+}
+
+body {
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.login {
+    width: 100%;
+    min-height: 100vh;
+
+    padding: 45px 20px 70px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    overflow: visible;
+}
+
+.formularios-container {
+    width: 100%;
+    max-width: 430px;
+
+    flex-shrink: 0;
+}
+
+
+/* =========================================================
+   DESKTOP COM POUCA ALTURA
+========================================================= */
+
+@media (min-width: 769px) and (max-height: 950px) {
+
+    .login {
+        justify-content: flex-start;
+
+        padding-top: 55px;
+        padding-bottom: 100px;
+    }
+
+}
+
+
+/* =========================================================
+   CELULAR / TABLET
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .login {
+        justify-content: flex-start;
+
+        padding:
+            75px
+            14px
+            70px;
+    }
+
+    .formularios-container {
+        width: 100%;
+        max-width: 430px;
+    }
+
+
+    /* Card */
+
+    .login-card {
+        width: 100%;
+
+        padding:
+            100px
+            20px
+            24px;
+
+        border-radius: 24px;
+    }
+
+
+    /* Logo do LOGIN */
+
+    .formulario-login .logo-area {
+        top: -75px;
+
+        width: 180px;
+        height: 180px;
+    }
+
+
+    /* Logo do CADASTRO */
+
+    .formulario-cadastro .logo-area {
+        top: -75px;
+
+        width: 180px;
+        height: 180px;
+    }
+
+}
+
+
+/* =========================================================
+   CELULARES MENORES
+========================================================= */
+
+@media (max-width: 480px) {
+
+    .login {
+        padding:
+            70px
+            12px
+            60px;
+    }
+
+    .login-card {
+        padding:
+            90px
+            18px
+            22px;
+
+        border-radius: 22px;
+    }
+
+
+    /* Logo */
+
+    .formulario-login .logo-area,
+    .formulario-cadastro .logo-area {
+        top: -65px;
+
+        width: 165px;
+        height: 165px;
+    }
+
+
+    /* Título */
+
+    .login-card-cabecalho h2 {
+        font-size: 1.7rem;
+    }
+
+
+    /* Subtítulo */
+
+    .login-card-cabecalho p {
+        font-size: 0.82rem;
+    }
+
+
+    /* Inputs */
+
+    .campo-input {
+        height: 50px;
+    }
+
+}
+
+
+/* =========================================================
+   CELULARES MUITO PEQUENOS
+========================================================= */
+
+@media (max-width: 360px) {
+
+    .login {
+        padding:
+            65px
+            10px
+            55px;
+    }
+
+    .login-card {
+        padding:
+            82px
+            15px
+            20px;
+    }
+
+
+    .formulario-login .logo-area,
+    .formulario-cadastro .logo-area {
+        top: -58px;
+
+        width: 150px;
+        height: 150px;
+    }
+
+
+    .login-card-cabecalho h2 {
+        font-size: 1.55rem;
+    }
+
+}
+
+
+/* =========================================================
+   CELULAR DEITADO / TELA COM POUCA ALTURA
+========================================================= */
+
+@media (max-width: 768px) and (max-height: 700px) {
+
+    .login {
+        justify-content: flex-start;
+
+        padding-top: 65px;
+        padding-bottom: 80px;
+    }
+
+}

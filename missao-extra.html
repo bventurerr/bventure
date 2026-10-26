@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    >
+
+    <meta
+        name="theme-color"
+        content="#031923"
+    >
+
+    <title>
+        Missão Extra | BVenture
+    </title>
+
+
+    <!-- =========================================
+         FONTES
+    ========================================== -->
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito:wght@400;500;600;700;800;900&family=Oxanium:wght@500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- PWA -->
+
+    <link rel="manifest" href="./manifest.json">
+
+    <meta name="theme-color" content="#031923">
+
+    <link rel="apple-touch-icon" href="./assets/icons/apple-touch-icon.png">
+
+    <!-- =========================================
+         CSS
+    ========================================== -->
+
+    <link
+        rel="stylesheet"
+        href="css/global.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/loading.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/missao-extra.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/conexao.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================================
+         PÁGINA
+    ========================================== -->
+
+    <main
+        class="missao-extra-pagina"
+        id="missaoExtraPagina"
+    >
+
+
+        <!-- =====================================
+             TOPO
+        ====================================== -->
+
+        <header class="missao-extra-topo">
+
+
+            <!-- VOLTAR -->
+
+            <button
+                class="missao-extra-voltar"
+                id="voltarMissaoExtra"
+                type="button"
+                aria-label="Voltar para o mapa"
+            >
+
+                <!-- Heroicons: Arrow Left -->
+
+                <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    aria-hidden="true"
+                >
+
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18"
+                    />
+
+                </svg>
+
+            </button>
+
+
+            <!-- TÍTULO -->
+
+            <div class="missao-extra-topo-texto">
+
+                <span>
+                    BVenture
+                </span>
+
+                <strong>
+                    Missão Extra
+                </strong>
+
+            </div>
+
+
+        </header>
+
+
+        <!-- =====================================
+             CONTEÚDO
+        ====================================== -->
+
+        <section class="missao-extra-conteudo">
+
+
+            <!-- =================================
+                 LOCAL
+            ================================== -->
+
+            <div class="missao-extra-local">
+
+
+                <div class="missao-extra-local-icone">
+
+                    <!-- Heroicons: Map Pin -->
+
+                    <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        aria-hidden="true"
+                    >
+
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M12 21s7.5-4.35 7.5-11.25a7.5 7.5 0 1 0-15 0C4.5 16.65 12 21 12 21Z"
+                        />
+
+                        <circle
+                            cx="12"
+                            cy="9.75"
+                            r="2.25"
+                        />
+
+                    </svg>
+
+                </div>
+
+
+                <div class="missao-extra-local-texto">
+
+                    <span>
+                        Missão de
+                    </span>
+
+                    <h1 id="missaoExtraLocalNome">
+                        Local
+                    </h1>
+
+                </div>
+
+
+            </div>
+
+
+            <!-- =================================
+                 CARD DA MISSÃO
+            ================================== -->
+
+            <article class="missao-extra-card">
+
+
+                <!-- CATEGORIA -->
+
+                <div class="missao-extra-tag">
+
+                    <span class="missao-extra-tag-icone">
+
+                        <!-- Heroicons: Sparkles -->
+
+                        <svg
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            aria-hidden="true"
+                        >
+
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.847-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.847a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.847.814a4.5 4.5 0 0 0-3.09 3.09Z"
+                            />
+
+                        </svg>
+
+                    </span>
+
+                    <span>
+                        Desafio sustentável
+                    </span>
+
+                </div>
+
+
+                <!-- TÍTULO DA MISSÃO -->
+
+                <h2 id="missaoExtraTitulo">
+                    Complete a missão
+                </h2>
+
+
+                <!-- =================================
+                     INSTRUÇÃO CURTA
+                ================================== -->
+
+                <p
+                    class="missao-extra-instrucao"
+                    id="missaoExtraInstrucao"
+                >
+                    Realize a ação indicada pela missão e tire uma foto
+                    mostrando o resultado. A imagem será analisada para
+                    validar o desafio.
+                </p>
+
+
+                <!-- =================================
+                     ÁREA DA FOTO
+                ================================== -->
+
+                <div
+                    class="missao-foto-area"
+                    id="missaoFotoArea"
+                >
+
+
+                    <!-- =============================
+                         ESTADO SEM FOTO
+                    ============================== -->
+
+                    <div
+                        class="missao-foto-vazia"
+                        id="missaoFotoVazia"
+                    >
+
+                        <div class="missao-foto-icone">
+
+                            <!-- Heroicons: Camera -->
+
+                            <svg
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="1.8"
+                                aria-hidden="true"
+                            >
+
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M6.827 6.175A2.31 2.31 0 0 1 9.091 4.5h5.818a2.31 2.31 0 0 1 2.264 1.675l.318 1.125H19.5A2.25 2.25 0 0 1 21.75 9.55v7.7a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25v-7.7A2.25 2.25 0 0 1 4.5 7.3h2.009l.318-1.125Z"
+                                />
+
+                                <circle
+                                    cx="12"
+                                    cy="13"
+                                    r="3.25"
+                                />
+
+                            </svg>
+
+                        </div>
+
+
+                        <strong>
+                            Tire uma foto
+                        </strong>
+
+
+                        <p>
+                            A imagem aparecerá aqui antes de ser enviada.
+                        </p>
+
+                    </div>
+
+
+                    <!-- =============================
+                         PRÉVIA DA FOTO
+                    ============================== -->
+
+                    <img
+                        class="missao-foto-preview"
+                        id="missaoFotoPreview"
+                        src=""
+                        alt="Prévia da foto da missão"
+                        hidden
+                    >
+
+
+                    <!-- =============================
+                         ANALISANDO
+                    ============================== -->
+
+                    <div
+                        class="missao-analisando"
+                        id="missaoAnalisando"
+                        hidden
+                    >
+
+                        <div class="missao-analisando-loader"></div>
+
+
+                        <strong>
+                            Analisando imagem...
+                        </strong>
+
+
+                        <p>
+                            Aguarde enquanto verificamos sua missão.
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+
+                <!-- =================================
+                     INPUT DA CÂMERA
+                ================================== -->
+
+                <input
+                    type="file"
+                    id="cameraMissao"
+                    accept="image/*"
+                    capture="environment"
+                    hidden
+                >
+
+
+                <!-- =================================
+                     BOTÕES
+                ================================== -->
+
+                <div class="missao-foto-acoes">
+
+
+                    <!-- TIRAR FOTO -->
+
+                    <button
+                        class="missao-botao missao-botao-camera"
+                        id="tirarFotoMissao"
+                        type="button"
+                    >
+
+                        <svg
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            aria-hidden="true"
+                        >
+
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="M6.827 6.175A2.31 2.31 0 0 1 9.091 4.5h5.818a2.31 2.31 0 0 1 2.264 1.675l.318 1.125H19.5A2.25 2.25 0 0 1 21.75 9.55v7.7a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25v-7.7A2.25 2.25 0 0 1 4.5 7.3h2.009l.318-1.125Z"
+                            />
+
+                            <circle
+                                cx="12"
+                                cy="13"
+                                r="3.25"
+                            />
+
+                        </svg>
+
+
+                        <span>
+                            Tirar foto
+                        </span>
+
+                    </button>
+
+
+                    <!-- TIRAR NOVAMENTE -->
+
+                    <button
+                        class="missao-botao missao-botao-secundario"
+                        id="tirarFotoNovamente"
+                        type="button"
+                        hidden
+                    >
+
+                        <!-- Heroicons: Arrow Path -->
+
+                        <svg
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            aria-hidden="true"
+                        >
+
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="M16.023 9.348h4.992V4.356M2.985 19.644v-4.992h4.992M4.93 9.75a8.25 8.25 0 0 1 13.559-3.182l2.526 2.78M3 14.652l2.526 2.78A8.25 8.25 0 0 0 19.07 14.25"
+                            />
+
+                        </svg>
+
+
+                        <span>
+                            Tirar novamente
+                        </span>
+
+                    </button>
+
+
+                    <!-- ENVIAR -->
+
+                    <button
+                        class="missao-botao missao-botao-enviar"
+                        id="enviarFotoMissao"
+                        type="button"
+                        hidden
+                    >
+
+                        <!-- Heroicons: Paper Airplane -->
+
+                        <svg
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            aria-hidden="true"
+                        >
+
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L6 12Zm0 0h7.5"
+                            />
+
+                        </svg>
+
+
+                        <span>
+                            Enviar para análise
+                        </span>
+
+                    </button>
+
+
+                </div>
+
+
+
+            </article>
+
+
+        </section>
+
+
+    </main>
+
+
+    <!-- =====================================================
+         POPUP — MISSÃO APROVADA
+    ====================================================== -->
+
+    <div
+        class="resultado-missao-modal resultado-sucesso"
+        id="missaoAprovadaModal"
+        aria-hidden="true"
+    >
+
+        <div class="resultado-missao-fundo"></div>
+
+
+        <section class="resultado-missao-card">
+
+
+            <div class="resultado-missao-icone">
+
+                <!-- Heroicons: Check -->
+
+                <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2.5"
+                    aria-hidden="true"
+                >
+
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="m5 12 4 4L19 6"
+                    />
+
+                </svg>
+
+            </div>
+
+
+            <span class="resultado-missao-label">
+                MISSÃO CONCLUÍDA
+            </span>
+
+
+            <h2>
+                Muito bem!
+            </h2>
+
+
+            <p id="missaoAprovadaTexto">
+                A imagem foi validada e você completou esta missão.
+            </p>
+
+
+
+            <button
+                class="resultado-missao-botao"
+                id="continuarMissaoAprovada"
+                type="button"
+            >
+                Continuar
+            </button>
+
+
+        </section>
+
+    </div>
+
+
+    <!-- =====================================================
+         POPUP — MISSÃO REPROVADA
+    ====================================================== -->
+
+    <div
+        class="resultado-missao-modal resultado-erro"
+        id="missaoReprovadaModal"
+        aria-hidden="true"
+    >
+
+        <div class="resultado-missao-fundo"></div>
+
+
+        <section class="resultado-missao-card">
+
+
+            <div class="resultado-missao-icone">
+
+                <!-- Heroicons: X Mark -->
+
+                <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2.5"
+                    aria-hidden="true"
+                >
+
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M6 18 18 6M6 6l12 12"
+                    />
+
+                </svg>
+
+            </div>
+
+
+            <span class="resultado-missao-label">
+                MISSÃO NÃO VALIDADA
+            </span>
+
+
+            <h2>
+                Tente novamente
+            </h2>
+
+
+            <p id="missaoReprovadaTexto">
+                Não foi possível confirmar a ação solicitada na imagem.
+                Tire outra foto e tente novamente.
+            </p>
+
+
+            <button
+                class="resultado-missao-botao"
+                id="tentarNovamenteMissao"
+                type="button"
+            >
+                Tirar novamente
+            </button>
+
+
+        </section>
+
+    </div>
+
+
+    <!-- =====================================================
+         POPUP — ERRO NA ANÁLISE
+    ====================================================== -->
+
+    <div
+        class="resultado-missao-modal resultado-aviso"
+        id="missaoErroModal"
+        aria-hidden="true"
+    >
+
+        <div class="resultado-missao-fundo"></div>
+
+
+        <section class="resultado-missao-card">
+
+
+            <div class="resultado-missao-icone">
+
+                <!-- Heroicons: Exclamation Triangle -->
+
+                <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    aria-hidden="true"
+                >
+
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M12 9v3.75m9.303 3.376c.866 1.5-.217 3.374-1.948 3.374H4.645c-1.73 0-2.813-1.874-1.948-3.374L10.052 3.38c.865-1.5 3.03-1.5 3.896 0l7.355 12.746ZM12 16.5h.008v.008H12V16.5Z"
+                    />
+
+                </svg>
+
+            </div>
+
+
+            <span class="resultado-missao-label">
+                NÃO FOI POSSÍVEL ANALISAR
+            </span>
+
+
+            <h2>
+                Algo deu errado
+            </h2>
+
+
+            <p id="missaoErroTexto">
+                Não conseguimos analisar sua imagem agora.
+                Verifique sua conexão e tente novamente.
+            </p>
+
+
+            <button
+                class="resultado-missao-botao"
+                id="tentarAnaliseNovamente"
+                type="button"
+            >
+                Tentar novamente
+            </button>
+
+
+        </section>
+
+    </div>
+
+
+    <!-- =========================================
+         JAVASCRIPT
+    ========================================== -->
+
+    <script src="js/idiomas.js"></script>
+
+    <script src="js/locais.js"></script>
+
+    <script src="js/loading.js"></script>
+
+    <script src="js/conexao.js"></script>
+
+    <script type="module" src="js/missao-extra.js"></script>
+
+    <script src="./js/pwa.js"></script>
+</body>
+
+</html>

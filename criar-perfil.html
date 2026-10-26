@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>BVenture | Criar Perfil</title>
+
+
+    <!-- CSS GLOBAL -->
+
+    <link
+        rel="stylesheet"
+        href="css/global.css"
+    >
+
+
+    <!-- CSS DA TELA -->
+
+    <link
+        rel="stylesheet"
+        href="css/criar-perfil.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/loading.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/conexao.css"
+    >
+
+    <!-- PWA -->
+
+    <link rel="manifest" href="./manifest.json">
+
+    <meta name="theme-color" content="#031923">
+
+    <link rel="apple-touch-icon" href="./assets/icons/apple-touch-icon.png">
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================================
+         PARTÍCULAS
+    ========================================== -->
+
+    <div
+        class="particulas"
+        aria-hidden="true"
+    >
+
+        <span class="particula p1"></span>
+        <span class="particula p2"></span>
+        <span class="particula p3"></span>
+        <span class="particula p4"></span>
+        <span class="particula p5"></span>
+        <span class="particula p6"></span>
+        <span class="particula p7"></span>
+        <span class="particula p8"></span>
+        <span class="particula p9"></span>
+        <span class="particula p10"></span>
+        <span class="particula p11"></span>
+        <span class="particula p12"></span>
+
+    </div>
+
+
+
+    <!-- =========================================
+         TELA
+    ========================================== -->
+
+    <main class="criar-perfil">
+
+
+
+
+        <!-- =====================================
+             CARD
+        ====================================== -->
+
+        <section class="perfil-card">
+
+
+            <!-- CABEÇALHO -->
+
+            <div class="perfil-cabecalho">
+
+                <span class="perfil-etapa">
+                    NOVO EXPLORADOR
+                </span>
+
+                <h2>
+                    Crie seu perfil
+                </h2>
+
+                <p>
+                    Como você quer ser conhecido durante sua aventura?
+                </p>
+
+            </div>
+
+
+
+            <!-- =================================
+                 AVATAR
+            ================================== -->
+
+            <div class="avatar-area">
+
+
+                <button
+                    type="button"
+                    class="avatar"
+                    id="selecionarAvatar"
+                    aria-label="Escolher avatar"
+                >
+
+                    <!-- ÍCONE PROVISÓRIO -->
+
+                    <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.6"
+                        aria-hidden="true"
+                    >
+
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z"
+                        />
+
+                    </svg>
+
+
+                    <!-- EDITAR -->
+
+                    <span class="avatar-editar">
+
+                        <svg
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            aria-hidden="true"
+                        >
+
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Z"
+                            />
+
+                        </svg>
+
+                    </span>
+
+                </button>
+
+
+                <span class="avatar-texto">
+                    Escolher avatar
+                </span>
+
+            </div>
+
+
+
+            <!-- =================================
+                 FORMULÁRIO
+            ================================== -->
+
+            <form
+                class="perfil-form"
+                id="formPerfil"
+            >
+
+
+                <!-- NOME -->
+
+                <div class="campo">
+
+                    <label for="nome">
+                        Nome
+                    </label>
+
+                    <div class="campo-input">
+
+                        <svg
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.8"
+                            aria-hidden="true"
+                        >
+
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0"
+                            />
+
+                        </svg>
+
+
+                        <input
+                            type="text"
+                            id="nome"
+                            name="nome"
+                            placeholder="Como podemos chamar você?"
+                            maxlength="20"
+                            autocomplete="given-name"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- NICK -->
+
+                <div class="campo">
+
+                    <label for="nick">
+                        Nick
+                    </label>
+
+                    <div class="campo-input">
+
+                        <span class="arroba">
+                            @
+                        </span>
+
+                        <input
+                            type="text"
+                            id="nick"
+                            name="nick"
+                            placeholder="Seu Nick"
+                            maxlength="16"
+                            autocomplete="off"
+                            required
+                        >
+
+                    </div>
+
+                    <span class="campo-ajuda">
+                        Esse será seu nome dentro do jogo.
+                    </span>
+
+                </div>
+
+
+
+                <!-- IDADE -->
+
+                <div class="campo">
+
+                    <label for="idade">
+                        Idade
+                    </label>
+
+                    <div class="campo-input">
+
+                        <svg
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.8"
+                            aria-hidden="true"
+                        >
+
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="M12 6v6h4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+                            />
+
+                        </svg>
+
+
+                        <input
+                            type="number"
+                            id="idade"
+                            name="idade"
+                            placeholder="Sua idade"
+                            min="1"
+                            max="120"
+                            inputmode="numeric"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- =================================
+                     SEXO
+                ================================== -->
+
+                <fieldset class="sexo-area">
+
+                    <legend>
+                        Sexo
+                    </legend>
+
+
+                    <div class="sexo-opcoes">
+
+
+                        <!-- FEMININO -->
+
+                        <label class="sexo-card">
+
+                            <input
+                                type="radio"
+                                name="sexo"
+                                value="feminino"
+                                required
+                            >
+
+                            <span class="sexo-conteudo">
+
+                                <svg
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="1.8"
+                                    aria-hidden="true"
+                                >
+
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M12 15a6 6 0 1 0 0-12 6 6 0 0 0 0 12Zm0 0v6m-3-3h6"
+                                    />
+
+                                </svg>
+
+                                <span>
+                                    Feminino
+                                </span>
+
+                            </span>
+
+                        </label>
+
+
+
+                        <!-- MASCULINO -->
+
+                        <label class="sexo-card">
+
+                            <input
+                                type="radio"
+                                name="sexo"
+                                value="masculino"
+                                required
+                            >
+
+                            <span class="sexo-conteudo">
+
+                                <svg
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="1.8"
+                                    aria-hidden="true"
+                                >
+
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M14.5 9.5 20 4m0 0h-5m5 0v5M14.25 14.25a5.303 5.303 0 1 1-7.5-7.5 5.303 5.303 0 0 1 7.5 7.5Z"
+                                    />
+
+                                </svg>
+
+                                <span>
+                                    Masculino
+                                </span>
+
+                            </span>
+
+                        </label>
+
+                    </div>
+
+                </fieldset>
+
+
+            <!-- =================================
+                IDIOMA
+            ================================== -->
+
+            <div class="idioma-area">
+
+                <span class="idioma-label">
+                    Idioma do jogo
+                </span>
+
+
+                <div
+                    class="idioma-personalizado"
+                    id="idiomaPersonalizado"
+                >
+
+                    <!-- BOTÃO PRINCIPAL -->
+
+                    <button
+                        type="button"
+                        class="idioma-botao"
+                        id="idiomaBotao"
+                        aria-haspopup="listbox"
+                        aria-expanded="false"
+                    >
+
+                        <span class="idioma-botao-esquerda">
+
+                            <!-- GLOBO -->
+
+                            <svg
+                                class="idioma-icone"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="1.8"
+                                aria-hidden="true"
+                            >
+                                <circle
+                                    cx="12"
+                                    cy="12"
+                                    r="9"
+                                />
+
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M3 12h18M12 3c2.3 2.5 3.5 5.5 3.5 9S14.3 18.5 12 21M12 3C9.7 5.5 8.5 8.5 8.5 12s1.2 6.5 3.5 9"
+                                />
+                            </svg>
+
+
+                            <span
+                                class="idioma-selecionado"
+                                id="idiomaSelecionado"
+                            >
+                                Português (Brasil)
+                            </span>
+
+                        </span>
+
+
+                        <!-- SETA -->
+
+                        <svg
+                            class="idioma-seta"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2.2"
+                            aria-hidden="true"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="m6 9 6 6 6-6"
+                            />
+                        </svg>
+
+                    </button>
+
+
+                    <!-- MENU -->
+
+                    <div
+                        class="idioma-menu"
+                        id="idiomaMenu"
+                        role="listbox"
+                        aria-label="Idioma do jogo"
+                    >
+
+                        <!-- PORTUGUÊS -->
+
+                        <button
+                            type="button"
+                            class="idioma-opcao ativo"
+                            data-idioma="pt"
+                            data-nome="Português (Brasil)"
+                            role="option"
+                            aria-selected="true"
+                        >
+
+                            <span class="idioma-opcao-conteudo">
+
+                                <span class="idioma-bandeira">
+                                    🇧🇷
+                                </span>
+
+                                <span>
+                                    Português (Brasil)
+                                </span>
+
+                            </span>
+
+                            <span class="idioma-check">
+                                ✓
+                            </span>
+
+                        </button>
+
+
+                        <!-- INGLÊS -->
+
+                        <button
+                            type="button"
+                            class="idioma-opcao"
+                            data-idioma="en"
+                            data-nome="English"
+                            role="option"
+                            aria-selected="false"
+                        >
+
+                            <span class="idioma-opcao-conteudo">
+
+                                <span class="idioma-bandeira">
+                                    🇺🇸
+                                </span>
+
+                                <span>
+                                    English
+                                </span>
+
+                            </span>
+
+                            <span class="idioma-check">
+                                ✓
+                            </span>
+
+                        </button>
+
+
+                        <!-- ESPANHOL -->
+
+                        <button
+                            type="button"
+                            class="idioma-opcao"
+                            data-idioma="es"
+                            data-nome="Español"
+                            role="option"
+                            aria-selected="false"
+                        >
+
+                            <span class="idioma-opcao-conteudo">
+
+                                <span class="idioma-bandeira">
+                                    🇪🇸
+                                </span>
+
+                                <span>
+                                    Español
+                                </span>
+
+                            </span>
+
+                            <span class="idioma-check">
+                                ✓
+                            </span>
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================
+            COMEÇAR
+        ================================== -->
+
+        <button
+            type="submit"
+            class="botao-principal botao-comecar"
+        >
+
+            <span>
+                Começar a explorar
+            </span>
+
+            <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                aria-hidden="true"
+            >
+                <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M5 12h14m-6-6 6 6-6 6"
+                />
+            </svg>
+
+        </button>
+
+        </form>
+        </section>
+
+    </main>
+
+        <!-- =========================================
+         POPUP — ESCOLHER AVATAR
+    ========================================== -->
+
+    <div
+        class="avatar-modal"
+        id="avatarModal"
+        aria-hidden="true"
+    >
+
+        <div
+            class="avatar-modal-fundo"
+            id="fecharAvatarFundo"
+        ></div>
+
+
+        <section
+            class="avatar-modal-card"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="avatarModalTitulo"
+        >
+
+            <!-- FECHAR -->
+
+            <button
+                type="button"
+                class="avatar-modal-fechar"
+                id="fecharAvatar"
+                aria-label="Fechar"
+            >
+
+                <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    aria-hidden="true"
+                >
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M6 18 18 6M6 6l12 12"
+                    />
+                </svg>
+
+            </button>
+
+
+            <!-- CABEÇALHO -->
+
+            <div class="avatar-modal-cabecalho">
+
+                <span>
+                    SEU EXPLORADOR
+                </span>
+
+                <h2 id="avatarModalTitulo">
+                    Escolha seu avatar
+                </h2>
+
+                <p>
+                    Escolha como você quer aparecer no BVenture.
+                </p>
+
+            </div>
+
+
+            <!-- AVATARES -->
+
+            <div class="avatar-opcoes">
+
+    <button
+        type="button"
+        class="avatar-opcao"
+        data-avatar="icones-webp/icon1.webp"
+        aria-label="Escolher avatar 1"
+    >
+        <img
+            src="icones-webp/icon1.webp"
+            alt="Avatar 1"
+        >
+
+        <span class="avatar-opcao-check">
+            ✓
+        </span>
+    </button>
+
+
+    <button
+        type="button"
+        class="avatar-opcao"
+        data-avatar="icones-webp/icon2.webp"
+        aria-label="Escolher avatar 2"
+    >
+        <img
+            src="icones-webp/icon2.webp"
+            alt="Avatar 2"
+        >
+
+        <span class="avatar-opcao-check">
+            ✓
+        </span>
+    </button>
+
+
+    <button
+        type="button"
+        class="avatar-opcao"
+        data-avatar="icones-webp/icon3.webp"
+        aria-label="Escolher avatar 3"
+    >
+        <img
+            src="icones-webp/icon3.webp"
+            alt="Avatar 3"
+        >
+
+        <span class="avatar-opcao-check">
+            ✓
+        </span>
+    </button>
+
+
+    <button
+        type="button"
+        class="avatar-opcao"
+        data-avatar="icones-webp/icon4.webp"
+        aria-label="Escolher avatar 4"
+    >
+        <img
+            src="icones-webp/icon4.webp"
+            alt="Avatar 4"
+        >
+
+        <span class="avatar-opcao-check">
+            ✓
+        </span>
+    </button>
+
+
+    <button
+        type="button"
+        class="avatar-opcao"
+        data-avatar="icones-webp/icon5.webp"
+        aria-label="Escolher avatar 5"
+    >
+        <img
+            src="icones-webp/icon5.webp"
+            alt="Avatar 5"
+        >
+
+        <span class="avatar-opcao-check">
+            ✓
+        </span>
+    </button>
+
+
+    <button
+        type="button"
+        class="avatar-opcao"
+        data-avatar="icones-webp/icon6.webp"
+        aria-label="Escolher avatar 6"
+    >
+        <img
+            src="icones-webp/icon6.webp"
+            alt="Avatar 6"
+        >
+
+        <span class="avatar-opcao-check">
+            ✓
+        </span>
+    </button>
+
+</div>
+
+
+            <!-- CONFIRMAR -->
+
+            <button
+                type="button"
+                class="avatar-confirmar"
+                id="confirmarAvatar"
+                disabled
+            >
+
+                Confirmar avatar
+
+
+            </button>
+
+        </section>
+
+    </div>
+
+        <!-- =========================================
+        POPUP — AVISO
+    ========================================== -->
+
+    <div
+    class="popup-aviso"
+    id="popupAviso"
+    aria-hidden="true"
+    >
+    <div class="popup-aviso-fundo"></div>
+
+    <section
+        class="popup-aviso-card"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="popupAvisoTitulo"
+    >
+
+        <button
+            type="button"
+            class="popup-aviso-fechar"
+            id="fecharPopupAviso"
+            aria-label="Fechar"
+        >
+            ×
+        </button>
+
+        <div class="popup-aviso-icone">
+            <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                aria-hidden="true"
+            >
+                <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M12 9v3.75m9.303 3.376c.866 1.5-.217 3.374-1.948 3.374H4.645c-1.73 0-2.813-1.874-1.948-3.374L10.052 3.38c.865-1.5 3.03-1.5 3.896 0l7.355 12.746ZM12 15.75h.008v.008H12v-.008Z"
+                />
+            </svg>
+        </div>
+
+        <h2 id="popupAvisoTitulo">
+            Atenção!
+        </h2>
+
+        <p id="popupAvisoMensagem">
+            Verifique as informações do seu perfil.
+        </p>
+
+    </section>
+    </div>
+
+    <script src="js/idiomas.js"></script>
+    <script src="js/loading.js"></script>
+    <script src="js/conexao.js"></script>
+    
+    <script type="module" src="js/jogador.js"></script>
+    <script src="./js/pwa.js"></script>
+
+</body>
+
+</html>

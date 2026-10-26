@@ -1,0 +1,1312 @@
+/* =========================================================
+   BVENTURE
+   TELA INÍCIO
+========================================================= */
+
+/* =========================================================
+   FUNDO GERAL DA TELA INÍCIO
+========================================================= */
+
+body:has(#telaInicio.tela-ativa) {
+
+    background-color: var(--azul-quase-preto);
+
+    background-image:
+        linear-gradient(
+            rgba(3, 25, 35, 0.85),
+            rgba(3, 25, 35, 0.85)
+        ),
+        url("../imagens-webp/fundoprincipal.webp");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+
+/*
+   Garante que nenhum fundo do APP cubra
+   a imagem da tela inicial.
+*/
+
+.app:has(#telaInicio.tela-ativa),
+.app-conteudo:has(#telaInicio.tela-ativa) {
+    background: transparent;
+}
+
+/* =========================================================
+   TELA
+========================================================= */
+
+#telaInicio {
+    position: relative;
+
+    width: 100%;
+    min-height: 100vh;
+
+    background: transparent;
+
+    overflow: visible;
+}
+
+
+/*
+   Pequeno efeito de iluminação.
+   Não cobre a imagem inteira.
+*/
+
+#telaInicio::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    z-index: 0;
+
+    pointer-events: none;
+
+    background:
+        radial-gradient(
+            circle at 10% 15%,
+            rgba(186, 255, 69, 0.07),
+            transparent 27%
+        ),
+        radial-gradient(
+            circle at 90% 48%,
+            rgba(0, 191, 216, 0.06),
+            transparent 30%
+        );
+}
+
+
+/* =========================================================
+   CONTEÚDO
+========================================================= */
+
+.inicio {
+    position: relative;
+
+    z-index: 1;
+
+    width: 100%;
+    max-width: 1180px;
+
+    margin: 0 auto;
+
+    padding-bottom: 30px;
+
+    background: transparent;
+}
+
+
+/* =========================================================
+   CABEÇALHO
+========================================================= */
+
+.inicio-topo {
+    width: 100%;
+
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    gap: 16px;
+
+    margin-bottom: 34px;
+}
+
+
+/* =========================================================
+   BOAS-VINDAS
+========================================================= */
+
+.inicio-boas-vindas {
+    min-width: 0;
+
+    flex: 1;
+}
+
+
+.inicio-saudacao {
+    display: block;
+
+    margin-bottom: 3px;
+
+    color: var(--amarelo-dourado);
+
+    font-family: var(--fonte-texto);
+    font-size: 0.72rem;
+    font-weight: 900;
+
+    letter-spacing: 0.08em;
+}
+
+
+.inicio-boas-vindas h1 {
+    margin: 0;
+
+    color: var(--verde-limao);
+
+    font-family: var(--fonte-titulo);
+    font-size: clamp(2.15rem, 8vw, 3.15rem);
+    font-weight: 800;
+
+    line-height: 0.98;
+
+    text-shadow:
+        0 3px 0 rgba(3, 25, 35, 0.42),
+        0 0 18px rgba(186, 255, 69, 0.16);
+}
+
+
+.inicio-boas-vindas p {
+    max-width: 520px;
+
+    margin-top: 13px;
+
+    color: var(--branco);
+
+    font-size: 0.96rem;
+    font-weight: 600;
+
+    line-height: 1.5;
+
+    text-shadow:
+        0 2px 4px rgba(3, 25, 35, 0.95);
+}
+
+
+/* =========================================================
+   XP
+========================================================= */
+
+.inicio-xp {
+    position: relative;
+
+    flex-shrink: 0;
+
+    min-width: 118px;
+    min-height: 67px;
+
+    padding: 10px 14px;
+
+    border:
+        1.5px solid
+        var(--verde-limao);
+
+    border-radius: 22px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(7, 75, 91, 0.97),
+            rgba(3, 40, 53, 0.98)
+        );
+
+    box-shadow:
+        0 5px 0 rgba(111, 220, 67, 0.40),
+        0 9px 0 rgba(0, 0, 0, 0.20),
+        0 12px 24px rgba(0, 0, 0, 0.30);
+
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+}
+
+
+.inicio-xp-icone {
+    width: 42px;
+    height: 42px;
+
+    flex-shrink: 0;
+
+    border:
+        1px solid
+        rgba(186, 255, 69, 0.48);
+
+    border-radius: 14px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(111, 220, 67, 0.20),
+            rgba(30, 139, 134, 0.14)
+        );
+
+    color: var(--verde-limao);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    box-shadow:
+        inset 0 0 14px rgba(186, 255, 69, 0.05);
+}
+
+
+.inicio-xp-icone svg {
+    width: 23px;
+    height: 23px;
+}
+
+
+.inicio-xp-info {
+    display: flex;
+    flex-direction: column;
+
+    line-height: 1;
+}
+
+
+.inicio-xp-info span {
+    color: var(--branco);
+
+    font-family: var(--fonte-texto);
+    font-size: 0.69rem;
+    font-weight: 900;
+
+    letter-spacing: 0.08em;
+}
+
+
+.inicio-xp-info strong {
+    margin-top: 5px;
+
+    color: var(--verde-limao);
+
+    font-family: var(--fonte-numero);
+    font-size: 1.12rem;
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   TÍTULOS DAS SEÇÕES
+========================================================= */
+
+.inicio-secao-titulo {
+    width: 100%;
+
+    margin-bottom: 15px;
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+
+    gap: 15px;
+}
+
+
+.inicio-secao-etiqueta {
+    display: block;
+
+    margin-bottom: 2px;
+
+    color: var(--verde-limao);
+
+    font-family: var(--fonte-texto);
+    font-size: 0.68rem;
+    font-weight: 900;
+
+    letter-spacing: 0.08em;
+
+    text-shadow:
+        0 2px 4px rgba(3, 25, 35, 0.95);
+}
+
+
+.inicio-secao-titulo h2 {
+    color: var(--branco);
+
+    font-family: var(--fonte-titulo);
+    font-size: 1.55rem;
+    font-weight: 800;
+
+    line-height: 1.05;
+
+    text-shadow:
+        0 2px 5px rgba(3, 25, 35, 0.95);
+}
+
+
+/* =========================================================
+   PORCENTAGEM GERAL
+========================================================= */
+
+.inicio-progresso-geral {
+    flex-shrink: 0;
+
+    color: var(--verde-limao);
+
+    font-family: var(--fonte-numero);
+    font-size: 1.12rem;
+    font-weight: 700;
+
+    text-shadow:
+        0 2px 5px rgba(3, 25, 35, 0.90),
+        0 0 10px rgba(186, 255, 69, 0.22);
+}
+
+
+/* =========================================================
+   CARD DO MAPA
+========================================================= */
+
+.mapa-principal-card {
+    position: relative;
+
+    width: 100%;
+
+    margin-bottom: 34px;
+
+    padding:
+        17px
+        12px
+        13px;
+
+    overflow: hidden;
+
+    border:
+    3px solid
+    var(--verde-limao);
+
+    border-radius: 29px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(7, 75, 91, 0.97),
+            rgba(3, 40, 53, 0.99)
+        );
+
+    box-shadow:
+        0 6px 0 rgba(111, 220, 67, 0.46),
+        0 11px 0 rgba(3, 25, 35, 0.82),
+        0 20px 32px rgba(0, 0, 0, 0.38),
+        0 0 22px rgba(0, 191, 216, 0.10);
+
+    isolation: isolate;
+}
+
+
+/* detalhe verde no topo */
+
+.mapa-principal-card::before {
+    content: "";
+
+    position: absolute;
+
+    top: -3px;
+    left: 13%;
+
+    width: 74%;
+    height: 3px;
+
+    z-index: 2;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            var(--verde-limao),
+            transparent
+        );
+
+    opacity: 0.95;
+}
+
+
+/* iluminação interna */
+
+.mapa-principal-card::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    z-index: -1;
+
+    pointer-events: none;
+
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(0, 191, 216, 0.08),
+            transparent 42%
+        );
+}
+
+
+/* =========================================================
+   CABEÇALHO DO MAPA
+========================================================= */
+
+.mapa-detalhe-superior {
+    width: 100%;
+
+    margin:
+        0
+        auto
+        7px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+}
+
+
+.mapa-detalhe-superior > span {
+    width: 26%;
+    height: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(186, 255, 69, 0.48)
+        );
+}
+
+
+.mapa-detalhe-superior > span:last-child {
+    background:
+        linear-gradient(
+            90deg,
+            rgba(186, 255, 69, 0.48),
+            transparent
+        );
+}
+
+
+.mapa-detalhe-centro {
+    flex-shrink: 0;
+
+    color:
+        rgba(199, 221, 221, 0.72);
+
+    font-family: var(--fonte-numero);
+    font-size: 0.57rem;
+    font-weight: 700;
+
+    letter-spacing: 0.10em;
+}
+
+
+/* =========================================================
+   MAPA
+========================================================= */
+
+.mapa-principal {
+    position: relative;
+
+    width: 100%;
+
+    margin: 0 auto;
+}
+
+
+.mapa-principal-imagem {
+    display: block;
+
+    width: 100%;
+    height: auto;
+
+    margin: 0 auto;
+
+    user-select: none;
+
+    filter:
+        drop-shadow(
+            0 8px 9px
+            rgba(0, 0, 0, 0.32)
+        );
+
+    -webkit-user-drag: none;
+}
+
+
+/* =========================================================
+   PORCENTAGENS DOS MUNICÍPIOS
+========================================================= */
+
+.municipio-progresso {
+    position: absolute;
+
+    z-index: 5;
+
+    min-width: 27px;
+    height: 19px;
+
+    padding: 0 4px;
+
+    transform:
+        translate(-50%, -50%);
+
+    border:
+        1px solid
+        rgba(0, 191, 216, 0.68);
+
+    border-radius: 6px;
+
+    background:
+        rgba(3, 40, 53, 0.96);
+
+    color:
+        rgba(199, 221, 221, 0.88);
+
+    font-family: var(--fonte-numero);
+    font-size: 0.47rem;
+    font-weight: 700;
+
+    line-height: 1;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    box-shadow:
+        0 3px 0 rgba(0, 0, 0, 0.32),
+        0 5px 9px rgba(0, 0, 0, 0.28);
+
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+.municipio-progresso span {
+    pointer-events: none;
+}
+
+
+/* BLOQUEADOS */
+
+.municipio-progresso.bloqueado {
+    cursor: default;
+}
+
+
+/* DISPONÍVEL */
+
+.municipio-progresso.disponivel {
+    border-color:
+        var(--verde-limao);
+
+    background:
+        linear-gradient(
+            145deg,
+            #DFFF5C,
+            #BAFF45
+        );
+
+    color:
+        var(--azul-quase-preto);
+
+    box-shadow:
+        0 3px 0 rgba(111, 220, 67, 0.52),
+        0 5px 9px rgba(0, 0, 0, 0.28),
+        0 0 10px rgba(186, 255, 69, 0.20);
+}
+
+
+.municipio-progresso.disponivel:active {
+    transform:
+        translate(-50%, -50%)
+        scale(0.90);
+}
+
+
+/* =========================================================
+   POSIÇÃO DOS MUNICÍPIOS
+========================================================= */
+
+.municipio-uiramuta {
+    top: 10%;
+    left: 76%;
+}
+
+
+.municipio-pacaraima {
+    top: 21%;
+    left: 64%;
+}
+
+
+.municipio-normandia {
+    top: 24%;
+    left: 84%;
+}
+
+
+.municipio-amajari {
+    top: 30%;
+    left: 46%;
+}
+
+
+.municipio-boa-vista {
+    top: 38%;
+    left: 68%;
+}
+
+
+.municipio-bonfim {
+    top: 40%;
+    left: 82%;
+}
+
+
+.municipio-alto-alegre {
+    top: 41%;
+    left: 24%;
+}
+
+
+.municipio-mucajai {
+    top: 47%;
+    left: 47%;
+}
+
+
+.municipio-canta {
+    top: 51%;
+    left: 72%;
+}
+
+
+.municipio-iracema {
+    top: 56%;
+    left: 47%;
+}
+
+
+.municipio-caracarai {
+    top: 64%;
+    left: 54%;
+}
+
+
+.municipio-sao-luiz {
+    top: 69%;
+    left: 73%;
+}
+
+
+.municipio-caroebe {
+    top: 66%;
+    left: 91%;
+}
+
+
+.municipio-rorainopolis {
+    top: 78%;
+    left: 63%;
+}
+
+
+.municipio-sao-joao {
+    top: 75%;
+    left: 84%;
+}
+
+
+/* =========================================================
+   TÍTULO DO PROGRESSO
+========================================================= */
+
+.progresso-titulo {
+    margin-top: 5px;
+    margin-bottom: 15px;
+}
+
+
+/* =========================================================
+   GRID DO PROGRESSO
+========================================================= */
+
+.progresso-grid {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 13px;
+}
+
+
+/* =========================================================
+   CARD DO PROGRESSO
+========================================================= */
+
+.progresso-card {
+    position: relative;
+
+    min-width: 0;
+    min-height: 126px;
+
+    padding:
+        15px
+        12px
+        14px;
+
+    overflow: hidden;
+
+    border:
+        2px solid
+        rgba(111, 220, 67, 0.88);
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(7, 75, 91, 0.97),
+            rgba(3, 45, 58, 0.99)
+        );
+
+    box-shadow:
+        0 5px 0 rgba(111, 220, 67, 0.34),
+        0 9px 0 rgba(3, 25, 35, 0.70),
+        0 15px 22px rgba(0, 0, 0, 0.30);
+
+    display: flex;
+    align-items: flex-start;
+
+    gap: 10px;
+
+    isolation: isolate;
+}
+
+
+/* detalhe inferior */
+
+.progresso-card::after {
+    content: "";
+
+    position: absolute;
+
+    left: 13px;
+    bottom: 5px;
+
+    width: 42px;
+    height: 3px;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--verde-limao),
+            rgba(186, 255, 69, 0.08)
+        );
+
+    opacity: 0.75;
+}
+
+
+/* =========================================================
+   BRILHO DO CARD
+========================================================= */
+
+.progresso-card-brilho {
+    position: absolute;
+
+    top: -35px;
+    right: -35px;
+
+    z-index: -1;
+
+    width: 110px;
+    height: 110px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(186, 255, 69, 0.11),
+            transparent 68%
+        );
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   ÍCONE DO CARD
+========================================================= */
+
+.progresso-icone {
+    position: relative;
+
+    z-index: 2;
+
+    width: 47px;
+    height: 47px;
+
+    flex-shrink: 0;
+
+    border:
+        1px solid
+        rgba(186, 255, 69, 0.52);
+
+    border-radius: 14px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(111, 220, 67, 0.22),
+            rgba(30, 139, 134, 0.15)
+        );
+
+    color:
+        var(--verde-limao);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    box-shadow:
+        0 4px 0 rgba(0, 0, 0, 0.22),
+        inset 0 0 13px rgba(186, 255, 69, 0.04);
+}
+
+
+.progresso-icone svg {
+    width: 25px;
+    height: 25px;
+}
+
+
+/* =========================================================
+   INFORMAÇÕES DO CARD
+========================================================= */
+
+.progresso-info {
+    position: relative;
+
+    z-index: 2;
+
+    min-width: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: flex-start;
+}
+
+
+.progresso-mini {
+    margin-bottom: 2px;
+
+    color: var(--branco);
+
+    font-family: var(--fonte-texto);
+    font-size: 0.58rem;
+    font-weight: 900;
+
+    letter-spacing: 0.04em;
+}
+
+
+.progresso-info strong {
+    color: var(--verde-limao);
+
+    font-family: var(--fonte-numero);
+    font-size: 1.38rem;
+    font-weight: 700;
+
+    line-height: 1.05;
+
+    text-shadow:
+        0 0 10px rgba(186, 255, 69, 0.12);
+}
+
+
+.progresso-descricao {
+    max-width: 120px;
+
+    margin-top: 5px;
+
+    color:
+        rgba(255, 255, 255, 0.84);
+
+    font-family: var(--fonte-texto);
+    font-size: 0.64rem;
+    font-weight: 700;
+
+    line-height: 1.22;
+}
+
+
+/* =========================================================
+   SÍMBOLO DECORATIVO DO CARD
+========================================================= */
+
+.progresso-canto {
+    position: absolute;
+
+    right: 8px;
+    bottom: -13px;
+
+    z-index: 0;
+
+    color:
+        rgba(186, 255, 69, 0.07);
+
+    font-family: var(--fonte-numero);
+    font-size: 4.8rem;
+    font-weight: 700;
+
+    line-height: 1;
+
+    pointer-events: none;
+
+    user-select: none;
+}
+
+
+/* =========================================================
+   CELULARES PEQUENOS
+========================================================= */
+
+@media (max-width: 360px) {
+
+    #telaInicio {
+        min-height: 100vh;
+    }
+
+
+    .inicio-topo {
+        gap: 10px;
+
+        margin-bottom: 29px;
+    }
+
+
+    .inicio-boas-vindas h1 {
+        font-size: 2rem;
+    }
+
+
+    .inicio-boas-vindas p {
+        margin-top: 10px;
+
+        font-size: 0.84rem;
+    }
+
+
+    .inicio-xp {
+        min-width: 103px;
+        min-height: 61px;
+
+        padding: 8px 10px;
+
+        border-radius: 18px;
+
+        gap: 7px;
+    }
+
+
+    .inicio-xp-icone {
+        width: 37px;
+        height: 37px;
+
+        border-radius: 12px;
+    }
+
+
+    .inicio-xp-icone svg {
+        width: 20px;
+        height: 20px;
+    }
+
+
+    .inicio-xp-info strong {
+        font-size: 1rem;
+    }
+
+
+    .inicio-secao-titulo h2 {
+        font-size: 1.35rem;
+    }
+
+
+    .mapa-principal-card {
+        padding:
+            14px
+            8px
+            11px;
+
+        border-radius: 24px;
+    }
+
+
+    .mapa-detalhe-superior {
+        gap: 7px;
+    }
+
+
+    .mapa-detalhe-centro {
+        font-size: 0.48rem;
+    }
+
+
+    .municipio-progresso {
+        min-width: 24px;
+        height: 17px;
+
+        padding: 0 3px;
+
+        border-radius: 5px;
+
+        font-size: 0.42rem;
+    }
+
+
+    .progresso-grid {
+        gap: 10px;
+    }
+
+
+    .progresso-card {
+        min-height: 116px;
+
+        padding:
+            12px
+            9px;
+
+        gap: 7px;
+
+        border-radius: 17px;
+    }
+
+
+    .progresso-icone {
+        width: 40px;
+        height: 40px;
+
+        border-radius: 12px;
+    }
+
+
+    .progresso-icone svg {
+        width: 22px;
+        height: 22px;
+    }
+
+
+    .progresso-mini {
+        font-size: 0.50rem;
+    }
+
+
+    .progresso-info strong {
+        font-size: 1.15rem;
+    }
+
+
+    .progresso-descricao {
+        font-size: 0.56rem;
+    }
+
+}
+
+
+/* =========================================================
+   TABLETS
+========================================================= */
+
+@media (min-width: 768px) {
+
+    body:has(#telaInicio.tela-ativa) {
+        background-position:
+            center center;
+    }
+
+
+    .inicio {
+        max-width: 1100px;
+    }
+
+
+    .inicio-topo {
+        margin-bottom: 40px;
+    }
+
+
+    .inicio-boas-vindas h1 {
+        font-size: 3.1rem;
+    }
+
+
+    .inicio-boas-vindas p {
+        font-size: 1rem;
+    }
+
+
+    .inicio-xp {
+        min-width: 135px;
+
+        padding:
+            11px
+            16px;
+    }
+
+
+    .mapa-principal-card {
+        max-width: 900px;
+
+        margin-left: auto;
+        margin-right: auto;
+
+        padding:
+            19px
+            18px
+            17px;
+    }
+
+
+    .progresso-grid {
+        grid-template-columns:
+            repeat(4, minmax(0, 1fr));
+
+        gap: 16px;
+    }
+
+
+    .progresso-card {
+        min-height: 135px;
+
+        padding:
+            16px
+            13px;
+    }
+
+}
+
+
+/* =========================================================
+   DESKTOP
+========================================================= */
+
+@media (min-width: 1100px) {
+
+    .inicio {
+        max-width: 1180px;
+    }
+
+
+    .mapa-principal-card {
+        max-width: 930px;
+    }
+
+
+    .progresso-card {
+        min-height: 140px;
+    }
+
+
+    .progresso-info strong {
+        font-size: 1.48rem;
+    }
+
+}
+
+
+/* =========================================================
+   REDUÇÃO DE MOVIMENTO
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .municipio-progresso {
+        transition: none !important;
+    }
+
+}
+
+
+/* =========================================================
+   INÍCIO — QUADRADOS DOS HEROICONS
+========================================================= */
+
+.progresso-icone {
+
+    /* remove a borda */
+    border: none;
+
+    /* novo fundo */
+    background:
+        linear-gradient(
+            145deg,
+            rgba(111, 220, 67, 0.22),
+            rgba(30, 139, 134, 0.15)
+        );
+
+    /* mantém o Heroicon escuro */
+    color: #031923;
+
+    /* mesma sensação de profundidade do Perfil */
+    box-shadow:
+        0 5px 0 rgba(3, 25, 35, 0.55),
+        0 8px 14px rgba(0, 0, 0, 0.18),
+        inset 0 0 13px rgba(186, 255, 69, 0.04);
+
+}
+
+
+/* garante a cor dos Heroicons */
+
+.progresso-icone svg {
+
+    color: #031923;
+    stroke: #031923;
+
+}
+
+/* =========================================================
+   INÍCIO — HEROICONS
+   DESTAQUE AMARELO
+========================================================= */
+
+#telaInicio .progresso-card .progresso-icone {
+
+    border: none !important;
+
+    /* fundo discreto */
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 216, 77, 0.14),
+            rgba(111, 220, 67, 0.09)
+        ) !important;
+
+    color: #FFD84D !important;
+
+    /* profundidade */
+    box-shadow:
+        0 5px 0 rgba(3, 25, 35, 0.55),
+        0 8px 14px rgba(0, 0, 0, 0.18),
+        inset 0 0 12px rgba(255, 216, 77, 0.05) !important;
+
+}
+
+
+/* somente o desenho do Heroicon fica amarelo */
+
+#telaInicio .progresso-card .progresso-icone svg {
+
+    color: #FFD84D !important;
+    stroke: #FFD84D !important;
+
+}
