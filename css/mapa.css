@@ -6852,3 +6852,49 @@ span.ativo {
 .info-missao-extra-icone svg {
     stroke: #031923;
 }
+
+.mapa-status {
+
+    position: absolute;
+
+    left: 18px;
+    bottom: 55px;
+
+    z-index: 15;
+
+    max-width:
+        calc(100% - 36px);
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding:
+        10px
+        15px
+        10px
+        10px;
+
+    border:
+        1px solid
+        rgba(199, 221, 221, .15);
+
+    border-radius: 19px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(6, 44, 61, .94),
+            rgba(3, 25, 35, .96)
+        );
+
+    box-shadow:
+        0 7px 22px
+        rgba(0, 0, 0, .26);
+
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+}

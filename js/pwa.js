@@ -1,4 +1,13 @@
 // ======================================================
+// BVenture — Modo de teste do PWA
+// ======================================================
+
+// true  = permite acessar o jogo pelo navegador/computador
+// false = exige que o BVenture esteja aberto como PWA
+const BVENTURE_TESTE_PWA = false;
+
+
+// ======================================================
 // BVenture — Registro do Service Worker
 // ======================================================
 
@@ -8,9 +17,10 @@ if ("serviceWorker" in navigator) {
 
         try {
 
-            const registro = await navigator.serviceWorker.register(
-                "./service-worker.js"
-            );
+            const registro =
+                await navigator.serviceWorker.register(
+                    "./service-worker.js"
+                );
 
             console.log(
                 "BVenture — Service Worker registrado:",
@@ -30,15 +40,20 @@ if ("serviceWorker" in navigator) {
 
 }
 
+
 // ======================================================
 // BVenture — Verificação do modo de exibição
 // ======================================================
 
 function bventureEstaInstalado() {
 
+    // Android e outros navegadores compatíveis com PWA
     const modoStandalone =
-        window.matchMedia("(display-mode: standalone)").matches;
+        window.matchMedia(
+            "(display-mode: standalone)"
+        ).matches;
 
+    // iPhone e iPad
     const modoStandaloneIOS =
         window.navigator.standalone === true;
 
@@ -46,7 +61,9 @@ function bventureEstaInstalado() {
 
 }
 
-window.bventureEstaInstalado = bventureEstaInstalado;
+window.bventureEstaInstalado =
+    bventureEstaInstalado;
+
 
 // ======================================================
 // BVenture — Evento de instalação
@@ -54,20 +71,27 @@ window.bventureEstaInstalado = bventureEstaInstalado;
 
 let bventureEventoInstalacao = null;
 
-window.addEventListener("beforeinstallprompt", (event) => {
+window.addEventListener(
+    "beforeinstallprompt",
+    (event) => {
 
-    // Impede o navegador de decidir sozinho quando mostrar a instalação
-    event.preventDefault();
+        // Impede o navegador de exibir automaticamente
+        // o aviso de instalação
+        event.preventDefault();
 
-    // Guarda o evento para usarmos no botão "Instalar"
-    bventureEventoInstalacao = event;
+        // Guarda o evento para o botão "Instalar"
+        bventureEventoInstalacao = event;
 
-    // Avisa o restante do BVenture que a instalação está disponível
-    window.dispatchEvent(
-        new CustomEvent("bventureInstalacaoDisponivel")
-    );
+        // Avisa a tela de instalação
+        window.dispatchEvent(
+            new CustomEvent(
+                "bventureInstalacaoDisponivel"
+            )
+        );
 
-});
+    }
+);
+
 
 // ======================================================
 // BVenture — Instalar aplicativo
@@ -79,20 +103,38 @@ async function instalarBVenture() {
         return false;
     }
 
-    // Abre a janela oficial de instalação do navegador
-    await bventureEventoInstalacao.prompt();
+    try {
 
-    // Aguarda a escolha do usuário
-    const escolha = await bventureEventoInstalacao.userChoice;
+        // Abre o prompt oficial do navegador
+        await bventureEventoInstalacao.prompt();
 
-    // O evento só pode ser utilizado uma vez
-    bventureEventoInstalacao = null;
+        // Aguarda a escolha do usuário
+        const escolha =
+            await bventureEventoInstalacao.userChoice;
 
-    return escolha.outcome === "accepted";
+        // O evento só pode ser utilizado uma vez
+        bventureEventoInstalacao = null;
+
+        return escolha.outcome === "accepted";
+
+    } catch (erro) {
+
+        console.error(
+            "BVenture — erro durante a instalação:",
+            erro
+        );
+
+        bventureEventoInstalacao = null;
+
+        return false;
+
+    }
 
 }
 
-window.instalarBVenture = instalarBVenture;
+window.instalarBVenture =
+    instalarBVenture;
+
 
 // ======================================================
 // BVenture — Identificação do dispositivo
@@ -100,7 +142,8 @@ window.instalarBVenture = instalarBVenture;
 
 function obterPlataformaBVenture() {
 
-    const userAgent = navigator.userAgent || "";
+    const userAgent =
+        navigator.userAgent || "";
 
     const ehAndroid =
         /Android/i.test(userAgent);
@@ -121,9 +164,12 @@ function obterPlataformaBVenture() {
     }
 
     return "outro";
+
 }
 
-window.obterPlataformaBVenture = obterPlataformaBVenture;
+window.obterPlataformaBVenture =
+    obterPlataformaBVenture;
+
 
 // ======================================================
 // BVenture — Tipo de instalação disponível
@@ -131,19 +177,20 @@ window.obterPlataformaBVenture = obterPlataformaBVenture;
 
 function obterTipoInstalacaoBVenture() {
 
-    // Já está aberto como aplicativo
+    // Está sendo executado pelo aplicativo instalado
     if (bventureEstaInstalado()) {
         return "instalado";
     }
 
-    const plataforma = obterPlataformaBVenture();
+    const plataforma =
+        obterPlataformaBVenture();
 
-    // iPhone/iPad utiliza orientação manual
+    // iPhone/iPad utiliza instalação manual pelo Safari
     if (plataforma === "ios") {
         return "ios";
     }
 
-    // Android com instalação disponível pelo navegador
+    // Android com prompt de instalação disponível
     if (
         plataforma === "android" &&
         bventureEventoInstalacao
@@ -151,9 +198,101 @@ function obterTipoInstalacaoBVenture() {
         return "android";
     }
 
-    // Navegador/dispositivo sem instalação disponível neste momento
+    // Instalação não disponível neste momento
     return "indisponivel";
+
 }
 
 window.obterTipoInstalacaoBVenture =
     obterTipoInstalacaoBVenture;
+
+
+// ======================================================
+// BVenture — Proteção global de acesso
+// ======================================================
+
+function protegerAcessoBVenture() {
+
+    // --------------------------------------------------
+    // MODO DE TESTE
+    //
+    // Quando ativado, permite acessar login, mapa,
+    // app e demais páginas diretamente pelo navegador.
+    // Útil durante o desenvolvimento no computador.
+    // --------------------------------------------------
+
+    if (BVENTURE_TESTE_PWA) {
+
+        console.warn(
+            "BVenture — Modo de teste PWA ativado."
+        );
+
+        return true;
+
+    }
+
+
+    // --------------------------------------------------
+    // APLICATIVO INSTALADO
+    //
+    // Android:
+    // display-mode: standalone
+    //
+    // iPhone/iPad:
+    // navigator.standalone
+    // --------------------------------------------------
+
+    if (bventureEstaInstalado()) {
+        return true;
+    }
+
+
+    // --------------------------------------------------
+    // Descobre qual página está aberta
+    // --------------------------------------------------
+
+    const caminho =
+        window.location.pathname.toLowerCase();
+
+    const paginaAtual =
+        caminho.split("/").pop() || "index.html";
+
+
+    // --------------------------------------------------
+    // Páginas permitidas no navegador
+    // --------------------------------------------------
+
+    const paginasPublicas = [
+        "index.html",
+        "instalar.html"
+    ];
+
+
+    // --------------------------------------------------
+    // Página pública
+    // --------------------------------------------------
+
+    if (paginasPublicas.includes(paginaAtual)) {
+        return true;
+    }
+
+
+    // --------------------------------------------------
+    // Página interna aberta pelo navegador
+    // --------------------------------------------------
+
+    window.location.replace("./instalar.html");
+
+    return false;
+
+}
+
+window.protegerAcessoBVenture =
+    protegerAcessoBVenture;
+
+
+// ======================================================
+// BVenture — Executar proteção automaticamente
+// ======================================================
+
+protegerAcessoBVenture();

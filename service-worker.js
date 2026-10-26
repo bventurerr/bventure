@@ -1,4 +1,4 @@
-const CACHE_NAME = "bventure-v1";
+const CACHE_NAME = "bventure-v2";
 
 const ARQUIVOS_CACHE = [
     "./",
@@ -27,6 +27,7 @@ self.addEventListener("install", (event) => {
             })
     );
 
+    // Ativa a nova versão sem esperar o SW antigo encerrar
     self.skipWaiting();
 
 });
@@ -40,25 +41,25 @@ self.addEventListener("activate", (event) => {
 
     event.waitUntil(
 
-        caches.keys().then((nomesCaches) => {
+        caches.keys()
+            .then((nomesCaches) => {
 
-            return Promise.all(
+                return Promise.all(
 
-                nomesCaches.map((nomeCache) => {
+                    nomesCaches.map((nomeCache) => {
 
-                    if (nomeCache !== CACHE_NAME) {
-                        return caches.delete(nomeCache);
-                    }
+                        if (nomeCache !== CACHE_NAME) {
+                            return caches.delete(nomeCache);
+                        }
 
-                })
+                    })
 
-            );
+                );
 
-        })
+            })
+            .then(() => self.clients.claim())
 
     );
-
-    self.clients.claim();
 
 });
 
@@ -71,38 +72,93 @@ self.addEventListener("fetch", (event) => {
 
     const request = event.request;
 
-    // Apenas requisições GET podem ser armazenadas em cache
+    // Somente GET
     if (request.method !== "GET") {
         return;
     }
 
     const url = new URL(request.url);
 
-    // Não interferir em serviços externos
+    // Não interfere em Firebase, Mapbox, Google etc.
     if (url.origin !== self.location.origin) {
         return;
     }
+
+
+    // ==================================================
+    // NAVEGAÇÃO / HTML
+    // Sempre tenta buscar a versão mais recente
+    // ==================================================
+
+    if (request.mode === "navigate") {
+
+        event.respondWith(
+
+            fetch(request)
+                .then((response) => {
+
+                    const copia = response.clone();
+
+                    caches.open(CACHE_NAME)
+                        .then((cache) => {
+                            cache.put(request, copia);
+                        });
+
+                    return response;
+
+                })
+                .catch(async () => {
+
+                    const cache = await caches.match(request);
+
+                    if (cache) {
+                        return cache;
+                    }
+
+                    return caches.match("./index.html");
+
+                })
+
+        );
+
+        return;
+    }
+
+
+    // ==================================================
+    // CSS / JS / IMAGENS / OUTROS ARQUIVOS LOCAIS
+    // Network First
+    // ==================================================
 
     event.respondWith(
 
         fetch(request)
             .then((response) => {
 
-                // Guarda uma cópia atualizada dos arquivos locais
-                const copia = response.clone();
+                // Só armazena respostas válidas
+                if (response && response.status === 200) {
 
-                caches.open(CACHE_NAME)
-                    .then((cache) => {
-                        cache.put(request, copia);
-                    });
+                    const copia = response.clone();
+
+                    caches.open(CACHE_NAME)
+                        .then((cache) => {
+                            cache.put(request, copia);
+                        });
+
+                }
 
                 return response;
 
             })
-            .catch(() => {
+            .catch(async () => {
 
-                // Se estiver sem conexão, tenta usar a versão em cache
-                return caches.match(request);
+                const cache = await caches.match(request);
+
+                if (cache) {
+                    return cache;
+                }
+
+                return Response.error();
 
             })
 

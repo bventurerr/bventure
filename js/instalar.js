@@ -102,7 +102,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (instalado) {
 
-            continuarBVenture();
+            esconderTelas();
+
+            telaConcluida.hidden = false;
 
         }
 
