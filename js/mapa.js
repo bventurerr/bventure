@@ -64,7 +64,7 @@ const CONFIG_MAPA = {
    → exige proximidade real.
 */
 
-const MODO_DESENVOLVIMENTO = true;
+const MODO_DESENVOLVIMENTO = false;
 
 
 /*
