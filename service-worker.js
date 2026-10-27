@@ -1,4 +1,4 @@
-const CACHE_NAME = "bventure-v3";
+const CACHE_NAME = "bventure-v4";
 
 const ARQUIVOS_CACHE = [
     "./",
