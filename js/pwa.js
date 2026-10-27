@@ -4,7 +4,7 @@
 
 // true  = permite acessar o jogo pelo navegador/computador
 // false = exige que o BVenture esteja aberto como PWA
-const BVENTURE_TESTE_PWA = false;
+const BVENTURE_TESTE_PWA = true;
 
 
 // ======================================================
