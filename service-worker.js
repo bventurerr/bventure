@@ -1,4 +1,4 @@
-const CACHE_NAME = "bventure-v4";
+const CACHE_NAME = "bventure-v5";
 
 const ARQUIVOS_CACHE = [
     "./",
@@ -21,13 +21,15 @@ const ARQUIVOS_CACHE = [
 self.addEventListener("install", (event) => {
 
     event.waitUntil(
+
         caches.open(CACHE_NAME)
             .then((cache) => {
                 return cache.addAll(ARQUIVOS_CACHE);
             })
+
     );
 
-    // Ativa a nova versão sem esperar o SW antigo encerrar
+    // Nova versão assume imediatamente
     self.skipWaiting();
 
 });
@@ -41,23 +43,43 @@ self.addEventListener("activate", (event) => {
 
     event.waitUntil(
 
-        caches.keys()
-            .then((nomesCaches) => {
+        (async () => {
 
-                return Promise.all(
+            // Remove caches antigos
+            const nomesCaches = await caches.keys();
 
-                    nomesCaches.map((nomeCache) => {
+            await Promise.all(
 
-                        if (nomeCache !== CACHE_NAME) {
-                            return caches.delete(nomeCache);
-                        }
+                nomesCaches.map((nomeCache) => {
 
-                    })
+                    if (nomeCache !== CACHE_NAME) {
+                        return caches.delete(nomeCache);
+                    }
 
-                );
+                })
 
-            })
-            .then(() => self.clients.claim())
+            );
+
+
+            // Assume todas as páginas abertas
+            await self.clients.claim();
+
+
+            // Avisa páginas/PWA que existe uma nova versão
+            const clientes = await self.clients.matchAll({
+                type: "window",
+                includeUncontrolled: true
+            });
+
+            clientes.forEach((cliente) => {
+
+                cliente.postMessage({
+                    tipo: "BVENTURE_ATUALIZADO"
+                });
+
+            });
+
+        })()
 
     );
 
@@ -72,42 +94,53 @@ self.addEventListener("fetch", (event) => {
 
     const request = event.request;
 
+
     // Somente GET
     if (request.method !== "GET") {
         return;
     }
 
+
     const url = new URL(request.url);
 
-    // Não interfere em Firebase, Mapbox, Google etc.
+
+    // Firebase, Mapbox, Google etc. continuam normais
     if (url.origin !== self.location.origin) {
         return;
     }
 
 
     // ==================================================
-    // NAVEGAÇÃO / HTML
-    // Sempre tenta buscar a versão mais recente
+    // HTML / NAVEGAÇÃO
+    // NETWORK FIRST
     // ==================================================
 
     if (request.mode === "navigate") {
 
         event.respondWith(
 
-            fetch(request)
-                .then((response) => {
+            (async () => {
 
-                    const copia = response.clone();
+                try {
 
-                    caches.open(CACHE_NAME)
-                        .then((cache) => {
-                            cache.put(request, copia);
-                        });
+                    const response = await fetch(request);
+
+                    if (response && response.ok) {
+
+                        const cache = await caches.open(CACHE_NAME);
+
+                        await cache.put(
+                            request,
+                            response.clone()
+                        );
+
+                    }
 
                     return response;
 
-                })
-                .catch(async () => {
+                }
+
+                catch (erro) {
 
                     const cache = await caches.match(request);
 
@@ -117,7 +150,9 @@ self.addEventListener("fetch", (event) => {
 
                     return caches.match("./index.html");
 
-                })
+                }
+
+            })()
 
         );
 
@@ -126,31 +161,37 @@ self.addEventListener("fetch", (event) => {
 
 
     // ==================================================
-    // CSS / JS / IMAGENS / OUTROS ARQUIVOS LOCAIS
-    // Network First
+    // CSS / JS / IMAGENS / ARQUIVOS LOCAIS
+    // NETWORK FIRST
     // ==================================================
 
     event.respondWith(
 
-        fetch(request)
-            .then((response) => {
+        (async () => {
 
-                // Só armazena respostas válidas
-                if (response && response.status === 200) {
+            try {
 
-                    const copia = response.clone();
+                const response = await fetch(request);
 
-                    caches.open(CACHE_NAME)
-                        .then((cache) => {
-                            cache.put(request, copia);
-                        });
+                if (
+                    response &&
+                    response.status === 200
+                ) {
+
+                    const cache = await caches.open(CACHE_NAME);
+
+                    await cache.put(
+                        request,
+                        response.clone()
+                    );
 
                 }
 
                 return response;
 
-            })
-            .catch(async () => {
+            }
+
+            catch (erro) {
 
                 const cache = await caches.match(request);
 
@@ -160,7 +201,9 @@ self.addEventListener("fetch", (event) => {
 
                 return Response.error();
 
-            })
+            }
+
+        })()
 
     );
 

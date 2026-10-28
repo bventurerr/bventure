@@ -4,7 +4,14 @@
 
 // true  = permite acessar o jogo pelo navegador/computador
 // false = exige que o BVenture esteja aberto como PWA
-const BVENTURE_TESTE_PWA = true;
+const BVENTURE_TESTE_PWA = false;
+
+
+// ======================================================
+// BVenture — Controle de atualização do PWA
+// ======================================================
+
+let bventureRecarregandoAtualizacao = false;
 
 
 // ======================================================
@@ -27,6 +34,62 @@ if ("serviceWorker" in navigator) {
                 registro.scope
             );
 
+
+            // --------------------------------------------------
+            // Procura uma versão nova sempre que o app é aberto
+            // --------------------------------------------------
+
+            registro.update()
+                .catch((erro) => {
+
+                    console.warn(
+                        "BVenture — não foi possível verificar atualização:",
+                        erro
+                    );
+
+                });
+
+
+            // --------------------------------------------------
+            // Detecta quando um novo Service Worker aparece
+            // --------------------------------------------------
+
+            registro.addEventListener(
+                "updatefound",
+                () => {
+
+                    const novoWorker =
+                        registro.installing;
+
+                    if (!novoWorker) {
+                        return;
+                    }
+
+                    console.log(
+                        "BVenture — nova versão encontrada."
+                    );
+
+                    novoWorker.addEventListener(
+                        "statechange",
+                        () => {
+
+                            if (
+                                novoWorker.state === "installed" &&
+                                navigator.serviceWorker.controller
+                            ) {
+
+                                console.log(
+                                    "BVenture — nova versão instalada."
+                                );
+
+                            }
+
+                        }
+                    );
+
+                }
+            );
+
         } catch (erro) {
 
             console.error(
@@ -37,6 +100,63 @@ if ("serviceWorker" in navigator) {
         }
 
     });
+
+
+    // ==================================================
+    // NOVO SERVICE WORKER ASSUMIU O CONTROLE
+    // ==================================================
+
+    navigator.serviceWorker.addEventListener(
+        "controllerchange",
+        () => {
+
+            if (bventureRecarregandoAtualizacao) {
+                return;
+            }
+
+            bventureRecarregandoAtualizacao = true;
+
+            console.log(
+                "BVenture — nova versão ativada."
+            );
+
+            window.location.reload();
+
+        }
+    );
+
+
+    // ==================================================
+    // MENSAGEM ENVIADA PELO SERVICE WORKER
+    // ==================================================
+
+    navigator.serviceWorker.addEventListener(
+        "message",
+        (event) => {
+
+            if (
+                !event.data ||
+                event.data.tipo !== "BVENTURE_ATUALIZADO"
+            ) {
+                return;
+            }
+
+
+            if (bventureRecarregandoAtualizacao) {
+                return;
+            }
+
+
+            bventureRecarregandoAtualizacao = true;
+
+            console.log(
+                "BVenture — atualização recebida."
+            );
+
+            window.location.reload();
+
+        }
+    );
 
 }
 
@@ -215,10 +335,6 @@ function protegerAcessoBVenture() {
 
     // --------------------------------------------------
     // MODO DE TESTE
-    //
-    // Quando ativado, permite acessar login, mapa,
-    // app e demais páginas diretamente pelo navegador.
-    // Útil durante o desenvolvimento no computador.
     // --------------------------------------------------
 
     if (BVENTURE_TESTE_PWA) {
@@ -234,12 +350,6 @@ function protegerAcessoBVenture() {
 
     // --------------------------------------------------
     // APLICATIVO INSTALADO
-    //
-    // Android:
-    // display-mode: standalone
-    //
-    // iPhone/iPad:
-    // navigator.standalone
     // --------------------------------------------------
 
     if (bventureEstaInstalado()) {
