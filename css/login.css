@@ -592,15 +592,18 @@ body {
 
 
 /* =========================================================
-   BOTÃO PRINCIPAL
+   BOTÃO PRINCIPAL — LOGIN / CADASTRO
 ========================================================= */
 
 .botao-entrar {
-    width: 100%;
+    position: relative;
 
+    width: 100%;
     min-height: 50px;
 
     margin-top: 3px;
+
+    overflow: hidden;
 
     border-radius: 15px;
 
@@ -613,23 +616,119 @@ body {
     font-size: 0.92rem;
     font-weight: 800;
 
+    isolation: isolate;
+
+    /* SOMBRA VERDE ESCURA SEMPRE VISÍVEL */
+    box-shadow:
+        0 6px 0 #3F9E35,
+        0 10px 16px rgba(0, 0, 0, 0.18);
+
     transition:
         transform 0.2s ease,
-        box-shadow 0.25s ease;
+        box-shadow 0.2s ease,
+        filter 0.2s ease;
 }
 
 
-.botao-entrar:hover {
-    box-shadow:
-        0 0 18px
-        rgba(186, 255, 69, 0.18);
+/* =========================================================
+   FLASH DE LUZ
+========================================================= */
+
+.botao-entrar::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    bottom: 0;
+
+    left: -35%;
+
+    width: 20%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent 0%,
+            rgba(255, 255, 255, 0.10) 20%,
+            rgba(255, 255, 255, 0.65) 50%,
+            rgba(255, 255, 255, 0.10) 80%,
+            transparent 100%
+        );
+
+    transform: skewX(-22deg);
+
+    pointer-events: none;
+
+    z-index: 1;
+
+    animation:
+        flashBotaoEntrar
+        4s
+        ease-in-out
+        infinite;
 }
 
+
+/* =========================================================
+   ANIMAÇÃO DO FLASH
+========================================================= */
+
+@keyframes flashBotaoEntrar {
+
+    0%,
+    68% {
+        left: -35%;
+        opacity: 0;
+    }
+
+    72% {
+        opacity: 1;
+    }
+
+    88% {
+        left: 115%;
+        opacity: 1;
+    }
+
+    92%,
+    100% {
+        left: 115%;
+        opacity: 0;
+    }
+}
+
+
+/* =========================================================
+   MOUSE POR CIMA
+========================================================= */
+
+@media (hover: hover) {
+
+    .botao-entrar:hover {
+        transform: translateY(-2px);
+
+        filter: brightness(1.04);
+
+        box-shadow:
+            0 8px 0 #3F9E35,
+            0 13px 19px rgba(0, 0, 0, 0.20);
+    }
+
+}
+
+
+/* =========================================================
+   CLIQUE
+========================================================= */
 
 .botao-entrar:active {
-    transform: scale(0.98);
-}
+    transform: translateY(4px);
 
+    box-shadow:
+        0 2px 0 #3F9E35,
+        0 5px 9px rgba(0, 0, 0, 0.16);
+}
 
 /* =========================================================
    DIVISOR

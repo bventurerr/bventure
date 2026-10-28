@@ -17,7 +17,7 @@ body:has(#telaMissoes.tela-ativa) {
             rgba(3, 25, 35, 0.85),
             rgba(3, 25, 35, 0.85)
         ),
-        url("../imagens-webp/fundoprincipal.webp");
+        url("../imagens-webp/fundoprincipal1.webp");
 
     background-size: cover;
     background-position: center;
@@ -369,6 +369,8 @@ body:has(#telaMissoes.tela-ativa) {
 ========================================================= */
 
 .botao-explorar {
+    position: relative;
+
     width: 100%;
     min-height: 62px;
 
@@ -380,6 +382,8 @@ body:has(#telaMissoes.tela-ativa) {
     gap: 13px;
 
     padding: 14px 20px;
+
+    overflow: hidden;
 
     border:
         1px solid
@@ -416,12 +420,90 @@ body:has(#telaMissoes.tela-ativa) {
 }
 
 
+/* =========================================================
+   FLASH DE LUZ
+========================================================= */
+
+.botao-explorar::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    bottom: 0;
+
+    left: -35%;
+
+    width: 20%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent 0%,
+            rgba(255, 255, 255, 0.10) 20%,
+            rgba(255, 255, 255, 0.65) 50%,
+            rgba(255, 255, 255, 0.10) 80%,
+            transparent 100%
+        );
+
+    transform:
+        skewX(-22deg);
+
+    pointer-events: none;
+
+    z-index: 1;
+
+    animation:
+        flashBotaoExplorar
+        4s
+        ease-in-out
+        infinite;
+}
+
+
+@keyframes flashBotaoExplorar {
+
+    0%,
+    68% {
+        left: -35%;
+        opacity: 0;
+    }
+
+    72% {
+        opacity: 1;
+    }
+
+    88% {
+        left: 115%;
+        opacity: 1;
+    }
+
+    92%,
+    100% {
+        left: 115%;
+        opacity: 0;
+    }
+}
+
+
+/* =========================================================
+   CONTEÚDO DO BOTÃO
+========================================================= */
+
 .botao-explorar span {
+    position: relative;
+
+    z-index: 2;
+
     pointer-events: none;
 }
 
 
 .botao-explorar svg {
+    position: relative;
+
+    z-index: 2;
+
     width: 22px;
     height: 22px;
 
@@ -436,6 +518,10 @@ body:has(#telaMissoes.tela-ativa) {
 }
 
 
+/* =========================================================
+   BOTÃO PRESSIONADO
+========================================================= */
+
 .botao-explorar:active {
     transform: translateY(4px);
 
@@ -445,6 +531,10 @@ body:has(#telaMissoes.tela-ativa) {
 }
 
 
+/* =========================================================
+   FOCO
+========================================================= */
+
 .botao-explorar:focus-visible {
     outline:
         3px solid #ffffff;
@@ -452,6 +542,10 @@ body:has(#telaMissoes.tela-ativa) {
     outline-offset: 3px;
 }
 
+
+/* =========================================================
+   HOVER
+========================================================= */
 
 @media (hover: hover) {
 
@@ -473,7 +567,6 @@ body:has(#telaMissoes.tela-ativa) {
     }
 
 }
-
 
 /* =========================================================
    PRÓXIMOS DESTINOS

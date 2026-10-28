@@ -16,7 +16,7 @@ body:has(#telaInicio.tela-ativa) {
             rgba(3, 25, 35, 0.85),
             rgba(3, 25, 35, 0.85)
         ),
-        url("../imagens-webp/fundoprincipal.webp");
+        url("../imagens-webp/fundoprincipal1.webp");
 
     background-size: cover;
     background-position: center;
@@ -652,7 +652,7 @@ body:has(#telaInicio.tela-ativa) {
 
 
 .municipio-boa-vista {
-    top: 38%;
+    top: 34%;
     left: 68%;
 }
 
@@ -722,7 +722,7 @@ body:has(#telaInicio.tela-ativa) {
 ========================================================= */
 
 .progresso-titulo {
-    margin-top: 5px;
+    margin-top: 18px;
     margin-bottom: 15px;
 }
 
@@ -1302,11 +1302,33 @@ body:has(#telaInicio.tela-ativa) {
 }
 
 
-/* somente o desenho do Heroicon fica amarelo */
+/* =========================================================
+   CORES DOS ÍCONES — SEU PROGRESSO
+========================================================= */
 
-#telaInicio .progresso-card .progresso-icone svg {
+/* EXPLORAÇÃO — CIANO */
+.progresso-card:has(#estatisticaExploracao) .progresso-icone svg {
+    color: #00BFD8;
+    stroke: currentColor;
+}
 
-    color: #FFD84D !important;
-    stroke: #FFD84D !important;
 
+/* DESCOBERTAS — VERDE */
+.progresso-card:has(#estatisticaLocais) .progresso-icone svg {
+    color: #6FDC43;
+    stroke: currentColor;
+}
+
+
+/* MISSÕES — VERDE ESMERALDA */
+.progresso-card:has(#estatisticaMissoes) .progresso-icone svg {
+    color: #20D98B;
+    stroke: currentColor;
+}
+
+
+/* PRÊMIOS — AMARELO */
+.progresso-card:has(#estatisticaRecompensas) .progresso-icone svg {
+    color: #FFD84D;
+    stroke: currentColor;
 }

@@ -21,7 +21,7 @@ body:has(.tela-perfil.tela-ativa) {
             rgba(3, 25, 35, 0.85),
             rgba(3, 25, 35, 0.85)
         ),
-        url("../imagens-webp/fundoprincipal.webp");
+        url("../imagens-webp/fundoprincipal1.webp");
 
     background-size: cover;
     background-position: center;
@@ -586,10 +586,7 @@ body:has(.tela-perfil.tela-ativa) {
    ÍCONE DA ESTATÍSTICA
 ========================================================= */
 
-.perfil-estatistica-icone,
-.perfil-estatistica-icone.verde,
-.perfil-estatistica-icone.ciano,
-.perfil-estatistica-icone.amarelo {
+.perfil-estatistica-icone {
     display: flex;
 
     align-items: center;
@@ -611,28 +608,52 @@ body:has(.tela-perfil.tela-ativa) {
             rgba(30, 139, 134, 0.11)
         );
 
-    color: #FFD84D;
-
     box-shadow:
         0 4px 0 rgba(0, 0, 0, 0.22),
         inset 0 0 13px rgba(186, 255, 69, 0.04);
 }
 
 
-
-
-.perfil-estatistica-icone svg,
-.perfil-estatistica-icone.verde svg,
-.perfil-estatistica-icone.ciano svg,
-.perfil-estatistica-icone.amarelo svg {
+.perfil-estatistica-icone svg {
     width: 23px;
     height: 23px;
 
     color: #FFD84D;
-
-    stroke: #00BFD8;
+    stroke: currentColor;
 }
 
+
+/* LOCAIS + MISSÕES EXTRAS */
+
+.perfil-estatistica-icone.verde {
+    color: #6FDC43;
+}
+
+.perfil-estatistica-icone.verde svg {
+    color: #6FDC43;
+}
+
+
+/* RECOMPENSAS */
+
+.perfil-estatistica-icone.amarelo {
+    color: #FFD84D;
+}
+
+.perfil-estatistica-icone.amarelo svg {
+    color: #FFD84D;
+}
+
+
+/* MAPA / EXPLORAÇÃO */
+
+.perfil-estatistica-icone.ciano {
+    color: #00BFD8;
+}
+
+.perfil-estatistica-icone.ciano svg {
+    color: #00BFD8;
+}
 
 /* =========================================================
    TEXTO DA ESTATÍSTICA
@@ -2289,7 +2310,7 @@ body:has(.tela-perfil.tela-ativa) {
     margin:
         30px
         0
-        0 !important;
+        0;
 
     padding:
         27px
@@ -2301,20 +2322,20 @@ body:has(.tela-perfil.tela-ativa) {
         rgba(199, 221, 221, 0.14);
 
     color:
-        #BAFF45 !important;
+        #BAFF45;
 
     font-family:
         "Baloo 2",
-        sans-serif !important;
+        sans-serif;
 
     font-size:
-        1.05rem !important;
+        1.05rem;
 
     font-weight:
-        800 !important;
+        800;
 
     line-height:
-        1.3 !important;
+        1.3;
 
     text-align: center;
 }
@@ -2444,13 +2465,13 @@ body:has(.tela-perfil.tela-ativa) {
 
     .sobre-frase-final {
         margin-top:
-            28px !important;
+            28px;
 
         padding-top:
             25px;
 
         font-size:
-            1rem !important;
+            1rem;
     }
 
 }
@@ -3148,11 +3169,11 @@ body:has(.tela-perfil.tela-ativa) {
 ========================================================= */
 
 .perfil-jogador {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
-    text-align: center !important;
+    text-align: center;
 }
 
 
@@ -3160,20 +3181,20 @@ body:has(.tela-perfil.tela-ativa) {
     margin:
         0
         auto
-        12px !important;
+        12px;
 }
 
 
 .perfil-identidade {
-    width: 100% !important;
+    width: 100%;
 
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
-    text-align: center !important;
+    text-align: center;
 
-    margin-bottom: 20px !important;
+    margin-bottom: 20px;
 }
 
 
@@ -3181,34 +3202,34 @@ body:has(.tela-perfil.tela-ativa) {
     margin:
         0
         0
-        3px !important;
+        3px;
 
-    text-align: center !important;
+    text-align: center;
 }
 
 
 .perfil-identidade span {
-    display: block !important;
+    display: block;
 
-    text-align: center !important;
+    text-align: center;
 }
 
 
 .perfil-xp {
-    width: 100% !important;
+    width: 100%;
 
-    text-align: left !important;
+    text-align: left;
 }
 
 
 .perfil-xp-topo {
-    width: 100% !important;
+    width: 100%;
 
-    display: flex !important;
-    align-items: center !important;
-    justify-content: space-between !important;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 
-    text-align: left !important;
+    text-align: left;
 }
 
 
@@ -3217,51 +3238,51 @@ body:has(.tela-perfil.tela-ativa) {
 ========================================================= */
 
 .perfil-estatisticas {
-    display: block !important;
+    display: block;
 
-    width: 100% !important;
+    width: 100%;
 }
 
 
 .perfil-estatisticas-grid {
-    display: grid !important;
+    display: grid;
 
     grid-template-columns:
-        repeat(2, minmax(0, 1fr)) !important;
+        repeat(2, minmax(0, 1fr));
 
-    gap: 12px !important;
+    gap: 12px;
 
-    width: 100% !important;
+    width: 100%;
 }
 
 
 .perfil-estatistica {
-    position: relative !important;
+    position: relative;
 
-    width: 100% !important;
-    min-width: 0 !important;
-    min-height: 100px !important;
+    width: 100%;
+    min-width: 0;
+    min-height: 100px;
 
-    box-sizing: border-box !important;
+    box-sizing: border-box;
 
-    display: grid !important;
+    display: grid;
 
     grid-template-columns:
         48px
-        minmax(0, 1fr) !important;
+        minmax(0, 1fr);
 
     grid-template-rows:
         auto
-        auto !important;
+        auto;
 
-    column-gap: 12px !important;
+    column-gap: 12px;
 
-    align-items: center !important;
+    align-items: center;
 
     padding:
-        14px !important;
+        14px;
 
-    text-align: left !important;
+    text-align: left;
 }
 
 
@@ -3271,41 +3292,41 @@ body:has(.tela-perfil.tela-ativa) {
 .perfil-estatistica-icone.verde,
 .perfil-estatistica-icone.ciano,
 .perfil-estatistica-icone.amarelo {
-    grid-column: 1 !important;
+    grid-column: 1;
     grid-row:
         1 /
-        3 !important;
+        3;
 
-    width: 48px !important;
-    height: 48px !important;
+    width: 48px;
+    height: 48px;
 
     flex:
         0
         0
-        48px !important;
+        48px;
 
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-    align-self: center !important;
+    align-self: center;
 
-    margin: 0 !important;
+    margin: 0;
 
-    border: none !important;
+    border: none;
 
-    border-radius: 14px !important;
+    border-radius: 14px;
 
     background:
         linear-gradient(
             145deg,
             rgba(111, 220, 67, 0.16),
             rgba(30, 139, 134, 0.11)
-        ) !important;
+        );
 
     box-shadow:
         0 5px 0 rgba(3, 25, 35, 0.55),
-        0 8px 14px rgba(0, 0, 0, 0.18) !important;
+        0 8px 14px rgba(0, 0, 0, 0.18);
 }
 
 
@@ -3313,64 +3334,64 @@ body:has(.tela-perfil.tela-ativa) {
 .perfil-estatistica-icone.verde svg,
 .perfil-estatistica-icone.ciano svg,
 .perfil-estatistica-icone.amarelo svg {
-    width: 25px !important;
-    height: 25px !important;
+    width: 25px;
+    height: 25px;
 
-    color: #FFD84D !important;
-    stroke: #00BFD8 !important;
+    color: #FFD84D;
+    stroke: #00BFD8;
 }
 
 
 /* NÚMERO */
 
 .perfil-estatistica > strong {
-    grid-column: 2 !important;
-    grid-row: 1 !important;
+    grid-column: 2;
+    grid-row: 1;
 
-    display: block !important;
+    display: block;
 
-    align-self: end !important;
+    align-self: end;
 
-    margin: 0 !important;
+    margin: 0;
 
-    color: #BAFF45 !important;
+    color: #BAFF45;
 
     font-family:
         "Oxanium",
-        sans-serif !important;
+        sans-serif;
 
-    font-size: 1.35rem !important;
-    font-weight: 700 !important;
+    font-size: 1.35rem;
+    font-weight: 700;
 
-    line-height: 1 !important;
+    line-height: 1;
 }
 
 
 /* TEXTO */
 
 .perfil-estatistica > span {
-    grid-column: 2 !important;
-    grid-row: 2 !important;
+    grid-column: 2;
+    grid-row: 2;
 
-    display: block !important;
+    display: block;
 
-    align-self: start !important;
+    align-self: start;
 
     margin:
         3px
         0
-        0 !important;
+        0;
 
-    color: #FFFFFF !important;
+    color: #FFFFFF;
 
     font-family:
         "Nunito",
-        sans-serif !important;
+        sans-serif;
 
-    font-size: 0.72rem !important;
-    font-weight: 700 !important;
+    font-size: 0.72rem;
+    font-weight: 700;
 
-    line-height: 1.2 !important;
+    line-height: 1.2;
 }
 
 
@@ -3379,39 +3400,39 @@ body:has(.tela-perfil.tela-ativa) {
 ========================================================= */
 
 .perfil-modal {
-    position: fixed !important;
+    position: fixed;
 
-    inset: 0 !important;
+    inset: 0;
 
-    width: 100% !important;
-    height: 100dvh !important;
+    width: 100%;
+    height: 100dvh;
 
-    z-index: 10000 !important;
+    z-index: 10000;
 
-    display: none !important;
+    display: none;
 
-    align-items: center !important;
-    justify-content: center !important;
+    align-items: center;
+    justify-content: center;
 
     padding:
-        22px !important;
+        22px;
 
-    box-sizing: border-box !important;
+    box-sizing: border-box;
 }
 
 
 .perfil-modal.aberto {
-    display: flex !important;
+    display: flex;
 }
 
 
 .perfil-modal-fundo {
-    position: absolute !important;
+    position: absolute;
 
-    inset: 0 !important;
+    inset: 0;
 
-    width: 100% !important;
-    height: 100% !important;
+    width: 100%;
+    height: 100%;
 
     background:
         rgba(
@@ -3419,13 +3440,13 @@ body:has(.tela-perfil.tela-ativa) {
             17,
             24,
             0.82
-        ) !important;
+        );
 
     backdrop-filter:
-        blur(8px) !important;
+        blur(8px);
 
     -webkit-backdrop-filter:
-        blur(8px) !important;
+        blur(8px);
 }
 
 
@@ -3434,51 +3455,51 @@ body:has(.tela-perfil.tela-ativa) {
 ========================================================= */
 
 .perfil-modal-card {
-    position: relative !important;
+    position: relative;
 
-    z-index: 2 !important;
+    z-index: 2;
 
     width:
         min(
             100%,
             520px
-        ) !important;
+        );
 
     max-height:
         calc(
             100dvh -
             44px
-        ) !important;
+        );
 
-    overflow-y: auto !important;
+    overflow-y: auto;
 
-    box-sizing: border-box !important;
+    box-sizing: border-box;
 
     padding:
         27px
-        25px !important;
+        25px;
 
     border:
         2px
         solid
-        #6FDC43 !important;
+        #6FDC43;
 
     border-radius:
-        25px !important;
+        25px;
 
     background:
         linear-gradient(
             145deg,
             rgba(7, 75, 91, 0.98),
             rgba(3, 44, 61, 0.99)
-        ) !important;
+        );
 
     box-shadow:
         0 9px 0 rgba(71, 151, 45, 0.65),
-        0 22px 50px rgba(0, 0, 0, 0.42) !important;
+        0 22px 50px rgba(0, 0, 0, 0.42);
 
     color:
-        #FFFFFF !important;
+        #FFFFFF;
 }
 
 
@@ -3487,7 +3508,7 @@ body:has(.tela-perfil.tela-ativa) {
         min(
             100%,
             520px
-        ) !important;
+        );
 }
 
 
@@ -3496,7 +3517,7 @@ body:has(.tela-perfil.tela-ativa) {
         min(
             100%,
             410px
-        ) !important;
+        );
 }
 
 
@@ -3505,69 +3526,69 @@ body:has(.tela-perfil.tela-ativa) {
 ========================================================= */
 
 .perfil-modal-fechar {
-    position: absolute !important;
+    position: absolute;
 
-    top: 17px !important;
-    right: 17px !important;
+    top: 17px;
+    right: 17px;
 
-    width: 43px !important;
-    height: 43px !important;
+    width: 43px;
+    height: 43px;
 
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-    padding: 0 !important;
+    padding: 0;
 
     border:
         1px
         solid
-        rgba(199, 221, 221, 0.22) !important;
+        rgba(199, 221, 221, 0.22);
 
     border-radius:
-        13px !important;
+        13px;
 
     background:
-        rgba(3, 25, 35, 0.55) !important;
+        rgba(3, 25, 35, 0.55);
 
     color:
-        #C7DDDD !important;
+        #C7DDDD;
 
     cursor:
-        pointer !important;
+        pointer;
 }
 
 
 .perfil-modal-fechar svg {
-    width: 22px !important;
-    height: 22px !important;
+    width: 22px;
+    height: 22px;
 }
 
 
 .perfil-modal-etiqueta {
-    display: block !important;
+    display: block;
 
     margin:
         0
         55px
         5px
-        0 !important;
+        0;
 
     color:
-        #BAFF45 !important;
+        #BAFF45;
 
     font-family:
         "Nunito",
-        sans-serif !important;
+        sans-serif;
 
-    font-size: 0.75rem !important;
-    font-weight: 900 !important;
+    font-size: 0.75rem;
+    font-weight: 900;
 
     letter-spacing:
-        0.08em !important;
+        0.08em;
 
     text-transform:
-        uppercase !important;
+        uppercase;
 }
 
 
@@ -3576,23 +3597,23 @@ body:has(.tela-perfil.tela-ativa) {
         0
         55px
         4px
-        0 !important;
+        0;
 
     color:
-        #FFFFFF !important;
+        #FFFFFF;
 
     font-family:
         "Baloo 2",
-        sans-serif !important;
+        sans-serif;
 
     font-size:
-        2rem !important;
+        2rem;
 
     font-weight:
-        800 !important;
+        800;
 
     line-height:
-        1.05 !important;
+        1.05;
 }
 
 
@@ -3600,20 +3621,20 @@ body:has(.tela-perfil.tela-ativa) {
     margin:
         0
         0
-        22px !important;
+        22px;
 
     color:
-        #C7DDDD !important;
+        #C7DDDD;
 
     font-family:
         "Nunito",
-        sans-serif !important;
+        sans-serif;
 
     font-size:
-        0.93rem !important;
+        0.93rem;
 
     line-height:
-        1.4 !important;
+        1.4;
 }
 
 
@@ -3622,127 +3643,127 @@ body:has(.tela-perfil.tela-ativa) {
 ========================================================= */
 
 #formMeusDados {
-    display: flex !important;
+    display: flex;
 
-    flex-direction: column !important;
+    flex-direction: column;
 
-    gap: 17px !important;
+    gap: 17px;
 }
 
 
 .perfil-campo {
-    width: 100% !important;
+    width: 100%;
 
-    display: flex !important;
+    display: flex;
 
-    flex-direction: column !important;
+    flex-direction: column;
 
-    gap: 7px !important;
+    gap: 7px;
 }
 
 
 .perfil-campo label {
     color:
-        #FFFFFF !important;
+        #FFFFFF;
 
     font-family:
         "Nunito",
-        sans-serif !important;
+        sans-serif;
 
     font-size:
-        0.83rem !important;
+        0.83rem;
 
     font-weight:
-        800 !important;
+        800;
 }
 
 
 .perfil-campo input {
-    width: 100% !important;
-    height: 57px !important;
+    width: 100%;
+    height: 57px;
 
-    box-sizing: border-box !important;
+    box-sizing: border-box;
 
     padding:
         0
-        17px !important;
+        17px;
 
     border:
         1px
         solid
-        rgba(199, 221, 221, 0.22) !important;
+        rgba(199, 221, 221, 0.22);
 
     border-radius:
-        15px !important;
+        15px;
 
     outline:
-        none !important;
+        none;
 
     background:
-        rgba(3, 25, 35, 0.72) !important;
+        rgba(3, 25, 35, 0.72);
 
     color:
-        #FFFFFF !important;
+        #FFFFFF;
 
     font-family:
         "Nunito",
-        sans-serif !important;
+        sans-serif;
 
     font-size:
-        0.95rem !important;
+        0.95rem;
 
     font-weight:
-        700 !important;
+        700;
 
     transition:
         border-color 0.2s ease,
-        box-shadow 0.2s ease !important;
+        box-shadow 0.2s ease;
 }
 
 
 .perfil-campo input:focus {
     border-color:
-        #BAFF45 !important;
+        #BAFF45;
 
     box-shadow:
-        0 0 0 3px rgba(186, 255, 69, 0.1) !important;
+        0 0 0 3px rgba(186, 255, 69, 0.1);
 }
 
 
 .perfil-campo input:disabled {
     opacity:
-        0.48 !important;
+        0.48;
 
     cursor:
-        not-allowed !important;
+        not-allowed;
 }
 
 
 .perfil-campo input::placeholder {
     color:
-        rgba(199, 221, 221, 0.55) !important;
+        rgba(199, 221, 221, 0.55);
 }
 
 
 .perfil-campo small {
     display:
-        block !important;
+        block;
 
     color:
-        rgba(199, 221, 221, 0.72) !important;
+        rgba(199, 221, 221, 0.72);
 
     font-family:
         "Nunito",
-        sans-serif !important;
+        sans-serif;
 
     font-size:
-        0.7rem !important;
+        0.7rem;
 
     font-weight:
-        600 !important;
+        600;
 
     line-height:
-        1.4 !important;
+        1.4;
 }
 
 
@@ -3752,55 +3773,55 @@ body:has(.tela-perfil.tela-ativa) {
 
 .perfil-modal-salvar {
     width:
-        100% !important;
+        100%;
 
     min-height:
-        56px !important;
+        56px;
 
     margin-top:
-        4px !important;
+        4px;
 
     padding:
         12px
-        18px !important;
+        18px;
 
     border:
-        none !important;
+        none;
 
     border-radius:
-        15px !important;
+        15px;
 
     background:
         linear-gradient(
             90deg,
             #BAFF45,
             #6FDC43
-        ) !important;
+        );
 
     color:
-        #031923 !important;
+        #031923;
 
     font-family:
         "Nunito",
-        sans-serif !important;
+        sans-serif;
 
     font-size:
-        0.95rem !important;
+        0.95rem;
 
     font-weight:
-        900 !important;
+        900;
 
     cursor:
-        pointer !important;
+        pointer;
 
     box-shadow:
-        0 6px 0 rgba(3, 25, 35, 0.6) !important;
+        0 6px 0 rgba(3, 25, 35, 0.6);
 
     appearance:
-        none !important;
+        none;
 
     -webkit-appearance:
-        none !important;
+        none;
 }
 
 
@@ -3812,12 +3833,12 @@ body:has(.tela-perfil.tela-ativa) {
 .perfil-modal-confirmacao
 .perfil-modal-card {
     text-align:
-        center !important;
+        center;
 
     padding:
         28px
         24px
-        25px !important;
+        25px;
 }
 
 
@@ -3827,65 +3848,65 @@ body:has(.tela-perfil.tela-ativa) {
 
 .perfil-modal-icone-confirmacao {
     width:
-        72px !important;
+        72px;
 
     height:
-        72px !important;
+        72px;
 
     margin:
         0
         auto
-        19px !important;
+        19px;
 
     display:
-        flex !important;
+        flex;
 
     align-items:
-        center !important;
+        center;
 
     justify-content:
-        center !important;
+        center;
 
     border-radius:
-        22px !important;
+        22px;
 
     background:
         linear-gradient(
             145deg,
             rgba(111, 220, 67, 0.16),
             rgba(30, 139, 134, 0.11)
-        ) !important;
+        );
 
     color:
-        #00BFD8 !important;
+        #00BFD8;
 
     box-shadow:
         0 5px 0 rgba(3, 25, 35, 0.55),
-        0 9px 18px rgba(0, 0, 0, 0.18) !important;
+        0 9px 18px rgba(0, 0, 0, 0.18);
 }
 
 
 .perfil-modal-icone-confirmacao svg {
     display:
-        block !important;
+        block;
 
     width:
-        37px !important;
+        37px;
 
     height:
-        37px !important;
+        37px;
 
     max-width:
-        37px !important;
+        37px;
 
     max-height:
-        37px !important;
+        37px;
 
     color:
-        #00BFD8 !important;
+        #00BFD8;
 
     stroke:
-        #00BFD8 !important;
+        #00BFD8;
 }
 
 
@@ -3893,19 +3914,19 @@ body:has(.tela-perfil.tela-ativa) {
 
 .perfil-modal-icone-confirmacao.sair {
     background:
-        rgba(255, 95, 102, 0.1) !important;
+        rgba(255, 95, 102, 0.1);
 
     color:
-        #FF5F66 !important;
+        #FF5F66;
 }
 
 
 .perfil-modal-icone-confirmacao.sair svg {
     color:
-        #FF5F66 !important;
+        #FF5F66;
 
     stroke:
-        #FF5F66 !important;
+        #FF5F66;
 }
 
 
@@ -3919,23 +3940,23 @@ h2 {
     margin:
         0
         0
-        7px !important;
+        7px;
 
     color:
-        #FFFFFF !important;
+        #FFFFFF;
 
     font-family:
         "Baloo 2",
-        sans-serif !important;
+        sans-serif;
 
     font-size:
-        1.55rem !important;
+        1.55rem;
 
     font-weight:
-        800 !important;
+        800;
 
     line-height:
-        1.15 !important;
+        1.15;
 }
 
 
@@ -3945,26 +3966,26 @@ p {
     margin:
         0
         auto
-        23px !important;
+        23px;
 
     max-width:
-        320px !important;
+        320px;
 
     color:
-        #C7DDDD !important;
+        #C7DDDD;
 
     font-family:
         "Nunito",
-        sans-serif !important;
+        sans-serif;
 
     font-size:
-        0.83rem !important;
+        0.83rem;
 
     font-weight:
-        600 !important;
+        600;
 
     line-height:
-        1.4 !important;
+        1.4;
 }
 
 
@@ -3974,63 +3995,63 @@ p {
 
 .perfil-modal-acoes {
     width:
-        100% !important;
+        100%;
 
     display:
-        grid !important;
+        grid;
 
     grid-template-columns:
-        repeat(2, minmax(0, 1fr)) !important;
+        repeat(2, minmax(0, 1fr));
 
     gap:
-        10px !important;
+        10px;
 }
 
 
 .perfil-modal-botao {
     width:
-        100% !important;
+        100%;
 
     min-width:
-        0 !important;
+        0;
 
     min-height:
-        50px !important;
+        50px;
 
     display:
-        flex !important;
+        flex;
 
     align-items:
-        center !important;
+        center;
 
     justify-content:
-        center !important;
+        center;
 
     padding:
         10px
-        14px !important;
+        14px;
 
     border-radius:
-        14px !important;
+        14px;
 
     font-family:
         "Nunito",
-        sans-serif !important;
+        sans-serif;
 
     font-size:
-        0.88rem !important;
+        0.88rem;
 
     font-weight:
-        900 !important;
+        900;
 
     cursor:
-        pointer !important;
+        pointer;
 
     appearance:
-        none !important;
+        none;
 
     -webkit-appearance:
-        none !important;
+        none;
 }
 
 
@@ -4040,16 +4061,16 @@ p {
     border:
         1px
         solid
-        rgba(199, 221, 221, 0.35) !important;
+        rgba(199, 221, 221, 0.35);
 
     background:
-        rgba(3, 25, 35, 0.6) !important;
+        rgba(3, 25, 35, 0.6);
 
     color:
-        #FFFFFF !important;
+        #FFFFFF;
 
     box-shadow:
-        0 4px 0 rgba(3, 25, 35, 0.65) !important;
+        0 4px 0 rgba(3, 25, 35, 0.65);
 }
 
 
@@ -4057,20 +4078,20 @@ p {
 
 .perfil-modal-botao.principal {
     border:
-        none !important;
+        none;
 
     background:
         linear-gradient(
             90deg,
             #BAFF45,
             #6FDC43
-        ) !important;
+        );
 
     color:
-        #031923 !important;
+        #031923;
 
     box-shadow:
-        0 4px 0 rgba(3, 25, 35, 0.65) !important;
+        0 4px 0 rgba(3, 25, 35, 0.65);
 }
 
 
@@ -4078,20 +4099,20 @@ p {
 
 .perfil-modal-botao.perigo {
     border:
-        none !important;
+        none;
 
     background:
         linear-gradient(
             90deg,
             #FF6B70,
             #E94C54
-        ) !important;
+        );
 
     color:
-        #FFFFFF !important;
+        #FFFFFF;
 
     box-shadow:
-        0 4px 0 rgba(3, 25, 35, 0.65) !important;
+        0 4px 0 rgba(3, 25, 35, 0.65);
 }
 
 
@@ -4103,32 +4124,32 @@ p {
 
     .perfil-modal-fechar:hover {
         background:
-            rgba(0, 191, 216, 0.12) !important;
+            rgba(0, 191, 216, 0.12);
 
         color:
-            #00BFD8 !important;
+            #00BFD8;
     }
 
 
     .perfil-modal-salvar:hover,
     .perfil-modal-botao.principal:hover {
         filter:
-            brightness(1.06) !important;
+            brightness(1.06);
     }
 
 
     .perfil-modal-botao.secundario:hover {
         border-color:
-            #00BFD8 !important;
+            #00BFD8;
 
         background:
-            rgba(0, 191, 216, 0.08) !important;
+            rgba(0, 191, 216, 0.08);
     }
 
 
     .perfil-modal-botao.perigo:hover {
         filter:
-            brightness(1.07) !important;
+            brightness(1.07);
     }
 
 }
@@ -4142,7 +4163,7 @@ p {
 
     .perfil-modal {
         padding:
-            16px !important;
+            16px;
     }
 
 
@@ -4151,74 +4172,74 @@ p {
             calc(
                 100dvh -
                 32px
-            ) !important;
+            );
 
         padding:
             24px
-            20px !important;
+            20px;
 
         border-radius:
-            22px !important;
+            22px;
     }
 
 
     .perfil-modal-card-dados {
         padding-top:
-            26px !important;
+            26px;
     }
 
 
     .perfil-modal-card-dados > h2 {
         font-size:
-            1.72rem !important;
+            1.72rem;
     }
 
 
     .perfil-modal-fechar {
         top:
-            14px !important;
+            14px;
 
         right:
-            14px !important;
+            14px;
 
         width:
-            40px !important;
+            40px;
 
         height:
-            40px !important;
+            40px;
     }
 
 
     .perfil-campo input {
         height:
-            54px !important;
+            54px;
     }
 
 
     .perfil-modal-icone-confirmacao {
         width:
-            66px !important;
+            66px;
 
         height:
-            66px !important;
+            66px;
 
         border-radius:
-            20px !important;
+            20px;
     }
 
 
     .perfil-modal-icone-confirmacao svg {
         width:
-            34px !important;
+            34px;
 
         height:
-            34px !important;
+            34px;
 
         max-width:
-            34px !important;
+            34px;
 
         max-height:
-            34px !important;
+            34px;
     }
 
 
@@ -4226,7 +4247,7 @@ p {
     .perfil-modal-card
     h2 {
         font-size:
-            1.4rem !important;
+            1.4rem;
     }
 
 
@@ -4236,26 +4257,26 @@ p {
 
     .perfil-estatisticas-grid {
         grid-template-columns:
-            repeat(2, minmax(0, 1fr)) !important;
+            repeat(2, minmax(0, 1fr));
 
         gap:
-            9px !important;
+            9px;
     }
 
 
     .perfil-estatistica {
         min-height:
-            96px !important;
+            96px;
 
         grid-template-columns:
             41px
-            minmax(0, 1fr) !important;
+            minmax(0, 1fr);
 
         column-gap:
-            9px !important;
+            9px;
 
         padding:
-            11px !important;
+            11px;
     }
 
 
@@ -4264,10 +4285,10 @@ p {
     .perfil-estatistica-icone.ciano,
     .perfil-estatistica-icone.amarelo {
         width:
-            41px !important;
+            41px;
 
         height:
-            41px !important;
+            41px;
     }
 
 
@@ -4276,25 +4297,25 @@ p {
     .perfil-estatistica-icone.ciano svg,
     .perfil-estatistica-icone.amarelo svg {
         width:
-            22px !important;
+            22px;
 
         height:
-            22px !important;
+            22px;
     }
 
 
     .perfil-estatistica > strong {
         font-size:
-            1.15rem !important;
+            1.15rem;
     }
 
 
     .perfil-estatistica > span {
         font-size:
-            0.63rem !important;
+            0.63rem;
 
         overflow-wrap:
-            anywhere !important;
+            anywhere;
     }
 
 }
@@ -4309,13 +4330,13 @@ p {
     .perfil-estatistica {
         grid-template-columns:
             37px
-            minmax(0, 1fr) !important;
+            minmax(0, 1fr);
 
         column-gap:
-            7px !important;
+            7px;
 
         padding:
-            9px !important;
+            9px;
     }
 
 
@@ -4324,22 +4345,22 @@ p {
     .perfil-estatistica-icone.ciano,
     .perfil-estatistica-icone.amarelo {
         width:
-            37px !important;
+            37px;
 
         height:
-            37px !important;
+            37px;
     }
 
 
     .perfil-estatistica > strong {
         font-size:
-            1.02rem !important;
+            1.02rem;
     }
 
 
     .perfil-estatistica > span {
         font-size:
-            0.58rem !important;
+            0.58rem;
     }
 
 }
@@ -4349,24 +4370,24 @@ p {
 ========================================================= */
 
 .perfil-jogador {
-    position: relative !important;
+    position: relative;
 
-    width: 100% !important;
+    width: 100%;
 
-    box-sizing: border-box !important;
+    box-sizing: border-box;
 
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
     padding:
         28px
         24px
-        24px !important;
+        24px;
 
-    overflow: hidden !important;
+    overflow: hidden;
 
-    text-align: center !important;
+    text-align: center;
 }
 
 
@@ -4375,68 +4396,68 @@ p {
 ========================================================= */
 
 .perfil-avatar-area {
-    position: relative !important;
+    position: relative;
 
-    width: 104px !important;
-    height: 104px !important;
+    width: 104px;
+    height: 104px;
 
     margin:
         0
         auto
-        18px !important;
+        18px;
 
     flex:
         0
         0
-        104px !important;
+        104px;
 }
 
 
 .perfil-avatar-borda {
-    width: 100% !important;
-    height: 100% !important;
+    width: 100%;
+    height: 100%;
 
-    box-sizing: border-box !important;
+    box-sizing: border-box;
 
-    padding: 4px !important;
+    padding: 4px;
 
-    border-radius: 50% !important;
+    border-radius: 50%;
 
     background:
         linear-gradient(
             145deg,
             #BAFF45,
             #6FDC43
-        ) !important;
+        );
 
     box-shadow:
         0 7px 0 rgba(3, 25, 35, 0.55),
-        0 13px 25px rgba(0, 0, 0, 0.22) !important;
+        0 13px 25px rgba(0, 0, 0, 0.22);
 }
 
 
 .perfil-avatar {
-    width: 100% !important;
-    height: 100% !important;
+    width: 100%;
+    height: 100%;
 
-    overflow: hidden !important;
+    overflow: hidden;
 
-    border-radius: 50% !important;
+    border-radius: 50%;
 
     background:
-        #062C3D !important;
+        #062C3D;
 }
 
 
 .perfil-avatar img {
-    width: 100% !important;
-    height: 100% !important;
+    width: 100%;
+    height: 100%;
 
-    display: block !important;
+    display: block;
 
-    object-fit: cover !important;
+    object-fit: cover;
 
-    border-radius: 50% !important;
+    border-radius: 50%;
 }
 
 
@@ -4445,52 +4466,52 @@ p {
 ========================================================= */
 
 .perfil-nivel {
-    position: absolute !important;
+    position: absolute;
 
-    right: -9px !important;
-    bottom: -5px !important;
+    right: -9px;
+    bottom: -5px;
 
-    z-index: 4 !important;
+    z-index: 4;
 
-    min-width: 53px !important;
-    height: 34px !important;
+    min-width: 53px;
+    height: 34px;
 
-    box-sizing: border-box !important;
+    box-sizing: border-box;
 
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     padding:
         0
-        10px !important;
+        10px;
 
     border:
         3px
         solid
-        #031923 !important;
+        #031923;
 
     border-radius:
-        18px !important;
+        18px;
 
     background:
-        #BAFF45 !important;
+        #BAFF45;
 
     color:
-        #031923 !important;
+        #031923;
 
     font-family:
         "Oxanium",
-        sans-serif !important;
+        sans-serif;
 
     font-size:
-        0.75rem !important;
+        0.75rem;
 
     font-weight:
-        800 !important;
+        800;
 
     box-shadow:
-        0 4px 0 rgba(3, 25, 35, 0.4) !important;
+        0 4px 0 rgba(3, 25, 35, 0.4);
 }
 
 
@@ -4499,22 +4520,22 @@ p {
 ========================================================= */
 
 .perfil-identidade {
-    position: relative !important;
+    position: relative;
 
-    z-index: 2 !important;
+    z-index: 2;
 
-    width: 100% !important;
+    width: 100%;
 
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
     margin:
         0
         0
-        25px !important;
+        25px;
 
-    text-align: center !important;
+    text-align: center;
 }
 
 
@@ -4522,39 +4543,39 @@ p {
     margin:
         0
         0
-        3px !important;
+        3px;
 
     color:
-        #FFFFFF !important;
+        #FFFFFF;
 
     font-family:
         "Baloo 2",
-        sans-serif !important;
+        sans-serif;
 
     font-size:
-        1.75rem !important;
+        1.75rem;
 
     font-weight:
-        800 !important;
+        800;
 
     line-height:
-        1.1 !important;
+        1.1;
 }
 
 
 .perfil-identidade span {
     color:
-        #00BFD8 !important;
+        #00BFD8;
 
     font-family:
         "Nunito",
-        sans-serif !important;
+        sans-serif;
 
     font-size:
-        1rem !important;
+        1rem;
 
     font-weight:
-        800 !important;
+        800;
 }
 
 
@@ -4563,73 +4584,73 @@ p {
 ========================================================= */
 
 .perfil-xp {
-    position: relative !important;
+    position: relative;
 
-    z-index: 2 !important;
+    z-index: 2;
 
-    width: 100% !important;
+    width: 100%;
 
-    box-sizing: border-box !important;
+    box-sizing: border-box;
 
-    margin: 0 !important;
+    margin: 0;
 
     padding:
         17px
         18px
-        18px !important;
+        18px;
 
     border:
         1px
         solid
-        rgba(199, 221, 221, 0.13) !important;
+        rgba(199, 221, 221, 0.13);
 
     border-radius:
-        18px !important;
+        18px;
 
     background:
-        rgba(3, 25, 35, 0.38) !important;
+        rgba(3, 25, 35, 0.38);
 
     box-shadow:
-        inset 0 0 22px rgba(0, 0, 0, 0.08) !important;
+        inset 0 0 22px rgba(0, 0, 0, 0.08);
 
     text-align:
-        left !important;
+        left;
 }
 
 
 .perfil-xp-topo {
-    width: 100% !important;
+    width: 100%;
 
-    display: flex !important;
-    align-items: center !important;
-    justify-content: space-between !important;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 
     gap:
-        15px !important;
+        15px;
 
     margin:
         0
         0
-        13px !important;
+        13px;
 }
 
 
 .perfil-xp-topo span {
     color:
-        #C7DDDD !important;
+        #C7DDDD;
 
     font-family:
         "Nunito",
-        sans-serif !important;
+        sans-serif;
 
     font-size:
-        0.72rem !important;
+        0.72rem;
 
     font-weight:
-        900 !important;
+        900;
 
     letter-spacing:
-        0.035em !important;
+        0.035em;
 }
 
 
@@ -4637,23 +4658,23 @@ p {
     flex:
         0
         0
-        auto !important;
+        auto;
 
     color:
-        #BAFF45 !important;
+        #BAFF45;
 
     font-family:
         "Oxanium",
-        sans-serif !important;
+        sans-serif;
 
     font-size:
-        0.75rem !important;
+        0.75rem;
 
     font-weight:
-        800 !important;
+        800;
 
     white-space:
-        nowrap !important;
+        nowrap;
 }
 
 
@@ -4662,51 +4683,51 @@ p {
 ========================================================= */
 
 .perfil-xp-barra {
-    position: relative !important;
+    position: relative;
 
-    width: 100% !important;
-    height: 10px !important;
+    width: 100%;
+    height: 10px;
 
-    display: block !important;
+    display: block;
 
-    overflow: hidden !important;
+    overflow: hidden;
 
     border-radius:
-        999px !important;
+        999px;
 
     background:
-        #031923 !important;
+        #031923;
 
     box-shadow:
-        inset 0 2px 4px rgba(0, 0, 0, 0.32) !important;
+        inset 0 2px 4px rgba(0, 0, 0, 0.32);
 }
 
 
 .perfil-xp-preenchimento {
-    position: absolute !important;
+    position: absolute;
 
-    top: 0 !important;
-    left: 0 !important;
+    top: 0;
+    left: 0;
 
-    height: 100% !important;
+    height: 100%;
 
-    display: block !important;
+    display: block;
 
     border-radius:
-        inherit !important;
+        inherit;
 
     background:
         linear-gradient(
             90deg,
             #BAFF45,
             #6FDC43
-        ) !important;
+        );
 
     box-shadow:
-        0 0 10px rgba(186, 255, 69, 0.3) !important;
+        0 0 10px rgba(186, 255, 69, 0.3);
 
     transition:
-        width 0.45s ease !important;
+        width 0.45s ease;
 }
 
 
@@ -4720,40 +4741,40 @@ p {
         padding:
             26px
             22px
-            22px !important;
+            22px;
     }
 
 
     .perfil-avatar-area {
         width:
-            96px !important;
+            96px;
 
         height:
-            96px !important;
+            96px;
 
         flex-basis:
-            96px !important;
+            96px;
 
         margin-bottom:
-            17px !important;
+            17px;
     }
 
 
     .perfil-identidade {
         margin-bottom:
-            23px !important;
+            23px;
     }
 
 
     .perfil-identidade h2 {
         font-size:
-            1.65rem !important;
+            1.65rem;
     }
 
 
     .perfil-identidade span {
         font-size:
-            0.95rem !important;
+            0.95rem;
     }
 
 
@@ -4761,22 +4782,22 @@ p {
         padding:
             16px
             15px
-            17px !important;
+            17px;
 
         border-radius:
-            17px !important;
+            17px;
     }
 
 
     .perfil-xp-topo {
         margin-bottom:
-            11px !important;
+            11px;
     }
 
 
     .perfil-xp-barra {
         height:
-            9px !important;
+            9px;
     }
 
 }
@@ -4836,40 +4857,40 @@ p {
 ========================================================= */
 
 .perfil-avatar-area {
-    width: 125px !important;
-    height: 125px !important;
+    width: 125px;
+    height: 125px;
 
     flex:
         0
         0
-        125px !important;
+        125px;
 
     margin:
         0
         auto
-        20px !important;
+        20px;
 }
 
 
 /* deixa a imagem preencher corretamente o círculo */
 
 .perfil-avatar-borda {
-    width: 100% !important;
-    height: 100% !important;
+    width: 100%;
+    height: 100%;
 }
 
 
 .perfil-avatar {
-    width: 100% !important;
-    height: 100% !important;
+    width: 100%;
+    height: 100%;
 }
 
 
 .perfil-avatar img {
-    width: 100% !important;
-    height: 100% !important;
+    width: 100%;
+    height: 100%;
 
-    object-fit: cover !important;
+    object-fit: cover;
 }
 
 
@@ -4878,18 +4899,18 @@ p {
 ========================================================= */
 
 .perfil-nivel {
-    right: -7px !important;
-    bottom: 1px !important;
+    right: -7px;
+    bottom: 1px;
 
-    min-width: 58px !important;
-    height: 35px !important;
+    min-width: 58px;
+    height: 35px;
 
     padding:
         0
-        10px !important;
+        10px;
 
     font-size:
-        0.78rem !important;
+        0.78rem;
 }
 
 
@@ -4913,10 +4934,10 @@ p {
 @media (max-width: 520px) {
 
     .perfil-avatar-area {
-        width: 115px !important;
-        height: 115px !important;
+        width: 115px;
+        height: 115px;
 
-        flex-basis: 115px !important;
+        flex-basis: 115px;
     }
 
 
@@ -4955,7 +4976,7 @@ p {
             145deg,
             rgba(7, 75, 91, 0.96),
             rgba(6, 44, 61, 0.96)
-        ) !important;
+        );
 }
 
 
@@ -4977,7 +4998,7 @@ p {
                 145deg,
                 rgba(7, 75, 91, 0.96),
                 rgba(6, 44, 61, 0.96)
-            ) !important;
+            );
     }
 
 }
@@ -5011,7 +5032,7 @@ p {
 
 /* desativa o segundo círculo antigo da direita */
 .perfil-jogador::after {
-    display: none !important;
+    display: none;
 }
 
 
@@ -5028,7 +5049,7 @@ p {
             145deg,
             rgba(7, 75, 91, 0.96),
             rgba(6, 44, 61, 0.96)
-        ) !important;
+        );
 }
 
 
@@ -5059,7 +5080,7 @@ p {
                 145deg,
                 rgba(7, 75, 91, 0.96),
                 rgba(6, 44, 61, 0.96)
-            ) !important;
+            );
     }
 
 }
@@ -5073,24 +5094,24 @@ p {
 
 .perfil-modal.preparando-popup .perfil-modal-card,
 .sobre-modal.preparando-popup .sobre-modal-card {
-    opacity: 0 !important;
+    opacity: 0;
 
     transform:
         translate3d(
             0,
             45px,
             0
-        ) !important;
+        );
 
-    transition: none !important;
+    transition: none;
 }
 
 
 .perfil-modal.preparando-popup .perfil-modal-fundo,
 .sobre-modal.preparando-popup .sobre-modal-fundo {
-    opacity: 0 !important;
+    opacity: 0;
 
-    transition: none !important;
+    transition: none;
 }
 
 
@@ -5098,18 +5119,18 @@ p {
 
 .perfil-modal.preparando-popup.popup-entrando .perfil-modal-card,
 .sobre-modal.preparando-popup.popup-entrando .sobre-modal-card {
-    opacity: 1 !important;
+    opacity: 1;
 
     transform:
         translate3d(
             0,
             0,
             0
-        ) !important;
+        );
 
     transition:
         transform 650ms cubic-bezier(.16, 1, .3, 1),
-        opacity 500ms ease !important;
+        opacity 500ms ease;
 }
 
 
@@ -5117,10 +5138,10 @@ p {
 
 .perfil-modal.preparando-popup.popup-entrando .perfil-modal-fundo,
 .sobre-modal.preparando-popup.popup-entrando .sobre-modal-fundo {
-    opacity: 1 !important;
+    opacity: 1;
 
     transition:
-        opacity 500ms ease !important;
+        opacity 500ms ease;
 }
 
 
@@ -5144,23 +5165,23 @@ p {
         auto
         8px;
 
-    text-align: center !important;
+    text-align: center;
 
     font-family:
         "Baloo 2",
-        sans-serif !important;
+        sans-serif;
 
     font-size:
-        22px !important;
+        22px;
 
     font-weight:
-        800 !important;
+        800;
 
     line-height:
-        1.25 !important;
+        1.25;
 
     color:
-        #BAFF45 !important;
+        #BAFF45;
 }
 
 /* =========================================================
@@ -5626,14 +5647,14 @@ p {
 }
 
 .perfil-modal-card-avatar > .perfil-modal-descricao {
-    width: 100% !important;
-    max-width: 100% !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-    padding-left: 0 !important;
-    padding-right: 0 !important;
+    width: 100%;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 0;
+    padding-right: 0;
     box-sizing: border-box;
-    text-align: center !important;
+    text-align: center;
 }
 
 /* =========================================================
@@ -5646,15 +5667,15 @@ p {
 .perfil-estatistica-icone.verde svg,
 .perfil-estatistica-icone.ciano svg,
 .perfil-estatistica-icone.amarelo svg {
-    color: #FFD84D !important;
-    stroke: #FFD84D !important;
+    color: #FFD84D;
+    stroke: #FFD84D;
 }
 
 
 /* Opções da conta */
 .perfil-opcao:not(.sair) .perfil-opcao-icone svg {
-    color: #FFD84D !important;
-    stroke: #FFD84D !important;
+    color: #FFD84D;
+    stroke: #FFD84D;
 }
 
 
@@ -5663,7 +5684,71 @@ p {
 .perfil-idioma-bloco .perfil-opcao:hover .perfil-opcao-icone svg,
 .perfil-idioma-bloco .perfil-opcao:focus .perfil-opcao-icone svg,
 .perfil-idioma-bloco .perfil-opcao:active .perfil-opcao-icone svg {
-    color: #FFD84D !important;
-    stroke: #FFD84D !important;
+    color: #FFD84D;
+    stroke: #FFD84D;
 }
 
+
+
+/* =========================================================
+   CORES DOS ÍCONES — ESTATÍSTICAS
+========================================================= */
+
+/* Locais desbloqueados — VERDE */
+.perfil-estatistica:has(#perfilLocais) .perfil-estatistica-icone svg {
+    color: #6FDC43;
+    stroke: currentColor;
+}
+
+
+/* Recompensas obtidas — AMARELO */
+.perfil-estatistica:has(#perfilRecompensas) .perfil-estatistica-icone svg {
+    color: #FFD84D;
+    stroke: currentColor;
+}
+
+
+/* Missões extras — VERDE ESMERALDA */
+.perfil-estatistica:has(#perfilMissoesExtras) .perfil-estatistica-icone svg {
+    color: #20D98B;
+    stroke: currentColor;
+}
+
+
+
+/* Exploração de Boa Vista — CIANO */
+.perfil-estatistica:has(#perfilExploracao) .perfil-estatistica-icone svg {
+    color: #00BFD8;
+    stroke: currentColor;
+}
+
+/* =========================================================
+   CORES DOS ÍCONES — MINHA CONTA
+========================================================= */
+
+/* Meus dados — CIANO */
+#botaoMeusDados .perfil-opcao-icone svg {
+    color: #00BFD8;
+    stroke: currentColor;
+}
+
+
+/* Idioma — AMARELO */
+.perfil-idioma-bloco .perfil-opcao-icone svg {
+    color: #FFD84D;
+    stroke: currentColor;
+}
+
+
+/* Sobre o BVenture — VERDE */
+#botaoSobre .perfil-opcao-icone svg {
+    color: #6FDC43;
+    stroke: currentColor;
+}
+
+
+/* Sair da conta — VERMELHO */
+#botaoSair .perfil-opcao-icone svg {
+    color: #FF5A5F;
+    stroke: currentColor;
+}

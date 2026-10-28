@@ -7,7 +7,7 @@
 
     <meta
         name="viewport"
-        content="width=device-width, initial-scale=1.0"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
     >
 
     <title>Instalar BVenture</title>
@@ -39,7 +39,11 @@
 
     <main id="tela-instalacao">
 
-        <!-- ANDROID -->
+
+        <!-- =====================================================
+             ANDROID
+        ====================================================== -->
+
         <section
             id="instalacao-android"
             hidden
@@ -47,14 +51,18 @@
 
             <img
                 src="./assets/icons/icon-512.png"
-                alt="BVenture"
+                alt="Logo do BVenture"
             >
+
+            <span class="instalacao-etiqueta">
+                SUA AVENTURA COMEÇA AQUI
+            </span>
 
             <h1>Instale o BVenture</h1>
 
             <p>
-                Tenha uma experiência mais completa instalando
-                o BVenture no seu dispositivo.
+                Instale o BVenture no seu dispositivo para
+                começar a explorar Boa Vista.
             </p>
 
             <button
@@ -67,7 +75,10 @@
         </section>
 
 
-        <!-- INSTALAÇÃO CONCLUÍDA -->
+        <!-- =====================================================
+             INSTALAÇÃO CONCLUÍDA
+        ====================================================== -->
+
         <section
             id="instalacao-concluida"
             hidden
@@ -75,21 +86,39 @@
 
             <img
                 src="./assets/icons/icon-512.png"
-                alt="BVenture"
+                alt="Logo do BVenture"
             >
+
+            <span class="instalacao-etiqueta">
+                TUDO PRONTO
+            </span>
 
             <h1>BVenture instalado!</h1>
 
             <p>
                 A instalação foi concluída.
-                Agora abra o BVenture pela Tela de Início
-                do seu dispositivo para começar a explorar.
             </p>
+
+            <div class="instalacao-aviso">
+
+                <span class="instalacao-aviso-icone">
+                    ✓
+                </span>
+
+                <span>
+                    Agora abra o BVenture pelo ícone criado
+                    na Tela de Início do seu dispositivo.
+                </span>
+
+            </div>
 
         </section>
 
 
-        <!-- IPHONE / IPAD -->
+        <!-- =====================================================
+             IPHONE / IPAD
+        ====================================================== -->
+
         <section
             id="instalacao-ios"
             hidden
@@ -97,15 +126,163 @@
 
             <img
                 src="./assets/icons/icon-512.png"
-                alt="BVenture"
+                alt="Logo do BVenture"
             >
 
-            <h1>Adicione o BVenture à Tela de Início</h1>
+            <span class="instalacao-etiqueta">
+                INSTALAÇÃO NO IPHONE
+            </span>
 
-            <p>
-                No Safari, toque em Compartilhar e depois em
-                “Adicionar à Tela de Início”.
+            <h1>Instale o BVenture</h1>
+
+            <p class="ios-introducao">
+                No iPhone ou iPad, a instalação é feita
+                diretamente pelo Safari.
             </p>
+
+
+            <!-- PASSOS -->
+
+            <div class="ios-passos">
+
+
+                <!-- PASSO 1 -->
+
+                <div class="ios-passo">
+
+                    <span class="ios-numero">
+                        1
+                    </span>
+
+                    <div class="ios-passo-icone">
+
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke-width="2"
+                            stroke="currentColor"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="M12 16.5V3.75m0 0L7.5 8.25M12 3.75l4.5 4.5M6.75 10.5H5.625A1.875 1.875 0 003.75 12.375v7.5c0 1.036.84 1.875 1.875 1.875h12.75a1.875 1.875 0 001.875-1.875v-7.5a1.875 1.875 0 00-1.875-1.875H17.25"
+                            />
+                        </svg>
+
+                    </div>
+
+                    <div class="ios-passo-texto">
+
+                        <span>
+                            PASSO 1
+                        </span>
+
+                        <strong>
+                            Toque em Compartilhar
+                        </strong>
+
+                        <p>
+                            No Safari, toque no botão de
+                            compartilhamento.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PASSO 2 -->
+
+                <div class="ios-passo">
+
+                    <span class="ios-numero">
+                        2
+                    </span>
+
+                    <div class="ios-passo-icone ios-passo-icone-amarelo">
+
+                        <span class="ios-simbolo-mais">
+                            +
+                        </span>
+
+                    </div>
+
+                    <div class="ios-passo-texto">
+
+                        <span>
+                            PASSO 2
+                        </span>
+
+                        <strong>
+                            Adicionar à Tela de Início
+                        </strong>
+
+                        <p>
+                            Procure essa opção no menu
+                            que aparecer.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PASSO 3 -->
+
+                <div class="ios-passo">
+
+                    <span class="ios-numero">
+                        3
+                    </span>
+
+                    <div class="ios-passo-icone ios-passo-icone-verde">
+
+                        <span class="ios-check">
+                            ✓
+                        </span>
+
+                    </div>
+
+                    <div class="ios-passo-texto">
+
+                        <span>
+                            PASSO 3
+                        </span>
+
+                        <strong>
+                            Toque em Adicionar
+                        </strong>
+
+                        <p>
+                            Confirme para instalar o BVenture
+                            no seu dispositivo.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+            <!-- AVISO FINAL -->
+
+            <div class="instalacao-aviso ios-aviso-final">
+
+                <span class="instalacao-aviso-icone">
+                    !
+                </span>
+
+                <span>
+                    Depois da instalação, abra o
+                    <strong>BVenture pela Tela de Início</strong>
+                    do seu iPhone.
+                </span>
+
+            </div>
+
 
             <button
                 id="botao-continuar-ios"
@@ -117,7 +294,10 @@
         </section>
 
 
-        <!-- INSTALAÇÃO INDISPONÍVEL -->
+        <!-- =====================================================
+             INSTALAÇÃO INDISPONÍVEL
+        ====================================================== -->
+
         <section
             id="instalacao-indisponivel"
             hidden
@@ -125,7 +305,7 @@
 
             <img
                 src="./assets/icons/icon-512.png"
-                alt="BVenture"
+                alt="Logo do BVenture"
             >
 
             <h1>BVenture</h1>

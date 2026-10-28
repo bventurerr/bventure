@@ -5,6 +5,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Nunito:wght@400;500;600;700;800&display=swap');
 
 
+/* ======================================================
+   RESET
+====================================================== */
+
 * {
     margin: 0;
     padding: 0;
@@ -25,13 +29,15 @@ body {
 
     background:
         radial-gradient(
-            circle at 50% 20%,
-            #074B5B 0%,
-            #062C3D 35%,
-            #031923 75%
+            circle at 50% 15%,
+            rgba(7, 75, 91, 1) 0%,
+            rgba(6, 44, 61, 1) 38%,
+            rgba(3, 25, 35, 1) 78%
         );
 
     color: #FFFFFF;
+
+    overflow-x: hidden;
 }
 
 
@@ -48,7 +54,9 @@ body {
     align-items: center;
     justify-content: center;
 
-    padding: 32px 24px;
+    padding:
+        32px
+        20px;
 }
 
 
@@ -58,6 +66,7 @@ body {
 
 #instalacao-android,
 #instalacao-ios,
+#instalacao-concluida,
 #instalacao-indisponivel {
     width: 100%;
     max-width: 430px;
@@ -70,8 +79,6 @@ body {
 }
 
 
-/* Mantém elementos com hidden realmente escondidos */
-
 [hidden] {
     display: none !important;
 }
@@ -82,18 +89,41 @@ body {
 ====================================================== */
 
 #tela-instalacao section > img {
-    width: 190px;
-    height: 190px;
+    width: 170px;
+    height: 170px;
 
     object-fit: contain;
 
-    margin-bottom: 30px;
+    margin-bottom: 22px;
 
-    border-radius: 32px;
+    border-radius: 30px;
 
-    filter: drop-shadow(
-        0 12px 30px rgba(0, 0, 0, 0.22)
-    );
+    filter:
+        drop-shadow(
+            0 10px 22px
+            rgba(0, 0, 0, 0.28)
+        );
+}
+
+
+/* ======================================================
+   ETIQUETA SUPERIOR
+====================================================== */
+
+.instalacao-etiqueta {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: #BAFF45;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 0.72rem;
+    font-weight: 900;
+
+    letter-spacing: 0.09em;
+
+    text-transform: uppercase;
 }
 
 
@@ -104,18 +134,20 @@ body {
 #tela-instalacao h1 {
     max-width: 390px;
 
-    margin-bottom: 14px;
+    margin-bottom: 12px;
 
     font-family: "Baloo 2", sans-serif;
     font-size: clamp(2rem, 7vw, 2.6rem);
-    line-height: 1.05;
     font-weight: 800;
 
+    line-height: 1.02;
+
     color: #FFFFFF;
+
+    text-shadow:
+        0 4px 0 rgba(3, 25, 35, 0.45);
 }
 
-
-/* BVenture da tela de computador */
 
 #instalacao-indisponivel h1 {
     color: #BAFF45;
@@ -123,20 +155,21 @@ body {
 
 
 /* ======================================================
-   TEXTOS
+   TEXTOS GERAIS
 ====================================================== */
 
-#tela-instalacao p {
+#tela-instalacao > section > p {
     max-width: 370px;
 
-    margin-bottom: 30px;
-
-    font-family: "Nunito", sans-serif;
-    font-size: 1rem;
-    line-height: 1.55;
-    font-weight: 600;
+    margin-bottom: 28px;
 
     color: #C7DDDD;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 0.96rem;
+    font-weight: 600;
+
+    line-height: 1.5;
 }
 
 
@@ -145,51 +178,516 @@ body {
 ====================================================== */
 
 #tela-instalacao button {
+    position: relative;
+
     width: 100%;
     max-width: 340px;
 
     min-height: 56px;
 
+    padding:
+        14px
+        24px;
+
+    overflow: hidden;
+
     border: none;
     border-radius: 18px;
 
-    padding: 14px 24px;
+    background:
+        linear-gradient(
+            180deg,
+            #DFFF5C,
+            #BAFF45
+        );
+
+    color: #031923;
 
     font-family: "Nunito", sans-serif;
     font-size: 1rem;
-    font-weight: 800;
-
-    color: #031923;
-    background: #BAFF45;
+    font-weight: 900;
 
     cursor: pointer;
 
     box-shadow:
-        0 8px 24px rgba(0, 0, 0, 0.20);
+        0 6px 0 #3F9E35,
+        0 10px 18px rgba(0, 0, 0, 0.24);
 
     transition:
         transform 0.18s ease,
-        opacity 0.18s ease;
+        box-shadow 0.18s ease,
+        filter 0.18s ease;
 }
+
 
 #tela-instalacao button:hover {
     transform: translateY(-2px);
+
+    filter: brightness(1.03);
+
+    box-shadow:
+        0 8px 0 #3F9E35,
+        0 13px 20px rgba(0, 0, 0, 0.25);
 }
 
+
 #tela-instalacao button:active {
-    transform: scale(0.98);
+    transform: translateY(4px);
+
+    box-shadow:
+        0 2px 0 #3F9E35,
+        0 5px 10px rgba(0, 0, 0, 0.20);
 }
 
 
 /* ======================================================
-   TELAS MAIORES
+   IOS — INTRODUÇÃO
+====================================================== */
+
+#instalacao-ios {
+    max-width: 470px;
+}
+
+
+#instalacao-ios > img {
+    width: 145px;
+    height: 145px;
+
+    margin-bottom: 18px;
+}
+
+
+.ios-introducao {
+    max-width: 380px !important;
+
+    margin-bottom: 22px !important;
+
+    color: rgba(255, 255, 255, 0.88) !important;
+}
+
+
+/* ======================================================
+   IOS — CONTAINER DOS PASSOS
+====================================================== */
+
+.ios-passos {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 12px;
+
+    margin-bottom: 18px;
+}
+
+
+/* ======================================================
+   IOS — PASSO
+====================================================== */
+
+.ios-passo {
+    position: relative;
+
+    width: 100%;
+
+    min-height: 94px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 13px;
+
+    padding:
+        14px
+        14px
+        14px
+        16px;
+
+    overflow: hidden;
+
+    border:
+        1.5px solid
+        rgba(0, 191, 216, 0.55);
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(7, 75, 91, 0.97),
+            rgba(3, 40, 53, 0.99)
+        );
+
+    text-align: left;
+
+    box-shadow:
+        0 5px 0 rgba(0, 0, 0, 0.25),
+        0 9px 18px rgba(0, 0, 0, 0.22);
+}
+
+
+/* detalhe lateral */
+
+.ios-passo::before {
+    content: "";
+
+    position: absolute;
+
+    top: 18%;
+    left: 0;
+
+    width: 3px;
+    height: 64%;
+
+    border-radius:
+        0
+        8px
+        8px
+        0;
+
+    background: #00BFD8;
+}
+
+
+/* ======================================================
+   IOS — NÚMERO
+====================================================== */
+
+.ios-numero {
+    position: absolute;
+
+    top: 8px;
+    right: 11px;
+
+    color:
+        rgba(255, 255, 255, 0.08);
+
+    font-family: "Baloo 2", sans-serif;
+    font-size: 3rem;
+    font-weight: 800;
+
+    line-height: 1;
+
+    pointer-events: none;
+}
+
+
+/* ======================================================
+   IOS — ÍCONES
+====================================================== */
+
+.ios-passo-icone {
+    position: relative;
+
+    z-index: 2;
+
+    width: 53px;
+    height: 53px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 16px;
+
+    background:
+        rgba(0, 191, 216, 0.13);
+
+    color: #00BFD8;
+
+    box-shadow:
+        inset 0 0 15px
+        rgba(0, 191, 216, 0.06);
+}
+
+
+.ios-passo-icone svg {
+    width: 27px;
+    height: 27px;
+}
+
+
+/* amarelo */
+
+.ios-passo-icone-amarelo {
+    background:
+        rgba(255, 216, 77, 0.13);
+
+    color: #FFD84D;
+}
+
+
+/* verde */
+
+.ios-passo-icone-verde {
+    background:
+        rgba(111, 220, 67, 0.13);
+
+    color: #6FDC43;
+}
+
+
+.ios-simbolo-mais,
+.ios-check {
+    font-family: "Nunito", sans-serif;
+    font-size: 2rem;
+    font-weight: 900;
+
+    line-height: 1;
+}
+
+
+/* ======================================================
+   IOS — TEXTO DOS PASSOS
+====================================================== */
+
+.ios-passo-texto {
+    position: relative;
+
+    z-index: 2;
+
+    min-width: 0;
+
+    display: flex;
+    flex-direction: column;
+}
+
+
+.ios-passo-texto > span {
+    margin-bottom: 2px;
+
+    color: #BAFF45;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 0.60rem;
+    font-weight: 900;
+
+    letter-spacing: 0.08em;
+}
+
+
+.ios-passo-texto strong {
+    padding-right: 20px;
+
+    color: #FFFFFF;
+
+    font-family: "Baloo 2", sans-serif;
+    font-size: 1.05rem;
+    font-weight: 800;
+
+    line-height: 1.1;
+}
+
+
+.ios-passo-texto p {
+    max-width: 280px;
+
+    margin:
+        3px
+        0
+        0;
+
+    color:
+        rgba(199, 221, 221, 0.88);
+
+    font-family: "Nunito", sans-serif;
+    font-size: 0.74rem;
+    font-weight: 600;
+
+    line-height: 1.3;
+}
+
+
+/* ======================================================
+   AVISO
+====================================================== */
+
+.instalacao-aviso {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+
+    gap: 11px;
+
+    padding:
+        13px
+        14px;
+
+    margin-bottom: 25px;
+
+    border:
+        1.5px solid
+        rgba(186, 255, 69, 0.42);
+
+    border-radius: 17px;
+
+    background:
+        rgba(186, 255, 69, 0.08);
+
+    color:
+        rgba(255, 255, 255, 0.91);
+
+    text-align: left;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 0.79rem;
+    font-weight: 700;
+
+    line-height: 1.35;
+}
+
+
+.instalacao-aviso-icone {
+    width: 31px;
+    height: 31px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 10px;
+
+    background: #BAFF45;
+
+    color: #031923;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 1rem;
+    font-weight: 900;
+}
+
+
+.ios-aviso-final strong {
+    color: #BAFF45;
+}
+
+
+/* ======================================================
+   INSTALAÇÃO CONCLUÍDA
+====================================================== */
+
+#instalacao-concluida .instalacao-aviso {
+    max-width: 380px;
+
+    margin-top: 4px;
+}
+
+
+/* ======================================================
+   CELULARES PEQUENOS
+====================================================== */
+
+@media (max-width: 360px) {
+
+    #tela-instalacao {
+        padding:
+            24px
+            15px;
+    }
+
+
+    #tela-instalacao section > img {
+        width: 140px;
+        height: 140px;
+
+        margin-bottom: 17px;
+    }
+
+
+    #instalacao-ios > img {
+        width: 120px;
+        height: 120px;
+    }
+
+
+    #tela-instalacao h1 {
+        font-size: 1.85rem;
+    }
+
+
+    .ios-passo {
+        min-height: 88px;
+
+        gap: 10px;
+
+        padding:
+            12px
+            10px
+            12px
+            13px;
+
+        border-radius: 17px;
+    }
+
+
+    .ios-passo-icone {
+        width: 45px;
+        height: 45px;
+
+        border-radius: 13px;
+    }
+
+
+    .ios-passo-icone svg {
+        width: 23px;
+        height: 23px;
+    }
+
+
+    .ios-passo-texto strong {
+        font-size: 0.94rem;
+    }
+
+
+    .ios-passo-texto p {
+        font-size: 0.68rem;
+    }
+
+}
+
+
+/* ======================================================
+   TABLETS
 ====================================================== */
 
 @media (min-width: 768px) {
 
+    #tela-instalacao {
+        padding:
+            42px
+            30px;
+    }
+
+
     #tela-instalacao section > img {
-        width: 220px;
-        height: 220px;
+        width: 200px;
+        height: 200px;
+    }
+
+
+    #instalacao-ios > img {
+        width: 165px;
+        height: 165px;
+    }
+
+
+    #instalacao-ios {
+        max-width: 520px;
+    }
+
+
+    .ios-passo {
+        min-height: 100px;
+
+        padding:
+            16px
+            18px;
     }
 
 }

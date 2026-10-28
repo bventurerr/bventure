@@ -162,14 +162,65 @@ ol {
     list-style: none;
 }
 
-
 /* =========================================================
-   SELEÇÃO DE TEXTO
+   COMPORTAMENTO DE APLICATIVO
 ========================================================= */
 
-::selection {
-    background: var(--verde-limao);
-    color: var(--azul-quase-preto);
+
+/* ---------------------------------------------------------
+   BLOQUEAR SELEÇÃO DE TEXTO NA INTERFACE
+--------------------------------------------------------- */
+
+body,
+button,
+a,
+img,
+.card,
+.titulo,
+.texto,
+.numero {
+    -webkit-user-select: none;
+    user-select: none;
+
+    -webkit-touch-callout: none;
+}
+
+
+/* ---------------------------------------------------------
+   CAMPOS DE TEXTO CONTINUAM NORMAIS
+--------------------------------------------------------- */
+
+input,
+textarea {
+    -webkit-user-select: text;
+    user-select: text;
+
+    -webkit-touch-callout: default;
+}
+
+
+/* ---------------------------------------------------------
+   IMPEDIR ARRASTAR IMAGENS
+--------------------------------------------------------- */
+
+img {
+    -webkit-user-drag: none;
+
+
+    -webkit-touch-callout: none;
+
+    pointer-events: auto;
+}
+
+
+/* ---------------------------------------------------------
+   REMOVER DESTAQUE DE TOQUE
+--------------------------------------------------------- */
+
+button,
+a,
+img {
+    -webkit-tap-highlight-color: transparent;
 }
 
 
@@ -364,3 +415,4 @@ textarea:focus-visible {
 
     outline-offset: 3px;
 }
+

@@ -17,7 +17,7 @@ body:has(.tela-recompensas.tela-ativa) {
             rgba(3, 25, 35, 0.85),
             rgba(3, 25, 35, 0.85)
         ),
-        url("../imagens-webp/fundoprincipal.webp");
+        url("../imagens-webp/fundoprincipal1.webp");
 
     background-size: cover;
     background-position: center;
@@ -65,9 +65,9 @@ body:has(.tela-recompensas.tela-ativa) {
 
     margin-bottom: 3px;
 
-    font-family: "Oxanium", sans-serif;
+    font-family: var(--fonte-texto);
 
-    font-size: 11px;
+    font-size: 13px;
     font-weight: 700;
 
     letter-spacing: 1.5px;
