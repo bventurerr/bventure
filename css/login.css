@@ -512,27 +512,37 @@ body {
 
 
 /* =========================================================
-   AUTOFILL
+   AUTOFILL — MANTÉM O VISUAL ESCURO
 ========================================================= */
 
 .campo-input input:-webkit-autofill,
 .campo-input input:-webkit-autofill:hover,
-.campo-input input:-webkit-autofill:focus {
-    -webkit-text-fill-color:
-        var(--branco);
+.campo-input input:-webkit-autofill:focus,
+.campo-input input:-webkit-autofill:active {
+    -webkit-text-fill-color: var(--branco) !important;
 
     -webkit-box-shadow:
-        0 0 0 1000px
-        var(--azul-quase-preto)
-        inset !important;
+        0 0 0 1000px rgba(3, 25, 35, 1) inset !important;
+
+    box-shadow:
+        0 0 0 1000px rgba(3, 25, 35, 1) inset !important;
+
+    caret-color: var(--branco) !important;
+
+    border: none !important;
+    outline: none !important;
 
     transition:
-        background-color
-        9999s
-        ease-in-out
-        0s;
+        background-color 9999s ease-in-out 0s !important;
 }
 
+
+/* Firefox */
+
+.campo-input input:autofill {
+    background-color: rgba(3, 25, 35, 1) !important;
+    color: var(--branco) !important;
+}
 
 /* =========================================================
    MOSTRAR SENHA

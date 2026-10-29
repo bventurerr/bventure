@@ -371,3 +371,43 @@ document.addEventListener(
 
     }
 );
+
+/* =========================================================
+   RESTAURAR TELA AO VOLTAR PELO CELULAR / NAVEGADOR
+========================================================= */
+
+window.addEventListener(
+    "pageshow",
+    () => {
+
+        /* Remover loading */
+
+        if (
+            typeof esconderLoading ===
+            "function"
+        ) {
+
+            esconderLoading();
+
+        }
+
+
+        /* Reativar botão de explorar */
+
+        const botaoExplorarBoaVista =
+            document.getElementById(
+                "explorarBoaVista"
+            );
+
+
+        if (
+            botaoExplorarBoaVista
+        ) {
+
+            botaoExplorarBoaVista.disabled =
+                false;
+
+        }
+
+    }
+);

@@ -274,3 +274,16 @@ else {
     criarLoading();
 
 }
+
+/* =========================================================
+   CORRIGIR LOADING AO VOLTAR PELO CELULAR / NAVEGADOR
+========================================================= */
+
+window.addEventListener(
+    "pageshow",
+    () => {
+
+        esconderLoading();
+
+    }
+);

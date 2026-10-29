@@ -2743,3 +2743,35 @@ input[type="number"]::-webkit-outer-spin-button {
         0 2px 0 #3F9E35,
         0 5px 9px rgba(0, 0, 0, 0.16);
 }
+
+/* =========================================================
+   CORRIGIR FUNDO BRANCO DO AUTOPREENCHIMENTO
+========================================================= */
+
+.campo-input input:-webkit-autofill,
+.campo-input input:-webkit-autofill:hover,
+.campo-input input:-webkit-autofill:focus,
+.campo-input input:-webkit-autofill:active {
+    -webkit-text-fill-color: var(--branco) !important;
+
+    -webkit-box-shadow:
+        0 0 0 1000px rgba(3, 25, 35, 1) inset !important;
+
+    box-shadow:
+        0 0 0 1000px rgba(3, 25, 35, 1) inset !important;
+
+    caret-color: var(--branco);
+
+    border: none !important;
+
+    transition:
+        background-color 9999s ease-in-out 0s;
+}
+
+
+/* Firefox */
+
+.campo-input input:autofill {
+    background: transparent !important;
+    color: var(--branco) !important;
+}
